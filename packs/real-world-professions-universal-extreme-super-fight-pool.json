@@ -1,0 +1,3233 @@
+{
+  "characters": [
+    {
+      "name": "急救医护",
+      "shortText": "稳定伤情与判断身体状态",
+      "description": "你受过系统急救与临床训练。每局第一次有人受伤、失去行动能力或出现明显身体异常时，你能更快判断最紧迫的问题，并实施合理的基础处置。",
+      "tags": [
+        "medical",
+        "calm",
+        "observation",
+        "support"
+      ]
+    },
+    {
+      "name": "心理咨询师",
+      "shortText": "识别压力、恐慌与沟通障碍",
+      "description": "你擅长观察情绪和建立沟通。面对中立人物、恐慌者或谈判对象时，你更容易识别其当前最强烈的顾虑，并选择有效的沟通方式。",
+      "tags": [
+        "psychology",
+        "communication",
+        "observation"
+      ]
+    },
+    {
+      "name": "药学专家",
+      "shortText": "药品、剂量与物质风险判断",
+      "description": "你熟悉常见药物和基础毒理。遇到药品、化学标签、未知摄入物或医疗物资时，你能更可靠地判断用途与明显风险。",
+      "tags": [
+        "medical",
+        "chemistry",
+        "analysis"
+      ]
+    },
+    {
+      "name": "兽医",
+      "shortText": "兼具医疗判断与动物处理经验",
+      "description": "你熟悉动物行为与基础医疗。面对动物或伤员时，你能更快判断应激、伤情与安全接近方式。",
+      "tags": [
+        "medical",
+        "animal",
+        "observation"
+      ]
+    },
+    {
+      "name": "工程师",
+      "shortText": "结构、机械与系统问题的通用分析者",
+      "description": "你擅长把复杂设备或结构拆成部件与因果关系。每局第一次处理故障、结构障碍或设备任务时，可快速判断一个关键薄弱点或优先检查项。",
+      "tags": [
+        "engineering",
+        "analysis",
+        "technical"
+      ]
+    },
+    {
+      "name": "建筑师",
+      "shortText": "空间、建筑与路线规划专家",
+      "description": "你擅长理解建筑布局和空间关系。进入复杂人造环境后，可较快推断主要通道、服务区域、楼梯或可能的替代路线。",
+      "tags": [
+        "spatial",
+        "planning",
+        "urban"
+      ]
+    },
+    {
+      "name": "维修技师",
+      "shortText": "让损坏设备恢复最低可用状态",
+      "description": "你熟悉工具和常见机械电气故障。只要现场存在合理工具与材料，你能对普通设备进行诊断并尝试临时修复。",
+      "tags": [
+        "repair",
+        "technical",
+        "manual"
+      ]
+    },
+    {
+      "name": "电工",
+      "shortText": "供电、线路与电气安全专家",
+      "description": "你能识别常见电气设施、供电路径与危险。涉及断电、恢复供电或带电区域时，你更容易找到安全操作顺序。",
+      "tags": [
+        "electrical",
+        "repair",
+        "safety"
+      ]
+    },
+    {
+      "name": "木工",
+      "shortText": "现场测量、切割、固定与搭建",
+      "description": "你擅长用常见材料制作或加固简单结构。只要有基本工具和材料，可更快完成障碍、支撑、坡道、简易担架等结构。",
+      "tags": [
+        "construction",
+        "manual",
+        "repair"
+      ]
+    },
+    {
+      "name": "机械师",
+      "shortText": "机械结构、车辆与动力系统专家",
+      "description": "你熟悉传动、紧固、动力和常见车辆结构。面对机械设备、车辆或可拆卸装置时，更容易判断如何恢复、解除或重新利用。",
+      "tags": [
+        "mechanical",
+        "vehicle",
+        "repair"
+      ]
+    },
+    {
+      "name": "程序员",
+      "shortText": "逻辑拆解与数字系统理解",
+      "description": "你擅长把规则和信息拆解成流程。面对数字设备、复杂规则或大量结构化信息时，更容易发现逻辑关系与操作顺序。",
+      "tags": [
+        "technology",
+        "analysis",
+        "logic"
+      ]
+    },
+    {
+      "name": "网络技术员",
+      "shortText": "通信、联网与电子设备排障",
+      "description": "你熟悉网络、无线连接和常见终端。只要设备未彻底损毁，可更快判断通信中断原因或建立局部信息连接。",
+      "tags": [
+        "technology",
+        "radio",
+        "repair"
+      ]
+    },
+    {
+      "name": "数据分析师",
+      "shortText": "从杂乱信息中找模式",
+      "description": "获得多条线索、读数或记录后，你更容易识别异常值、共同点和优先验证的假设。",
+      "tags": [
+        "analysis",
+        "data",
+        "information"
+      ]
+    },
+    {
+      "name": "科学家",
+      "shortText": "实验、证据与因果推理",
+      "description": "面对未知现象时，你擅长提出可检验假设并排除变量。每局第一次调查未知机制，可明确一个最值得验证的问题。",
+      "tags": [
+        "science",
+        "analysis",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "野外生物学家",
+      "shortText": "自然环境、动植物与生态观察",
+      "description": "在自然或半自然环境中，你更容易判断可利用资源、动物活动、天气影响和危险区域。城市环境中仍保留系统观察能力。",
+      "tags": [
+        "science",
+        "wilderness",
+        "observation"
+      ]
+    },
+    {
+      "name": "律师",
+      "shortText": "规则解释、质询与论证",
+      "description": "面对书面规则、口头条件、谈判或争议判定时，你更容易发现定义、例外、责任与逻辑漏洞。",
+      "tags": [
+        "law",
+        "argument",
+        "rules"
+      ]
+    },
+    {
+      "name": "调查员",
+      "shortText": "线索、证词与行为异常追踪",
+      "description": "你擅长系统搜索、询问和交叉验证。每局第一次进入关键区域，可更快发现一处值得进一步检查的异常。",
+      "tags": [
+        "investigation",
+        "observation",
+        "tracking"
+      ]
+    },
+    {
+      "name": "记者",
+      "shortText": "快速获取信息并让陌生人开口",
+      "description": "你擅长提问、记录和验证。与中立人物交流时，更容易快速获得与当前任务相关的公开信息。",
+      "tags": [
+        "media",
+        "communication",
+        "investigation"
+      ]
+    },
+    {
+      "name": "教师",
+      "shortText": "解释复杂问题并组织普通人行动",
+      "description": "你擅长把任务拆成易懂步骤。指挥中立NPC执行简单安全任务时，他们更容易理解并保持执行。",
+      "tags": [
+        "education",
+        "communication",
+        "support"
+      ]
+    },
+    {
+      "name": "谈判专家",
+      "shortText": "交换条件、利益与冲突降级",
+      "description": "在双方仍可沟通时，你更容易识别对方的一项核心需求或底线，并提出可执行交换。",
+      "tags": [
+        "negotiation",
+        "psychology",
+        "communication"
+      ]
+    },
+    {
+      "name": "管理者",
+      "shortText": "资源、人员与优先级协调",
+      "description": "当同时存在三个以上任务或资源时，你能更快确定优先级，并减少因遗漏造成的时间浪费。",
+      "tags": [
+        "planning",
+        "command",
+        "logistics"
+      ]
+    },
+    {
+      "name": "物流人员",
+      "shortText": "搬运、库存与路线组织",
+      "description": "涉及多个物资点、运输目标或携带限制时，你更容易设计高效率的搬运顺序和中转点。",
+      "tags": [
+        "logistics",
+        "planning",
+        "resource"
+      ]
+    },
+    {
+      "name": "销售员",
+      "shortText": "陌生人沟通、说服与快速建立关系",
+      "description": "你擅长读懂对方关注点并调整表达。第一次请求中立NPC提供合理协助时更容易得到回应。",
+      "tags": [
+        "communication",
+        "persuasion",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "厨师",
+      "shortText": "高压多任务、刀工与资源利用",
+      "description": "你习惯在时间压力下同时处理多个步骤。涉及食物、热源、简单切割或多人任务时，执行更有条理。",
+      "tags": [
+        "food",
+        "manual",
+        "multitask"
+      ]
+    },
+    {
+      "name": "手工艺人",
+      "shortText": "精细操作与材料改造",
+      "description": "你擅长测量、连接、修补和细致手工。面对普通材料与小型物件时，可更快制作可靠的临时解决方案。",
+      "tags": [
+        "craft",
+        "manual",
+        "precision"
+      ]
+    },
+    {
+      "name": "摄影师",
+      "shortText": "视觉搜索、距离与构图观察",
+      "description": "你习惯寻找视线、角度和细节。进行观察或搜索时，更容易发现远处轮廓、反光、移动和视觉异常。",
+      "tags": [
+        "media",
+        "observation",
+        "spatial"
+      ]
+    },
+    {
+      "name": "演员",
+      "shortText": "表演、模仿与临场交流",
+      "description": "你能控制语气、姿态和情绪表现。在不需要伪造官方身份的前提下，更容易通过可信表演转移注意或建立信任。",
+      "tags": [
+        "art",
+        "deception",
+        "communication"
+      ]
+    },
+    {
+      "name": "魔术师",
+      "shortText": "注意力误导与灵巧手法",
+      "description": "你擅长判断他人视线并进行精细手部操作。涉及隐藏小物件、转移注意或近距离观察时具有优势。",
+      "tags": [
+        "art",
+        "deception",
+        "precision"
+      ]
+    },
+    {
+      "name": "运动员",
+      "shortText": "体能、协调与竞技抗压",
+      "description": "你的速度、耐力、平衡和身体协调明显高于普通成年人；具体专项由参与者根据合理职业背景自由解释，但不得等同世界纪录水平。",
+      "tags": [
+        "sport",
+        "physical",
+        "agile",
+        "stamina"
+      ]
+    },
+    {
+      "name": "格斗运动员",
+      "shortText": "受规则训练的近身对抗者",
+      "description": "你熟悉距离、保护、重心与非武器近身控制。面对普通成年人时近身自保和控制能力明显更强。",
+      "tags": [
+        "sport",
+        "melee",
+        "physical"
+      ]
+    },
+    {
+      "name": "攀登者",
+      "shortText": "攀爬、绳索与高处行动",
+      "description": "面对高度、陡坡、绳索和不规则立面时，你更能识别可靠支点、控制体力并规划安全路线。",
+      "tags": [
+        "sport",
+        "climbing",
+        "height"
+      ]
+    },
+    {
+      "name": "游泳运动员",
+      "shortText": "水中移动与呼吸控制",
+      "description": "在可游泳水域中，你的移动效率和自救能力显著高于普通成年人，也更有能力协助一名落水者。",
+      "tags": [
+        "sport",
+        "water",
+        "stamina"
+      ]
+    },
+    {
+      "name": "跑酷运动员",
+      "shortText": "复杂地形快速通过",
+      "description": "面对栏杆、矮墙、楼梯、车辆、废墟等可跨越障碍时，你更容易找到快速但合理的身体路线。",
+      "tags": [
+        "sport",
+        "agile",
+        "urban"
+      ]
+    },
+    {
+      "name": "消防员",
+      "shortText": "危险环境搜救与负重行动",
+      "description": "你受过搜救、撤离、呼吸防护与火场风险训练。面对烟雾、混乱和伤员时更能维持任务意识。",
+      "tags": [
+        "rescue",
+        "fire",
+        "physical",
+        "calm"
+      ]
+    },
+    {
+      "name": "救援队员",
+      "shortText": "搜索、搬运、绳索与灾害协作",
+      "description": "你具备跨场景救援训练。面对伤员、废墟、高差或复杂撤离任务时，更快确定安全接近和转移方案。",
+      "tags": [
+        "rescue",
+        "physical",
+        "planning"
+      ]
+    },
+    {
+      "name": "救生员",
+      "shortText": "水域观察与人员救援",
+      "description": "你擅长识别溺水风险、快速入水和拖带。非水域场景中仍具备良好体能、观察与急救基础。",
+      "tags": [
+        "rescue",
+        "water",
+        "observation"
+      ]
+    },
+    {
+      "name": "警察",
+      "shortText": "现场观察、冲突控制与程序意识",
+      "description": "你受过巡逻、沟通和现场控制训练。面对混乱人群、可疑行为或需要保护区域时，更容易建立秩序。",
+      "tags": [
+        "public_safety",
+        "observation",
+        "communication"
+      ]
+    },
+    {
+      "name": "保安",
+      "shortText": "警戒、门禁与区域巡查",
+      "description": "你习惯观察出入口、盲区和异常行为。进入人造场景后，更容易快速识别主要入口与需要警戒的位置。",
+      "tags": [
+        "security",
+        "observation",
+        "guard"
+      ]
+    },
+    {
+      "name": "保镖",
+      "shortText": "护送、威胁识别与保护站位",
+      "description": "当胜利条件涉及保护NPC、物资或固定目标时，你更擅长选择站位、移动顺序和撤离路线。",
+      "tags": [
+        "security",
+        "protection",
+        "observation"
+      ]
+    },
+    {
+      "name": "驾驶员",
+      "shortText": "道路判断与常见车辆操控",
+      "description": "你熟练驾驶普通道路车辆，并习惯快速判断道路宽度、转弯空间和交通风险。无车辆时仍保留路线与空间判断优势。",
+      "tags": [
+        "transport",
+        "vehicle",
+        "spatial"
+      ]
+    },
+    {
+      "name": "飞行员",
+      "shortText": "程序纪律、仪表与高压决策",
+      "description": "你习惯按检查单管理复杂系统，并在高压下保持程序意识。即使不在飞行场景，也擅长设备监控与故障优先级。",
+      "tags": [
+        "transport",
+        "aviation",
+        "calm"
+      ]
+    },
+    {
+      "name": "船员",
+      "shortText": "绳索、水域与复杂设备环境经验",
+      "description": "你熟悉甲板作业、绳结、狭窄通道与水上风险。在陆地场景中仍具备良好负重、协作和机械常识。",
+      "tags": [
+        "transport",
+        "marine",
+        "rope"
+      ]
+    },
+    {
+      "name": "无人机操作员",
+      "shortText": "远程视角、空间判断与侦察",
+      "description": "只要能获得可用无人机，你能高效侦察；没有设备时仍擅长从高低角度规划观察路线。",
+      "tags": [
+        "technology",
+        "scout",
+        "spatial"
+      ]
+    },
+    {
+      "name": "农民",
+      "shortText": "机械、天气、动物与长期体力劳动",
+      "description": "你对天气、土地、基础机械、动物和物资管理都有实用经验，是适应性很强的通才型职业。",
+      "tags": [
+        "agriculture",
+        "wilderness",
+        "physical",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "渔民",
+      "shortText": "水域、天气、绳索与耐力",
+      "description": "你熟悉水流、天气变化、绳结和长时间体力劳动；在非水域场景仍保留实用工具与环境判断能力。",
+      "tags": [
+        "water",
+        "wilderness",
+        "rope",
+        "stamina"
+      ]
+    },
+    {
+      "name": "建筑工人",
+      "shortText": "工具、负重与施工现场行动",
+      "description": "你熟悉常见手工具、材料搬运、临时固定和施工风险。面对障碍与破损环境时适应性强。",
+      "tags": [
+        "construction",
+        "physical",
+        "manual"
+      ]
+    },
+    {
+      "name": "矿工",
+      "shortText": "地下、狭窄空间与危险识别",
+      "description": "你习惯低光、粉尘、狭窄路线和重体力工作。面对地下或受损结构时更能识别明显风险。",
+      "tags": [
+        "underground",
+        "physical",
+        "calm"
+      ]
+    },
+    {
+      "name": "园林工",
+      "shortText": "植物、工具与户外维护",
+      "description": "你熟悉植物、土壤、切割工具和户外劳动。任何场景中都能较好利用普通自然材料和手工具。",
+      "tags": [
+        "plant",
+        "manual",
+        "wilderness"
+      ]
+    },
+    {
+      "name": "仓库工",
+      "shortText": "搬运、堆放与空间利用",
+      "description": "你擅长快速盘点、搬运和安全堆放。涉及物资、障碍或有限空间时，更容易组织出可用通道。",
+      "tags": [
+        "logistics",
+        "physical",
+        "resource"
+      ]
+    },
+    {
+      "name": "快递员",
+      "shortText": "城市路线、时间与轻量快速移动",
+      "description": "你习惯在陌生建筑和街区寻找入口、门牌、楼梯与捷径，并在时间压力下持续移动。",
+      "tags": [
+        "urban",
+        "navigation",
+        "agile"
+      ]
+    },
+    {
+      "name": "导游",
+      "shortText": "路线、讲解与人群组织",
+      "description": "你擅长在陌生人群中维持注意、说明路线并处理走散问题。涉及护送或探索时有稳定优势。",
+      "tags": [
+        "communication",
+        "navigation",
+        "support"
+      ]
+    },
+    {
+      "name": "野外向导",
+      "shortText": "导航、生存与环境风险判断",
+      "description": "在缺少基础设施时，你能更好地处理路线、水、庇护、天气和体力；城市中仍具备方向与风险意识。",
+      "tags": [
+        "wilderness",
+        "navigation",
+        "survival"
+      ]
+    },
+    {
+      "name": "潜水员",
+      "shortText": "水下行动与设备纪律",
+      "description": "在有合适装备时，你能进行水下搜索和简单作业；非水域场景仍具备良好呼吸控制、冷静与设备检查习惯。",
+      "tags": [
+        "water",
+        "diving",
+        "calm"
+      ]
+    },
+    {
+      "name": "登山向导",
+      "shortText": "高差、绳索、天气与团队风险",
+      "description": "你擅长判断路线、固定点、体力和天气窗口；平地场景中仍具有强导航与团队风险管理能力。",
+      "tags": [
+        "mountain",
+        "climbing",
+        "planning"
+      ]
+    },
+    {
+      "name": "实验室技术员",
+      "shortText": "规范操作、测量与污染控制",
+      "description": "你习惯使用清单、标签和精确测量。处理陌生物品、样本、设备或多步骤任务时更少犯低级错误。",
+      "tags": [
+        "science",
+        "precision",
+        "rules"
+      ]
+    },
+    {
+      "name": "工厂技师",
+      "shortText": "流程、设备与工业安全",
+      "description": "你熟悉生产线、机械安全和故障停机逻辑。面对复杂设施时能更快理解设备之间的依赖关系。",
+      "tags": [
+        "industrial",
+        "technical",
+        "safety"
+      ]
+    },
+    {
+      "name": "仓储调度员",
+      "shortText": "物资、路线与多人协作",
+      "description": "面对多个目标点或大量物品时，你能更快安排顺序、标记位置并减少无效往返。",
+      "tags": [
+        "logistics",
+        "planning",
+        "command"
+      ]
+    },
+    {
+      "name": "护理人员",
+      "shortText": "持续照护、观察与人员转移",
+      "description": "你擅长照顾行动不便者、监测状态和组织基础转移。任何涉及NPC的任务都具有稳定价值。",
+      "tags": [
+        "medical",
+        "support",
+        "observation"
+      ]
+    },
+    {
+      "name": "翻译",
+      "shortText": "语言理解与跨文化沟通",
+      "description": "遇到不同语言、术语或沟通误会时，你更容易抓住核心意思并建立共同表达。没有语言障碍时仍擅长准确复述。",
+      "tags": [
+        "language",
+        "communication",
+        "information"
+      ]
+    },
+    {
+      "name": "项目经理",
+      "shortText": "拆解目标、排期与风险管理",
+      "description": "面对复杂胜利条件时，你能快速拆成若干可执行节点，并明确先后顺序和关键依赖。",
+      "tags": [
+        "planning",
+        "command",
+        "rules"
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "name": "急救",
+      "shortText": "稳定常见创伤并安全转移伤员",
+      "description": "只要有基本材料，你能进行止血、包扎、固定与基础生命支持；它不能瞬间治愈伤势，但能降低继续恶化的风险。",
+      "tags": [
+        "medical",
+        "rescue"
+      ]
+    },
+    {
+      "name": "系统搜索",
+      "shortText": "用固定方法减少搜索盲区",
+      "description": "搜索房间、废墟、树林或街区时，你可以采用网格、分区或标记法；完成一次系统搜索后，裁定时应视为你较难漏掉明显线索或目标。",
+      "tags": [
+        "search",
+        "observation"
+      ]
+    },
+    {
+      "name": "风险扫描",
+      "shortText": "进入新区域时快速识别主要危险",
+      "description": "每进入一个明显不同的区域，你可优先指出一项可观察到的环境危险及一条合理规避原则。",
+      "tags": [
+        "safety",
+        "observation"
+      ]
+    },
+    {
+      "name": "路线规划",
+      "shortText": "比较路线的时间、风险和资源成本",
+      "description": "面对至少两条可行路线时，你能快速评估哪条更快、哪条更安全以及主要代价。",
+      "tags": [
+        "navigation",
+        "planning"
+      ]
+    },
+    {
+      "name": "地图绘制",
+      "shortText": "把探索过的空间转成可靠路线图",
+      "description": "经过区域后可记录主要通道、死路、危险点与目标位置，减少后续迷路和重复搜索。",
+      "tags": [
+        "navigation",
+        "information"
+      ]
+    },
+    {
+      "name": "方向判断",
+      "shortText": "在缺乏导航设备时保持基本方位",
+      "description": "可综合太阳、地形、建筑逻辑和行进记录维持大致方向；极端磁场或完全无参照环境仍可能失效。",
+      "tags": [
+        "navigation",
+        "environment"
+      ]
+    },
+    {
+      "name": "攀爬",
+      "shortText": "更安全高效地通过可攀爬高差",
+      "description": "面对梯子、岩壁、脚手架、树木或建筑外立面时，更善于选择支点和控制体力；仍需要物理上可攀爬。",
+      "tags": [
+        "climbing",
+        "physical"
+      ]
+    },
+    {
+      "name": "绳索技术",
+      "shortText": "固定、拖拉、下降和搭建绳索系统",
+      "description": "有绳索时能熟练打结、设置简单固定点、牵引物体或辅助通过高差。",
+      "tags": [
+        "rope",
+        "utility"
+      ]
+    },
+    {
+      "name": "游泳",
+      "shortText": "在一般水域保持高效自主移动",
+      "description": "可较长时间保持水中移动、自救和简单拖带；急流、极寒或重装备仍会造成显著限制。",
+      "tags": [
+        "water",
+        "physical"
+      ]
+    },
+    {
+      "name": "长距离耐力",
+      "shortText": "持续行动时更慢进入疲劳",
+      "description": "长时间步行、搬运、搜索或重复劳动时，你的有效工作时间明显高于普通成年人。",
+      "tags": [
+        "stamina",
+        "physical"
+      ]
+    },
+    {
+      "name": "短距爆发",
+      "shortText": "短时间提升速度、跳跃和发力",
+      "description": "每隔一段合理恢复时间，你可进行一次数秒级高强度爆发，用于冲刺、跨越或快速搬动。",
+      "tags": [
+        "speed",
+        "physical"
+      ]
+    },
+    {
+      "name": "平衡控制",
+      "shortText": "在狭窄、晃动和不平表面保持稳定",
+      "description": "面对湿滑地面、窄边、船体、碎石或倾斜结构时，你更不容易因普通失衡中断行动。",
+      "tags": [
+        "balance",
+        "agile"
+      ]
+    },
+    {
+      "name": "负重技巧",
+      "shortText": "更有效率地搬运人员或物资",
+      "description": "你知道如何分配重量、选择抓握和利用杠杆；不能突破人体极限，但能减少无效消耗。",
+      "tags": [
+        "strength",
+        "logistics"
+      ]
+    },
+    {
+      "name": "精细手工",
+      "shortText": "稳定完成小尺度操作",
+      "description": "在修理、开合、连接、缝合、标记等需要手部稳定性的任务中具有优势。",
+      "tags": [
+        "precision",
+        "manual"
+      ]
+    },
+    {
+      "name": "工具熟练",
+      "shortText": "快速理解普通手工具的正确用途",
+      "description": "获得常见非专业工具后，你能安全有效地使用，并更容易想到替代用途。",
+      "tags": [
+        "tool",
+        "manual"
+      ]
+    },
+    {
+      "name": "临时修理",
+      "shortText": "让损坏物恢复最低可用功能",
+      "description": "只要损坏并非完全毁灭且存在合理材料，你可尝试临时恢复门、推车、管线、简单机械或设备的一项基本功能。",
+      "tags": [
+        "repair",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "结构判断",
+      "shortText": "识别承重、支撑和明显薄弱位置",
+      "description": "面对建筑、家具、废墟或临时结构时，你能判断哪些位置更稳定、哪些位置不应施力。",
+      "tags": [
+        "structure",
+        "analysis"
+      ]
+    },
+    {
+      "name": "临时搭建",
+      "shortText": "利用现场材料制作简单功能结构",
+      "description": "可制作支撑、坡道、担架、遮蔽、标记架或物资固定结构；复杂工程仍需时间和材料。",
+      "tags": [
+        "construction",
+        "manual"
+      ]
+    },
+    {
+      "name": "电气常识",
+      "shortText": "识别常见电源、线路与触电风险",
+      "description": "面对建筑电力和普通设备时，你更能安全断电、检查供电或判断明显故障。",
+      "tags": [
+        "electrical",
+        "safety"
+      ]
+    },
+    {
+      "name": "机械常识",
+      "shortText": "理解常见机械、传动和固定结构",
+      "description": "面对车辆、门、滑轮、泵、工具和机械装置时，更容易判断运动部件与故障点。",
+      "tags": [
+        "mechanical",
+        "analysis"
+      ]
+    },
+    {
+      "name": "数字设备排障",
+      "shortText": "恢复普通电子设备的基础可用性",
+      "description": "面对手机、电脑、路由器、摄像设备或控制终端时，可系统检查供电、连接、设置和重启等问题。",
+      "tags": [
+        "technology",
+        "repair"
+      ]
+    },
+    {
+      "name": "无线通信",
+      "shortText": "建立并维护短距离无线联络",
+      "description": "有对讲机、无线电或兼容设备时，你能更有效选择频道、建立呼号并传递关键信息。",
+      "tags": [
+        "radio",
+        "communication"
+      ]
+    },
+    {
+      "name": "信息检索",
+      "shortText": "从现有资料中快速找到关键事实",
+      "description": "面对说明书、档案、地图、数据库或大量文本时，你能更快定位与当前任务直接相关的信息。",
+      "tags": [
+        "information",
+        "analysis"
+      ]
+    },
+    {
+      "name": "数据归纳",
+      "shortText": "从多条信息中找共同点和异常",
+      "description": "当你获得至少三条线索、读数或记录时，可更快形成一个有依据的优先假设。",
+      "tags": [
+        "analysis",
+        "data"
+      ]
+    },
+    {
+      "name": "规则分析",
+      "shortText": "识别任务规则的条件、边界和例外",
+      "description": "面对胜利条件、说明书或程序规则时，更容易发现必须满足的步骤、容易忽视的限制和可行替代路径。",
+      "tags": [
+        "rules",
+        "analysis"
+      ]
+    },
+    {
+      "name": "快速学习",
+      "shortText": "通过观察掌握陌生任务的基础做法",
+      "description": "完整观察一次普通现实技能或阅读可靠说明后，可在本局获得基础入门水平；不能复制多年专业训练或高风险认证技能。",
+      "tags": [
+        "learning",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "记忆整理",
+      "shortText": "提高多人、多地点和多线索任务的可靠记忆",
+      "description": "你可以把当前重要人物、位置、资源和未完成任务结构化记忆，减少混淆。",
+      "tags": [
+        "memory",
+        "information"
+      ]
+    },
+    {
+      "name": "现场记录",
+      "shortText": "用文字、图示或照片可靠保存信息",
+      "description": "能快速建立时间线、编号物资、标记路线或保存证据，减少后续争议和重复确认。",
+      "tags": [
+        "information",
+        "precision"
+      ]
+    },
+    {
+      "name": "观察力",
+      "shortText": "更容易发现明显但容易忽略的细节",
+      "description": "搜索或监视时，你对移动、声音、反光、缺失物、异常摆放等线索更敏感。",
+      "tags": [
+        "observation",
+        "scout"
+      ]
+    },
+    {
+      "name": "听声辨位",
+      "shortText": "通过声音辅助判断方向和距离",
+      "description": "在声音可传播且背景噪声不过强时，可更好判断呼救、机械声、水声或移动声的方向。",
+      "tags": [
+        "hearing",
+        "tracking"
+      ]
+    },
+    {
+      "name": "足迹追踪",
+      "shortText": "根据可见痕迹判断近期移动方向",
+      "description": "在泥土、灰尘、积雪、杂物或其他能留下痕迹的表面上，可追踪明显移动路径。",
+      "tags": [
+        "tracking",
+        "observation"
+      ]
+    },
+    {
+      "name": "谈判",
+      "shortText": "通过利益交换推动对方合作",
+      "description": "当对方可沟通且有可满足需求时，你更容易找到交换条件；不能强制改变完全敌对者的意志。",
+      "tags": [
+        "negotiation",
+        "communication"
+      ]
+    },
+    {
+      "name": "说服",
+      "shortText": "把合理方案讲得更容易被接受",
+      "description": "向中立人物提出符合其基本利益的请求时，你更能组织理由并降低误解。",
+      "tags": [
+        "persuasion",
+        "communication"
+      ]
+    },
+    {
+      "name": "冲突降级",
+      "shortText": "降低恐慌和口头冲突升级",
+      "description": "面对紧张但仍可沟通的人时，你能通过距离、语气和明确选项提高恢复理性的概率。",
+      "tags": [
+        "psychology",
+        "communication"
+      ]
+    },
+    {
+      "name": "快速教学",
+      "shortText": "把一项简单任务教给普通NPC",
+      "description": "可将自己会做的低风险任务拆成清晰步骤，使NPC更可靠地协助搬运、标记、观察或传话。",
+      "tags": [
+        "education",
+        "support"
+      ]
+    },
+    {
+      "name": "团队指挥",
+      "shortText": "让多人围绕一个计划有效分工",
+      "description": "存在可合作NPC或队友时，可明确角色、集合点、优先级和中止条件，降低协作混乱。",
+      "tags": [
+        "command",
+        "planning"
+      ]
+    },
+    {
+      "name": "资源盘点",
+      "shortText": "快速建立可用物资清单",
+      "description": "进入资源丰富区域后，可迅速按医疗、工具、照明、食物、通信、运输等用途分类可见物资。",
+      "tags": [
+        "resource",
+        "logistics"
+      ]
+    },
+    {
+      "name": "搬运规划",
+      "shortText": "减少多件物资运输的无效往返",
+      "description": "涉及两件以上任务物资时，你更容易设计携带顺序、中转点和最短合理路线。",
+      "tags": [
+        "logistics",
+        "planning"
+      ]
+    },
+    {
+      "name": "时间管理",
+      "shortText": "把复杂任务拆成时间节点",
+      "description": "你能估算主要步骤耗时并设定检查点，减少在单一低价值步骤上过度耗时。",
+      "tags": [
+        "timing",
+        "planning"
+      ]
+    },
+    {
+      "name": "危机冷静",
+      "shortText": "在突发危险下维持判断",
+      "description": "第一次遭遇爆响、停电、坍塌、落水、受伤等突发事件时，不因普通惊吓丧失行动，并能优先执行一个安全动作。",
+      "tags": [
+        "calm",
+        "psychology"
+      ]
+    },
+    {
+      "name": "环境适应",
+      "shortText": "更快调整衣物、节奏和行动方式",
+      "description": "面对热、冷、雨、风、黑暗或高海拔等环境压力时，你更快采取现实可行的减损措施。",
+      "tags": [
+        "environment",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "野外取水",
+      "shortText": "寻找并处理可用水源",
+      "description": "在存在自然或人工水源的环境中，可更可靠地寻找、收集并用现实方法降低饮水风险。",
+      "tags": [
+        "survival",
+        "water"
+      ]
+    },
+    {
+      "name": "庇护搭建",
+      "shortText": "利用现场材料降低暴露风险",
+      "description": "在户外或受损建筑中，可搭建抵挡风、雨、日晒或低温的基础庇护。",
+      "tags": [
+        "survival",
+        "construction"
+      ]
+    },
+    {
+      "name": "生火",
+      "shortText": "在条件允许时建立可控火源",
+      "description": "有可燃材料与点火条件时，可建立并管理小型火源；禁火、高风险燃料环境仍必须遵守安全限制。",
+      "tags": [
+        "survival",
+        "fire"
+      ]
+    },
+    {
+      "name": "天气判断",
+      "shortText": "从环境迹象判断短期天气趋势",
+      "description": "可结合云、风、温度和公开气象信息更早判断明显天气变化及其行动影响。",
+      "tags": [
+        "weather",
+        "environment"
+      ]
+    },
+    {
+      "name": "动物应对",
+      "shortText": "判断普通动物的威胁并选择安全行为",
+      "description": "面对常见动物时，更能识别警戒、攻击或逃跑迹象，并避免明显错误刺激。",
+      "tags": [
+        "animal",
+        "observation"
+      ]
+    },
+    {
+      "name": "植物利用",
+      "shortText": "识别常见植物材料的实用价值",
+      "description": "在有植被环境中，更容易寻找遮蔽、固定、燃料或标记材料；不保证识别所有可食植物。",
+      "tags": [
+        "plant",
+        "wilderness"
+      ]
+    },
+    {
+      "name": "火场行动",
+      "shortText": "在烟热环境中保持撤离和搜救逻辑",
+      "description": "面对普通建筑火灾时，更能低姿移动、判断烟热、寻找出口并避免明显危险区域；无防护装备仍受火烟严重限制。",
+      "tags": [
+        "fire",
+        "rescue"
+      ]
+    },
+    {
+      "name": "水域救援",
+      "shortText": "提高救助落水者的安全性",
+      "description": "可选择更安全的伸、抛、划、游等救援方式，并在必要时进行拖带；恶劣水况仍危险。",
+      "tags": [
+        "water",
+        "rescue"
+      ]
+    },
+    {
+      "name": "伤员转移",
+      "shortText": "更安全地移动行动不便者",
+      "description": "可使用拖拽、搀扶、简易担架或多人搬运，减少对伤员和自己的额外伤害。",
+      "tags": [
+        "medical",
+        "physical"
+      ]
+    },
+    {
+      "name": "低光行动",
+      "shortText": "在黑暗中更有效管理照明和移动",
+      "description": "有微弱光源时更会保护夜视、避免暴露和标记路线；完全无光仍不能凭空看见。",
+      "tags": [
+        "dark",
+        "observation"
+      ]
+    },
+    {
+      "name": "高处行动",
+      "shortText": "在安全条件下更有效处理高度",
+      "description": "面对屋顶、脚手架、山坡等场景，更善于保持三点接触、判断边缘和选择固定点。",
+      "tags": [
+        "height",
+        "safety"
+      ]
+    },
+    {
+      "name": "封闭空间行动",
+      "shortText": "在狭窄环境中保持路线和撤退意识",
+      "description": "面对隧道、管廊、废墟孔洞等空间时，更会管理装备、方向和回撤路径。",
+      "tags": [
+        "narrow",
+        "calm"
+      ]
+    },
+    {
+      "name": "伪装表演",
+      "shortText": "通过合理外观和行为降低注意",
+      "description": "可利用现场普通服装、姿态和环境进行低强度伪装；不能凭空获得证件或完美冒充特定个人。",
+      "tags": [
+        "deception",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "注意力误导",
+      "shortText": "用动作、语言或环境把注意引向别处",
+      "description": "面对可观察你的普通人时，可制造短暂注意转移，为移动、藏物或执行简单动作争取窗口。",
+      "tags": [
+        "deception",
+        "communication"
+      ]
+    },
+    {
+      "name": "精确投掷",
+      "shortText": "提高普通可投掷物的落点控制",
+      "description": "对安全任务物品、绳索、救生设备、标记物等投掷更准确；不赋予超人力量。",
+      "tags": [
+        "throw",
+        "precision"
+      ]
+    },
+    {
+      "name": "车辆操控",
+      "shortText": "熟练驾驶普通民用道路车辆",
+      "description": "只要车辆可用且路线可通行，你能安全高效驾驶；特殊重型或专业车辆仍需对应知识。",
+      "tags": [
+        "vehicle",
+        "mobility"
+      ]
+    },
+    {
+      "name": "基础烹饪",
+      "shortText": "把有限食材转化为安全可食用补给",
+      "description": "有合理食材、器具与时间时，可减少浪费并制作基础餐食。",
+      "tags": [
+        "food",
+        "resource"
+      ]
+    },
+    {
+      "name": "污染控制",
+      "shortText": "减少未知粉尘、液体和样本的交叉污染",
+      "description": "面对污染、样本或未知物质时，更会隔离、标记、避免直接接触并保持清洁区域。",
+      "tags": [
+        "science",
+        "safety"
+      ]
+    },
+    {
+      "name": "检查清单",
+      "shortText": "复杂操作前减少遗漏",
+      "description": "面对包含多个明确步骤的任务，可建立并执行简短检查单；第一次执行时降低漏掉关键步骤的概率。",
+      "tags": [
+        "rules",
+        "precision"
+      ]
+    },
+    {
+      "name": "故障树分析",
+      "shortText": "从症状反推最可能的故障链",
+      "description": "设备、流程或任务异常时，可把问题拆成几个可能原因并优先检查最关键分支。",
+      "tags": [
+        "analysis",
+        "repair"
+      ]
+    },
+    {
+      "name": "空间布置",
+      "shortText": "利用普通物体优化通道和工作区",
+      "description": "可重新安排家具、箱体、照明、标记等，使路线更清晰、工作更安全或目标更易防守。",
+      "tags": [
+        "spatial",
+        "control"
+      ]
+    },
+    {
+      "name": "快速测量",
+      "shortText": "利用工具或参照物估计距离、尺寸和角度",
+      "description": "对路线、搭建、搬运、投掷和空间任务提供更可靠的尺度判断。",
+      "tags": [
+        "spatial",
+        "precision"
+      ]
+    },
+    {
+      "name": "多任务管理",
+      "shortText": "同时维护多个简单任务的进度",
+      "description": "可同时追踪最多三项低复杂度任务而较少遗忘，适合计时、NPC协作和资源管理。",
+      "tags": [
+        "multitask",
+        "planning"
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "name": "体能不足",
+      "shortText": "持续高强度行动更快疲劳",
+      "description": "连续奔跑、攀爬、负重或搬运约2分钟后，你必须明显降低速度或短暂恢复；普通步行与精细任务不受影响。",
+      "tags": [
+        "physical",
+        "stamina"
+      ]
+    },
+    {
+      "name": "旧伤",
+      "shortText": "爆发动作会引发疼痛",
+      "description": "每次进行高强度跳跃、冲刺、重负荷或近身对抗后，下一项身体行动效率下降，直到完成短暂恢复。",
+      "tags": [
+        "physical",
+        "mobility"
+      ]
+    },
+    {
+      "name": "手部不稳",
+      "shortText": "精细操作需要更多时间",
+      "description": "涉及小零件、精确连接、书写或维修时，需要比正常更多时间或借助支撑；粗大动作不受影响。",
+      "tags": [
+        "precision",
+        "manual"
+      ]
+    },
+    {
+      "name": "视力受限",
+      "shortText": "远处细节识别能力较弱",
+      "description": "超过约20米的文字、小物体和细微动作难以可靠辨认；靠近、使用光学设备或获得描述可缓解。",
+      "tags": [
+        "vision",
+        "observation"
+      ]
+    },
+    {
+      "name": "听力受限",
+      "shortText": "弱声音和远距离语音更难辨认",
+      "description": "噪声环境中尤其明显；面对面交流、文字、手势和通信设备仍可使用。",
+      "tags": [
+        "hearing",
+        "communication"
+      ]
+    },
+    {
+      "name": "怕高",
+      "shortText": "暴露高处会降低行动效率",
+      "description": "靠近明显坠落边缘或进行无保护高处移动时，你必须更慢、更保守；使用护栏、安全绳或封闭载具可缓解。",
+      "tags": [
+        "psychology",
+        "height"
+      ]
+    },
+    {
+      "name": "怕水",
+      "shortText": "深水环境会诱发紧张",
+      "description": "进入无法站立的水域时，你的决策和动作变得保守；救生衣、船艇或可靠绳索可显著缓解。",
+      "tags": [
+        "psychology",
+        "water"
+      ]
+    },
+    {
+      "name": "怕黑",
+      "shortText": "低光环境需要额外安全感",
+      "description": "完全黑暗时你不能主动高速移动，必须先寻找光源、触觉路线或同伴引导；有稳定照明后基本恢复。",
+      "tags": [
+        "psychology",
+        "dark"
+      ]
+    },
+    {
+      "name": "幽闭恐惧",
+      "shortText": "狭窄密闭空间难以久留",
+      "description": "在无法直立转身或看不到出口的空间中，每持续行动一段时间就需要停顿或确认撤退路线。",
+      "tags": [
+        "psychology",
+        "narrow"
+      ]
+    },
+    {
+      "name": "恐火",
+      "shortText": "明火与浓烟会强迫你保持距离",
+      "description": "你不能主动穿过明显火焰或高热区域，除非有合适防护和明确安全路线。",
+      "tags": [
+        "psychology",
+        "fire"
+      ]
+    },
+    {
+      "name": "方向感差",
+      "shortText": "复杂路线容易混淆",
+      "description": "每经过三个以上相似岔路，如果没有地图、标记或记录，你可能需要停下重新确认方向。",
+      "tags": [
+        "navigation",
+        "information"
+      ]
+    },
+    {
+      "name": "容易分心",
+      "shortText": "同时处理过多刺激会漏事",
+      "description": "当你同时承担三个以上独立任务时，必须放弃其中一项或先进行明确记录，否则容易遗漏。",
+      "tags": [
+        "focus",
+        "multitask"
+      ]
+    },
+    {
+      "name": "急性子",
+      "shortText": "长时间等待会破坏计划",
+      "description": "连续等待或潜伏超过90秒后，你必须采取一项推进任务的动作，哪怕只是换位、搜索或沟通。",
+      "tags": [
+        "psychology",
+        "timing"
+      ]
+    },
+    {
+      "name": "慢热",
+      "shortText": "开局需要观察后才能发挥",
+      "description": "比赛开始后的前60秒，你不能主动选择最高风险路线；可以搜索、移动、沟通和准备。",
+      "tags": [
+        "psychology",
+        "timing"
+      ]
+    },
+    {
+      "name": "过度谨慎",
+      "shortText": "明显危险前必须先做安全确认",
+      "description": "进入高风险区域、操作陌生设备或进行高处/水域行动前，必须花一小段时间检查风险。",
+      "tags": [
+        "psychology",
+        "safety"
+      ]
+    },
+    {
+      "name": "过度自信",
+      "shortText": "首次计划失败前不愿求助",
+      "description": "在你的第一个明确方案失败之前，你不能主动向中立NPC寻求专业建议，但可以接受其主动提供的信息。",
+      "tags": [
+        "psychology",
+        "communication"
+      ]
+    },
+    {
+      "name": "完美主义",
+      "shortText": "完成任务时容易过度检查",
+      "description": "每完成一个关键操作，你必须进行一次复核后才愿意离开；复核提高可靠性但消耗时间。",
+      "tags": [
+        "psychology",
+        "precision"
+      ]
+    },
+    {
+      "name": "信息洁癖",
+      "shortText": "缺乏证据时不愿下结论",
+      "description": "涉及未知机制或线索判断时，你必须获得至少两条相互支持的信息才会据此采取高风险行动。",
+      "tags": [
+        "analysis",
+        "information"
+      ]
+    },
+    {
+      "name": "不善说谎",
+      "shortText": "欺骗策略容易暴露",
+      "description": "你不能长时间维持自己明知为假的复杂故事；可以保持沉默、模糊表达或进行非语言误导。",
+      "tags": [
+        "deception",
+        "communication"
+      ]
+    },
+    {
+      "name": "社交紧张",
+      "shortText": "陌生人群中沟通效率下降",
+      "description": "第一次与每组陌生NPC沟通时，你需要更直接简单的表达；建立基本信任后恢复正常。",
+      "tags": [
+        "psychology",
+        "communication"
+      ]
+    },
+    {
+      "name": "固执己见",
+      "shortText": "改变计划需要明确证据",
+      "description": "一旦公开确定主要方案，除非出现新危险、任务失败或两条新信息，否则你不会主动完全换方案。",
+      "tags": [
+        "psychology",
+        "planning"
+      ]
+    },
+    {
+      "name": "单打独斗",
+      "shortText": "不习惯把关键任务交给别人",
+      "description": "有NPC或队友时，你必须亲自参与最关键的一项任务，不能只做远程指挥。",
+      "tags": [
+        "psychology",
+        "support"
+      ]
+    },
+    {
+      "name": "控制欲",
+      "shortText": "多人协作时容易形成瓶颈",
+      "description": "每当同时指挥三名以上NPC，你必须亲自确认关键决定，降低整体并行效率。",
+      "tags": [
+        "psychology",
+        "command"
+      ]
+    },
+    {
+      "name": "保护欲过强",
+      "shortText": "无法忽视直接求救",
+      "description": "视野或听觉范围内出现明确、可合理救助的中立伤员时，你必须先进行最低限度救助或安排他人救助。",
+      "tags": [
+        "morality",
+        "rescue"
+      ]
+    },
+    {
+      "name": "不能破坏关键设施",
+      "shortText": "必须避免不可逆的大规模破坏",
+      "description": "你不能主动摧毁建筑承重、电力主干、水源、通信主干或任务关键设备，除非规则明确要求。",
+      "tags": [
+        "morality",
+        "environment"
+      ]
+    },
+    {
+      "name": "不能抛弃物资",
+      "shortText": "已取得的任务物品必须妥善处理",
+      "description": "你不能为了单纯提速随意丢弃已确认有任务价值的物资；必须交给他人、藏好或带到安全点。",
+      "tags": [
+        "morality",
+        "resource"
+      ]
+    },
+    {
+      "name": "洁癖",
+      "shortText": "严重污染环境会拖慢你",
+      "description": "面对污水、腐败物、血污或未知污染时，你必须优先寻找隔离、手套、工具或绕行方式。",
+      "tags": [
+        "psychology",
+        "environment"
+      ]
+    },
+    {
+      "name": "怕动物",
+      "shortText": "大型或攻击性动物会迫使你保持距离",
+      "description": "不能主动近距离接触明显警戒的动物，除非有隔离、工具或可靠动物处理方案。",
+      "tags": [
+        "psychology",
+        "animal"
+      ]
+    },
+    {
+      "name": "耐热差",
+      "shortText": "高温中体力消耗更快",
+      "description": "炎热、火场外围或暴晒环境下，每隔一段时间必须补水、降温或降低强度；室内常温不受影响。",
+      "tags": [
+        "heat",
+        "stamina"
+      ]
+    },
+    {
+      "name": "耐寒差",
+      "shortText": "低温会影响动作和判断",
+      "description": "寒冷环境中必须更早寻找保暖、运动或庇护；长时间暴露会降低精细操作。",
+      "tags": [
+        "cold",
+        "stamina"
+      ]
+    },
+    {
+      "name": "脱水敏感",
+      "shortText": "补水优先级更高",
+      "description": "持续高强度行动或炎热环境中，如果较长时间没有饮水，你的体能与注意力明显下降。",
+      "tags": [
+        "water",
+        "resource"
+      ]
+    },
+    {
+      "name": "低血糖",
+      "shortText": "长任务需要定期补给",
+      "description": "持续数小时级任务被压缩为比赛时间时，若长时间没有任何食物补给，你的高强度行动效率下降。",
+      "tags": [
+        "food",
+        "resource"
+      ]
+    },
+    {
+      "name": "数字依赖",
+      "shortText": "失去电子设备后效率下降",
+      "description": "没有可用手机、电脑或电子地图时，信息整理与导航任务需要更多手工记录时间。",
+      "tags": [
+        "technology",
+        "resource"
+      ]
+    },
+    {
+      "name": "工具依赖",
+      "shortText": "徒手处理技术任务效率很低",
+      "description": "维修、搭建、拆装等任务若没有任何合适工具，你必须先寻找工具或采用明显更慢的替代方案。",
+      "tags": [
+        "tool",
+        "resource"
+      ]
+    },
+    {
+      "name": "规则拘谨",
+      "shortText": "不会故意跳过明确安全步骤",
+      "description": "当场景给出明确操作流程时，你必须遵守其中的关键安全步骤，即使这样更慢。",
+      "tags": [
+        "rules",
+        "safety"
+      ]
+    },
+    {
+      "name": "记忆混乱",
+      "shortText": "多人多物任务容易串线",
+      "description": "同时需要记住三名以上NPC、三个以上物资点或多条线索时，必须进行记录，否则容易混淆其中一项。",
+      "tags": [
+        "memory",
+        "information"
+      ]
+    },
+    {
+      "name": "时间估计差",
+      "shortText": "容易低估复杂任务耗时",
+      "description": "第一次制定多步骤计划时，至少有一个步骤的实际耗时会高于你的预期；使用计时和复盘后可修正。",
+      "tags": [
+        "timing",
+        "planning"
+      ]
+    },
+    {
+      "name": "噪声敏感",
+      "shortText": "持续噪声影响专注",
+      "description": "机械轰鸣、人群喧闹、风暴等高噪声环境中，精细思考和弱声音辨识效率下降；耳部防护可缓解。",
+      "tags": [
+        "hearing",
+        "focus"
+      ]
+    },
+    {
+      "name": "容易晕动",
+      "shortText": "持续摇晃影响行动",
+      "description": "船、颠簸车辆、强烈摇摆平台等环境持续一段时间后，你需要降低精细操作或短暂恢复。",
+      "tags": [
+        "balance",
+        "transport"
+      ]
+    },
+    {
+      "name": "不耐孤独",
+      "shortText": "长时间独处会降低判断信心",
+      "description": "连续较长时间没有与任何人沟通时，你必须通过记录、通信或自我确认来维持计划，否则更容易反复检查。",
+      "tags": [
+        "psychology",
+        "communication"
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "name": "停电办公楼",
+      "shortText": "整栋高层建筑失去常规供电，楼梯、办公室和设备间仍可通行",
+      "description": "室内多层结构；应急灯只覆盖部分区域。可利用楼梯、办公物资、消防设施和纸质标识。",
+      "tags": [
+        "indoor",
+        "urban",
+        "dark",
+        "multi_level"
+      ],
+      "hazards": [
+        "低能见度",
+        "电梯停运",
+        "部分电子门禁失效"
+      ]
+    },
+    {
+      "name": "大型医院",
+      "shortText": "病区、急诊、后勤、电梯与楼梯形成复杂网络",
+      "description": "人员与物资丰富，存在医疗设备、轮椅、担架、标识和备用电源，但部分区域受门禁限制。",
+      "tags": [
+        "indoor",
+        "urban",
+        "multi_level"
+      ],
+      "hazards": [
+        "人员拥挤",
+        "设备障碍",
+        "局部断电"
+      ]
+    },
+    {
+      "name": "购物中心",
+      "shortText": "多层商场、后场、停车区和中庭相连",
+      "description": "可获得大量普通物资、工具替代品、照明和推车；公开路线多，但后勤路线更短。",
+      "tags": [
+        "indoor",
+        "urban",
+        "multi_level"
+      ],
+      "hazards": [
+        "碎玻璃",
+        "扶梯停运",
+        "视线遮挡"
+      ]
+    },
+    {
+      "name": "地铁换乘站",
+      "shortText": "多条站台、通道和设备区位于地下",
+      "description": "标识、广播、消防设备和轨道通道都可利用；路线复杂且纵向高差明显。",
+      "tags": [
+        "indoor",
+        "underground",
+        "maze"
+      ],
+      "hazards": [
+        "轨道落差",
+        "低能见度",
+        "狭窄通道"
+      ]
+    },
+    {
+      "name": "机场航站楼",
+      "shortText": "巨大大厅连接登机口、行李区与后勤空间",
+      "description": "开放视野与长距离路线并存，可利用行李车、标识、广播和大量座椅物资。",
+      "tags": [
+        "indoor",
+        "aviation",
+        "open"
+      ],
+      "hazards": [
+        "长距离",
+        "门禁",
+        "人群障碍"
+      ]
+    },
+    {
+      "name": "仓储中心",
+      "shortText": "高货架、装卸区、托盘与宽通道组成",
+      "description": "物资与搬运工具丰富，路线规则但视线常被货架阻挡。",
+      "tags": [
+        "indoor",
+        "warehouse",
+        "industrial"
+      ],
+      "hazards": [
+        "高处坠物",
+        "狭窄货架通道",
+        "散落货物"
+      ]
+    },
+    {
+      "name": "建筑工地",
+      "shortText": "半完工建筑、脚手架、材料区和机械设备并存",
+      "description": "工具和材料丰富，存在大量可搭建、加固或改道机会。",
+      "tags": [
+        "construction",
+        "height",
+        "multi_level"
+      ],
+      "hazards": [
+        "孔洞",
+        "高处坠落",
+        "不稳定材料"
+      ]
+    },
+    {
+      "name": "老城区街区",
+      "shortText": "窄巷、商铺、住宅与屋顶构成复杂城市地形",
+      "description": "入口多、遮蔽多，可获得普通生活物资和多条绕行路线。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "maze"
+      ],
+      "hazards": [
+        "狭窄通道",
+        "车辆阻塞",
+        "视线遮挡"
+      ]
+    },
+    {
+      "name": "大型体育馆",
+      "shortText": "中央场地、看台、后台和环形通道组成",
+      "description": "视野开阔，座椅、器材、广播和多出口可利用。",
+      "tags": [
+        "indoor",
+        "arena",
+        "open"
+      ],
+      "hazards": [
+        "看台高差",
+        "拥挤通道",
+        "大型器材"
+      ]
+    },
+    {
+      "name": "学校校园",
+      "shortText": "教学楼、操场、体育馆和食堂组成",
+      "description": "场景均衡，具备工具、食物、医务、广播、开阔地与建筑路线。",
+      "tags": [
+        "indoor",
+        "outdoor",
+        "school"
+      ],
+      "hazards": [
+        "玻璃",
+        "楼梯",
+        "分散建筑"
+      ]
+    },
+    {
+      "name": "酒店",
+      "shortText": "客房、厨房、宴会厅与后勤走廊连接",
+      "description": "房间多、物资种类丰富，前台与消防图提供信息资源。",
+      "tags": [
+        "indoor",
+        "urban",
+        "multi_level"
+      ],
+      "hazards": [
+        "重复走廊",
+        "厨房高温",
+        "电梯依赖"
+      ]
+    },
+    {
+      "name": "工厂",
+      "shortText": "生产线、平台、仓储与控制区构成复杂工业环境",
+      "description": "工具、机械、管线和控制设备丰富，技术职业可发挥，但非技术职业也能利用通道和物资。",
+      "tags": [
+        "indoor",
+        "industrial",
+        "multi_level"
+      ],
+      "hazards": [
+        "机械设备",
+        "噪声",
+        "高温区域"
+      ]
+    },
+    {
+      "name": "港口堆场",
+      "shortText": "集装箱、码头、车辆通道和仓库组成",
+      "description": "拥有高低路线、搬运设备和大量遮蔽；水域构成边界。",
+      "tags": [
+        "outdoor",
+        "marine",
+        "industrial"
+      ],
+      "hazards": [
+        "落水",
+        "高处坠落",
+        "大型设备"
+      ]
+    },
+    {
+      "name": "远洋货轮",
+      "shortText": "甲板、生活区、货舱和机舱组成",
+      "description": "绳索、消防、通信和机械资源丰富，船体本身提供多层路线。",
+      "tags": [
+        "marine",
+        "water",
+        "multi_level"
+      ],
+      "hazards": [
+        "落水",
+        "湿滑",
+        "持续摇晃"
+      ]
+    },
+    {
+      "name": "森林公园",
+      "shortText": "树林、步道、溪流与游客设施并存",
+      "description": "自然资源与少量人工设施兼有，既可导航搜索，也可搭建与取水。",
+      "tags": [
+        "outdoor",
+        "forest",
+        "wilderness"
+      ],
+      "hazards": [
+        "视线遮挡",
+        "迷路",
+        "不平地面"
+      ]
+    },
+    {
+      "name": "山谷",
+      "shortText": "岩坡、林地、溪流与高低路线并存",
+      "description": "存在天然水源、木石材料和多种路线，但通信与移动受地形影响。",
+      "tags": [
+        "outdoor",
+        "mountain",
+        "wilderness"
+      ],
+      "hazards": [
+        "落石",
+        "高差",
+        "路线绕行"
+      ]
+    },
+    {
+      "name": "海滩与礁岸",
+      "shortText": "沙滩、礁石、浅水和岸边设施组成",
+      "description": "视野开阔，有漂流物、绳索可能来源和高低潮变化。",
+      "tags": [
+        "outdoor",
+        "water",
+        "open"
+      ],
+      "hazards": [
+        "海浪",
+        "湿滑礁石",
+        "潮汐"
+      ]
+    },
+    {
+      "name": "农场",
+      "shortText": "田地、谷仓、围栏、水源和农业设备组成",
+      "description": "食物、水、工具、车辆与建筑兼有，场景资源丰富且路线开阔。",
+      "tags": [
+        "outdoor",
+        "agriculture",
+        "open"
+      ],
+      "hazards": [
+        "动物",
+        "机械设备",
+        "不平地面"
+      ]
+    },
+    {
+      "name": "暴雨城市",
+      "shortText": "持续强降雨覆盖普通城市街区",
+      "description": "建筑、车辆和公共设施仍可利用，但积水与视线成为持续变量。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "weather"
+      ],
+      "hazards": [
+        "积水",
+        "湿滑",
+        "低能见度"
+      ]
+    },
+    {
+      "name": "暴雪小镇",
+      "shortText": "低温、积雪和强风覆盖小型城镇",
+      "description": "建筑提供庇护，车辆、燃料、食物和保暖物资分散在不同地点。",
+      "tags": [
+        "outdoor",
+        "cold",
+        "urban"
+      ],
+      "hazards": [
+        "低温",
+        "积雪",
+        "低能见度"
+      ]
+    },
+    {
+      "name": "热浪城区",
+      "shortText": "极端高温笼罩城市街区",
+      "description": "室内阴影、水源、车辆和公共建筑仍可利用，行动节奏与补水成为关键。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "heat"
+      ],
+      "hazards": [
+        "中暑",
+        "脱水",
+        "暴晒"
+      ]
+    },
+    {
+      "name": "大面积停电城区",
+      "shortText": "夜间城市失去主要供电和部分通信",
+      "description": "建筑、道路和纸质设施仍在，备用电源、车辆和便携设备成为稀缺资源。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "dark"
+      ],
+      "hazards": [
+        "低能见度",
+        "交通混乱",
+        "通信不稳定"
+      ]
+    },
+    {
+      "name": "地震后街区",
+      "shortText": "多栋建筑受损，道路被碎石和车辆阻断",
+      "description": "废墟中存在伤员、工具、车辆和替代路线；余震风险迫使所有角色重视结构安全。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "ruins"
+      ],
+      "hazards": [
+        "余震",
+        "坠物",
+        "道路阻断"
+      ]
+    },
+    {
+      "name": "城市洪水",
+      "shortText": "街道被不同深度积水覆盖，部分建筑仍可进入",
+      "description": "高处、船艇、绳索、漂浮物和建筑内部形成多层路线。",
+      "tags": [
+        "outdoor",
+        "water",
+        "urban"
+      ],
+      "hazards": [
+        "水流",
+        "深浅不明",
+        "污染水"
+      ]
+    },
+    {
+      "name": "山洪后山谷",
+      "shortText": "道路和桥梁部分冲毁，水位仍在变化",
+      "description": "木石材料、残余道路和高地可利用，路线选择比速度更重要。",
+      "tags": [
+        "outdoor",
+        "water",
+        "mountain"
+      ],
+      "hazards": [
+        "急流",
+        "松动地面",
+        "道路中断"
+      ]
+    },
+    {
+      "name": "野火外围小镇",
+      "shortText": "远处野火与烟尘正在逼近，但城区尚未全面燃烧",
+      "description": "车辆、道路、建筑和消防资源可利用；风向与撤离时间持续施压。",
+      "tags": [
+        "outdoor",
+        "fire",
+        "urban"
+      ],
+      "hazards": [
+        "烟尘",
+        "高温",
+        "道路拥堵"
+      ]
+    },
+    {
+      "name": "台风登陆港城",
+      "shortText": "强风暴雨影响沿海城市",
+      "description": "坚固建筑、地下空间和车辆可提供庇护，松动物与积水持续改变路线。",
+      "tags": [
+        "outdoor",
+        "weather",
+        "urban"
+      ],
+      "hazards": [
+        "强风",
+        "飞散物",
+        "积水"
+      ]
+    },
+    {
+      "name": "龙卷风警报小镇",
+      "shortText": "强对流逼近，必须利用建筑与地下空间",
+      "description": "公开设施、车辆和地下室可利用，时间窗口短，信息与庇护选择关键。",
+      "tags": [
+        "outdoor",
+        "weather",
+        "urban"
+      ],
+      "hazards": [
+        "强风",
+        "飞散物",
+        "建筑损坏"
+      ]
+    },
+    {
+      "name": "沙漠失联",
+      "shortText": "车辆故障在荒漠公路附近，通信不稳定",
+      "description": "拥有有限车辆物资、道路、地形高点和可能的远距离设施；水与遮阳是核心资源。",
+      "tags": [
+        "outdoor",
+        "desert",
+        "extreme"
+      ],
+      "hazards": [
+        "高温",
+        "缺水",
+        "长距离"
+      ]
+    },
+    {
+      "name": "雪山暴风雪",
+      "shortText": "山地遭遇强风、降雪和低能见度",
+      "description": "可利用地形、雪、装备与临时庇护；路线、保温和体力管理决定生存。",
+      "tags": [
+        "outdoor",
+        "mountain",
+        "cold",
+        "extreme"
+      ],
+      "hazards": [
+        "失温",
+        "迷路",
+        "滑坠"
+      ]
+    },
+    {
+      "name": "荒岛",
+      "shortText": "小型无人岛包含海滩、树林、岩地与淡水可能性",
+      "description": "自然材料丰富但现代物资有限；取水、信号、庇护和探索都可成为优势。",
+      "tags": [
+        "outdoor",
+        "island",
+        "wilderness",
+        "extreme"
+      ],
+      "hazards": [
+        "缺水",
+        "天气",
+        "隔离"
+      ]
+    },
+    {
+      "name": "极地科研站事故",
+      "shortText": "科研站部分失去供电，室外为极寒强风",
+      "description": "室内有设备、食物、工具和备用系统，室外路线短但暴露代价极高。",
+      "tags": [
+        "indoor",
+        "outdoor",
+        "cold",
+        "extreme"
+      ],
+      "hazards": [
+        "极寒",
+        "断电",
+        "强风"
+      ]
+    },
+    {
+      "name": "矿井塌方",
+      "shortText": "地下巷道部分坍塌且照明受损",
+      "description": "工具、轨道、通风和避难设施仍可能可用；搜索、结构、通信和搬运都重要。",
+      "tags": [
+        "underground",
+        "industrial",
+        "extreme"
+      ],
+      "hazards": [
+        "坍塌",
+        "粉尘",
+        "低能见度"
+      ]
+    },
+    {
+      "name": "洞穴被困",
+      "shortText": "天然洞穴出口受阻，内部存在水流和高低落差",
+      "description": "可利用岩壁、水声、气流和携带物资寻找替代路线或等待救援。",
+      "tags": [
+        "underground",
+        "cave",
+        "extreme"
+      ],
+      "hazards": [
+        "黑暗",
+        "湿滑",
+        "迷路"
+      ]
+    },
+    {
+      "name": "隧道事故",
+      "shortText": "长距离公路隧道内发生多车事故并局部停电",
+      "description": "车辆、应急通道、消防设施和通信点可利用，烟雾与拥堵限制路线。",
+      "tags": [
+        "indoor",
+        "tunnel",
+        "urban"
+      ],
+      "hazards": [
+        "低能见度",
+        "车辆阻塞",
+        "烟尘"
+      ]
+    },
+    {
+      "name": "列车受困",
+      "shortText": "列车因灾害停在偏远线路，部分车厢受损",
+      "description": "车厢内有乘客、工具和基础物资，铁路与周边地形提供两种行动空间。",
+      "tags": [
+        "transport",
+        "rail",
+        "extreme"
+      ],
+      "hazards": [
+        "狭窄",
+        "伤员",
+        "远离设施"
+      ]
+    },
+    {
+      "name": "邮轮失去动力",
+      "shortText": "大型客轮在恶劣天气中失去主要动力",
+      "description": "客舱、厨房、医务、救生、通信和机械资源齐全，但船体摇晃且时间压力高。",
+      "tags": [
+        "marine",
+        "water",
+        "extreme"
+      ],
+      "hazards": [
+        "恶劣海况",
+        "停电",
+        "人员恐慌"
+      ]
+    },
+    {
+      "name": "飞机迫降后",
+      "shortText": "客机已在偏远地区完成迫降，机体受损但部分物资可用",
+      "description": "机舱、行李、应急设备与周边自然环境共同构成资源；首要风险来自伤员、天气与撤离。",
+      "tags": [
+        "transport",
+        "wilderness",
+        "extreme"
+      ],
+      "hazards": [
+        "伤员",
+        "燃料风险",
+        "隔离"
+      ]
+    },
+    {
+      "name": "高层建筑火灾",
+      "shortText": "多层建筑局部起火并产生浓烟",
+      "description": "消防设施、楼梯、房间和屋顶路线均可利用；不同职业都能在搜救、导航、沟通、物资和结构判断上发挥。",
+      "tags": [
+        "indoor",
+        "fire",
+        "multi_level",
+        "extreme"
+      ],
+      "hazards": [
+        "浓烟",
+        "高温",
+        "楼梯受阻"
+      ]
+    },
+    {
+      "name": "化工园区泄漏警报",
+      "shortText": "工业园区出现未知泄漏，部分区域被封锁",
+      "description": "风向、标识、建筑、车辆、防护用品和控制室信息都可利用；未知物质必须谨慎处理。",
+      "tags": [
+        "industrial",
+        "chemical",
+        "extreme"
+      ],
+      "hazards": [
+        "未知污染",
+        "风向变化",
+        "门禁"
+      ]
+    },
+    {
+      "name": "体育赛事踩踏风险",
+      "shortText": "大型场馆出口区域发生人群拥堵",
+      "description": "广播、工作人员、隔离设施和多出口可利用；目标通常不是战斗，而是信息、路线和人群组织。",
+      "tags": [
+        "indoor",
+        "crowd",
+        "extreme"
+      ],
+      "hazards": [
+        "拥挤",
+        "恐慌",
+        "出口瓶颈"
+      ]
+    },
+    {
+      "name": "城市通信中断",
+      "shortText": "通信网络大面积不可用但基础供电仍在",
+      "description": "纸质地图、广播、车辆、实体信息点和面对面协作价值上升。",
+      "tags": [
+        "urban",
+        "technology",
+        "extreme"
+      ],
+      "hazards": [
+        "信息孤岛",
+        "路线误判",
+        "协调困难"
+      ]
+    },
+    {
+      "name": "水库下游撤离",
+      "shortText": "上游设施故障，低洼地区需要限时撤离",
+      "description": "道路、建筑高点、车辆、广播和水文信息均可利用；时间与路线选择是核心。",
+      "tags": [
+        "outdoor",
+        "water",
+        "extreme"
+      ],
+      "hazards": [
+        "上涨水位",
+        "交通拥堵",
+        "时间压力"
+      ]
+    },
+    {
+      "name": "大桥事故",
+      "shortText": "跨河大桥部分受损，车辆与人员滞留",
+      "description": "桥面、检修通道、车辆、绳索可能来源和两岸设施都可利用。",
+      "tags": [
+        "outdoor",
+        "height",
+        "urban",
+        "extreme"
+      ],
+      "hazards": [
+        "高处坠落",
+        "结构受损",
+        "交通阻塞"
+      ]
+    },
+    {
+      "name": "地下商场进水",
+      "shortText": "地下商业区因暴雨快速进水并局部断电",
+      "description": "商铺物资、楼梯、设备间和高处平台可利用；水位持续改变可通行区域。",
+      "tags": [
+        "indoor",
+        "water",
+        "underground",
+        "extreme"
+      ],
+      "hazards": [
+        "上涨水位",
+        "停电",
+        "迷路"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "二次坍塌风险",
+      "shortText": "部分区域不再承重，但坍塌前有声响预警",
+      "description": "受损结构出现二次坍塌征兆，部分区域的承重能力显著下降。但坍塌前会出现明确的开裂声与掉渣先兆，为撤离与加固留出反应窗口。",
+      "compatibleEnvironmentTags": [
+        "ruins",
+        "construction",
+        "underground",
+        "industrial"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "通讯中断",
+      "shortText": "无法请求外部支援，但近距离喊话仍可用",
+      "description": "现场无线电与移动通讯中断，无法呼叫外部支援或协调远程力量。但这只影响远距离通讯，现场近距离喊话、手势与灯光信号仍然可用。",
+      "compatibleEnvironmentTags": [
+        "urban",
+        "underground",
+        "extreme",
+        "tunnel"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "待救者情况恶化",
+      "shortText": "救援优先级上升，但恶化可被干预减缓",
+      "description": "待救人员的伤情或处境持续恶化，救援的时间压力上升。但恶化过程可被现场干预减缓，不会在短时间内直接致命，仍留有处置空间。",
+      "compatibleEnvironmentTags": [],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "能见度骤降",
+      "shortText": "目视失效，但声源与热源定位不受影响",
+      "description": "烟雾、雨雪或扬尘导致能见度大幅下降，目视搜索与瞄准变得困难。但这只削弱视觉，声源定位、热源探测与触觉判断均不受影响。",
+      "compatibleEnvironmentTags": [
+        "fire",
+        "weather",
+        "dark",
+        "underground",
+        "chemical"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "局部供电恢复",
+      "shortText": "照明与设备可用，但范围有限且伴随风险",
+      "description": "局部区域恢复供电，照明与电动设备重新可用。但恢复范围有限且位置固定，同时老化线路存在短路与触电风险，不能视为安全区。",
+      "compatibleEnvironmentTags": [
+        "indoor",
+        "urban",
+        "dark",
+        "industrial"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "人群涌入作业面",
+      "shortText": "行动受阻，但人群可作掩护",
+      "description": "惊慌或围观的人群涌入作业区域，通行与作业空间被压缩。但人群同时提供视觉遮蔽与混入机会，可被反向利用，并非纯粹的阻碍。",
+      "compatibleEnvironmentTags": [
+        "crowd",
+        "urban",
+        "arena",
+        "transport"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "水位持续上涨",
+      "shortText": "低处逐步不可用，但速度可预判",
+      "description": "积水或潮位持续上涨，低处区域与地下空间逐步失去可用性。但上涨速度稳定可测，为转移物资与调整路线留出时间。",
+      "compatibleEnvironmentTags": [
+        "water",
+        "marine",
+        "underground",
+        "weather"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "风向转变",
+      "shortText": "烟气扩散方向改变，但转变有过程",
+      "description": "风向发生转变，烟气、热气或泄漏物的扩散方向随之改变，原先安全的位置可能转为下风向。但转变是一个渐进过程，不会瞬间反转，可据此调整站位。",
+      "compatibleEnvironmentTags": [
+        "fire",
+        "chemical",
+        "weather",
+        "outdoor"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "余震与结构余动",
+      "shortText": "结构进一步失稳，但强度递减",
+      "description": "主震之后的余震使本已受损的结构进一步松动。但余震强度整体递减、间隔可预判，可用于规划行动窗口，而非全程被动等待。",
+      "compatibleEnvironmentTags": [
+        "ruins",
+        "mountain",
+        "underground",
+        "urban"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "外部补给抵达",
+      "shortText": "可用装备增加，但补给点成为焦点",
+      "description": "外部补给送达现场，可获得额外的装备与物资。但补给点位置固定且需要时间分发，会自然成为双方争夺与设伏的焦点。",
+      "compatibleEnvironmentTags": [],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "主要通道阻断",
+      "shortText": "该路线不再可用，但阻断是局部的",
+      "description": "塌方、积水或封闭使一条主要通行路线不再可用，需要重新规划路径。但阻断是局部的，绕行与破拆均存在可能，不会导致区域完全隔绝。",
+      "compatibleEnvironmentTags": [
+        "tunnel",
+        "underground",
+        "urban",
+        "maze",
+        "cave"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "极端气温逼近",
+      "shortText": "暴露时间受限，但有遮蔽与轮换空间",
+      "description": "高温、严寒或热辐射使无遮蔽的暴露时间显著缩短。但现场存在遮蔽物与轮换条件，可通过调度缓解，并非即刻失能。",
+      "compatibleEnvironmentTags": [
+        "heat",
+        "cold",
+        "fire",
+        "desert",
+        "extreme",
+        "mountain"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    }
+  ],
+  "victories": [
+    {
+      "name": "救援竞速",
+      "shortText": "让现场伤员全部脱离直接危险",
+      "description": "现场存在多名伤员。率先让全部可被转移的伤员脱离直接危险区域、并在对抗结束时仍保持在安全区内的一方获胜；造成明显二次伤害的转移不计。"
+    },
+    {
+      "name": "全员疏散",
+      "shortText": "让现场人员全部抵达安全状态",
+      "description": "现场有多名中立人员。率先让全部人员离开危险区域、并在对抗结束时仍处于安全状态的一方获胜。人员会执行清晰合理的安全指令，但可能因恐慌或信息不足犹豫。"
+    },
+    {
+      "name": "寻找失踪者",
+      "shortText": "确认全部失踪人员的位置与状态",
+      "description": "有人员失联于不同区域。率先确认全部失踪人员的位置与当前状态的一方获胜；发现线索、询问、搜索、导航和观察都可以贡献进度。"
+    },
+    {
+      "name": "护送任务",
+      "shortText": "将VIP安全带离危险区域",
+      "description": "VIP不会主动参与对抗，但会听从合理的安全指令。率先将VIP带离危险区域、且其在对抗结束时仍安全的一方获胜。"
+    },
+    {
+      "name": "物资运输",
+      "shortText": "把全部任务物资运抵安全区域",
+      "description": "任务所需物资散落在场景中，大小不同。率先将全部物资完整运抵安全区域的一方获胜；可使用车辆、推车、绳索、人员或中转点。"
+    },
+    {
+      "name": "恢复通信",
+      "shortText": "率先建立与场外的稳定双向联络",
+      "description": "任何现实可行的通信方式均可，必须能发送并收到一条确认信息。"
+    },
+    {
+      "name": "恢复基础供电",
+      "shortText": "率先让现场恢复真正可用的电力",
+      "description": "可以修复线路、切换备用电源或采用独立电源。电力必须真正驱动现场设备并持续可用，且符合现实安全逻辑。"
+    },
+    {
+      "name": "建立安全区",
+      "shortText": "建成真正可用的安全区并维持到对抗结束",
+      "description": "率先建成一个同时具备照明、明确标记、可用急救与基础物资的安全区，并在对抗结束时仍保持可用的一方获胜。位置自行选择，但必须相对安全且各项条件真正可用。"
+    },
+    {
+      "name": "事故调查",
+      "shortText": "还原事故经过并给出可验证的解释",
+      "description": "场景中存在人物、痕迹、设备或记录线索。率先还原事故的完整经过、并给出能被现场证据支持的解释的一方获胜。"
+    },
+    {
+      "name": "区域探索",
+      "shortText": "确认全部关键地点的位置与状态",
+      "description": "率先确认场景中全部关键地点的位置与状态的一方获胜。必须亲自到达、可靠远程观察或由可信人员确认，并记录路线。"
+    },
+    {
+      "name": "三点控制",
+      "shortText": "依次控制A、B、C三个区域各45秒",
+      "description": "对手进入区域会暂停计时；完成一个点后无需继续守住。"
+    },
+    {
+      "name": "中央控制",
+      "shortText": "累计独占中央区域120秒",
+      "description": "时间可分段累计；双方同时在区域内时均不计时。"
+    },
+    {
+      "name": "夺取资料",
+      "shortText": "取得关键资料并安全带离危险区域",
+      "description": "关键资料存放在现场。率先取得完整资料并将其带离危险区域的一方获胜；资料可被放下、隐藏或交给合作人员，但最终必须完整抵达。"
+    },
+    {
+      "name": "修复挑战",
+      "shortText": "恢复现场全部关键功能",
+      "description": "现场的机械、通信与结构功能均出现故障。率先让全部关键功能恢复正常可用的一方获胜；没有专业技能也可通过查阅说明、寻找工具或投入更多时间完成。"
+    },
+    {
+      "name": "资源积分",
+      "shortText": "10分钟结束时取得更多任务资源积分",
+      "description": "水、照明、医疗、通信、工具、食物和运输资源均可得分；同类资源存在收益递减。"
+    },
+    {
+      "name": "生存与撤离",
+      "shortText": "在环境压力下抵达出口",
+      "description": "环境持续施压。在保持自身可行动的前提下抵达出口的一方获胜；路线规划、资源、体能和风险控制都能创造优势。"
+    },
+    {
+      "name": "搭建任务",
+      "shortText": "率先完成一个满足遮蔽、稳定、标记三项要求的临时站点",
+      "description": "任何现实材料与方法均可，只要结构安全并可持续使用。"
+    },
+    {
+      "name": "信息优势",
+      "shortText": "掌握并验证全部关键任务信息",
+      "description": "关键任务信息散落在场景中。率先取得并相互验证全部关键任务信息的一方获胜；信息可来自观察、人员、文件、设备或环境线索，未经验证的信息不成立。"
+    },
+    {
+      "name": "保护目标",
+      "shortText": "10分钟内保持己方关键设备或NPC可正常执行任务",
+      "description": "允许移动、维修、加固、疏散和建立备用方案；单纯藏匿并不自动获胜。"
+    },
+    {
+      "name": "多专业任务",
+      "shortText": "率先完成搜索、救援、搬运、沟通四类任务各一项",
+      "description": "每类都有至少一种不依赖特定职业的完成路径，专业技能只会提高效率。"
+    }
+  ],
+  "hexes": [
+    {
+      "name": "万能工具包",
+      "shortText": "获得一套便携通用手工具",
+      "tier": "SILVER",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "tool",
+        "repair"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "应急背包",
+      "shortText": "选择两类基础补给",
+      "tier": "SILVER",
+      "category": "RESOURCE",
+      "effectMode": "CHOICE",
+      "tags": [
+        "resource",
+        "survival"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "满电手机",
+      "shortText": "获得手机、离线地图和基础工具软件",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "technology",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "对讲机",
+      "shortText": "获得两台短距无线电",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "radio",
+        "communication"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "头灯",
+      "shortText": "获得可靠头灯和备用电池",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "light",
+        "utility"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "安全绳套装",
+      "shortText": "获得绳索、安全带和锁扣",
+      "tier": "SILVER",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "rope",
+        "utility"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "急救包",
+      "shortText": "获得标准便携急救用品",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "medical",
+        "rescue"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "防护装备",
+      "shortText": "选择头部、眼部、手部或呼吸防护",
+      "tier": "BRONZE",
+      "category": "DEFENSE",
+      "effectMode": "CHOICE",
+      "tags": [
+        "protection",
+        "safety"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "折叠推车",
+      "shortText": "获得可折叠搬运车",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "logistics",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "望远镜",
+      "shortText": "提高远距离观察能力",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "scout",
+        "vision"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "多功能胶带",
+      "shortText": "获得高强度胶带与扎带",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "repair",
+        "tool"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "防水袋",
+      "shortText": "保护关键小型物资",
+      "tier": "BRONZE",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "water",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "保温层",
+      "shortText": "获得便携保暖装备",
+      "tier": "BRONZE",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "cold",
+        "rescue"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "饮水补给",
+      "shortText": "获得2升安全饮水",
+      "tier": "BRONZE",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "water",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "能量补给",
+      "shortText": "获得高能量便携食品",
+      "tier": "BRONZE",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "food",
+        "stamina"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "环境平面图",
+      "shortText": "获得场景主要固定结构图",
+      "tier": "SILVER",
+      "category": "INFORMATION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "navigation",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "任务情报",
+      "shortText": "获知一个关键目标的可靠线索",
+      "tier": "SILVER",
+      "category": "INFORMATION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "victory",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "危险预警",
+      "shortText": "第一次重大环境危险前获得提醒",
+      "tier": "SILVER",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "safety",
+        "environment"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "快速盘点",
+      "shortText": "指出当前区域三类最有任务价值的资源",
+      "tier": "BRONZE",
+      "category": "INFORMATION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "resource",
+        "observation"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "路线提示",
+      "shortText": "比较两条可行路线",
+      "tier": "SILVER",
+      "category": "INFORMATION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "navigation",
+        "planning"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "专业直觉",
+      "shortText": "强化一次与你当前行动相关的现实技能",
+      "tier": "SILVER",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "skill",
+        "adaptive"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "临场学习",
+      "shortText": "观察后获得一项基础技能",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "learning",
+        "adaptive"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "第二方案",
+      "shortText": "失败后立即获得改进方向",
+      "tier": "SILVER",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "comeback",
+        "analysis"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "弱点缓解",
+      "shortText": "暂时压低一个缺陷的影响",
+      "tier": "GOLD",
+      "category": "RECOVERY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "weakness",
+        "recovery"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "冷静窗口",
+      "shortText": "短时压制恐慌与注意力干扰",
+      "tier": "SILVER",
+      "category": "RECOVERY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "psychology",
+        "calm"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "体能窗口",
+      "shortText": "短时提高持续工作能力",
+      "tier": "SILVER",
+      "category": "BUFF",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "physical",
+        "stamina"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "稳定双手",
+      "shortText": "短时提高精细操作可靠性",
+      "tier": "SILVER",
+      "category": "BUFF",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "precision",
+        "manual"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "专注模式",
+      "shortText": "短时过滤普通干扰",
+      "tier": "SILVER",
+      "category": "BUFF",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "focus",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "额外携带",
+      "shortText": "提高任务物品携带能力",
+      "tier": "SILVER",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "logistics",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "备用电源",
+      "shortText": "为一件小型设备恢复电量",
+      "tier": "BRONZE",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "technology",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "标记套装",
+      "shortText": "获得反光带、粉笔和记号用品",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "navigation",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "折叠担架",
+      "shortText": "提高人员与物资转移效率",
+      "tier": "SILVER",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "rescue",
+        "logistics"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "简易净水",
+      "shortText": "获得便携过滤与消毒组件",
+      "tier": "SILVER",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "water",
+        "survival"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "应急照明",
+      "shortText": "建立一个固定照明点",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "light",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "测距工具",
+      "shortText": "快速测量距离与尺寸",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "spatial",
+        "precision"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "指南针",
+      "shortText": "持续提供方向基准",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "navigation",
+        "utility"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "哨子与信号镜",
+      "shortText": "提高近远距离求援与集合效率",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "communication",
+        "rescue"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "工作手套",
+      "shortText": "提高搬运与操作安全性",
+      "tier": "BRONZE",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "manual",
+        "protection"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "工作靴",
+      "shortText": "提高复杂地面行动稳定性",
+      "tier": "BRONZE",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "terrain",
+        "protection"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "雨披",
+      "shortText": "降低风雨暴露",
+      "tier": "BRONZE",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "weather",
+        "utility"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "万能布",
+      "shortText": "获得一块结实防水篷布",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "resource",
+        "construction"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "备用钥匙权限",
+      "shortText": "解除一个普通非关键门禁",
+      "tier": "SILVER",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "access",
+        "urban"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "NPC协作",
+      "shortText": "让一名中立NPC可靠执行简单任务",
+      "tier": "SILVER",
+      "category": "SOCIAL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "support",
+        "communication"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "稳定士气",
+      "shortText": "降低一组中立NPC的恐慌",
+      "tier": "SILVER",
+      "category": "SOCIAL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "psychology",
+        "support"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "一分钟规划",
+      "shortText": "获得额外观察与规划窗口",
+      "tier": "GOLD",
+      "category": "META",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "planning",
+        "timing"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "快速复盘",
+      "shortText": "失败后锁定一个错误环节",
+      "tier": "SILVER",
+      "category": "INFORMATION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "analysis",
+        "learning"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "环境适应包",
+      "shortText": "选择当前最主要的环境压力获得基础装备",
+      "tier": "GOLD",
+      "category": "RESOURCE",
+      "effectMode": "CHOICE",
+      "tags": [
+        "environment",
+        "adaptive"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "物资缓存",
+      "shortText": "在己方起点获得通用任务耗材",
+      "tier": "SILVER",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "resource",
+        "logistics"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "检查清单",
+      "shortText": "降低复杂任务的首次操作失误",
+      "tier": "BRONZE",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "rules",
+        "precision"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "信息板",
+      "shortText": "建立共享任务状态面板",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "information",
+        "planning"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "替代材料",
+      "shortText": "缺少一种普通耗材时找到合理替代品",
+      "tier": "SILVER",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "adaptive",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "捷径机会",
+      "shortText": "发现一条合理的次级路线",
+      "tier": "SILVER",
+      "category": "INFORMATION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "navigation",
+        "adaptive"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "安全余量",
+      "shortText": "第一次小失误不会立刻升级为严重后果",
+      "tier": "GOLD",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "safety",
+        "comeback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "备用方案包",
+      "shortText": "选择工具、信息或补给之一",
+      "tier": "SILVER",
+      "category": "RESOURCE",
+      "effectMode": "CHOICE",
+      "tags": [
+        "adaptive",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    }
+  ]
+}
