@@ -1,0 +1,1616 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>超级对决 SUPER FIGHT · V0.5.0</title>
+<style>
+:root{
+  --bg:#0b1020;
+  --panel:#121a2e;
+  --panel2:#17223b;
+  --panel3:#0f1730;
+  --text:#f8fbff;
+  --text2:#dce7ff;
+  --muted:#aebcda;
+  --line:#334365;
+  --accent:#8aa5ff;
+  --accent2:#b78cff;
+  --good:#68e0a2;
+  --warn:#ffd477;
+  --bad:#ff98a4;
+  --shadow:0 18px 50px rgba(0,0,0,.28);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--text)}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:linear-gradient(180deg,#0a1020,#0c1326 30%,#111831);
+  min-height:100vh;
+}
+body,button,input,select,textarea,table,th,td,label,summary,a,option{
+  color:var(--text);
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:var(--text);text-decoration:none}
+option{background:#10172b}
+::placeholder{color:#8292b5}
+.hidden{display:none!important}
+.app{min-height:100vh}
+.nav{
+  position:sticky;top:0;z-index:30;height:68px;
+  display:flex;align-items:center;gap:18px;padding:0 24px;
+  background:rgba(8,13,26,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)
+}
+.brand{font-weight:900;letter-spacing:.06em;white-space:nowrap;color:var(--text)}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:8px;flex:1;overflow:auto}
+.nav a{padding:9px 11px;border-radius:10px;color:var(--muted);font-size:14px}
+.nav a.active,.nav a:hover{background:var(--panel2);color:var(--text)}
+.navright{display:flex;gap:8px}
+.wrap{max-width:1440px;margin:0 auto;padding:28px}
+.hero{display:flex;justify-content:space-between;gap:28px;align-items:flex-start;margin-bottom:24px}
+h1,h2,h3,h4,strong,b{color:var(--text)}
+h1{font-size:34px;line-height:1.08;margin:0 0 10px}
+h2{font-size:22px;margin:0 0 14px}
+h3{font-size:16px;margin:0 0 10px}
+h4{font-size:14px;margin:0 0 8px}
+p{color:var(--muted);line-height:1.65}
+.grid{display:grid;gap:16px}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.card{
+  background:linear-gradient(180deg,rgba(23,34,59,.96),rgba(16,24,43,.96));
+  border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);
+  color:var(--text)
+}
+.card.soft{box-shadow:none;background:rgba(18,26,46,.84)}
+.stat{font-size:30px;font-weight:800;color:var(--text)}
+.muted{color:var(--muted)!important}
+.small{font-size:13px}
+.btn{
+  border:1px solid var(--line);border-radius:12px;padding:10px 14px;
+  background:var(--panel2);color:var(--text);font-weight:700
+}
+.btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.primary{background:linear-gradient(135deg,#6e8cff,#9d78ff);border:0;color:#fff}
+.btn.good{background:#183f33;border-color:#2f7c5d;color:#f2fff7}
+.btn.warn{background:#4b3d1a;border-color:#92752d;color:#fff7d6}
+.btn.bad{background:#4b2028;border-color:#8d3c49;color:#fff2f4}
+.btn.ghost{background:transparent;color:var(--text2)}
+.btn.big{padding:14px 18px;font-size:16px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.space{justify-content:space-between}
+.badge{
+  display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:999px;
+  background:#202b49;color:#eef3ff;font-size:12px;border:1px solid #435477
+}
+.clickable{cursor:pointer}
+.clickable:hover{text-decoration:underline;text-underline-offset:3px}
+.badge.clickable:hover{border-color:var(--accent);text-decoration:none}
+.badge.gold{background:#5b4618;border-color:#aa8632;color:#fff0a6}
+.badge.silver{background:#374356;border-color:#6c7c98;color:#f5f8ff}
+.badge.prismatic{background:#44335f;border-color:#8364b8;color:#f1e7ff}
+.badge.cursed{background:#5a2436;border-color:#a14763;color:#ffdce4}
+.badge.bronze{background:#3a2c22;border-color:#8a6a4a;color:#f2e3d2}
+.badge.quest{background:#164a40;border-color:#337f71;color:#c8fff4}
+.badge.active{outline:2px solid var(--accent)}
+.list{display:flex;flex-direction:column;gap:10px}
+.item{
+  padding:12px 14px;border-radius:12px;background:#10182b;border:1px solid var(--line);
+  color:var(--text)
+}
+.item.active{outline:2px solid var(--accent)}
+.kbd{padding:2px 7px;border-radius:6px;background:#0a1120;border:1px solid #435477;color:#e8efff}
+input,select,textarea{
+  width:100%;background:#0d1629;border:1px solid var(--line);color:var(--text);
+  border-radius:10px;padding:10px 12px;outline:none
+}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+label{display:block;font-size:13px;color:#d1dcf4;margin-bottom:6px}
+.field{margin-bottom:14px}
+.progress{height:8px;border-radius:99px;background:#0c1425;overflow:hidden;border:1px solid var(--line)}
+.progress>i{display:block;height:100%;background:linear-gradient(90deg,#6d8cff,#aa6eff)}
+.setup{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px}
+.steps{display:flex;gap:8px;margin:12px 0 20px;overflow:auto}
+.step{padding:8px 11px;border-radius:10px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.step.on{background:#1a2b53;color:#fff;border-color:#5b76b0}
+.sticky{position:sticky;top:88px;align-self:start}
+.live-layout{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:14px}
+.fighter{min-height:310px}
+.fighter .name{font-size:28px;font-weight:900;color:#fff}
+.arena{
+  min-height:310px;
+  background:radial-gradient(circle at 50% 10%,rgba(113,137,255,.18),transparent 45%),linear-gradient(180deg,#182442,#10182c)
+}
+.timer{font-size:64px;font-weight:900;letter-spacing:.04em;color:#fff}
+.dualtimer{display:flex;gap:26px;justify-content:center;align-items:flex-start}
+.dtcol{opacity:.45;transition:opacity .15s}
+.dtcol .timer{font-size:52px}
+.dtcol.on{opacity:1}
+.dtcol.on .dtlabel{color:var(--accent)}
+.dtlabel{font-size:13px;font-weight:700;color:#9fb0d8;letter-spacing:.1em}
+.dtgrp{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border:1px solid var(--line);border-radius:9px}
+.dtgrp input{background:#10182e;border:1px solid var(--line);color:#eef3ff;border-radius:6px;padding:5px 6px;width:56px;font-size:13px}
+.dtgrp b{font-size:13px}
+.segrow.dragging{opacity:.5;outline:2px dashed var(--accent)}
+.drag-handle{cursor:grab;color:#8fa3cc;font-size:18px;line-height:1;user-select:none;padding-top:2px}
+.segname{background:#10182e;border:1px solid var(--line);color:#eef3ff;border-radius:6px;padding:5px 8px;font-size:14px;font-weight:700;min-width:120px}
+.topbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;margin-bottom:14px}
+.center{text-align:center}
+.control{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+.timeline{display:flex;gap:8px;overflow:auto;margin-top:14px;padding-bottom:4px}
+.node{
+  min-width:150px;padding:10px;border-radius:11px;border:1px solid var(--line);
+  background:#0c1425;color:var(--text)
+}
+.node.current{border-color:var(--accent);background:#17264e}
+.node.done{opacity:.58}
+.hexes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hex{
+  padding:16px;border-radius:15px;background:#101a31;border:1px solid var(--line);min-height:210px;
+  display:flex;flex-direction:column;color:var(--text);text-align:left
+}
+.hex.selected{outline:3px solid var(--accent)}
+.hex .name{font-size:20px;font-weight:900;margin:10px 0 8px;color:#fff}
+.hex .effect{color:#d8e3fa;line-height:1.5;flex:1}
+.overlay{
+  position:fixed;inset:0;background:#050913;z-index:50;
+  display:flex;align-items:center;justify-content:center;padding:24px
+}
+.modal{
+  max-width:900px;width:100%;background:#101a31;border:1px solid #435477;border-radius:24px;
+  padding:24px;box-shadow:0 30px 90px rgba(0,0,0,.55);color:var(--text)
+}
+.score{font-size:56px;font-weight:900;color:#fff}
+.table{width:100%;border-collapse:collapse;color:var(--text)}
+.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:left;font-size:13px;vertical-align:top;color:var(--text2)}
+.table th{color:#c6d4f2}
+.drawer{
+  position:fixed;top:68px;right:0;bottom:0;width:min(520px,96vw);background:#0d1628;
+  border-left:1px solid var(--line);z-index:40;padding:22px;overflow:auto;box-shadow:-30px 0 70px rgba(0,0,0,.35);color:var(--text)
+}
+.toast{
+  position:fixed;right:20px;bottom:20px;background:#14213b;border:1px solid #485b81;
+  padding:12px 16px;border-radius:12px;z-index:70;box-shadow:var(--shadow);color:#fff
+}
+.help-section{margin-bottom:18px}
+.help-section h2{margin-bottom:8px}
+.help-step{
+  display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;
+  padding:14px;border-radius:14px;background:#0f1930;border:1px solid var(--line)
+}
+.help-num{
+  width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#6e8cff,#9d78ff);font-weight:900;color:#fff
+}
+.callout{
+  padding:14px 16px;border-radius:14px;background:#182341;border:1px solid #4a5e86;color:#eef4ff
+}
+.logline{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#dce7ff}
+
+.image-slot{
+  min-height:150px;border:1px dashed #5b6f9b;border-radius:14px;background:#0c1427;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;
+  color:var(--muted);text-align:center;padding:14px;overflow:hidden
+}
+.image-slot img{width:100%;height:180px;object-fit:cover;border-radius:10px;display:block}
+.image-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.state-pill{display:inline-flex;padding:5px 9px;border-radius:999px;background:#1a2848;border:1px solid #43577f;font-size:12px;color:#eef4ff}
+.reveal-board{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+
+.import-help{padding:14px;border:1px solid var(--line);border-radius:14px;background:#0f1930;margin-top:12px}
+.pool-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.pool-stat{padding:8px;border:1px solid var(--line);border-radius:10px;background:#0c1427;font-size:12px}
+@media(max-width:700px){.pool-stat-grid{grid-template-columns:repeat(2,1fr)}}
+
+
+.detail-card{background:#0e1830;border:1px solid var(--line);border-radius:16px;padding:16px}
+.detail-card h3{margin-bottom:6px}
+.detail-label{font-size:12px;color:var(--muted);margin-bottom:4px}
+.detail-text{color:var(--text2);line-height:1.65}
+.confirm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.confirm-public{grid-column:1/-1}
+.rule-box{padding:14px 16px;border-radius:14px;background:#111c35;border:1px solid #42577e}
+.rule-box h3{margin-bottom:6px}
+.quick-check{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.quick-check .item{min-height:120px}
+.help-toc{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.help-toc a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#111a30;color:var(--text)}
+@media(max-width:900px){.confirm-grid,.quick-check{grid-template-columns:1fr}.confirm-public{grid-column:auto}}
+
+@media(max-width:1000px){
+ .grid.cols-4,.grid.cols-3{grid-template-columns:repeat(2,1fr)}
+ .setup,.live-layout{grid-template-columns:1fr}
+ .sticky{position:static}
+ .nav{padding:0 12px}.navright{display:none}.wrap{padding:18px}
+}
+@media(max-width:760px){
+ .grid.cols-4,.grid.cols-3,.grid.cols-2,.hexes{grid-template-columns:1fr}
+ .timer{font-size:46px}.hero{flex-direction:column}.topbar{grid-template-columns:1fr}
+ .navlinks{gap:3px}.nav a{padding:8px}
+}
+.app-footer{margin-top:28px;padding:16px 0 6px;border-top:1px solid #223;color:rgba(255,255,255,.5);font-size:12px;line-height:1.7}
+.app-footer a{color:#6cf;text-decoration:none}
+.app-footer .sep{opacity:.4;margin:0 6px}
+.proj-watermark{position:fixed;right:14px;bottom:10px;font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.28);pointer-events:none;z-index:50;user-select:none}
+.about-card{margin-top:16px}
+</style>
+</head>
+<body>
+<div id="app" class="app"></div>
+
+
+<script>
+/* 超级对决 SUPER FIGHT · V0.5.0
+ * 作者：剪切线
+ * 许可：代码 GPL-3.0；内容（角色 / 能力 / 缺陷 / 环境 / 海克斯 / 环境事件 / 胜利条件及全部内容包）采用 CC BY-NC-SA 4.0
+ *      —— 教学用途免费，禁止未授权商用与转载。
+ * 目标：IndexedDB + 可编辑内容库 + Pool + 真实随机 Setup + 保留 V0.3.x 稳定比赛引擎。
+ */
+const APP_META={
+ author:"剪切线",
+ year:2026,
+ contact:"jvrc1392@agent.qq.com",
+ codeLicense:"GPL-3.0",
+ contentLicense:"CC BY-NC-SA 4.0",
+ note:"教学用途免费，禁止未授权商用与转载"
+};
+
+const DEFAULT_CONTENT = {
+ characters:[
+  {id:"C01",type:"characters",name:"成龙",shortText:"灵活、善用环境的现实系武术家",description:"健康成年时期的成龙，拥有现实世界通常意义上的身体能力、武术经验和临场使用环境物品的能力。",tags:["human","martial","agile"],enabled:true},
+  {id:"C02",type:"characters",name:"成年北极熊",shortText:"大型、高力量、水域适应",description:"健康成年北极熊，拥有现实世界通常意义上的力量、速度、耐力、感官和游泳能力。",tags:["animal","large","strength","environment.water"],enabled:true},
+  {id:"C03",type:"characters",name:"中世纪骑士",shortText:"板甲、长剑、系统军事训练",description:"受过系统军事训练的成年骑士，身穿标准板甲并携带长剑。",tags:["human","armor","melee"],enabled:true},
+  {id:"C04",type:"characters",name:"普通成年猫",shortText:"弱基础角色，用于测试强海克斯构筑",description:"一只健康成年家猫。",tags:["animal","small","agile"],enabled:true},
+  {id:"C05",type:"characters",name:"职业消防员",shortText:"现代生存与救援经验",description:"经验丰富、身体健康的现代职业消防员。",tags:["human","survival","rescue"],enabled:true},
+  {id:"C06",type:"characters",name:"银背大猩猩",shortText:"大型、高力量、近战",description:"健康成年雄性银背大猩猩。",tags:["animal","large","strength","melee"],enabled:true},
+  {id:"C07",type:"characters",name:"神枪手牛仔",shortText:"现实物理规则下的顶级枪手",description:"虚构但遵守现实物理规则的顶级牛仔枪手，携带两把左轮手枪。",tags:["human","ranged","reaction"],enabled:true},
+  {id:"C08",type:"characters",name:"普通小学老师",shortText:"基础很弱的普通成年人",description:"健康普通成年人，没有特殊战斗训练。",tags:["human","ordinary"],enabled:true}
+ ],
+ abilities:[
+  {id:"A01",type:"abilities",name:"隐身",shortText:"完全视觉隐身，但不消除声音与气味",description:"可以主动进入完全视觉隐身状态。",tags:["mechanic.stealth","information","evasion"],enabled:true},
+  {id:"A02",type:"abilities",name:"瞬移",shortText:"每30秒瞬移到视野内20米位置",description:"每30秒可以瞬间移动到视野内20米范围内一个可正常站立的位置。",tags:["mobility","space"],enabled:true},
+  {id:"A03",type:"abilities",name:"精通枪械",shortText:"高水平使用正常现代枪械",description:"能熟练、安全且高水平使用任何正常现代枪械。",tags:["ranged","weapon","skill"],enabled:true},
+  {id:"A04",type:"abilities",name:"水下呼吸",shortText:"无限时间在水下呼吸",description:"可以无限时间在水下正常呼吸。",tags:["survival","environment.water"],enabled:true},
+  {id:"A05",type:"abilities",name:"读心",shortText:"读取20米内可见目标当前思考",description:"可以知道20米内一个可见目标当前正在明确思考的内容。",tags:["information","mind"],enabled:true},
+  {id:"A06",type:"abilities",name:"超级力量",shortText:"力量约为同体型普通个体10倍",description:"肌肉力量约为同体型普通个体的10倍，但身体耐久没有同比提升。",tags:["strength","melee"],enabled:true},
+  {id:"A07",type:"abilities",name:"夜视",shortText:"极低光照下接近白昼视觉",description:"在极低光照环境中拥有接近正常白昼的视觉能力。",tags:["vision","night"],enabled:true},
+  {id:"A08",type:"abilities",name:"时间感知加速",shortText:"主观思考速度提升5倍",description:"主观思考速度提升到正常人的5倍，但身体行动速度不变。",tags:["information","decision"],enabled:true},
+  {id:"A09",type:"abilities",name:"动物沟通",shortText:"与普通动物双向语言交流",description:"可以与任何普通动物进行双向语言交流。",tags:["information","animal"],enabled:true},
+  {id:"A10",type:"abilities",name:"自我修复",shortText:"非致命伤势约20倍速度恢复",description:"非致命伤势会以正常人约20倍速度恢复。",tags:["survival","recovery"],enabled:true}
+ ],
+ weaknesses:[
+  {id:"W01",type:"weaknesses",name:"隐身喷嚏",shortText:"连续隐身10秒必定响亮喷嚏",description:"连续隐身每达到10秒，必定发生一次无法抑制的响亮喷嚏。",tags:["weakness.sneeze","mechanic.stealth","exposure"],enabled:true},
+  {id:"W02",type:"weaknesses",name:"严重恐高",shortText:"高处强烈恐惧并影响行动",description:"位于明显高处或存在坠落风险时，会产生强烈恐惧并显著影响判断与行动。",tags:["psychology","height"],enabled:true},
+  {id:"W03",type:"weaknesses",name:"怕水",shortText:"水深超过腰部会明显恐慌",description:"进入水深超过腰部的区域时会陷入明显恐慌。",tags:["psychology","environment.water"],enabled:true},
+  {id:"W04",type:"weaknesses",name:"玻璃膝盖",shortText:"膝盖受到冲击后容易失去移动能力",description:"双膝非常脆弱，受到显著冲击后容易失去正常移动能力。",tags:["body","mobility"],enabled:true},
+  {id:"W05",type:"weaknesses",name:"色盲",shortText:"无法依赖颜色准确区分信息",description:"无法依赖颜色准确区分目标或信息。",tags:["vision"],enabled:true},
+  {id:"W06",type:"weaknesses",name:"每分钟昏睡5秒",shortText:"每60秒不可避免失去意识5秒",description:"每60秒会不可避免地失去意识5秒。",tags:["periodic","control"],enabled:true},
+  {id:"W07",type:"weaknesses",name:"无法说谎",shortText:"无法主动说出自己认为不真实的陈述",description:"无法主动说出自己认为不真实的陈述。",tags:["social","information"],enabled:true},
+  {id:"W08",type:"weaknesses",name:"极端怕火",shortText:"面对明显火焰会优先远离",description:"面对明显火焰时会优先远离火源。",tags:["psychology","fire"],enabled:true},
+  {id:"W09",type:"weaknesses",name:"疼痛敏感",shortText:"疼痛主观感受约普通人三倍",description:"对疼痛的主观感受约为普通人的三倍。",tags:["body","psychology"],enabled:true},
+  {id:"W10",type:"weaknesses",name:"高噪声眩晕",shortText:"极大噪声会短暂失去平衡",description:"遇到极大噪声时会短暂失去平衡感。",tags:["sound","control"],enabled:true}
+ ],
+ environments:[
+  {id:"E01",type:"environments",name:"正在下沉的泰坦尼克号",shortText:"进水、低温、倾斜、出口拥堵",description:"船已撞击冰山约10分钟，低层区域开始进水，船体正在缓慢倾斜。",tags:["environment.water","indoor","ship","dynamic"],hazards:["进水","低温","倾斜","出口拥堵"],enabled:true},
+  {id:"E02",type:"environments",name:"午夜大型购物中心",shortText:"多层、遮挡多、室内",description:"商场已经关闭，没有普通顾客，建筑供电正常。",tags:["indoor","multi_floor","cover"],hazards:["多层","遮挡多"],enabled:true},
+  {id:"E03",type:"environments",name:"撒哈拉沙漠正午",shortText:"极端高温、开阔、资源匮乏",description:"极端高温，周围没有明显建筑或稳定水源。",tags:["outdoor","heat","open"],hazards:["高温","缺水"],enabled:true},
+  {id:"E04",type:"environments",name:"国际空间站",shortText:"微重力、狭窄、高风险",description:"双方位于正常运行中的国际空间站内部。",tags:["indoor","microgravity","high_risk"],hazards:["微重力","狭窄"],enabled:true},
+  {id:"E05",type:"environments",name:"正在燃烧的摩天大楼",shortText:"高空、火焰、烟雾、动态危险",description:"中高楼层发生严重火灾，部分楼梯不可用，烟雾持续扩散。",tags:["indoor","height","fire","dynamic"],hazards:["高空","火焰","烟雾"],enabled:true},
+  {id:"E06",type:"environments",name:"热带雨林夜晚",shortText:"夜间、湿润、复杂地形",description:"大雨刚刚停止，植被茂密，可视距离有限。",tags:["outdoor","night","wet","complex"],hazards:["低能见度","湿滑"],enabled:true}
+ ],
+ events:[
+  {id:"EE02",type:"events",name:"海水快速涌入",shortText:"低处区域短时间快速积水",description:"当前低处区域开始在短时间内快速积水。",compatibleEnvironmentTags:["environment.water","ship"],defaultPersistence:"PERSISTENT",enabled:true},
+  {id:"EE03",type:"events",name:"通道坍塌",shortText:"一条主要路线永久无法使用",description:"一条此前可通行的主要路线永久无法继续使用。",compatibleEnvironmentTags:[],defaultPersistence:"PERSISTENT",enabled:true},
+  {id:"EE04",type:"events",name:"火势扩散",shortText:"火焰与高温影响邻近区域",description:"火焰和高温开始影响原本安全的邻近区域。",compatibleEnvironmentTags:["fire"],defaultPersistence:"PERSISTENT",enabled:true},
+  {id:"EE05",type:"events",name:"浓烟",shortText:"能见度下降并产生呼吸压力",description:"当前区域能见度大幅下降，并产生持续呼吸压力。",compatibleEnvironmentTags:["indoor"],defaultPersistence:"PERSISTENT",enabled:true},
+  {id:"EE06",type:"events",name:"警报响起",shortText:"极高音量警报持续30秒",description:"极高音量警报持续30秒。",compatibleEnvironmentTags:["indoor"],defaultPersistence:"CURRENT_NODE",enabled:true},
+  {id:"EE07",type:"events",name:"地面严重湿滑",shortText:"移动稳定性显著下降",description:"当前区域移动稳定性显著下降。",compatibleEnvironmentTags:[],defaultPersistence:"CURRENT_NODE",enabled:true}
+ ],
+ hexes:[
+  {id:"H01",type:"hexes",name:"水鬼",tier:"SILVER",category:"ENVIRONMENT",effectMode:"PASSIVE",shortText:"可以无限时间在水下正常呼吸。",tags:["environment.water","survival"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H02",type:"hexes",name:"铁肺",tier:"SILVER",category:"CORE",effectMode:"PASSIVE",shortText:"可以屏住呼吸10分钟。",tags:["survival","breathing"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H03",type:"hexes",name:"夜行者",tier:"SILVER",category:"ENVIRONMENT",effectMode:"PASSIVE",shortText:"获得完整夜视能力。",tags:["vision","night"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H04",type:"hexes",name:"无声猎手",tier:"GOLD",category:"SYNERGY",effectMode:"PASSIVE",shortText:"主动隐蔽时，正常移动产生的声音降低90%。",tags:["mechanic.stealth","information"],requirements:[{type:"HAS_TAG",operator:"ANY",value:["mechanic.stealth"]}],incompatibilities:[],weight:1,enabled:true},
+  {id:"H05",type:"hexes",name:"伺机而动",tier:"GOLD",category:"SYNERGY",effectMode:"PASSIVE",shortText:"连续30秒未主动攻击后，下一次主动攻击显著强化。",tags:["stealth","burst"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H06",type:"hexes",name:"猎犬嗅觉",tier:"GOLD",category:"COUNTER",effectMode:"PASSIVE",shortText:"嗅觉大幅增强，可通过气味追踪普通生物最近经过路线。",tags:["information","counter_stealth"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H07",type:"hexes",name:"防弹皮肤",tier:"GOLD",category:"COUNTER",effectMode:"PASSIVE",shortText:"第一枚实际命中的普通枪械子弹不会造成伤害。",tags:["defense","ranged"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H08",type:"hexes",name:"喷嚏冲击",tier:"GOLD",category:"WEAKNESS_CONVERSION",effectMode:"PASSIVE",shortText:"每次因缺陷被迫打喷嚏时产生短距离冲击波。",tags:["weakness_conversion","control"],requirements:[{type:"HAS_TAG",operator:"ANY",value:["weakness.sneeze"]}],incompatibilities:[],weight:1,enabled:true},
+  {id:"H09",type:"hexes",name:"绝地求生",tier:"GOLD",category:"ENVIRONMENT",effectMode:"PASSIVE",shortText:"处于明显致命环境时，体能与耐力显著提高。",tags:["survival","environment"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H10",type:"hexes",name:"破绽感知",tier:"GOLD",category:"CORE",effectMode:"PASSIVE",shortText:"连续观察同一目标5秒后，可判断其当前最明显身体弱点或行动破绽。",tags:["information","combat"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H11",type:"hexes",name:"时间回溯",tier:"PRISMATIC",category:"RULE_CHANGE",effectMode:"PASSIVE",shortText:"每场一次，使自身身体状态和所在位置恢复到30秒前，但保留当前记忆。",tags:["time","rule_change"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H12",type:"hexes",name:"幽灵",tier:"PRISMATIC",category:"SYNERGY",effectMode:"PASSIVE",shortText:"连续保持隐身5秒后，正常声音、气味和可追踪足迹同时消失。",tags:["mechanic.stealth","counter_tracking"],requirements:[{type:"HAS_TAG",operator:"ANY",value:["mechanic.stealth"]}],incompatibilities:[],weight:1,enabled:true},
+  {id:"H14",type:"hexes",name:"最后一次机会",tier:"PRISMATIC",category:"RULE_CHANGE",effectMode:"PASSIVE",shortText:"第一次受到本应立即致死的伤害时，改为严重但非致命伤势。",tags:["survival","rule_change"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H16",type:"hexes",name:"孤注一掷",tier:"CURSED",category:"RULE_CHANGE",effectMode:"CHOICE",shortText:"选择一项特殊能力显著强化，其余特殊能力立即失效。",tags:["build","curse"],requirements:[],incompatibilities:[],choiceSchema:{type:"SELECT_OWN_ABILITY",min:1,max:1},weight:1,enabled:true},
+  {id:"H17",type:"hexes",name:"猎手任务",tier:"QUEST",category:"SYNERGY",effectMode:"QUEST",shortText:"完成观察任务后永久获得“破绽感知”。",tags:["quest","information"],requirements:[],incompatibilities:[],weight:1,enabled:true},
+  {id:"H18",type:"hexes",name:"逆境成长",tier:"QUEST",category:"WEAKNESS_CONVERSION",effectMode:"QUEST",shortText:"缺陷造成明显不利后继续行动60秒，之后该缺陷不利效果减半。",tags:["quest","weakness_conversion"],requirements:[],incompatibilities:[],weight:1,enabled:true}
+ ],
+ victories:[
+  {id:"V01",type:"victories",name:"击败",shortText:"使对手无法继续战斗",description:"使对手死亡、失去意识或永久失去继续战斗能力。",enabled:true},
+  {id:"V02",type:"victories",name:"生存30分钟",shortText:"30分钟后仍具基本自主行动能力",description:"30分钟后仍具有基本自主行动能力的一方获胜。",enabled:true},
+  {id:"V03",type:"victories",name:"抢先逃脱",shortText:"最先通过明确安全出口",description:"最先抵达并成功通过明确安全出口的一方获胜。",enabled:true},
+  {id:"V04",type:"victories",name:"控制目标",shortText:"10分钟结束时控制中央目标物",description:"在比赛模拟时间10分钟结束时，实际控制场地中央指定目标物的一方获胜。",enabled:true}
+ ],
+ pools:[
+  {id:"P01",type:"pools",name:"Seed Pack 全内容",description:"V0.4.4 默认全内容池。",includedIds:[],excludedIds:[],tagFilters:[],enabled:true}
+ ]
+};
+
+const TYPE_META={
+ characters:{label:"角色",prefix:"C"},
+ abilities:{label:"能力",prefix:"A"},
+ weaknesses:{label:"缺陷",prefix:"W"},
+ environments:{label:"环境",prefix:"E"},
+ events:{label:"环境事件",prefix:"EE"},
+ hexes:{label:"海克斯",prefix:"H"},
+ victories:{label:"胜利条件",prefix:"V"},
+ pools:{label:"内容池",prefix:"P"}
+};
+
+const defaultTimeline=[
+ {id:"n1",type:"HEX",name:"第一轮海克斯",duration:0,config:{tiers:["BRONZE","SILVER","GOLD"],count:3}},
+ {id:"n2",type:"PREP",name:"准备阶段",duration:180,skippable:false},
+ {id:"n3",type:"SPEECH",name:"A 方立论",duration:90,actor:"A",skippable:false},
+ {id:"n4",type:"SPEECH",name:"B 方立论",duration:90,actor:"B",skippable:false},
+ {id:"n5",type:"HEX",name:"第二轮海克斯",duration:0,config:{tiers:["SILVER","GOLD"],count:3}},
+ {id:"n6",type:"FREE",name:"自由辩",duration:240,skippable:false,dual:true},
+ {id:"n7",type:"EVENT",name:"环境事件",duration:0},
+ {id:"n8",type:"HEX",name:"第三轮海克斯",duration:0,config:{tiers:["PRISMATIC","CURSED","QUEST"],count:3}},
+ {id:"n9",type:"SUMMARY",name:"A 方总结",duration:45,actor:"A",skippable:false},
+ {id:"n10",type:"SUMMARY",name:"B 方总结",duration:45,actor:"B",skippable:false},
+ {id:"n11",type:"VOTE",name:"总结与判票",duration:0}
+];
+
+const HEX_TIERS=["BRONZE","SILVER","GOLD","PRISMATIC","CURSED","QUEST"];
+function defaultTierPlan(){
+ const plan={};
+ for(const n of currentTimeline())if(n.type==="HEX")plan[n.id]=[...(n.config?.tiers||[])];
+ return plan
+}
+
+const zh={
+ NOT_STARTED:"未开始",RUNNING:"计时中",PAUSED:"已暂停",FINISHED:"已结束",
+ ACTIVE:"进行中",PENDING:"等待中",COMPLETED:"已完成",FAILED:"已失败",CANCELLED:"已取消",
+ HEX:"海克斯选择",PREP:"准备阶段",SPEECH:"陈词",FREE:"自由辩",EVENT:"环境事件",SUMMARY:"总结",VOTE:"判票",
+ SEGMENT:"计时环节",
+ BRONZE:"青铜",SILVER:"白银",GOLD:"黄金",PRISMATIC:"棱彩",CURSED:"诅咒",QUEST:"任务"
+};
+const z=v=>zh[v]||v;
+const clone=v=>structuredClone(v);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+// 媒体解析缓存：media 库中以 Blob 存储，渲染时用 object URL 引用（避免 base64 内联进对局数据）
+const _mediaUrlCache=new Map();
+// 历史内联 data: 媒体懒迁移为 Blob 入库（无网络/无 IDB 环境下 data: 仍可直显，故失败即回退）
+function dataUrlToBlob(dataUrl){const [head,b64]=String(dataUrl).split(",");const mime=(head.match(/data:([^;]+)/)||[])[1]||"image/png";const bin=atob(b64);const u8=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u8[i]=bin.charCodeAt(i);return new Blob([u8],{type:mime})}
+function blobToDataUrl(blob){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=()=>rej(fr.error);fr.readAsDataURL(blob)})}
+function mediaUrl(v){if(!v)return null;if(v.startsWith("data:"))return v;return _mediaUrlCache.get(v)||null}
+async function hydrateMedia(m){if(!m||!m.media)return;for(const k of ["characterA","characterB","environment"]){const v=m.media[k];if(!v)continue;if(v.startsWith("data:")){try{const id="MID-"+Date.now()+"-"+Math.random().toString(36).slice(2,6);const blob=dataUrlToBlob(v);await db.putMedia(id,blob);m.media[k]=id;_mediaUrlCache.set(id,URL.createObjectURL(blob));await service.save(m)}catch(e){}}else if(!_mediaUrlCache.has(v)){try{const blob=await db.getMedia(v);if(blob)_mediaUrlCache.set(v,URL.createObjectURL(blob))}catch(e){}}}}
+
+// IndexedDB 迁移映射：每条迁移只「新增」，绝不删除旧库/旧数据。改 schema 必须 version+1 并追加一条迁移函数。
+const DB_MIGRATIONS={
+ 1(d){
+  if(!d.objectStoreNames.contains("content")){const s=d.createObjectStore("content",{keyPath:"key"});s.createIndex("type","type")}
+  if(!d.objectStoreNames.contains("matches"))d.createObjectStore("matches",{keyPath:"id"});
+  if(!d.objectStoreNames.contains("meta"))d.createObjectStore("meta",{keyPath:"key"});
+ },
+ 2(d){
+  if(!d.objectStoreNames.contains("media"))d.createObjectStore("media",{keyPath:"id"});
+ }
+};
+const db={
+ name:"super-fight-v04",version:2,conn:null,_staleNotified:false,
+ async open(){
+  if(this.conn)return this.conn;
+  this.conn=await this._connect();
+  return this.conn
+ },
+ _request(ver){
+  return new Promise((resolve,reject)=>{
+   const r=ver==null?indexedDB.open(this.name):indexedDB.open(this.name,ver);
+   r.onupgradeneeded=()=>{
+    const d=r.result;
+    for(let v=(r.oldVersion||0)+1;v<=(r.newVersion||this.version);v++){if(DB_MIGRATIONS[v])DB_MIGRATIONS[v](d)}
+   };
+   r.onblocked=()=>{toast("数据库结构升级中，请刷新其它已打开的本工具标签页")};
+   r.onsuccess=()=>{const conn=r.result;conn.onversionchange=()=>{try{conn.close()}catch{};db.conn=null};resolve(conn)};
+   r.onerror=()=>reject(r.error)
+  })
+ },
+ async _connect(){
+  try{return await this._request(this.version)}
+  catch(e){
+   // 数据库已被更新版本升级（requested < existing）：不强行降级，改连当前版本并一次性提示刷新。
+   // 迁移只增不删，旧代码读写的 store 在新 schema 中仍存在，故重连后旧页可继续使用而非静默丢持久化。
+   if(e&&e.name==="VersionError"){
+    const conn=await this._request(null);
+    this.version=conn.version;
+    if(!this._staleNotified){this._staleNotified=true;try{toast("数据库已由新版本升级，建议刷新本页获取最新功能")}catch{}}
+    return conn
+   }
+   throw e
+  }
+ },
+ async tx(store,mode,fn){
+  const d=await this.open();
+  return new Promise((resolve,reject)=>{
+   const tx=d.transaction(store,mode),os=tx.objectStore(store);
+   let val;
+   try{val=fn(os)}catch(e){reject(e);return}
+   tx.oncomplete=()=>resolve(val);tx.onerror=()=>reject(tx.error)
+  })
+ },
+ async put(store,val){await this.tx(store,"readwrite",os=>os.put(val))},
+ async del(store,key){await this.tx(store,"readwrite",os=>os.delete(key))},
+ async putMedia(id,blob){await this.put("media",{id,blob})},
+ async getMedia(id){const d=await this.get("media",id);return d?d.blob:null},
+ async delMedia(id){try{await this.del("media",id)}catch{}},
+ async getAll(store){const d=await this.open();return new Promise((res,rej)=>{const r=d.transaction(store).objectStore(store).getAll();r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})},
+ async get(store,key){const d=await this.open();return new Promise((res,rej)=>{const r=d.transaction(store).objectStore(store).get(key);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+};
+
+const cache={content:{},matches:{}};
+let syncChannel=null;
+try{syncChannel=new BroadcastChannel("super-fight-v0430")}catch{}
+
+const store={
+ getLocal(k,d=null){try{const r=localStorage.getItem("sfv04."+k);return r===null?d:JSON.parse(r)}catch{return d}},
+ setLocal(k,v){localStorage.setItem("sfv04."+k,JSON.stringify(v))},
+ getMatches(){return cache.matches},
+ getMatch(id){return id?cache.matches[id]||null:null},
+ currentMatch(){return this.getMatch(this.getLocal("currentMatchId"))},
+ setCurrentMatch(id){this.setLocal("currentMatchId",id)},
+ async saveMatch(m){cache.matches[m.id]=m;await db.put("matches",clone(m))},
+ async saveContent(item){item.updatedAt=new Date().toISOString();cache.content[item.type]=cache.content[item.type]||[];const arr=cache.content[item.type],i=arr.findIndex(x=>x.id===item.id);if(i>=0)arr[i]=clone(item);else arr.push(clone(item));await db.put("content",{key:item.type+":"+item.id,type:item.type,item:clone(item)})},
+ async deleteContent(type,id){const arr=cache.content[type]||[],i=arr.findIndex(x=>x.id===id);if(i>=0)arr.splice(i,1);await db.del("content",type+":"+id)},
+ content(type){return cache.content[type]||[]},
+ findByName(type,name,pending=[]){
+  const k=String(name||"").trim().toLowerCase();
+  if(!k)return null;
+  const hit=(cache.content[type]||[]).find(x=>String(x.name||"").trim().toLowerCase()===k);
+  if(hit)return hit;
+  return (pending||[]).find(x=>x.type===type&&String(x.name||"").trim().toLowerCase()===k)||null
+ }
+};
+
+async function initData(){
+ await db.open();
+ const contentRows=await db.getAll("content");
+ if(!contentRows.length){
+  for(const [type,items] of Object.entries(DEFAULT_CONTENT))for(const item of items)await db.put("content",{key:type+":"+item.id,type,item:clone(item)});
+ }
+ cache.content={};
+ for(const row of await db.getAll("content"))(cache.content[row.type]||(cache.content[row.type]=[])).push(row.item);
+ cache.matches={};
+ for(const m of await db.getAll("matches"))cache.matches[m.id]=m;
+ // 预热媒体 URL 缓存（旧内联 data: 媒体在此懒迁移为 Blob 入库）
+ for(const m of Object.values(cache.matches)){try{await hydrateMedia(m)}catch(e){}}
+}
+
+const randomService={
+ hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0},
+ rng(seed){let x=this.hash(seed)||1;return()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return((x>>>0)%100000)/100000}},
+ pick(arr,seed){if(!arr.length)return null;return arr[Math.floor(this.rng(seed)()*arr.length)]},
+ shuffle(arr,seed){const r=this.rng(seed);return arr.map(v=>({v,n:r()})).sort((a,b)=>a.n-b.n).map(x=>x.v)},
+ weighted(arr,seed){if(!arr.length)return null;const r=this.rng(seed),total=arr.reduce((s,x)=>s+(Number(x.weight)||1),0);let n=r()*total;for(const x of arr){n-=Number(x.weight)||1;if(n<=0)return x}return arr[arr.length-1]},
+ weightedSample(arr,count,seed){
+  const pool=[...arr],out=[];
+  for(let i=0;i<count&&pool.length;i++){
+   const picked=this.weighted(pool,seed+"|"+i);out.push(picked);pool.splice(pool.indexOf(picked),1)
+  }
+  return out
+ }
+};
+
+const poolService={
+ normalizeIdsByType(p,type){
+  if(p.contentIdsByType && Array.isArray(p.contentIdsByType[type]))return p.contentIdsByType[type];
+  if(Array.isArray(p.includedIds)&&p.includedIds.length)return p.includedIds.filter(id=>String(id).startsWith(TYPE_META[type].prefix));
+  return null
+ },
+ exclusionsByType(p,type){
+  if(p.excludedIdsByType && Array.isArray(p.excludedIdsByType[type]))return p.excludedIdsByType[type];
+  if(Array.isArray(p.excludedIds))return p.excludedIds.filter(id=>String(id).startsWith(TYPE_META[type].prefix));
+  return []
+ },
+ tagsByType(p,type){
+  if(p.tagFiltersByType && Array.isArray(p.tagFiltersByType[type]))return p.tagFiltersByType[type];
+  return Array.isArray(p.tagFilters)?p.tagFilters:[]
+ },
+ selectedPools(poolIds){
+  const ids=Array.isArray(poolIds)?poolIds:[poolIds].filter(Boolean);
+  return ids.map(id=>store.content("pools").find(p=>p.id===id&&p.enabled!==false)).filter(Boolean)
+ },
+ active(type,poolIds){
+  const all=store.content(type).filter(x=>x.enabled!==false);
+  const pools=this.selectedPools(poolIds);
+  if(!pools.length)return all;
+  const result=new Map();
+  for(const p of pools){
+   const explicit=this.normalizeIdsByType(p,type);
+   let arr;
+   if(p.scopeMode==="ALL" || explicit===null)arr=[...all];
+   else arr=all.filter(x=>explicit.includes(x.id));
+   const excluded=new Set(this.exclusionsByType(p,type));
+   if(excluded.size)arr=arr.filter(x=>!excluded.has(x.id));
+   const tags=this.tagsByType(p,type);
+   if(tags.length)arr=arr.filter(x=>tags.some(t=>(x.tags||[]).includes(t)));
+   arr.forEach(x=>result.set(x.id,x))
+  }
+  return [...result.values()]
+ },
+ membershipSummary(p){
+  const out={};
+  for(const type of ["characters","abilities","weaknesses","environments","victories","hexes"]){
+   const ids=this.normalizeIdsByType(p,type);
+   out[type]=p.scopeMode==="ALL"||ids===null?"ALL":ids.length
+  }
+  return out
+ }
+};
+function resolvePoolSnapshot(poolIds){
+ const out={};
+ for(const t of ["characters","abilities","weaknesses","environments","events","victories","hexes"]){
+  out[t]=poolService.active(t,poolIds).map(clone)
+ }
+ return out
+}
+
+
+const service={
+ log(m,type,payload={}){m.eventLog.push({id:crypto.randomUUID(),timestamp:new Date().toISOString(),nodeId:m.currentNodeId,eventType:type,payload})},
+ playerTags(m,a){const p=m.players[a],set=new Set();[p.character,p.ability,p.weakness,...p.hexes.map(x=>x.selectedHexSnapshot)].filter(Boolean).forEach(c=>(c.tags||[]).forEach(t=>set.add(t)));return set},
+ envTags(m){return new Set(m.environment.tags||[])},
+ reqVals(r){return Array.isArray(r.value)?r.value:(r.value==null||r.value===""?[]:[r.value])},
+ reqMet(m,a,r){
+  const pt=this.playerTags(m,a),et=this.envTags(m),traitIds=new Set([m.players[a].ability.id,m.players[a].weakness.id]),hexIds=new Set(m.players[a].hexes.map(x=>x.selectedHexSnapshot.id));
+  const vals=this.reqVals(r); // 容错：作者把 value 写成单字符串时按单元素数组处理，避免 .some/.every 抛错
+  if(r.type==="HAS_TAG")return r.operator==="ALL"?vals.every(v=>pt.has(v)):vals.some(v=>pt.has(v));
+  if(r.type==="ENV_HAS_TAG")return r.operator==="ALL"?vals.every(v=>et.has(v)):vals.some(v=>et.has(v));
+  if(r.type==="HAS_TRAIT")return r.operator==="ALL"?vals.every(v=>traitIds.has(v)):vals.some(v=>traitIds.has(v));
+  if(r.type==="HAS_HEX")return r.operator==="ALL"?vals.every(v=>hexIds.has(v)):vals.some(v=>hexIds.has(v));
+  // HAS_META_TAG 等未实现类型：fail-closed，不静默通过（见 AGENTS §11 需求类型规划）
+  return false
+ },
+ incMet(m,a,inc){
+  const pt=this.playerTags(m,a),hexIds=new Set(m.players[a].hexes.map(x=>x.selectedHexSnapshot.id));
+  const ivals=this.reqVals(inc); // 与 reqMet 同步容错，防止 value 为单字符串时 .some 抛错
+  if(inc.type==="CONTENT_ID"){const ids=new Set([m.players[a].character.id,m.players[a].ability.id,m.players[a].weakness.id,...hexIds]);return !ivals.some(v=>ids.has(v))}
+  if(inc.type==="TAG")return !ivals.some(v=>pt.has(v));
+  return false
+ },
+ eligible(m,a,h){
+  for(const r of h.requirements||[])if(!this.reqMet(m,a,r))return false;
+  for(const inc of h.incompatibilities||[])if(!this.incMet(m,a,inc))return false;
+  return true
+ },
+ reqText(r){
+  const vals=this.reqVals(r); // value 容错为数组，避免字符串时 .join 抛错
+  if(r.type==="HAS_TAG")return "拥有标签 "+vals.join("/");
+  if(r.type==="ENV_HAS_TAG")return "环境拥有标签 "+vals.join("/");
+  if(r.type==="HAS_TRAIT")return "拥有特征 "+vals.join("/");
+  if(r.type==="HAS_HEX")return "已拥有海克斯 "+vals.join("/");
+  return "前置("+r.type+")"
+ },
+ eligibilityReason(m,a,h){
+  const reqs=h.requirements||[],incs=h.incompatibilities||[];
+  if(!reqs.length&&!incs.length)return "✓ 无特殊前置";
+  for(const r of reqs)if(!this.reqMet(m,a,r))return "⚠ 未满足前置："+this.reqText(r);
+  const parts=reqs.map(r=>this.reqText(r));
+  if(incs.length)parts.push("无冲突项("+incs.length+")");
+  return "✓ 前置满足："+parts.join("；")
+ },
+ nodeTiers(m,node){
+  const t=(m.hexTierPlan||{})[node.id];
+  if(Array.isArray(t)&&t.length)return t;
+  return node.config?.tiers||[]
+ },
+ hexPoolDiagnostics(m,a,node){
+  const all=this.frozenContent(m,"hexes").filter(h=>h.enabled!==false);
+  const tiers=this.nodeTiers(m,node);
+  const tierPool=all.filter(h=>tiers.includes(h.tier));
+  const owned=new Set(m.players[a].hexes.map(x=>x.selectedHexSnapshot.id));
+  const uniqueTier=tierPool.filter(h=>!owned.has(h.id));
+  const eligibleTier=uniqueTier.filter(h=>this.eligible(m,a,h));
+  const uniqueAll=all.filter(h=>!owned.has(h.id));
+  return {total:all.length,tierMatched:tierPool.length,afterDuplicate:uniqueTier.length,eligible:eligibleTier.length,allTierAfterDuplicate:uniqueAll.length,required:node.config?.count||3,tiers}
+ },
+ drawHex(m,a,node,reroll=0,relaxLevel=0){
+  const level=relaxLevel===true?1:Number(relaxLevel||0);
+  const owned=new Set(m.players[a].hexes.map(x=>x.selectedHexSnapshot.id));
+  let pool=this.frozenContent(m,"hexes").filter(h=>h.enabled!==false);
+  if(level<2)pool=pool.filter(h=>this.nodeTiers(m,node).includes(h.tier));
+  if(level<3)pool=pool.filter(h=>!owned.has(h.id));
+  if(level<1)pool=pool.filter(h=>this.eligible(m,a,h));
+  return randomService.weightedSample(pool,node.config?.count||3,m.randomSeed+"|"+a+"|"+m.currentNodeId+"|"+reroll+"|relax:"+level)
+ },
+ frozenContent(m,type){
+  const frozen=m.poolBindings?.resolvedContent?.[type];
+  return Array.isArray(frozen)?frozen:[]
+ },
+ currentNode(m){return m.timelineSnapshot.find(n=>n.id===m.currentNodeId)||m.timelineSnapshot[0]},
+ nodeIndex(m){return m.timelineSnapshot.findIndex(n=>n.id===m.currentNodeId)},
+ completeNode(m,id,data={}){const st=m.nodeStates[id]||(m.nodeStates[id]={status:"ACTIVE",startedAt:new Date().toISOString(),completedAt:null,data:{}});st.status="COMPLETED";st.completedAt=new Date().toISOString();st.data={...(st.data||{}),...data}},
+ snap(m,reason){
+  const timer=clone(m.timer);
+  if(timer.mode==="RUNNING"){
+   // 双计时的时间存在 sides 里：把「活动方」的绝对结束时刻折算成剩余量并清空，
+   // 快照只保存"剩余多少"，不保存"到哪一刻结束"——否则撤销后会把打点到撤销之间流逝的真实时间吞掉。
+   if(timer.dual&&timer.sides){const a=timer.sides[timer.active];if(a&&a.targetEndTimestamp){a.remainingMs=Math.max(0,a.targetEndTimestamp-Date.now());a.targetEndTimestamp=null}}
+   else{timer.remainingMs=Math.max(0,timer.targetEndTimestamp-Date.now());timer.targetEndTimestamp=null}
+  }
+  return {reason,currentNodeId:m.currentNodeId,status:m.status,finishedAt:m.finishedAt,players:clone(m.players),activeEnvironmentEffects:clone(m.activeEnvironmentEffects),hexSelections:clone(m.hexSelections),questStates:clone(m.questStates),currentOfferHistory:clone(m.currentOfferHistory),nodeStates:clone(m.nodeStates),media:clone(m.media),timer,result:clone(m.result),hexRoundDraft:clone(m.hexRoundDraft)}
+ },
+ checkpoint(m,reason){m.undoStack.push(this.snap(m,reason));if(m.undoStack.length>40)m.undoStack.shift()},
+ restore(m,s){m.currentNodeId=s.currentNodeId;m.status=s.status;m.finishedAt=s.finishedAt||null;m.players=clone(s.players);m.activeEnvironmentEffects=clone(s.activeEnvironmentEffects);m.hexSelections=clone(s.hexSelections);m.questStates=clone(s.questStates);m.currentOfferHistory=clone(s.currentOfferHistory);m.nodeStates=clone(s.nodeStates);m.media=clone(s.media);m.timer=clone(s.timer);m.result=clone(s.result);m.hexRoundDraft=s.hexRoundDraft?clone(s.hexRoundDraft):null;if(m.timer.mode==="RUNNING"){if(m.timer.dual&&m.timer.sides){const a=m.timer.sides[m.timer.active];if(a)a.targetEndTimestamp=Date.now()+Math.max(0,a.remainingMs||0)}else m.timer.targetEndTimestamp=Date.now()+Math.max(0,m.timer.remainingMs||0)}},
+ async save(m){await store.saveMatch(m);try{syncChannel?.postMessage({type:"MATCH_UPDATED",id:m.id})}catch{}},
+ async create(setup){
+  const seed=String(Date.now()),pick=(type,suffix)=>randomService.weighted(poolService.active(type,setup.selectedPoolIds),seed+"|"+suffix);
+  const m={
+   id:"M-"+Date.now(),createdAt:new Date().toISOString(),finishedAt:null,status:"READY",randomSeed:seed,
+   trainingGoals:setup.goals||[],hexTierPlan:clone(setup.hexTierPlan||defaultTierPlan()),poolBindings:{
+    selectedPoolIds:[...(setup.selectedPoolIds||[])],
+    poolSnapshots:(setup.selectedPoolIds||[]).map(id=>clone(store.content("pools").find(p=>p.id===id))).filter(Boolean),
+    resolvedContent:resolvePoolSnapshot(setup.selectedPoolIds||[])
+   },
+   templateSnapshot:{name:"标准海克斯构筑局"},timelineSnapshot:clone(currentTimeline()),currentNodeId:"n1",
+   players:{
+    A:{name:setup.playerA||"A",character:clone(setup.preview?.A?.character||pick("characters","A-char")),ability:clone(setup.preview?.A?.ability||pick("abilities","A-ability")),weakness:clone(setup.preview?.A?.weakness||pick("weaknesses","A-weak")),hexes:[]},
+    B:{name:setup.playerB||"B",character:clone(setup.preview?.B?.character||pick("characters","B-char")),ability:clone(setup.preview?.B?.ability||pick("abilities","B-ability")),weakness:clone(setup.preview?.B?.weakness||pick("weaknesses","B-weak")),hexes:[]}
+   },
+   environment:clone(setup.preview?.environment||pick("environments","env")),victory:clone(setup.preview?.victory||pick("victories","victory")),
+   activeEnvironmentEffects:[],hexSelections:[],questStates:[],eventLog:[],result:null,coachNotes:{text:""},currentOfferHistory:{A:[],B:[]},hexRoundDraft:null,
+   timer:{mode:"NOT_STARTED",remainingMs:0,targetEndTimestamp:null,lastNodeId:"n1"},nodeStates:{},media:{characterA:null,characterB:null,environment:null},undoStack:[]
+  };
+  dedupeMatchSides(m,setup.selectedPoolIds);
+  const firstId=m.timelineSnapshot[0]?.id;
+  m.timer=this.freshTimer(m.timelineSnapshot[0]); // 首环节也可能是双计时，不能硬编码单计时形状
+  m.timelineSnapshot.forEach(n=>m.nodeStates[n.id]={status:n.id===firstId?"ACTIVE":"PENDING",startedAt:n.id===firstId?new Date().toISOString():null,completedAt:null,data:{}});
+  this.log(m,"MATCH_CREATED",{setup:{goals:setup.goals,selectedPoolIds:setup.selectedPoolIds}});await this.save(m);return m
+ },
+ async advance(m){
+  if(m.nodeStates[m.currentNodeId]?.status!=="COMPLETED"){this.log(m,"NODE_ADVANCE_BLOCKED",{reason:"NODE_NOT_FULFILLED"});await this.save(m);return "BLOCKED"}
+  const i=this.nodeIndex(m);if(i<0||i>=m.timelineSnapshot.length-1)return false;
+  this.checkpoint(m,"NODE_ADVANCE");const leaving=m.currentNodeId;
+  m.activeEnvironmentEffects.forEach(x=>{if(x.active&&x.persistence==="CURRENT_NODE"&&x.expiresAtNodeId===leaving)x.active=false});
+  m.currentNodeId=m.timelineSnapshot[i+1].id;m.hexRoundDraft=null;const ns=m.nodeStates[m.currentNodeId];ns.status="ACTIVE";ns.startedAt=ns.startedAt||new Date().toISOString();
+  m.timer=this.freshTimer(m.timelineSnapshot[i+1]);this.log(m,"NODE_ADVANCED",{from:leaving,to:m.currentNodeId});await this.save(m);return true
+ },
+ freshTimer(n){
+  if(n&&n.dual){
+   const da=(n.durationA!=null?n.durationA:n.duration)*1000,db=(n.durationB!=null?n.durationB:n.duration)*1000;
+   return {mode:"NOT_STARTED",dual:true,active:"A",remainingMs:0,targetEndTimestamp:null,lastNodeId:n.id,sides:{A:{remainingMs:da,targetEndTimestamp:null},B:{remainingMs:db,targetEndTimestamp:null}}}
+  }
+  return {mode:"NOT_STARTED",dual:false,remainingMs:0,targetEndTimestamp:null,lastNodeId:n?n.id:"n1"}
+ },
+ _ensureSides(m){const n=this.currentNode(m),t=m.timer;if(n.dual&&(!t||!t.dual||!t.sides))m.timer=this.freshTimer(n)},
+ async startTimer(m){
+  const n=this.currentNode(m);if(!n.duration||m.timer.mode!=="NOT_STARTED")return false;
+  this.checkpoint(m,"TIMER_START");
+  if(n.dual){
+   this._ensureSides(m);const t=m.timer;t.mode="RUNNING";t.active=t.active||"A";
+   const s=t.sides[t.active];s.targetEndTimestamp=Date.now()+(s.remainingMs||0);
+   m.status="RUNNING";this.log(m,"TIMER_STARTED",{durationMs:n.duration*1000,dual:true});await this.save(m);return true
+  }
+  const ms=n.duration*1000;m.timer={mode:"RUNNING",dual:false,remainingMs:ms,targetEndTimestamp:Date.now()+ms,lastNodeId:n.id};m.status="RUNNING";this.log(m,"TIMER_STARTED",{durationMs:ms});await this.save(m);return true
+ },
+ async togglePause(m){
+  const t=m.timer;
+  if(t.dual&&t.sides){
+   const s=t.sides[t.active];
+   if(t.mode==="RUNNING"){this.checkpoint(m,"TIMER_PAUSE");s.remainingMs=Math.max(0,s.targetEndTimestamp-Date.now());s.targetEndTimestamp=null;t.mode="PAUSED";this.log(m,"TIMER_PAUSED",{side:t.active});await this.save(m);return true}
+   if(t.mode==="PAUSED"){this.checkpoint(m,"TIMER_RESUME");s.targetEndTimestamp=Date.now()+(s.remainingMs||0);t.mode="RUNNING";this.log(m,"TIMER_RESUMED",{side:t.active});await this.save(m);return true}
+   return false
+  }
+  if(t.mode==="RUNNING"){this.checkpoint(m,"TIMER_PAUSE");t.remainingMs=Math.max(0,t.targetEndTimestamp-Date.now());t.targetEndTimestamp=null;t.mode="PAUSED";this.log(m,"TIMER_PAUSED",{});await this.save(m);return true}
+  if(t.mode==="PAUSED"){this.checkpoint(m,"TIMER_RESUME");t.targetEndTimestamp=Date.now()+t.remainingMs;t.mode="RUNNING";this.log(m,"TIMER_RESUMED",{});await this.save(m);return true}
+  return false
+ },
+ async switchSide(m){
+  const t=m.timer;if(!t.dual||!t.sides)return false;
+  this.checkpoint(m,"TIMER_SWITCH");const now=Date.now(),cur=t.sides[t.active];
+  if(t.mode==="RUNNING"){cur.remainingMs=Math.max(0,cur.targetEndTimestamp-now);cur.targetEndTimestamp=null}
+  t.active=t.active==="A"?"B":"A";const nxt=t.sides[t.active];
+  if(t.mode==="RUNNING")nxt.targetEndTimestamp=now+(nxt.remainingMs||0);
+  this.log(m,"TIMER_SWITCHED",{active:t.active});await this.save(m);return true
+ },
+ async resetSide(m,side){
+  const t=m.timer,n=this.currentNode(m);if(!t.dual||!t.sides||!side)return false;
+  this.checkpoint(m,"TIMER_SIDE_RESET");
+  const dur=((side==="A"?(n.durationA!=null?n.durationA:n.duration):(n.durationB!=null?n.durationB:n.duration)))*1000;
+  const s=t.sides[side];s.remainingMs=dur;s.targetEndTimestamp=(t.mode==="RUNNING"&&side===t.active)?Date.now()+dur:null;
+  this.log(m,"TIMER_SIDE_RESET",{side,ms:dur});await this.save(m);return true
+ },
+ async adjust(m,sec,side){
+  this.checkpoint(m,"TIMER_ADJUST");const n=this.currentNode(m),t=m.timer;
+  if(n.dual){
+   this._ensureSides(m);const tt=m.timer,target=side||tt.active,s=tt.sides[target];
+   let base=(tt.mode==="RUNNING"&&target===tt.active&&s.targetEndTimestamp)?Math.max(0,s.targetEndTimestamp-Date.now()):(s.remainingMs||0);
+   s.remainingMs=Math.max(0,base+sec*1000);
+   if(tt.mode==="NOT_STARTED"||tt.mode==="FINISHED")tt.mode="PAUSED";
+   if(tt.mode==="RUNNING"&&target===tt.active)s.targetEndTimestamp=Date.now()+s.remainingMs;
+   this.log(m,"TIMER_ADJUSTED",{sec,side:target});await this.save(m);return
+  }
+  let base=t.mode==="NOT_STARTED"?n.duration*1000:t.mode==="RUNNING"?Math.max(0,t.targetEndTimestamp-Date.now()):(t.remainingMs||0);
+  t.remainingMs=Math.max(0,base+sec*1000);
+  if(t.mode==="NOT_STARTED"||t.mode==="FINISHED")t.mode="PAUSED";
+  if(t.mode==="RUNNING")t.targetEndTimestamp=Date.now()+t.remainingMs;
+  this.log(m,"TIMER_ADJUSTED",{sec});await this.save(m)
+ },
+ timerLeft(m,side){
+  const t=m.timer;
+  if(t&&t.dual&&t.sides){const s=t.sides[side||t.active];return (t.mode==="RUNNING"&&s.targetEndTimestamp&&(side==null||side===t.active))?Math.max(0,s.targetEndTimestamp-Date.now()):(s.remainingMs||0)}
+  return t.mode==="RUNNING"?Math.max(0,t.targetEndTimestamp-Date.now()):(t.remainingMs||0)
+ },
+ async applyHex(m,a,h,offered,payload,rerolls){this.checkpoint(m,"HEX_SELECTION");const round=m.players[a].hexes.length+1;const sel={id:crypto.randomUUID(),actor:a,roundIndex:round,offeredHexSnapshots:clone(offered),offerHistory:clone(m.currentOfferHistory[a]||[offered]),selectedHexSnapshot:clone(h),selectionPayload:clone(payload||{}),rerollsUsed:rerolls||0,selectedAt:new Date().toISOString(),revealedAt:null};m.players[a].hexes.push(sel);m.hexSelections.push(sel);if(h.effectMode==="QUEST")m.questStates.push({sourceHexSelectionId:sel.id,status:"ACTIVE",startedAt:new Date().toISOString(),completedAt:null,failedAt:null,progressNote:"",rewardApplied:false});this.log(m,"HEX_SELECTED",{actor:a,hexId:h.id,round});await this.save(m)},
+ async reveal(m,round){this.checkpoint(m,"HEX_REVEAL");m.hexSelections.filter(x=>x.roundIndex===round).forEach(x=>x.revealedAt=new Date().toISOString());this.log(m,"HEX_REVEALED",{round});await this.save(m)},
+ async envEvent(m,ev){this.checkpoint(m,"ENV_EVENT");m.activeEnvironmentEffects.push({sourceEventSnapshot:clone(ev),activatedAt:new Date().toISOString(),persistence:ev.defaultPersistence,expiresAtNodeId:ev.defaultPersistence==="CURRENT_NODE"?m.currentNodeId:null,active:true});this.log(m,"ENV_EVENT_TRIGGERED",{eventId:ev.id});await this.save(m)},
+ async quest(m,id,status,note){const q=m.questStates.find(x=>x.sourceHexSelectionId===id);if(!q)return false;const allowed={ACTIVE:["ACTIVE","COMPLETED","FAILED","CANCELLED"],COMPLETED:["COMPLETED"],FAILED:["FAILED"],CANCELLED:["CANCELLED"]};if(!(allowed[q.status]||[]).includes(status))return false;this.checkpoint(m,"QUEST_UPDATE");q.status=status;q.progressNote=note||"";q.completedAt=status==="COMPLETED"?new Date().toISOString():null;q.failedAt=status==="FAILED"?new Date().toISOString():null;this.log(m,status==="COMPLETED"?"QUEST_COMPLETED":"QUEST_UPDATED",{id,status});await this.save(m);return true},
+ async applyQuestReward(m,id){const q=m.questStates.find(x=>x.sourceHexSelectionId===id);if(!q||q.status!=="COMPLETED")return false;this.checkpoint(m,"QUEST_REWARD");q.rewardApplied=true;this.log(m,"QUEST_REWARD_APPLIED",{id});await this.save(m);return true},
+ async result(m,r){const inferred=r.votes.A>r.votes.B?"A":r.votes.B>r.votes.A?"B":"TIE";r.override=r.winner!==inferred;this.checkpoint(m,"RESULT_SET");m.result=clone(r);m.status="FINISHED";m.finishedAt=new Date().toISOString();this.log(m,"MATCH_FINISHED",r);await this.save(m)},
+ async undo(m){const s=m.undoStack.pop();if(!s)return false;this.restore(m,s);this.log(m,"UNDO_APPLIED",{revertedOperation:s.reason});await this.save(m);return true}
+};
+
+let ui={route:location.hash||"#/dashboard",setupStep:1,overlay:null,libraryType:"characters",editing:null,tick:null,ready:false,adj:{A:30,B:30,S:30}};
+
+function routeMatchId(){const m=location.hash.match(/^#\/(?:lobby|live|projector|review)\/([^/?#]+)/);return m?decodeURIComponent(m[1]):null}
+function match(){const id=routeMatchId();return id?store.getMatch(id):store.currentMatch()}
+function app(x){document.querySelector("#app").innerHTML=nav()+x+appFooter()}
+function appFooter(){return `<footer class="app-footer">超级对决 SUPER FIGHT · V0.5.0<span class="sep">|</span>作者 <b>${APP_META.author}</b><span class="sep">|</span>代码 ${APP_META.codeLicense}<span class="sep">|</span>内容 ${APP_META.contentLicense}<span class="sep">|</span><a href="#/about">关于 / 版权</a></footer>`}
+function toast(t){const e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),1800)}
+function nav(){
+ if(ui.route.startsWith("#/live/")||ui.route.startsWith("#/projector/"))return "";
+ const links=[["#/dashboard","首页"],["#/setup","开始训练"],["#/library","内容库"],["#/studio","模板"],["#/history","历史对局"],["#/help","帮助 / 说明"],["#/about","关于"]];
+ return `<div class="nav"><div class="brand">SUPER <span>FIGHT</span> <small class="muted">V0.5.0</small></div><div class="navlinks">${links.map(x=>`<a href="${x[0]}" class="${ui.route.startsWith(x[0])?"active":""}">${x[1]}</a>`).join("")}</div><div class="navright"><button class="btn ghost" onclick="exportData()">导出数据</button><button class="btn ghost" onclick="importData()">导入</button></div></div>`
+}
+function missingMatchPage(projector=false){const x=`<main class="wrap"><div class="card center"><h1>未找到该对局</h1><p>这个对局不存在或已删除。</p></div></main>`;if(projector)document.querySelector("#app").innerHTML=x;else app(x)}
+function ensureSetup(){
+ let s=store.getLocal("draftSetup");
+ if(!s){s={goals:["机制链","临场重构"],selectedPoolIds:["P01"],playerA:"A",playerB:"B",preview:null,hexTierPlan:defaultTierPlan()};store.setLocal("draftSetup",s)}
+ if(!Array.isArray(s.selectedPoolIds))s.selectedPoolIds=[s.poolId||"P01"].filter(Boolean);
+ if(!s.hexTierPlan||typeof s.hexTierPlan!=="object")s.hexTierPlan=defaultTierPlan();
+ // 环节增删后对账：删除的海克斯轮次清掉脏键，新增的轮次用其 config.tiers 兜底，避免残留/缺失
+ const hexIds=new Set(currentTimeline().filter(n=>n.type==="HEX").map(n=>n.id));
+ for(const k of Object.keys(s.hexTierPlan))if(!hexIds.has(k))delete s.hexTierPlan[k];
+ for(const n of currentTimeline())if(n.type==="HEX"&&!Array.isArray(s.hexTierPlan[n.id]))s.hexTierPlan[n.id]=[...(n.config?.tiers||[])];
+ return s
+}
+function toggleTier(nodeId,tier){
+ const s=ensureSetup();
+ s.hexTierPlan=s.hexTierPlan||defaultTierPlan();
+ const cur=new Set(s.hexTierPlan[nodeId]||[]);
+ if(cur.has(tier))cur.delete(tier);else cur.add(tier);
+ s.hexTierPlan[nodeId]=HEX_TIERS.filter(t=>cur.has(t));
+ store.setLocal("draftSetup",s);render()
+}
+function saveSetup(k,v){const s=ensureSetup();s[k]=v;store.setLocal("draftSetup",s)}
+function setupPoolStatus(poolIds){
+ const need=["characters","abilities","weaknesses","environments","victories","hexes"],missing=[];
+ for(const t of need)if(!poolService.active(t,poolIds).length)missing.push(TYPE_META[t].label);
+ return {ok:!missing.length,missing}
+}
+function togglePool(id){
+ const s=ensureSetup(),set=new Set(s.selectedPoolIds||[]);
+ if(set.has(id))set.delete(id);else set.add(id);
+ s.selectedPoolIds=[...set];s.preview=null;store.setLocal("draftSetup",s);render()
+}
+function selectAllPools(){
+ const s=ensureSetup();s.selectedPoolIds=store.content("pools").filter(p=>p.enabled!==false).map(p=>p.id);s.preview=null;store.setLocal("draftSetup",s);render()
+}
+function clearAllPools(){
+ const s=ensureSetup();s.selectedPoolIds=[];s.preview=null;store.setLocal("draftSetup",s);render()
+}
+function buildPreview(seed,poolIds){
+ const pick=(type,key)=>randomService.weighted(poolService.active(type,poolIds),seed+"|"+key);
+ const chars=poolService.active("characters",poolIds),aChar=pick("characters","A-c"),bChar=randomService.pick(chars.filter(x=>x.id!==aChar?.id).length?chars.filter(x=>x.id!==aChar?.id):chars,seed+"|B-c");
+ const abilities=poolService.active("abilities",poolIds),weaknesses=poolService.active("weaknesses",poolIds);
+ const aAbility=pick("abilities","A-a"),aWeak=pick("weaknesses","A-w");
+ const bAbility=randomService.pick(abilities.filter(x=>x.id!==aAbility?.id).length?abilities.filter(x=>x.id!==aAbility?.id):abilities,seed+"|B-a");
+ const bWeak=randomService.pick(weaknesses.filter(x=>x.id!==aWeak?.id).length?weaknesses.filter(x=>x.id!==aWeak?.id):weaknesses,seed+"|B-w");
+ return {A:{character:aChar,ability:aAbility,weakness:aWeak},B:{character:bChar,ability:bAbility,weakness:bWeak},environment:pick("environments","env"),victory:pick("victories","v")}
+}
+function dedupeMatchSides(m,poolIds){
+ const ab=poolService.active("abilities",poolIds),wk=poolService.active("weaknesses",poolIds);
+ if(m.players.A.ability.id===m.players.B.ability.id){const alt=ab.find(x=>x.id!==m.players.A.ability.id);if(alt)m.players.B.ability=clone(alt)}
+ if(m.players.A.weakness.id===m.players.B.weakness.id){const alt=wk.find(x=>x.id!==m.players.A.weakness.id);if(alt)m.players.B.weakness=clone(alt)}
+}
+function randomPreview(){
+ const s=ensureSetup(),status=setupPoolStatus(s.selectedPoolIds);
+ if(!s.selectedPoolIds.length){toast("请至少选择一个内容池");return}
+ if(!status.ok){toast("已选内容池缺少可用内容："+status.missing.join("、"));return}
+ s.preview=buildPreview(String(Date.now()),s.selectedPoolIds);
+ store.setLocal("draftSetup",s);render()
+}
+
+function dashboard(){
+ const m=store.currentMatch(),counts=Object.fromEntries(Object.keys(TYPE_META).map(t=>[t,store.content(t).filter(x=>x.enabled!==false).length]));
+ app(`<main class="wrap"><section class="hero"><div><h1>训练控制台</h1><p>V0.5.0：新增卡牌详情点按展开（对局/揭晓/投影）、双计时器（自由辩等双方分开计时）与环节配置。内容存于 IndexedDB，媒体为 Blob 存储。</p></div><button class="btn primary big" onclick="location.hash='#/setup'">＋ 开始训练</button></section>
+ ${m&&m.status!=="FINISHED"?`<div class="card" style="margin-bottom:18px"><div class="row space"><div><h3>发现未完成训练</h3><div class="muted">${m.players.A.character.name} vs ${m.players.B.character.name} · ${service.currentNode(m).name}</div></div><button class="btn primary" onclick="location.hash='#/live/${m.id}'">恢复训练</button></div></div>`:""}
+ <div class="grid cols-4"><div class="card"><div class="muted small">角色</div><div class="stat">${counts.characters}</div></div><div class="card"><div class="muted small">海克斯</div><div class="stat">${counts.hexes}</div></div><div class="card"><div class="muted small">环境</div><div class="stat">${counts.environments}</div></div><div class="card"><div class="muted small">内容池</div><div class="stat">${counts.pools}</div></div></div>
+ <div class="grid cols-2" style="margin-top:18px"><div class="card"><h2>V0.5.0 数据层</h2><p>正式内容与历史对局已迁入 IndexedDB，媒体以 Blob 独立存储。localStorage 只保存轻量的当前对局 ID、Setup 草稿与自定义环节模板。</p></div><div class="card"><h2>内容管理</h2><p>可以直接新增、编辑、停用角色、能力、缺陷、环境、事件、海克斯、胜利条件和内容池。</p><button class="btn primary" onclick="location.hash='#/library'">打开内容库</button></div></div></main>`)
+}
+
+function setupPage(){
+ const s=ensureSetup(),pools=store.content("pools").filter(x=>x.enabled!==false),st=ui.setupStep;
+ const titles=["训练目标","选择内容池","随机题面","参与者","海克斯轮次","确认"];
+ let body="";
+ if(st===1)body=`<h2>1. 训练目标</h2><div class="grid cols-3">${["机制链","回应","临场重构"].map(g=>`<button class="card soft" onclick="toggleGoal('${g}')"><h3>${g}</h3><div class="muted small">${s.goals.includes(g)?"✓ 已选择":"点击选择"}</div></button>`).join("")}</div>`;
+ if(st===2){
+  body=`<div class="row space"><div><h2>2. 选择内容池</h2><p>可同时选择多个内容池；抽取时使用所选内容池的并集。</p></div><div class="row"><button class="btn" onclick="selectAllPools()">一键全选</button><button class="btn" onclick="clearAllPools()">清空</button></div></div>
+  <div class="list">${pools.map(p=>{const checked=s.selectedPoolIds.includes(p.id),sum=poolService.membershipSummary(p);return `<label class="item" style="cursor:pointer"><div class="row space"><div class="row"><input type="checkbox" style="width:auto" ${checked?"checked":""} onchange="togglePool('${p.id}')"><div><b>${esc(p.name)}</b><div class="muted small">${esc(p.description||"")}</div></div></div><span class="badge">${checked?"已选择":"未选择"}</span></div><div class="row" style="margin-top:8px"><span class="badge">角色 ${sum.characters}</span><span class="badge">能力 ${sum.abilities}</span><span class="badge">缺陷 ${sum.weaknesses}</span><span class="badge">环境 ${sum.environments}</span><span class="badge">胜利 ${sum.victories}</span><span class="badge">海克斯 ${sum.hexes}</span></div></label>`}).join("")}</div>`;
+ }
+ if(st===3){const p=s.preview;body=`<h2>3. 随机题面</h2><p>当前选择 ${s.selectedPoolIds.length} 个内容池。</p><button class="btn primary" onclick="randomPreview()">${p?"重新随机":"生成题面"}</button>${p?`<div class="grid cols-2" style="margin-top:16px"><div class="item"><b>A 方</b><div>${p.A.character?.name} · ${p.A.ability?.name} · ${p.A.weakness?.name}</div></div><div class="item"><b>B 方</b><div>${p.B.character?.name} · ${p.B.ability?.name} · ${p.B.weakness?.name}</div></div><div class="item"><b>环境</b><div>${p.environment?.name}</div></div><div class="item"><b>胜利条件</b><div>${p.victory?.name}</div></div></div>`:`<p>点击生成一套从所有已勾选内容池的并集中抽取的题面。</p>`}`};
+ if(st===4)body=`<h2>4. 参与者</h2><div class="grid cols-2"><div class="field"><label>A 方名称</label><input value="${esc(s.playerA)}" oninput="saveSetup('playerA',this.value)"></div><div class="field"><label>B 方名称</label><input value="${esc(s.playerB)}" oninput="saveSetup('playerB',this.value)"></div></div>`;
+ if(st===5){
+  const plan=s.hexTierPlan||defaultTierPlan(),hexPool=poolService.active("hexes",s.selectedPoolIds);
+  body=`<h2>5. 海克斯轮次品质</h2><p>为每一轮海克斯选择允许出现的品质。按钮上的数字是该品质在当前已勾选内容池中的可用数量，来自本轮开始时的内容快照。</p>
+  <div class="list">${currentTimeline().filter(n=>n.type==="HEX").map(n=>{
+   const sel=plan[n.id]||[];
+   const avail=sel.reduce((sum,t)=>sum+hexPool.filter(h=>h.enabled!==false&&h.tier===t).length,0);
+   return `<div class="item"><div class="row space"><b>${n.name}</b><span class="badge">共 ${avail} 张可用</span></div>
+    <div class="row" style="margin-top:10px">${HEX_TIERS.map(t=>{
+     const c=hexPool.filter(h=>h.enabled!==false&&h.tier===t).length,on=sel.includes(t);
+     return `<button class="btn ${on?"primary":""}" onclick="toggleTier('${n.id}','${t}')">${z(t)} <span class="badge">${c}</span></button>`
+    }).join("")}</div>
+    <div class="small" style="margin-top:10px">${sel.length?`<span class="muted">已允许：${sel.map(z).join(" / ")}</span>`:'<b>未选择任何品质，本轮将无法抽取</b>'}${sel.length&&avail<3?`<br><b>提示：当前内容池在该品质下不足 3 张，本轮会触发候选不足流程</b>`:""}</div>
+   </div>`
+  }).join("")}</div>
+  <div class="callout" style="margin-top:12px">不同内容池的品质构成差别很大。若某一轮在你常用的内容池里长期不足，优先在这里调整允许的品质，而不是靠局内放宽。</div>`;
+ }
+ if(st===6){
+  const p=s.preview;
+  body=`<h2>6. 题面确认</h2>
+  <p>正式开始前，请让双方快速读完角色、能力、缺陷、环境和胜利条件。这里显示的是本局冻结后的题面信息。</p>
+  <div class="item"><b>已选内容池：</b>${s.selectedPoolIds.map(id=>pools.find(p=>p.id===id)?.name||id).join(" / ")||"未选择"}</div>
+  ${p?`<div class="confirm-grid" style="margin-top:16px">
+    <section class="card">
+      <div class="muted small">A 方</div>
+      <h2>${esc(p.A.character.name)}</h2>
+      <div class="detail-card"><div class="detail-label">角色</div><h3>${esc(p.A.character.name)}</h3><div class="detail-text">${esc(p.A.character.description||p.A.character.shortText||"")}</div><div class="row" style="margin-top:8px">${(p.A.character.tags||[]).map(t=>`<span class="badge">${esc(t)}</span>`).join("")}</div></div>
+      <div class="detail-card" style="margin-top:10px"><div class="detail-label">能力</div><h3>${esc(p.A.ability.name)}</h3><div class="detail-text">${esc(p.A.ability.description||p.A.ability.shortText||"")}</div></div>
+      <div class="detail-card" style="margin-top:10px"><div class="detail-label">缺陷</div><h3>${esc(p.A.weakness.name)}</h3><div class="detail-text">${esc(p.A.weakness.description||p.A.weakness.shortText||"")}</div></div>
+    </section>
+    <section class="card">
+      <div class="muted small">B 方</div>
+      <h2>${esc(p.B.character.name)}</h2>
+      <div class="detail-card"><div class="detail-label">角色</div><h3>${esc(p.B.character.name)}</h3><div class="detail-text">${esc(p.B.character.description||p.B.character.shortText||"")}</div><div class="row" style="margin-top:8px">${(p.B.character.tags||[]).map(t=>`<span class="badge">${esc(t)}</span>`).join("")}</div></div>
+      <div class="detail-card" style="margin-top:10px"><div class="detail-label">能力</div><h3>${esc(p.B.ability.name)}</h3><div class="detail-text">${esc(p.B.ability.description||p.B.ability.shortText||"")}</div></div>
+      <div class="detail-card" style="margin-top:10px"><div class="detail-label">缺陷</div><h3>${esc(p.B.weakness.name)}</h3><div class="detail-text">${esc(p.B.weakness.description||p.B.weakness.shortText||"")}</div></div>
+    </section>
+    <section class="card confirm-public">
+      <h2>公共题面</h2>
+      <div class="grid cols-2">
+        <div class="detail-card"><div class="detail-label">环境</div><h3>${esc(p.environment.name)}</h3><div class="detail-text">${esc(p.environment.description||p.environment.shortText||"")}</div>${(p.environment.hazards||[]).length?`<div class="row" style="margin-top:8px">${p.environment.hazards.map(h=>`<span class="badge">${esc(h)}</span>`).join("")}</div>`:""}</div>
+        <div class="detail-card"><div class="detail-label">胜利条件</div><h3>${esc(p.victory.name)}</h3><div class="detail-text">${esc(p.victory.description||p.victory.shortText||"")}</div></div>
+      </div>
+    </section>
+  </div>
+  <div class="rule-box" style="margin-top:16px"><h3>开局前 30 秒确认</h3><div class="quick-check"><div class="item"><b>1. 我怎么赢？</b><p>先把胜利条件翻译成一条具体路径。</p></div><div class="item"><b>2. 环境帮谁？</b><p>找出环境中最关键的危险、资源与路线。</p></div><div class="item"><b>3. 我的缺陷会在哪里出事？</b><p>主动承认限制，再想办法规避或转化。</p></div></div></div>`:
+  `<div class="callout">尚未生成随机题面。请返回“随机题面”步骤生成后再确认。</div>`}
+  <div class="row" style="margin-top:16px"><button class="btn" onclick="location.hash='#/help'">查看完整规则</button>${p?`<button class="btn primary big" onclick="createMatch()">创建对局</button>`:""}</div>`;
+ }
+ app(`<main class="wrap"><div class="hero"><div><h1>训练设置</h1><p>V0.4.4 支持多内容池组合训练与一键全选。</p></div></div><div class="steps">${titles.map((x,i)=>`<span class="step ${st===i+1?"on":""}">${i+1}. ${x}</span>`).join("")}</div><div class="setup"><section class="card">${body}<div class="row space" style="margin-top:22px"><button class="btn" ${st===1?"disabled":""} onclick="ui.setupStep=Math.max(1,ui.setupStep-1);render()">上一步</button><button class="btn primary" ${st===6?"disabled":""} onclick="ui.setupStep=Math.min(6,ui.setupStep+1);render()">下一步</button></div></section><aside class="card sticky"><h3>本局配置</h3><p>目标：${s.goals.join(" / ")}</p><p>已选内容池：${s.selectedPoolIds.length} 个</p><p>随机题面：${s.preview?"已生成":"未生成"}</p></aside></div></main>`)
+}
+function toggleGoal(g){const s=ensureSetup();s.goals=s.goals.includes(g)?s.goals.filter(x=>x!==g):[...s.goals,g];store.setLocal("draftSetup",s);render()}
+function previewStillValid(setup){
+ const p=setup.preview;if(!p)return true;
+ const pools=setup.selectedPoolIds||[];
+ const byType={
+  characters:new Set(poolService.active("characters",pools).map(x=>x.id)),
+  abilities:new Set(poolService.active("abilities",pools).map(x=>x.id)),
+  weaknesses:new Set(poolService.active("weaknesses",pools).map(x=>x.id)),
+  environments:new Set(poolService.active("environments",pools).map(x=>x.id)),
+  victories:new Set(poolService.active("victories",pools).map(x=>x.id))
+ };
+ return byType.characters.has(p.A.character?.id)&&byType.characters.has(p.B.character?.id)
+   &&byType.abilities.has(p.A.ability?.id)&&byType.abilities.has(p.B.ability?.id)
+   &&byType.weaknesses.has(p.A.weakness?.id)&&byType.weaknesses.has(p.B.weakness?.id)
+   &&byType.environments.has(p.environment?.id)&&byType.victories.has(p.victory?.id)
+}
+async function createMatch(){
+ const setup=ensureSetup();
+ if(!setup.selectedPoolIds.length){toast("请至少选择一个内容池");return}
+ const status=setupPoolStatus(setup.selectedPoolIds);
+ if(!status.ok){toast("无法创建对局，已选内容池缺少："+status.missing.join("、"));return}
+ if(setup.preview&&!previewStillValid(setup)){toast("当前预览题面已因内容库变化失效，请重新随机");setup.preview=null;store.setLocal("draftSetup",setup);render();return}
+ const emptyRound=(setup.hexTierPlan||defaultTierPlan());
+ for(const n of currentTimeline())if(n.type==="HEX"&&!(emptyRound[n.id]||[]).length){toast("「"+n.name+"」未选择任何海克斯品质，请返回“海克斯轮次”设置");return}
+ const m=await service.create(setup);store.setCurrentMatch(m.id);location.hash="#/lobby/"+m.id
+}
+
+function lobby(){
+ const m=match();if(!m)return missingMatchPage();
+ app(`<main class="wrap"><div class="hero"><div><h1>题面大厅</h1><p>正式开始前再次确认本局全部公开信息。参与者可以用这一页快速熟悉题面。</p></div><button class="btn" onclick="location.hash='#/help'">打开规则说明</button></div>
+ <div class="confirm-grid">
+  <section class="card"><div class="muted small">A 方</div><h2>${esc(m.players.A.character.name)}</h2>
+   <div class="detail-card"><div class="detail-label">角色</div><div class="detail-text">${esc(m.players.A.character.description||m.players.A.character.shortText||"")}</div></div>
+   <div class="detail-card" style="margin-top:10px"><div class="detail-label">能力：${esc(m.players.A.ability.name)}</div><div class="detail-text">${esc(m.players.A.ability.description||m.players.A.ability.shortText||"")}</div></div>
+   <div class="detail-card" style="margin-top:10px"><div class="detail-label">缺陷：${esc(m.players.A.weakness.name)}</div><div class="detail-text">${esc(m.players.A.weakness.description||m.players.A.weakness.shortText||"")}</div></div>
+  </section>
+  <section class="card"><div class="muted small">B 方</div><h2>${esc(m.players.B.character.name)}</h2>
+   <div class="detail-card"><div class="detail-label">角色</div><div class="detail-text">${esc(m.players.B.character.description||m.players.B.character.shortText||"")}</div></div>
+   <div class="detail-card" style="margin-top:10px"><div class="detail-label">能力：${esc(m.players.B.ability.name)}</div><div class="detail-text">${esc(m.players.B.ability.description||m.players.B.ability.shortText||"")}</div></div>
+   <div class="detail-card" style="margin-top:10px"><div class="detail-label">缺陷：${esc(m.players.B.weakness.name)}</div><div class="detail-text">${esc(m.players.B.weakness.description||m.players.B.weakness.shortText||"")}</div></div>
+  </section>
+  <section class="card confirm-public"><h2>公共题面</h2><div class="grid cols-2">
+   <div class="detail-card"><div class="detail-label">环境：${esc(m.environment.name)}</div><div class="detail-text">${esc(m.environment.description||m.environment.shortText||"")}</div><div class="row" style="margin-top:8px">${(m.environment.hazards||[]).map(h=>`<span class="badge">${esc(h)}</span>`).join("")}</div></div>
+   <div class="detail-card"><div class="detail-label">胜利条件：${esc(m.victory.name)}</div><div class="detail-text">${esc(m.victory.description||m.victory.shortText||"")}</div></div>
+  </div></section>
+ </div>
+ <div class="center" style="margin-top:20px"><button class="btn primary big" onclick="startMatch()">双方已确认，开始训练</button></div></main>`)
+}
+async function startMatch(){const m=match();m.status="RUNNING";store.setCurrentMatch(m.id);service.log(m,"MATCH_STARTED",{});await service.save(m);location.hash="#/live/"+m.id}
+
+function tierClass(t){return(t||"").toLowerCase()}
+function hexBadges(list){return (list||[]).map(x=>x.revealedAt?`<span class="badge clickable ${tierClass(x.selectedHexSnapshot.tier)}" onclick="showDetail('hex','${x.id}')" title="点击查看详情">${esc(x.selectedHexSnapshot.name)}</span>`:'<span class="badge">已锁定 · 未揭晓</span>').join("")}
+// 卡牌详情（点按展开）：只把 match() 里已有的快照对象暴露成只读浮层，不改任何数据。
+function showDetail(kind,key){ui._detailReturn=ui.overlay&&ui.overlay.type!=="CARD_DETAIL"?ui.overlay:null;ui.overlay={type:"CARD_DETAIL",kind,key};render()}
+function closeDetail(){ui.overlay=ui._detailReturn||null;ui._detailReturn=null;render()}
+function cardDetailOf(m,kind,key){
+ if(!m)return null;
+ if(kind==="character")return m.players[key]&&m.players[key].character;
+ if(kind==="ability")return m.players[key]&&m.players[key].ability;
+ if(kind==="weakness")return m.players[key]&&m.players[key].weakness;
+ if(kind==="environment")return m.environment;
+ if(kind==="event"){const e=m.activeEnvironmentEffects[Number(key)];return e&&e.sourceEventSnapshot}
+ if(kind==="hex"){for(const a of ["A","B"]){const sel=(m.players[a].hexes||[]).find(x=>x.id===key);if(sel)return sel.selectedHexSnapshot}}
+ return null
+}
+function currentHexRoundState(m){const n=service.currentNode(m);if(n.type!=="HEX")return{round:null,a:false,b:false,revealed:false};const round=m.timelineSnapshot.filter((x,i)=>i<=service.nodeIndex(m)&&x.type==="HEX").length,a=m.hexSelections.find(x=>x.actor==="A"&&x.roundIndex===round),b=m.hexSelections.find(x=>x.actor==="B"&&x.roundIndex===round);return{round,a:!!a,b:!!b,revealed:!!(a?.revealedAt&&b?.revealedAt)}}
+async function setHexDraft(m,d){m.hexRoundDraft=d;await service.save(m)}
+function draftOverlay(d){
+ if(!d)return null;
+ if(d.stage==="HANDOFF")return{type:"HANDOFF",round:d.round};
+ if((d.pool||[]).length<3)return{type:"SHORTAGE",actor:d.actor,round:d.round,pool:d.pool,reroll:d.rerollsUsed||0,relaxLevel:d.relaxLevel||0};
+ return{type:"HEX",actor:d.actor,round:d.round,pool:d.pool,selected:null,reroll:d.rerollsUsed||0,relaxLevel:d.relaxLevel||0}
+}
+function hydrateHexDraft(m){
+ const d=m.hexRoundDraft;if(!d)return;
+ const n=service.currentNode(m);if(!n||n.type!=="HEX")return;
+ if(d.round!==currentHexRoundState(m).round)return;
+ const o=draftOverlay(d);if(o)ui.overlay=o
+}
+async function openHex(actor){
+ const m=match(),node=service.currentNode(m);if(node.type!=="HEX")return;
+ const a=actor||"A",round=currentHexRoundState(m).round,pool=service.drawHex(m,a,node,0,0);
+ m.currentOfferHistory[a]=[clone(pool)];
+ await setHexDraft(m,{round,stage:"SELECT",actor:a,pool:clone(pool),rerollsUsed:0,relaxLevel:0});
+ ui.overlay=draftOverlay(m.hexRoundDraft);render()
+}
+async function resumeHex(){
+ const m=match(),node=service.currentNode(m),round=currentHexRoundState(m).round,d=m.hexRoundDraft;
+ if(d&&d.round===round){const o=draftOverlay(d);if(o){ui.overlay=o;render();return}}
+ if(!m.hexSelections.some(x=>x.actor==="A"&&x.roundIndex===round))return openHex("A");
+ const pool=service.drawHex(m,"B",node,0,0);m.currentOfferHistory.B=[clone(pool)];
+ await setHexDraft(m,{round,stage:"HANDOFF",actor:"B",pool:clone(pool),rerollsUsed:0,relaxLevel:0});
+ ui.overlay={type:"HANDOFF",round};render()
+}
+async function revealRound(){
+ const m=match(),round=currentHexRoundState(m).round;
+ await service.reveal(m,round);service.completeNode(m,m.currentNodeId,{round});
+ await setHexDraft(m,null);ui.overlay={type:"REVEAL",round};render()
+}
+async function cancelHex(){const m=match();await setHexDraft(m,null);ui.overlay=null;render()}
+// 通用 CHOICE 选择器框架（P0）：按 choiceSchema.type 路由，支持 min/max 与 SELECT_OPTION 选项数组。
+// 已实现类型：SELECT_OWN_ABILITY（自动取己方能力）、SELECT_OPTION、SELECT_ENVIRONMENT_TAG、SELECT_ENVIRONMENT_HAZARD。
+// 场景实体类（SCENE_TARGET/OBJECT/ZONE、OWN_RESOURCE）需 P2 场景实体模型，暂未实现。
+function choiceSchemaOf(h){if(!h||h.effectMode!=="CHOICE")return null;return h.choiceSchema||{type:"SELECT_OWN_ABILITY",min:1,max:1}}
+function choiceOptions(schema,m,a){
+  if(!schema)return [];
+  const et=m.environment||{};
+  if(schema.type==="SELECT_OWN_ABILITY")return [{value:m.players[a].ability.id,label:m.players[a].ability.name}];
+  if(schema.type==="SELECT_OPTION")return (schema.options||[]).map(v=>({value:v,label:v}));
+  if(schema.type==="SELECT_ENVIRONMENT_TAG")return (et.tags||[]).map(t=>({value:t,label:t}));
+  if(schema.type==="SELECT_ENVIRONMENT_HAZARD")return (et.hazards||[]).map(hz=>({value:hz,label:hz}));
+  return []
+}
+function chooseHex(idx){
+  const o=ui.overlay;const h=o.pool[idx];if(!h)return;
+  o.selected=idx;o.choice=null;o.choices=[];o._opts=null;
+  const cs=choiceSchemaOf(h);
+  if(cs&&cs.type!=="SELECT_OWN_ABILITY"){
+    const opts=choiceOptions(cs,match(),o.actor);
+    o._opts=opts.map(x=>x.value);
+    if((cs.max||1)<=1&&opts.length)o.choice=opts[0].value   // 单选默认取首项，避免无选择即锁定的歧义
+  }
+  render()
+}
+function selectChoice(i){const o=ui.overlay;o.choice=o._opts?o._opts[i]:null;render()}
+function toggleChoice(i){const o=ui.overlay;if(!o._opts)return;const v=o._opts[i];o.choices=o.choices||[];const k=o.choices.indexOf(v);if(k>=0)o.choices.splice(k,1);else o.choices.push(v);render()}
+function choicePanelHTML(o){
+  const h=o.pool[o.selected],cs=choiceSchemaOf(h);if(!cs)return "";
+  if(cs.type==="SELECT_OWN_ABILITY")return `<div class="callout" style="margin:14px 0">本海克斯将作用于你已拥有的能力：<b>${esc(match().players[o.actor].ability.name)}</b>。</div>`;
+  const opts=choiceOptions(cs,match(),o.actor);
+  if(!opts.length)return `<div class="callout" style="margin:14px 0">⚠ 当前环境没有可供 <b>${cs.type}</b> 选择的项目；锁定后将不记录具体选择。</div>`;
+  const multi=(cs.max||1)>1,sel=multi?(o.choices||[]):(o.choice!=null?[o.choice]:[]);
+  const btns=opts.map((op,i)=>`<button class="btn ${sel.includes(op.value)?"primary":""}" onclick="${multi?`toggleChoice(${i})`:`selectChoice(${i})`}">${esc(op.label)}</button>`).join("");
+  return `<div class="card" style="margin:14px 0"><h3>请选择（${cs.type}）</h3><div class="row wrap">${btns}</div><div class="small muted" style="margin-top:8px">${multi?`已选 ${sel.length} / ${cs.max}`:(sel.length?("已选："+esc(String(sel[0]))):"尚未选择（将默认取第一项）")}</div></div>`
+}
+function choiceSummary(sel){
+  const p=sel&&sel.selectionPayload;if(!p)return "";
+  const m=match(),b=[];
+  if(p.option)b.push("选项："+p.option);
+  if(p.options&&p.options.length)b.push("选项："+p.options.join("、"));
+  if(p.envTag)b.push("环境标签："+p.envTag);
+  if(p.envTags&&p.envTags.length)b.push("环境标签："+p.envTags.join("、"));
+  if(p.hazardId)b.push("环境危害："+p.hazardId);
+  if(p.hazardIds&&p.hazardIds.length)b.push("环境危害："+p.hazardIds.join("、"));
+  if(p.targetAbilityId&&m&&m.players[sel.actor])b.push("能力："+m.players[sel.actor].ability.name);
+  return b.length?`<div class="small" style="color:#aaf1c7">${b.map(esc).join("；")}</div>`:""
+}
+async function rerollHex(){
+ const o=ui.overlay,m=match(),node=service.currentNode(m),level=Number(o.relaxLevel||0);
+ o.reroll++;
+ o.pool=service.drawHex(m,o.actor,node,o.reroll,level);o.selected=null;
+ m.currentOfferHistory[o.actor]=m.currentOfferHistory[o.actor]||[];m.currentOfferHistory[o.actor].push(clone(o.pool));
+ service.log(m,"HEX_REROLLED",{actor:o.actor,round:o.round,reroll:o.reroll,relaxLevel:level,offeredHexIds:o.pool.map(h=>h.id)});
+ await setHexDraft(m,{round:o.round,stage:"SELECT",actor:o.actor,pool:clone(o.pool),rerollsUsed:o.reroll,relaxLevel:level});
+ if(o.pool.length<3)ui.overlay={type:"SHORTAGE",actor:o.actor,round:o.round,pool:o.pool,reroll:o.reroll,relaxLevel:level};
+ render()
+}
+async function lockHex(){
+ const o=ui.overlay,m=match(),h=o.pool[o.selected];
+ if(!h)return toast("请先选择一张海克斯");
+ let payload={};
+ if(h.effectMode==="CHOICE"){
+  const cs=choiceSchemaOf(h);
+  if(cs.type==="SELECT_OWN_ABILITY"){
+   payload={targetAbilityId:m.players[o.actor].ability.id}
+  }else{
+   const multi=(cs.max||1)>1;
+   let vals=multi?(o.choices||[]):(o.choice!=null?[o.choice]:[]);
+   if(!vals.length){const opts=choiceOptions(cs,m,o.actor);if(opts.length)vals=[opts[0].value]} // 无选择时取首项，保证可锁定
+   if(cs.type==="SELECT_OPTION")payload=multi?{options:vals}:{option:vals[0]};
+   else if(cs.type==="SELECT_ENVIRONMENT_TAG")payload=multi?{envTags:vals}:{envTag:vals[0]};
+   else if(cs.type==="SELECT_ENVIRONMENT_HAZARD")payload=multi?{hazardIds:vals}:{hazardId:vals[0]};
+   else payload={}
+  }
+ }
+ await service.applyHex(m,o.actor,h,o.pool,payload,o.reroll);
+ if(o.actor==="A"){
+  const node=service.currentNode(m),pool=service.drawHex(m,"B",node,0,0);
+  m.currentOfferHistory.B=[clone(pool)];
+  await setHexDraft(m,{round:o.round,stage:"HANDOFF",actor:"B",pool:clone(pool),rerollsUsed:0,relaxLevel:0});
+  ui.overlay={type:"HANDOFF",round:o.round};render()
+ }else{
+  await service.reveal(m,o.round);service.completeNode(m,m.currentNodeId,{round:o.round});
+  await setHexDraft(m,null);ui.overlay={type:"REVEAL",round:o.round};render()
+ }
+}
+async function handoff(){
+ const m=match(),d=m.hexRoundDraft;
+ if(!d)return resumeHex();
+ d.stage="SELECT";await service.save(m);
+ ui.overlay=draftOverlay(d);render()
+}
+async function relaxPool(){
+ const o=ui.overlay,m=match(),node=service.currentNode(m);
+ const previous=Number(o.relaxLevel||0);
+ if(previous>=3){toast("已经放宽到最高级别；所选内容池本身仍不足 3 张可用海克斯");return}
+ const next=previous+1;
+ const np=service.drawHex(m,o.actor,node,o.reroll||0,next);
+ m.currentOfferHistory[o.actor]=m.currentOfferHistory[o.actor]||[];m.currentOfferHistory[o.actor].push(clone(np));
+ const relaxedRules=next===1?["requirements","incompatibilities"]:next===2?["requirements","incompatibilities","tierRestriction"]:["requirements","incompatibilities","tierRestriction","previousRoundDuplicate"];
+ service.log(m,"HEX_RULE_RELAXED",{actor:o.actor,round:o.round,relaxLevel:next,relaxedRules,previousOffer:(o.pool||[]).map(h=>h.id),newOffer:np.map(h=>h.id),diagnostics:service.hexPoolDiagnostics(m,o.actor,node)});
+ await setHexDraft(m,{round:o.round,stage:"SELECT",actor:o.actor,pool:clone(np),rerollsUsed:o.reroll||0,relaxLevel:next});
+ ui.overlay=np.length<3?{type:"SHORTAGE",actor:o.actor,round:o.round,pool:np,reroll:o.reroll||0,relaxLevel:next}:{type:"HEX",actor:o.actor,round:o.round,pool:np,selected:null,reroll:o.reroll||0,relaxLevel:next};
+ render()
+}
+async function addEnv(){const m=match();if(m.nodeStates[m.currentNodeId]?.status==="COMPLETED")return toast("当前环境事件已经处理");const pool=service.frozenContent(m,"events").filter(e=>e.enabled!==false&&(!e.compatibleEnvironmentTags?.length||e.compatibleEnvironmentTags.some(t=>(m.environment.tags||[]).includes(t))));const ev=randomService.weighted(pool,m.randomSeed+"|event|"+m.currentNodeId);if(!ev)return toast("当前环境没有可用事件");await service.envEvent(m,ev);service.completeNode(m,m.currentNodeId,{environmentEventId:ev.id});await service.save(m);render()}
+async function nextNode(forceSkip=false){
+ const m=match(),n=service.currentNode(m);
+ if(isTimedSegment(n)&&m.nodeStates[n.id]?.status!=="COMPLETED"){
+  if(m.timer.mode==="FINISHED")service.completeNode(m,n.id,{completedBy:"TIMER"});
+  else if(forceSkip)service.completeNode(m,n.id,{completedBy:"SKIP"});
+  else return toast("当前计时尚未完成；如需跳过，请使用“跳过本阶段”")
+  await service.save(m)
+ }
+ const r=await service.advance(m);if(r==="BLOCKED")return toast("当前阶段尚未完成");if(!r)return openVote();render()
+}
+async function startTimer(){if(!await service.startTimer(match()))toast("当前状态无法开始计时");render()}
+async function pauseResume(){if(!await service.togglePause(match()))toast("计时尚未开始");render()}
+async function addTime(sec,side){await service.adjust(match(),sec,side);render()}
+function _adjInputVal(sel,def){const el=document.querySelector(sel);const v=el?Math.abs(Number(el.value)):NaN;return (isFinite(v)&&v>0)?v:def}
+async function adjSingle(sign){await service.adjust(match(),sign*_adjInputVal("#adjS",30));render()}
+async function adjSide(side,sign){await service.adjust(match(),sign*_adjInputVal(side==="A"?"#adjA":"#adjB",30),side);render()}
+async function resetSide(side){if(!await service.resetSide(match(),side))toast("仅双计时环节可单方重置");render()}
+async function switchSide(){if(!await service.switchSide(match()))toast("仅双计时环节可切换发言方");render()}
+function timerControlsHTML(m,n){
+ const t=m.timer;
+ const startPause=`${t.mode==="NOT_STARTED"&&n.duration?'<button class="btn primary" onclick="startTimer()">开始计时</button>':""}${t.mode==="RUNNING"?'<button class="btn" onclick="pauseResume()">暂停</button>':""}${t.mode==="PAUSED"?'<button class="btn primary" onclick="pauseResume()">继续</button>':""}`;
+ if(n.dual){
+  return `${startPause}
+  <button class="btn" onclick="switchSide()" title="暂停当前方并启动另一方">切换发言方（当前 ${t.active||"A"} 方）</button>
+  <span class="dtgrp"><b>A 方</b><input type="number" id="adjA" value="${ui.adj.A}" min="1" oninput="ui.adj.A=Number(this.value)||30"><button class="btn" onclick="adjSide('A',-1)">-</button><button class="btn" onclick="adjSide('A',1)">+</button><button class="btn" onclick="resetSide('A')">重置</button></span>
+  <span class="dtgrp"><b>B 方</b><input type="number" id="adjB" value="${ui.adj.B}" min="1" oninput="ui.adj.B=Number(this.value)||30"><button class="btn" onclick="adjSide('B',-1)">-</button><button class="btn" onclick="adjSide('B',1)">+</button><button class="btn" onclick="resetSide('B')">重置</button></span>`
+ }
+ return `${startPause}
+ <button class="btn" onclick="addTime(-30)">-30秒</button><button class="btn" onclick="addTime(30)">+30秒</button>
+ <span class="dtgrp"><input type="number" id="adjS" value="${ui.adj.S}" min="1" oninput="ui.adj.S=Number(this.value)||30"><button class="btn" onclick="adjSingle(-1)">-秒</button><button class="btn" onclick="adjSingle(1)">+秒</button></span>`
+}
+function updateTimerText(ms){const e=document.querySelector("#timerText");if(!e)return;let s=Math.max(0,Math.ceil(ms/1000));e.textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function refreshTimerDisplay(m){const t=m&&m.timer;if(t&&t.dual&&t.sides){const ea=document.querySelector("#timerA"),eb=document.querySelector("#timerB");if(ea)ea.textContent=fmtClock(service.timerLeft(m,"A"));if(eb)eb.textContent=fmtClock(service.timerLeft(m,"B"))}else updateTimerText(service.timerLeft(m))}
+function fmtClock(ms){let s=Math.max(0,Math.ceil(ms/1000));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+async function tick(){
+ const m=match();if(!m||m.timer.mode!=="RUNNING")return;
+ const t=m.timer;
+ if(t.dual&&t.sides){
+  const s=t.sides[t.active],left=(s.targetEndTimestamp==null)?(s.remainingMs||0):Math.max(0,s.targetEndTimestamp-Date.now());
+  refreshTimerDisplay(m);
+  if(left<=0){
+   s.remainingMs=0;s.targetEndTimestamp=null;
+   const other=t.active==="A"?"B":"A",os=t.sides[other];
+   if((os.remainingMs||0)>0){t.active=other;os.targetEndTimestamp=Date.now()+os.remainingMs;service.log(m,"TIMER_SIDE_SWITCH",{to:other});await service.save(m);render()}
+   else{t.mode="FINISHED";service.completeNode(m,m.currentNodeId,{completedBy:"TIMER"});service.log(m,"TIMER_FINISHED",{});await service.save(m);render()}
+  }
+  return
+ }
+ const left=service.timerLeft(m);updateTimerText(left);if(left<=0){m.timer.mode="FINISHED";m.timer.remainingMs=0;m.timer.targetEndTimestamp=null;service.completeNode(m,m.currentNodeId,{completedBy:"TIMER"});service.log(m,"TIMER_FINISHED",{});await service.save(m);render()}
+}
+async function undoAction(){if(await service.undo(match())){toast("已撤销最近操作");render()}else toast("没有可撤销操作")}
+function openVote(){ui.overlay={type:"VOTE",a:0,b:0,tie:0,winner:"A",reason:"",confirmOverride:false};render()}
+async function submitVote(){const o=ui.overlay,m=match(),a=Number(o.a)||0,b=Number(o.b)||0,tie=Number(o.tie)||0,inferred=a>b?"A":b>a?"B":"TIE";if(o.winner!==inferred&&!o.confirmOverride){o.confirmOverride=true;return render()}service.completeNode(m,m.currentNodeId,{votes:{A:a,B:b,tie}});await service.result(m,{winner:o.winner,votes:{A:a,B:b,tie},decisiveReason:o.reason||"",declaredAt:new Date().toISOString()});ui.overlay=null;location.hash="#/review/"+m.id}
+// 无判票环节时的收尾：不记票数，直接结束并进复盘
+async function finishMatch(){const m=match();if(!m)return;m.status="FINISHED";m.finishedAt=new Date().toISOString();service.log(m,"MATCH_FINISHED",{withoutVote:true});await service.save(m);location.hash="#/review/"+m.id}
+function setQuest(id){const m=match(),q=m.questStates.find(x=>x.sourceHexSelectionId===id);ui.overlay={type:"QUEST",id,status:q.status,note:q.progressNote};render()}
+async function saveQuest(){const o=ui.overlay;if(!await service.quest(match(),o.id,o.status,o.note))toast("该任务状态不能这样修改");ui.overlay=null;render()}
+async function applyQuestReward(id){if(await service.applyQuestReward(match(),id)){toast("已确认执行任务奖励");render()}}
+function openProjector(){const m=match();window.open(location.href.split("#")[0]+"#/projector/"+m.id,"superfight-projector")}
+
+function pickImage(kind){
+ const input=document.createElement("input");input.type="file";input.accept="image/*";
+ input.onchange=()=>{const f=input.files?.[0];if(!f)return;if(f.size>8*1024*1024)return toast("图片过大，请选择 8MB 以内图片");const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const scale=Math.min(1,1280/Math.max(img.width,img.height)),c=document.createElement("canvas");c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext("2d").drawImage(img,0,0,c.width,c.height);c.toBlob(async(blob)=>{if(!blob)return toast("图片处理失败");const id="MID-"+Date.now()+"-"+Math.random().toString(36).slice(2,6);await db.putMedia(id,blob);_mediaUrlCache.set(id,URL.createObjectURL(blob));const m=match();m.media=Object.assign({},m.media);m.media[kind]=id;await service.save(m);render()},"image/jpeg",.78)};img.src=r.result};r.readAsDataURL(f)};input.click()
+}
+async function clearImage(kind){const m=match();const id=m.media&&m.media[kind];if(id&&!id.startsWith("data:")){try{await db.delMedia(id)}catch{};const u=_mediaUrlCache.get(id);if(u){URL.revokeObjectURL(u);_mediaUrlCache.delete(id)}}m.media=Object.assign({},m.media);m.media[kind]=null;await service.save(m);render()}
+function imageSlot(kind,label){const url=mediaUrl(match().media?.[kind]);return `<div><div class="image-slot">${url?`<img src="${url}" alt="${label}">`:`<div>图片区域</div><div class="small">${label}</div>`}</div><div class="image-actions"><button class="btn" onclick="pickImage('${kind}')">${url?"更换图片":"插入图片"}</button>${url?`<button class="btn bad" onclick="clearImage('${kind}')">移除</button>`:""}</div></div>`}
+function publicImage(kind,label){const url=mediaUrl(match().media?.[kind]);return url?`<div class="image-slot"><img src="${url}" alt="${label}"></div>`:""}
+
+function live(){
+ const m=match();if(!m)return missingMatchPage();
+ if(!ui.overlay)hydrateHexDraft(m);
+ const n=service.currentNode(m),idx=service.nodeIndex(m),left=m.timer.mode==="RUNNING"?service.timerLeft(m):(m.timer.remainingMs||n.duration*1000),active=m.activeEnvironmentEffects.map((e,i)=>({name:e.sourceEventSnapshot.name,i,on:e.active})).filter(x=>x.on),hs=currentHexRoundState(m);
+ app(`<main class="wrap"><div class="topbar"><div><span class="badge">${z(n.type)}</span> 当前阶段：<b>${n.name}</b></div><div class="center">${n.dual?`<div class="dualtimer"><div class="dtcol ${m.timer.active==="A"?"on":""}"><div class="dtlabel">A 方</div><div id="timerA" class="timer">${fmtClock(service.timerLeft(m,"A"))}</div></div><div class="dtcol ${m.timer.active==="B"?"on":""}"><div class="dtlabel">B 方</div><div id="timerB" class="timer">${fmtClock(service.timerLeft(m,"B"))}</div></div></div>`:`<div id="timerText" class="timer">00:00</div>`}<div class="muted small">${z(m.timer.mode)}${n.dual&&m.timer.active?` · 当前 ${m.timer.active} 方发言`:""}</div></div><div style="text-align:right">下一阶段：${m.timelineSnapshot[idx+1]?.name||"结束"}</div></div>
+ <div class="live-layout"><section class="card fighter">${imageSlot("characterA","A 方角色图片",m.media.characterA)}<div class="name clickable" style="margin-top:14px" onclick="showDetail('character','A')" title="点击查看角色详情">${m.players.A.character.name}</div><p><span class="clickable" onclick="showDetail('ability','A')" title="能力详情">${m.players.A.ability.name}</span> · <span class="clickable" onclick="showDetail('weakness','A')" title="缺陷详情">${m.players.A.weakness.name}</span></p><div class="row">${hexBadges(m.players.A.hexes)}</div></section>
+ <section class="card arena">${imageSlot("environment","环境图片",m.media.environment)}<h2 class="clickable" style="margin-top:14px" onclick="showDetail('environment')" title="点击查看环境详情">${m.environment.name}</h2><p>${m.victory.name}：${m.victory.description}</p><h3>当前环境状态</h3><div class="row">${active.length?active.map(x=>`<span class="badge clickable" onclick="showDetail('event',${x.i})" title="点击查看事件详情">${x.name}</span>`).join(""):'<span class="muted small">无额外环境效果</span>'}</div></section>
+ <section class="card fighter">${imageSlot("characterB","B 方角色图片",m.media.characterB)}<div class="name clickable" style="margin-top:14px" onclick="showDetail('character','B')" title="点击查看角色详情">${m.players.B.character.name}</div><p><span class="clickable" onclick="showDetail('ability','B')" title="能力详情">${m.players.B.ability.name}</span> · <span class="clickable" onclick="showDetail('weakness','B')" title="缺陷详情">${m.players.B.weakness.name}</span></p><div class="row">${hexBadges(m.players.B.hexes)}</div></section></div>
+ <div class="control">${timerControlsHTML(m,n)}
+ ${n.type==="HEX"?(hs.revealed?'<button class="btn" disabled>本轮海克斯已完成</button>':(hs.a&&hs.b)?'<button class="btn primary" onclick="revealRound()">揭晓本轮海克斯</button>':hs.a?'<button class="btn primary" onclick="resumeHex()">继续本轮海克斯（B 方）</button>':'<button class="btn primary" onclick="openHex()">进入海克斯选择</button>'):""}
+ ${n.type==="EVENT"?(m.nodeStates[n.id]?.status==="COMPLETED"?'<button class="btn" disabled>环境事件已触发</button>':'<button class="btn warn" onclick="addEnv()">触发环境事件</button>'):""}
+ ${n.type==="VOTE"?'<button class="btn good" onclick="openVote()">进入判票</button>':`<button class="btn primary" onclick="nextNode()">下一阶段</button>`}${isTimedSegment(n)&&m.nodeStates[n.id]?.status!=="COMPLETED"?'<button class="btn warn" onclick="nextNode(true)">跳过本阶段</button>':""}
+ ${!m.timelineSnapshot.some(x=>x.type==="VOTE")&&idx===m.timelineSnapshot.length-1?'<button class="btn good" onclick="finishMatch()" title="本模板无判票环节，直接结束对局">结束对局</button>':""}
+ <button class="btn bad" onclick="undoAction()">撤销</button><button class="btn" onclick="ui.overlay={type:'COACH_MARK',category:null,note:''};render()">教练标记</button><button class="btn" onclick="openProjector()">打开投影</button></div>
+ ${m.questStates.length?`<div class="card" style="margin-top:14px"><h3>当前任务</h3><div class="row">${m.questStates.map(q=>{const sel=m.hexSelections.find(x=>x.id===q.sourceHexSelectionId);return `<button class="btn" onclick="setQuest('${q.sourceHexSelectionId}')">${sel?.actor} · ${sel?.selectedHexSnapshot.name} · ${z(q.status)}</button>`}).join("")}</div></div>`:""}
+ <div class="timeline">${m.timelineSnapshot.map((x,i)=>`<div class="node ${x.id===m.currentNodeId?"current":i<idx?"done":""}"><div class="small muted">${z(x.type)}</div><b>${x.name}</b><div class="small">${z(m.nodeStates[x.id]?.status)}</div></div>`).join("")}</div></main>${overlayHTML()}`);
+ refreshTimerDisplay(m);clearInterval(ui.tick);ui.tick=setInterval(tick,250)
+}
+
+function overlayHTML(){
+ const o=ui.overlay;if(!o)return "";
+ if(o.type==="HANDOFF")return `<div class="overlay"><div class="modal center"><h1>设备交接</h1><p>请将设备交给 B 方。A 方选择已锁定并隐藏。</p><button class="btn primary big" onclick="handoff()">B 方已接过设备</button></div></div>`;
+ if(o.type==="SHORTAGE"){
+ const m=match(),node=service.currentNode(m),d=service.hexPoolDiagnostics(m,o.actor,node),level=Number(o.relaxLevel||0);
+ const labels=["放宽前置与冲突限制","扩大品质范围","允许抽到前几轮已拥有的海克斯"];
+ const reason=d.total<3?`所选内容池中总共只有 ${d.total} 张启用海克斯。`:d.tierMatched<3?`本轮要求品质为 ${d.tiers.map(z).join(" / ")}，内容池中只有 ${d.tierMatched} 张符合该品质。`:d.afterDuplicate<3?`符合本轮品质的牌有 ${d.tierMatched} 张，但去除前几轮已拥有的牌后只剩 ${d.afterDuplicate} 张。`:`经过前置条件与冲突检查后，只剩 ${d.eligible} 张。`;
+ const action=level<3?labels[level]:"已达到最大放宽级别";
+ return `<div class="overlay"><div class="modal center"><h2>有效候选不足</h2><p>当前只有 ${o.pool.length} 项有效内容，需要 ${d.required} 项。</p><div class="callout" style="text-align:left;margin:14px 0"><b>原因：</b>${reason}<br><span class="small">内容池启用海克斯：${d.total} · 本轮品质匹配：${d.tierMatched} · 去重后：${d.afterDuplicate} · 严格资格后：${d.eligible}</span></div>${level<3?`<button class="btn primary" onclick="relaxPool()">继续：${action}</button>`:`<div class="callout">已经无法再自动放宽。请返回训练设置，额外勾选包含更多海克斯的内容池。</div>`}<div class="row" style="justify-content:center;margin-top:12px"><button class="btn" onclick="cancelHex()">取消本次选择</button></div></div></div>`;
+}
+ if(o.type==="REVEAL"){const m=match(),a=m.hexSelections.find(x=>x.actor==="A"&&x.roundIndex===o.round),b=m.hexSelections.find(x=>x.actor==="B"&&x.roundIndex===o.round);return `<div class="overlay"><div class="modal"><h1 class="center">第 ${o.round} 轮海克斯揭晓</h1><div class="reveal-board"><div class="card center"><h2 class="clickable" onclick="showDetail('hex','${a?.id}')" title="点击查看详情">${a?.selectedHexSnapshot.name}</h2><p>${a?.selectedHexSnapshot.shortText}</p>${choiceSummary(a)}</div><div class="card center"><h2 class="clickable" onclick="showDetail('hex','${b?.id}')" title="点击查看详情">${b?.selectedHexSnapshot.name}</h2><p>${b?.selectedHexSnapshot.shortText}</p>${choiceSummary(b)}</div></div><div class="center" style="margin-top:18px"><button class="btn primary big" onclick="ui.overlay=null;nextNode()">进入下一阶段</button></div></div></div>`}
+ if(o.type==="VOTE")return `<div class="overlay"><div class="modal"><h2>总结与判票</h2><div class="grid cols-3"><div class="field"><label>A 方票数</label><input type="number" min="0" value="${o.a}" oninput="ui.overlay.a=this.value"></div><div class="field"><label>B 方票数</label><input type="number" min="0" value="${o.b}" oninput="ui.overlay.b=this.value"></div><div class="field"><label>平票数</label><input type="number" min="0" value="${o.tie}" oninput="ui.overlay.tie=this.value"></div></div><div class="field"><label>胜者</label><select onchange="ui.overlay.winner=this.value"><option value="A">A 方</option><option value="B">B 方</option><option value="TIE">平局</option></select></div><div class="field"><label>胜负手</label><textarea rows="4" oninput="ui.overlay.reason=this.value">${esc(o.reason)}</textarea></div>${o.confirmOverride?'<div class="callout">⚠ 胜者与票数推导不一致，再次确认将作为教练手动覆盖。</div>':""}<div class="row space" style="margin-top:14px"><button class="btn" onclick="ui.overlay=null;render()">取消</button><button class="btn good" onclick="submitVote()">确认结果</button></div></div></div>`;
+ if(o.type==="QUEST")return `<div class="overlay"><div class="modal"><h2>任务更新</h2><div class="field"><label>状态</label><select onchange="ui.overlay.status=this.value"><option value="ACTIVE" ${o.status==="ACTIVE"?"selected":""}>进行中</option><option value="COMPLETED" ${o.status==="COMPLETED"?"selected":""}>已完成</option><option value="FAILED" ${o.status==="FAILED"?"selected":""}>已失败</option><option value="CANCELLED" ${o.status==="CANCELLED"?"selected":""}>已取消</option></select></div><div class="field"><label>进度备注</label><textarea rows="4" oninput="ui.overlay.note=this.value">${esc(o.note)}</textarea></div><div class="row space"><button class="btn" onclick="ui.overlay=null;render()">取消</button><button class="btn primary" onclick="saveQuest()">保存任务</button></div></div></div>`;
+ if(o.type==="COACH_MARK")return `<div class="overlay"><div class="modal"><h2>教练标记</h2><p class="muted small">记录关键回合，便于复盘。</p><div class="row wrap">${["有效进攻","机制清晰","有效回应","漏回应","争议点"].map(c=>`<button class="btn ${o.category===c?"primary":""}" onclick="ui.overlay.category='${c}';render()">${c}</button>`).join("")}</div><div class="field" style="margin-top:12px"><label>备注</label><textarea rows="3" oninput="ui.overlay.note=this.value">${esc(o.note||"")}</textarea></div><div class="row space" style="margin-top:14px"><button class="btn" onclick="ui.overlay=null;render()">取消</button><button class="btn primary" onclick="confirmCoachMark()">记录标记</button></div></div></div>`;
+ if(o.type==="CARD_DETAIL"){
+  const c=cardDetailOf(match(),o.kind,o.key);if(!c)return "";
+  const isHex=o.kind==="hex";
+  const badges=isHex?`${c.tier?`<span class="badge ${tierClass(c.tier)}">${z(c.tier)}</span>`:""}${c.category?`<span class="badge">${esc(c.category)}</span>`:""}${c.effectMode?`<span class="badge">${esc(c.effectMode)}</span>`:""}`:"";
+  const tags=(c.tags||[]).map(t=>`<span class="badge">${esc(t)}</span>`).join("");
+  const questNote=isHex&&c.effectMode==="QUEST"?`<div class="callout" style="text-align:left;margin:12px 0">这是一项<b>论证任务</b>：在你的陈述中完成下面说明的要点，由教练在「当前任务」面板标记完成与否。</div>`:"";
+  return `<div class="overlay" onclick="if(event.target===this)closeDetail()"><div class="modal"><div class="row space"><div>${badges}<h2 style="margin:8px 0 0">${esc(c.name)}</h2></div><button class="btn" onclick="closeDetail()">✕</button></div>${c.shortText?`<p style="margin-top:12px"><b>${esc(c.shortText)}</b></p>`:""}${questNote}${c.description?`<p style="white-space:pre-wrap">${esc(c.description)}</p>`:""}${tags?`<div class="row" style="margin-top:12px">${tags}</div>`:""}<div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn primary" onclick="closeDetail()">关闭</button></div></div></div>`
+ }
+ const m=match();return `<div class="overlay"><div class="modal"><div class="row space"><div><span class="badge">第 ${o.round} 轮</span><h2>${o.actor} 方选择海克斯</h2></div><span class="muted small">已重抽 ${o.reroll||0} 次</span></div><div class="hexes">${o.pool.map((h,i)=>`<button class="hex ${o.selected===i?"selected":""}" onclick="chooseHex(${i})"><div class="row"><span class="badge ${tierClass(h.tier)}">${z(h.tier)}</span><span class="badge">${h.category}</span></div><div class="name">${h.name}</div><div class="effect">${h.shortText}</div><div class="small" style="color:#aaf1c7">${Number(o.relaxLevel||0)>0?`⚠ 已启用第 ${o.relaxLevel} 级放宽`:service.eligibilityReason(m,o.actor,h)}</div></button>`).join("")}${choicePanelHTML(o)}</div><div class="row space" style="margin-top:18px"><div class="row"><button class="btn" onclick="cancelHex()">取消</button><button class="btn" onclick="rerollHex()">重抽</button></div><button class="btn primary big" onclick="lockHex()">锁定选择</button></div></div></div>`
+}
+
+function projector(){
+ const m=match();if(!m)return missingMatchPage(true);const n=service.currentNode(m),left=m.timer.mode==="RUNNING"?service.timerLeft(m):(m.timer.remainingMs||n.duration*1000),active=m.activeEnvironmentEffects.map((e,i)=>({name:e.sourceEventSnapshot.name,i,on:e.active})).filter(x=>x.on);
+ document.querySelector("#app").innerHTML=`<main class="wrap" style="max-width:1600px"><div class="center"><div class="muted">SUPER FIGHT · 投影模式</div><h1>${n.name}</h1>${n.dual?`<div class="dualtimer"><div class="dtcol ${m.timer.active==="A"?"on":""}"><div class="dtlabel">A 方</div><div id="timerA" class="timer">${fmtClock(service.timerLeft(m,"A"))}</div></div><div class="dtcol ${m.timer.active==="B"?"on":""}"><div class="dtlabel">B 方</div><div id="timerB" class="timer">${fmtClock(service.timerLeft(m,"B"))}</div></div></div>`:`<div id="timerText" class="timer">00:00</div>`}</div><div class="live-layout"><section class="card fighter">${publicImage(m.media.characterA,"A")}<div class="name clickable" onclick="showDetail('character','A')">${m.players.A.character.name}</div><p><span class="clickable" onclick="showDetail('ability','A')">${m.players.A.ability.name}</span> · <span class="clickable" onclick="showDetail('weakness','A')">${m.players.A.weakness.name}</span></p><div class="row">${m.players.A.hexes.filter(x=>x.revealedAt).map(x=>`<span class="badge clickable ${tierClass(x.selectedHexSnapshot.tier)}" onclick="showDetail('hex','${x.id}')">${x.selectedHexSnapshot.name}</span>`).join("")}</div></section><section class="card arena center">${publicImage(m.media.environment,"环境")}<h2 class="clickable" onclick="showDetail('environment')">${m.environment.name}</h2><p>${m.victory.name}：${m.victory.description}</p><div class="row" style="justify-content:center">${active.map(x=>`<span class="badge clickable" onclick="showDetail('event',${x.i})">${x.name}</span>`).join("")}</div></section><section class="card fighter">${publicImage(m.media.characterB,"B")}<div class="name clickable" onclick="showDetail('character','B')">${m.players.B.character.name}</div><p><span class="clickable" onclick="showDetail('ability','B')">${m.players.B.ability.name}</span> · <span class="clickable" onclick="showDetail('weakness','B')">${m.players.B.weakness.name}</span></p><div class="row">${m.players.B.hexes.filter(x=>x.revealedAt).map(x=>`<span class="badge clickable ${tierClass(x.selectedHexSnapshot.tier)}" onclick="showDetail('hex','${x.id}')">${x.selectedHexSnapshot.name}</span>`).join("")}</div></section></div></main><div class="proj-watermark">超级对决 · ${APP_META.author}</div>${overlayHTML()}`;refreshTimerDisplay(m);clearInterval(ui.tick);ui.tick=setInterval(()=>{const mm=match();if(mm?.timer.mode==="RUNNING")refreshTimerDisplay(mm)},250)
+}
+
+function review(){
+ const m=match();if(!m)return missingMatchPage();const marks=m.eventLog.filter(e=>e.eventType==="COACH_MARK");
+ app(`<main class="wrap"><div class="hero"><div><h1>复盘</h1><p>结果、构筑历程、事件日志与教练复盘。</p></div></div><section class="card center">${m.result?`<div class="score">${m.result?.votes.A||0} : ${m.result?.votes.B||0}</div><h2>胜者：${m.result?.winner==="A"?"A 方":m.result?.winner==="B"?"B 方":"平局"}</h2><p>${m.result?.decisiveReason||""}</p>`:'<h2>本局未进行判票</h2><p class="muted">该模板没有判票环节，对局已结束但不记票数。</p>'}</section><div class="grid cols-2" style="margin-top:16px"><section class="card"><h2>A 方构筑</h2>${m.players.A.hexes.map((x,i)=>`<div class="item">第 ${i+1} 轮：${x.selectedHexSnapshot.name}<div class="muted small">最终候选：${x.offeredHexSnapshots.map(h=>h.name).join(" / ")}</div></div>`).join("")}</section><section class="card"><h2>B 方构筑</h2>${m.players.B.hexes.map((x,i)=>`<div class="item">第 ${i+1} 轮：${x.selectedHexSnapshot.name}</div>`).join("")}</section></div><section class="card" style="margin-top:16px"><h2>事件日志</h2><table class="table"><thead><tr><th>时间</th><th>节点</th><th>事件</th></tr></thead><tbody>${m.eventLog.map(e=>`<tr><td>${new Date(e.timestamp).toLocaleTimeString()}</td><td>${e.nodeId}</td><td>${e.eventType}</td></tr>`).join("")}</tbody></table></section></main>`)
+}
+
+
+async function confirmCoachMark(){
+ const m=match();if(!m)return;const o=ui.overlay;
+ if(!o||!o.category){toast("请选择一个标记类别");return}
+ service.log(m,"COACH_MARK",{category:o.category,note:(o.note||"").trim()});
+ ui.overlay=null;await service.save(m);render()
+}
+// 效果模式契约：引擎仅实现 PASSIVE / CHOICE / QUEST 三种。
+// - PASSIVE：锁定即生效，不弹任务、不选目标（默认）
+// - CHOICE ：需选择目标（如 SELECT_OWN_ABILITY）
+// - QUEST  ：需先完成任务再获得奖励
+// 历史内容曾使用 ACTIVE / TRIGGERED / ONCE 等命名，但引擎从未消费它们，
+// 一律按 PASSIVE 处理。这里在导入与保存边界显式归并，避免误导性「活动」标签继续存在。
+function normalizeEffectMode(mode){
+  const m=String(mode==null?"":mode).trim().toUpperCase();
+  if(m==="PASSIVE"||m==="CHOICE"||m==="QUEST")return m;
+  if(m==="ACTIVE"||m==="TRIGGERED"||m==="ONCE")return "PASSIVE";
+  return "PASSIVE"; // 未知值一律视作被动，绝不静默生效
+}
+function normalizeImportType(v){
+ const x=String(v||"").trim().toLowerCase();
+ const map={
+  "角色":"characters","character":"characters","characters":"characters",
+  "能力":"abilities","ability":"abilities","abilities":"abilities",
+  "缺陷":"weaknesses","weakness":"weaknesses","weaknesses":"weaknesses",
+  "环境":"environments","environment":"environments","environments":"environments",
+  "环境事件":"events","事件":"events","event":"events","events":"events",
+  "胜利条件":"victories","victory":"victories","victories":"victories",
+  "海克斯":"hexes","hex":"hexes","hexes":"hexes"
+ };
+ return map[x]||null
+}
+function csvSplitLine(line){
+ const out=[];let cur="",q=false;
+ for(let i=0;i<line.length;i++){
+  const c=line[i];
+  if(c==='"'&&line[i+1]==='"'){cur+='"';i++;continue}
+  if(c==='"'){q=!q;continue}
+  if(c===","&&!q){out.push(cur);cur="";continue}
+  cur+=c
+ }
+ out.push(cur);return out
+}
+function parseBatchText(text,filename){
+ const lower=filename.toLowerCase(),records=[];
+ if(lower.endsWith(".json")){
+  const data=JSON.parse(text);
+  if(Array.isArray(data)){
+   for(const row of data){const type=normalizeImportType(row.type);if(type)records.push({...row,type})}
+  }else{
+   for(const [key,items] of Object.entries(data)){const type=normalizeImportType(key);if(type&&Array.isArray(items))for(const row of items)records.push({...row,type})}
+  }
+ }else{
+  const lines=text.replace(/\r/g,"").split("\n").filter(x=>x.trim());
+  if(lines.length<2)throw new Error("CSV 至少需要表头和一行数据");
+  const headers=csvSplitLine(lines[0]).map(x=>x.trim());
+  for(const line of lines.slice(1)){
+   const vals=csvSplitLine(line),row={};headers.forEach((h,i)=>row[h]=vals[i]??"");
+   const type=normalizeImportType(row.type||row.类型);if(!type)continue;
+   const tags=String(row.tags||row.标签||"").split(/[|，,]/).map(x=>x.trim()).filter(Boolean);
+   records.push({type,name:row.name||row.名称,shortText:row.shortText||row.短描述||"",description:row.description||row.完整描述||"",tags,tier:row.tier||row.品质,category:row.category||row.类别,effectMode:normalizeEffectMode(row.effectMode||row.效果模式),weight:Number(row.weight||row.权重||1)})
+  }
+ }
+ return records
+}
+async function batchImport(){
+ const input=document.createElement("input");input.type="file";input.accept=".json,.csv,application/json,text/csv";
+ input.onchange=async()=>{
+  const f=input.files?.[0];if(!f)return;
+  try{
+   const records=parseBatchText(await f.text(),f.name);
+   if(!records.length)throw new Error("没有识别到角色、能力、缺陷、环境、环境事件、胜利条件或海克斯");
+   const poolName=prompt("为本次批量导入创建内容池名称：",f.name.replace(/\.[^.]+$/,""))||f.name.replace(/\.[^.]+$/,"");
+   const idsByType={characters:[],abilities:[],weaknesses:[],environments:[],events:[],victories:[],hexes:[]};
+   const imported=[],reused=[];
+   for(const row of records){
+    if(!row.name?.trim())continue;
+    const type=row.type;
+    // 按「类型 + 归一化名称」去重：命中既有内容则复用其 id，不新建副本
+    const existing=store.findByName(type,row.name,imported);
+    if(existing){reused.push(existing);idsByType[type].push(existing.id);continue}
+    const item={
+     id:row.id&&String(row.id).trim()?String(row.id).trim():nextId(type),
+     type,name:String(row.name).trim(),shortText:String(row.shortText||""),description:String(row.description||row.shortText||""),
+     tags:Array.isArray(row.tags)?row.tags:String(row.tags||"").split(/[|，,]/).map(x=>x.trim()).filter(Boolean),enabled:row.enabled!==false
+    };
+    if(type==="environments"){item.hazards=Array.isArray(row.hazards)?row.hazards:[]}
+    if(type==="events"){Object.assign(item,{compatibleEnvironmentTags:Array.isArray(row.compatibleEnvironmentTags)?row.compatibleEnvironmentTags:[],defaultPersistence:row.defaultPersistence==="CURRENT_NODE"?"CURRENT_NODE":"PERSISTENT"})}
+    if(type==="hexes"){Object.assign(item,{tier:row.tier||"GOLD",category:row.category||"CORE",effectMode:normalizeEffectMode(row.effectMode),requirements:Array.isArray(row.requirements)?row.requirements:[],incompatibilities:Array.isArray(row.incompatibilities)?row.incompatibilities:[],weight:Number(row.weight)||1});if(row.choiceSchema)item.choiceSchema=row.choiceSchema}
+    // Ensure ID uniqueness. If collision, allocate next available.
+    if(store.content(type).some(x=>x.id===item.id)||imported.some(x=>x.type===type&&x.id===item.id))item.id=nextAvailableId(type,imported);
+    await store.saveContent(item);idsByType[type].push(item.id);imported.push(item)
+   }
+   const total=imported.length+reused.length;
+   if(!total)throw new Error("导入内容均无有效名称");
+   const pool={id:nextId("pools"),type:"pools",name:poolName,description:`批量导入：${f.name}（${total} 项）`,scopeMode:"EXPLICIT",contentIdsByType:idsByType,excludedIdsByType:{},tagFiltersByType:{},enabled:true,source:{kind:"BATCH_IMPORT",fileName:f.name,importedAt:new Date().toISOString()}};
+   await store.saveContent(pool);
+   toast(`已导入 ${total} 项：新增 ${imported.length} 项${reused.length?`，复用同名 ${reused.length} 项`:""}，并创建内容池「${poolName}」`);
+   ui.libraryType="pools";render()
+  }catch(e){toast("批量导入失败："+e.message)}
+ };
+ input.click()
+}
+function nextAvailableId(type,pending=[]){
+ const p=TYPE_META[type].prefix,used=new Set([...store.content(type),...pending.filter(x=>x.type===type)].map(x=>x.id));
+ let n=1,id;do{id=p+String(n++).padStart(2,"0")}while(used.has(id));return id
+}
+function downloadImportTemplate(){
+ const example={
+  "_模板说明":"本文件为「超级对决」批量导入通用模板。按下划线（_）开头的键是编写须知，仅供作者阅读，导入时引擎会自动忽略，不会进入数据。请先读完下方四个须知再编写。完整规则见 AGENTS.md 第 22 节（内容与胜利条件编写规范）。每个内容类型放一个数组，数组里每个对象是一项待导入内容；不写 id 时引擎自动按前缀编号。",
+  "_海克斯等级":{
+    "BRONZE":"青铜：最基础、限制最多的效果，适合作为入场与过渡。",
+    "SILVER":"白银：中等强度，常见构筑组件。",
+    "GOLD":"黄金：标准强度，对局主干。",
+    "PRISMATIC":"棱彩：复合型 / 多选项效果，通常需要搭配 choiceSchema 让选手做选择。",
+    "CURSED":"诅咒：高风险高回报，常附带负面约束。",
+    "QUEST":"任务：以完成某个条件为目标（effectMode 用 QUEST），而非即时生效。"
+  },
+  "_海克斯编写须知":"1) effectMode 只能取 PASSIVE / CHOICE / QUEST 三值之一；不要写 ACTIVE / TRIGGERED / ONCE——引擎从不消费这些，会静默当作 PASSIVE 且留下误导标签。\n2) 用 CHOICE 时必须提供 choiceSchema（见下方棱彩示例），否则选择结构在导入时丢失。\n3) 数字用「边界型」而非「计数型」：写数字必须同时写清它不覆盖什么（好：力量增强到 10 倍，但耐久没有同比提升；坏：力量 10 倍，无边界只剩报数）。\n4) 等级要铺开：包内海克斯应覆盖多个 tier，否则构筑单一。\n5) 辩论价值优先：制造机制链与可攻击面，而不是单纯数值碾压。",
+  "_胜利条件编写须知":"1) 描述「状态」而不是规定「次数 / 数量」：坏——「收集 6 条情报」；好——「掌握并验证全部关键任务信息」。把「N 个 / 三步」换成「全部 / 完成」可消除定义之争。\n2) 不得出现未定义的对象：用「场地中央区域」代替「中央指定目标物」、用「处于安全状态」代替「指定集合点」、用「带离危险区域」代替「己方撤离点」、用「现场关键资料」代替「中央资料箱」。\n3) 若必须写数字，同样用边界型。\n4) 例外：并列的不同目标（如四类任务各完成一项）不算计数型，可保留。",
+  characters:[{name:"示例角色",shortText:"一句话描述",description:"完整描述",tags:["human","agile"]}],
+  abilities:[{name:"示例能力",shortText:"能力摘要",description:"完整规则",tags:["mobility"]}],
+  weaknesses:[{name:"示例缺陷",shortText:"缺陷摘要",description:"完整规则",tags:["psychology"]}],
+  environments:[{name:"示例环境",shortText:"环境摘要",description:"完整描述",tags:["indoor"],hazards:["低能见度"]}],
+  events:[{name:"示例环境事件",shortText:"事件摘要",description:"当前节点发生的环境变化，会在时间线「环境事件」节点触发。",tags:[],compatibleEnvironmentTags:["indoor"],defaultPersistence:"PERSISTENT"}],
+  victories:[{name:"示例胜利条件",shortText:"摘要",description:"使对手完全丧失继续对抗的组织与行动能力（例如：核心系统停摆且关键人员已被控制）。"}],
+  hexes:[
+    {name:"示例海克斯（黄金·被动）",shortText:"效果摘要",tier:"GOLD",category:"CORE",effectMode:"PASSIVE",tags:["combat"],requirements:[],incompatibilities:[],weight:1},
+    {name:"示例海克斯（青铜·被动）",shortText:"限制较多的入门效果，用于铺开低等级",tier:"BRONZE",category:"CORE",effectMode:"PASSIVE",tags:["control"],requirements:[],incompatibilities:[],weight:1},
+    {name:"示例海克斯（棱彩·选择）",shortText:"选手需从自身能力中做选择",tier:"PRISMATIC",category:"BUILD",effectMode:"CHOICE",tags:["build"],requirements:[],incompatibilities:[],weight:1,choiceSchema:{type:"SELECT_OWN_ABILITY",min:1,max:1}},
+    {name:"示例海克斯（选择·环境标签）",shortText:"选手需选一个当前环境标签来聚焦",tier:"PRISMATIC",category:"ENVIRONMENT",effectMode:"CHOICE",tags:["environment"],requirements:[],incompatibilities:[],weight:1,choiceSchema:{type:"SELECT_ENVIRONMENT_TAG",min:1,max:1}},
+    {name:"示例海克斯（选择·环境危害）",shortText:"选手需选一个当前环境危害来转化",tier:"GOLD",category:"TACTIC",effectMode:"CHOICE",tags:["environment"],requirements:[],incompatibilities:[],weight:1,choiceSchema:{type:"SELECT_ENVIRONMENT_HAZARD",min:1,max:1}},
+    {name:"示例海克斯（选择·固定选项）",shortText:"选手需从给定选项中挑一个",tier:"PRISMATIC",category:"BUILD",effectMode:"CHOICE",tags:["build"],requirements:[],incompatibilities:[],weight:1,choiceSchema:{type:"SELECT_OPTION",options:["潜行","交涉","救援"],min:1,max:1}},
+    {name:"示例海克斯（任务）",shortText:"以完成条件为目标",tier:"QUEST",category:"OBJECTIVE",effectMode:"QUEST",tags:["objective"],requirements:[],incompatibilities:[],weight:1}
+  ]
+ };
+ const blob=new Blob([JSON.stringify(example,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="super-fight-batch-import-template.json";a.click();URL.revokeObjectURL(a.href)
+}
+function contentLibrary(){
+ const type=ui.libraryType,items=store.content(type),meta=TYPE_META[type];
+ app(`<main class="wrap"><div class="hero"><div><h1>内容库</h1><p>支持单项编辑，也支持把一批角色、能力、缺陷、环境、胜利条件与海克斯一次导入，并自动形成独立内容池。</p></div><div class="row"><button class="btn" onclick="downloadImportTemplate()">下载导入模板</button><button class="btn good" onclick="batchImport()">批量导入并建池</button><button class="btn primary" onclick="newContent()">＋ 新建${meta.label}</button></div></div>
+ <div class="import-help"><b>批量导入支持 JSON / CSV。</b><div class="muted small">JSON 可按 characters / abilities / weaknesses / environments / victories / hexes 分组，也可用带 type 字段的数组。CSV 需要 type、name 列；可额外包含 shortText、description、tags、tier、category、effectMode、weight。</div></div>
+ <div class="row" style="margin:14px 0">${Object.entries(TYPE_META).map(([k,v])=>`<button class="btn ${k===type?"primary":""}" onclick="ui.libraryType='${k}';render()">${v.label}</button>`).join("")}</div>
+ <div class="card"><table class="table"><thead><tr><th>ID</th><th>名称</th><th>${type==="pools"?"成员范围":"短描述"}</th><th>状态</th><th></th></tr></thead><tbody>${items.map(x=>{const sum=type==="pools"?poolService.membershipSummary(x):null;return `<tr><td>${x.id}</td><td><b>${esc(x.name)}</b></td><td>${type==="pools"?`角色 ${sum.characters} · 能力 ${sum.abilities} · 缺陷 ${sum.weaknesses} · 环境 ${sum.environments} · 胜利 ${sum.victories} · 海克斯 ${sum.hexes}`:esc(x.shortText||x.description||"")}</td><td>${x.enabled===false?"已停用":"启用"}</td><td><button class="btn" onclick="editContent('${x.id}')">编辑</button></td></tr>`}).join("")}</tbody></table></div></main>${ui.editing?contentDrawer():""}`)
+}
+function nextId(type){const p=TYPE_META[type].prefix,nums=store.content(type).map(x=>Number(String(x.id).replace(/\D/g,""))||0),n=(Math.max(0,...nums)+1);return p+String(n).padStart(2,"0")}
+function newContent(){
+ const type=ui.libraryType,base={id:nextId(type),type,name:"",shortText:"",description:"",tags:[],enabled:true,createdAt:new Date().toISOString()};
+ if(type==="hexes")Object.assign(base,{tier:"GOLD",category:"CORE",effectMode:"PASSIVE",requirements:[],incompatibilities:[],weight:1});
+ if(type==="events")Object.assign(base,{compatibleEnvironmentTags:[],defaultPersistence:"PERSISTENT"});
+ if(type==="environments")Object.assign(base,{hazards:[]});
+ if(type==="pools")Object.assign(base,{scopeMode:"EXPLICIT",contentIdsByType:{characters:[],abilities:[],weaknesses:[],environments:[],events:[],victories:[],hexes:[]},excludedIdsByType:{},tagFiltersByType:{}});
+ ui.editing=base;render()
+}
+function editContent(id){ui.editing=clone(store.content(ui.libraryType).find(x=>x.id===id));render()}
+function contentDrawer(){
+ const x=ui.editing,type=x.type;
+ return `<aside class="drawer"><div class="row space"><h2>${x.id} · ${TYPE_META[type].label}</h2><button class="btn" onclick="ui.editing=null;render()">关闭</button></div><div class="field"><label>名称</label><input id="ce-name" value="${esc(x.name)}"></div><div class="field"><label>短描述</label><textarea id="ce-short" rows="3">${esc(x.shortText||"")}</textarea></div><div class="field"><label>完整描述</label><textarea id="ce-desc" rows="5">${esc(x.description||"")}</textarea></div><div class="field"><label>标签（逗号分隔）</label><input id="ce-tags" value="${esc((x.tags||[]).join(","))}"></div>${type==="hexes"?`<div class="grid cols-2"><div class="field"><label>品质</label><select id="ce-tier">${HEX_TIERS.map(v=>`<option ${x.tier===v?"selected":""}>${v}</option>`).join("")}</select></div><div class="field"><label>类别</label><input id="ce-category" value="${esc(x.category||"CORE")}"></div></div>`:""}${type==="events"?`<div class="field"><label>兼容环境标签（逗号分隔）</label><input id="ce-envtags" value="${esc((x.compatibleEnvironmentTags||[]).join(","))}"></div><div class="field"><label>持续方式</label><select id="ce-persistence"><option ${x.defaultPersistence==="PERSISTENT"?"selected":""}>PERSISTENT</option><option ${x.defaultPersistence==="CURRENT_NODE"?"selected":""}>CURRENT_NODE</option></select></div>`:""}${type==="environments"?`<div class="field"><label>危险（逗号分隔）</label><input id="ce-hazards" value="${esc((x.hazards||[]).join(","))}"></div>`:""}${type==="pools"?`<div class="field"><label>范围模式</label><select id="ce-scope"><option value="EXPLICIT" ${x.scopeMode!=="ALL"?"selected":""}>仅使用下列成员</option><option value="ALL" ${x.scopeMode==="ALL"?"selected":""}>全部启用内容</option></select></div>${["characters","abilities","weaknesses","environments","victories","hexes"].map(t=>`<div class="field"><label>${TYPE_META[t].label} ID（逗号分隔）</label><textarea id="ce-pool-${t}" rows="2">${esc((x.contentIdsByType?.[t]||[]).join(","))}</textarea></div>`).join("")}`:""}<div class="field"><label><input id="ce-enabled" type="checkbox" style="width:auto" ${x.enabled!==false?"checked":""}> 启用</label></div><div class="row space"><button class="btn bad" onclick="deleteEditing()">删除</button><button class="btn primary" onclick="saveEditing()">保存</button></div></aside>`
+}
+async function saveEditing(){
+ const x=clone(ui.editing);x.name=document.querySelector("#ce-name").value.trim();if(!x.name)return toast("请填写名称");x.shortText=document.querySelector("#ce-short").value.trim();x.description=document.querySelector("#ce-desc").value.trim();x.tags=document.querySelector("#ce-tags").value.split(",").map(v=>v.trim()).filter(Boolean);x.enabled=document.querySelector("#ce-enabled").checked;
+ if(x.type==="hexes"){x.tier=document.querySelector("#ce-tier").value;x.category=document.querySelector("#ce-category").value.trim()||"CORE";x.effectMode=normalizeEffectMode(x.effectMode);x.requirements=x.requirements||[];x.incompatibilities=x.incompatibilities||[];x.weight=x.weight||1}
+ if(x.type==="events"){x.compatibleEnvironmentTags=document.querySelector("#ce-envtags").value.split(",").map(v=>v.trim()).filter(Boolean);x.defaultPersistence=document.querySelector("#ce-persistence").value}
+ if(x.type==="environments"){x.hazards=document.querySelector("#ce-hazards").value.split(",").map(v=>v.trim()).filter(Boolean)}
+ if(x.type==="pools"){
+  x.scopeMode=document.querySelector("#ce-scope").value;x.contentIdsByType=x.contentIdsByType||{};
+  for(const t of ["characters","abilities","weaknesses","environments","events","victories","hexes"])x.contentIdsByType[t]=document.querySelector("#ce-pool-"+t).value.split(",").map(v=>v.trim()).filter(Boolean);
+  x.excludedIdsByType=x.excludedIdsByType||{};x.tagFiltersByType=x.tagFiltersByType||{}
+ }
+ await store.saveContent(x);ui.editing=null;toast("已保存");render()
+}
+async function deleteEditing(){const x=ui.editing;if(!confirm(`确定删除 ${x.name||x.id}？历史 Match 不受影响。`))return;await store.deleteContent(x.type,x.id);ui.editing=null;render()}
+
+function currentTimeline(){const c=store.getLocal("customTimeline");return (Array.isArray(c)&&c.length)?c:clone(defaultTimeline)}
+// 通用计时环节：任何有时长、且不是引擎特殊流程（海克斯/环境事件/判票）的环节都可计时、可跳过
+function isTimedSegment(n){return !!(n&&n.duration>0)&&!["HEX","EVENT","VOTE"].includes(n.type)}
+// 环节预设：只提供默认值，不锁定类型——添加后名称与参数可随意改（陈词/总结/自由辩/质询/驳论…都只是"计时环节"）
+const NODE_PRESETS=[
+ {key:"prep",   type:"SEGMENT",name:"准备",     duration:180},
+ {key:"speech", type:"SEGMENT",name:"陈词",     duration:90},
+ {key:"cross",  type:"SEGMENT",name:"质询",     duration:60},
+ {key:"free",   type:"SEGMENT",name:"自由辩",   duration:240,dual:true},
+ {key:"summary",type:"SEGMENT",name:"总结",     duration:45},
+ {key:"hex",    type:"HEX",    name:"海克斯选取",duration:0,config:{tiers:["BRONZE","SILVER","GOLD"],count:3}},
+ {key:"event",  type:"EVENT",  name:"环境事件", duration:0},
+ {key:"vote",   type:"VOTE",   name:"判票",     duration:0}
+];
+function makeNode(p,seq){
+ const name=(p.type==="SEGMENT"&&seq>1)?p.name+" "+seq:p.name;
+ const n={id:"n"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),type:p.type,name,duration:p.duration||0};
+ if(p.dual)n.dual=true;
+ if(p.config)n.config=clone(p.config);
+ return n
+}
+function addNode(key){
+ const p=NODE_PRESETS.find(x=>x.key===key);if(!p)return;
+ const tl=ui.studioTimeline;
+ const seq=tl.filter(n=>n.type===p.type&&String(n.name||"").startsWith(p.name)).length+1;
+ tl.push(makeNode(p,seq));render()
+}
+function removeNode(i){ui.studioTimeline.splice(i,1);render()}
+function moveNode(i,dir){const tl=ui.studioTimeline,j=i+dir;if(j<0||j>=tl.length)return;const t=tl[i];tl[i]=tl[j];tl[j]=t;render()}
+function setNodeName(i,v){ui.studioTimeline[i].name=String(v||"").trim()||z(ui.studioTimeline[i].type)}
+let _dragFrom=null;
+function dragStart(i){_dragFrom=i;render()}
+function dragOver(e){if(_dragFrom!==null)e.preventDefault()}
+function dropNode(i){if(_dragFrom===null)return;const tl=ui.studioTimeline;if(_dragFrom!==i){const [it]=tl.splice(_dragFrom,1);tl.splice(i,0,it)}_dragFrom=null;render()}
+function dragEnd(){_dragFrom=null;render()}
+function validateTimeline(tl){
+ if(!Array.isArray(tl)||!tl.length)return "至少需要 1 个环节";
+ const ids=new Set();
+ for(const n of tl){
+  if(!n.id)return "存在缺少 id 的环节";
+  if(ids.has(n.id))return "存在重复 id："+n.id;
+  ids.add(n.id);
+  if(n.type==="HEX"&&!(n.config?.tiers||[]).length)return "「"+(n.name||"海克斯选取")+"」未设置任何品质";
+ }
+ return null
+}
+function studioNodeHTML(n,i){
+ const timed=!!n.duration,tl=ui.studioTimeline;
+ return `<div class="item segrow ${_dragFrom===i?"dragging":""}" draggable="true" ondragstart="dragStart(${i})" ondragover="dragOver(event)" ondrop="dropNode(${i})" ondragend="dragEnd()">
+  <div class="row" style="align-items:flex-start;gap:10px">
+   <span class="drag-handle" title="拖动排序（触屏请用右侧 ↑↓）">⠿</span>
+   <div style="flex:1">
+    <div class="row" style="align-items:center;gap:8px;flex-wrap:wrap">
+     <b>${i+1}.</b>
+     <input class="segname" value="${esc(n.name)}" onchange="setNodeName(${i},this.value)">
+     <span class="badge">${z(n.type)}</span>
+    </div>
+    ${timed?`<div class="row" style="margin-top:8px;align-items:center;gap:10px;flex-wrap:wrap">
+      <label class="small">时长(秒) <input type="number" min="0" value="${n.duration}" onchange="ui.studioTimeline[${i}].duration=Number(this.value)||0"></label>
+      <label class="small"><input type="checkbox" ${n.dual?"checked":""} onchange="ui.studioTimeline[${i}].dual=this.checked;render()"> 双计时（双方分开计时）</label>
+      ${n.dual?`<label class="small">A 方 <input type="number" min="0" value="${n.durationA!=null?n.durationA:n.duration}" onchange="ui.studioTimeline[${i}].durationA=Number(this.value)||0"></label><label class="small">B 方 <input type="number" min="0" value="${n.durationB!=null?n.durationB:n.duration}" onchange="ui.studioTimeline[${i}].durationB=Number(this.value)||0"></label>`:""}
+    </div>`:'<div class="muted small" style="margin-top:6px">状态节点（无计时）</div>'}
+    ${n.type==="HEX"?`<div class="muted small" style="margin-top:6px">品质在「开始训练 → 海克斯轮次品质」中配置${(n.config?.tiers||[]).length?`（默认：${(n.config.tiers||[]).map(z).join(" / ")}）`:""}</div>`:""}
+   </div>
+   <div class="row" style="gap:5px">
+    <button class="btn" onclick="moveNode(${i},-1)" ${i===0?"disabled":""} title="上移">↑</button>
+    <button class="btn" onclick="moveNode(${i},1)" ${i===tl.length-1?"disabled":""} title="下移">↓</button>
+    <button class="btn bad" onclick="removeNode(${i})" title="删除">删除</button>
+   </div>
+  </div></div>`
+}
+function studio(){
+ if(!ui.studioTimeline)ui.studioTimeline=currentTimeline();
+ const tl=ui.studioTimeline,isCustom=!!store.getLocal("customTimeline"),err=validateTimeline(tl);
+ app(`<main class="wrap"><div class="hero"><div><h1>训练模板 · 环节配置</h1><p>自由增删与排序环节。除「海克斯选取 / 环境事件 / 判票」外都是<b>通用计时环节</b>——名称随便写（陈词、总结、自由辩、质询、驳论…），只需配时长与单/双计时。</p></div><div class="row"><button class="btn primary" onclick="saveStudio()">保存模板</button><button class="btn" onclick="resetStudio()">恢复默认</button></div></div>
+ <div class="card"><div class="small muted" style="margin-bottom:8px">添加环节</div><div class="row wrap" style="gap:6px">${NODE_PRESETS.map(p=>`<button class="btn" onclick="addNode('${p.key}')">＋ ${p.name}</button>`).join("")}</div></div>
+ <div class="card" style="margin-top:14px"><div class="list">${tl.map((n,i)=>studioNodeHTML(n,i)).join("")}</div></div>
+ ${err?`<div class="callout" style="margin-top:12px">⚠ ${esc(err)}</div>`:`<div class="muted small" style="margin-top:10px">共 ${tl.length} 个环节${isCustom?" · 当前使用自定义模板":" · 当前使用默认模板（保存后生效）"}</div>`}
+ </main>`)
+}
+function saveStudio(){
+ const err=validateTimeline(ui.studioTimeline);
+ if(err){toast("无法保存："+err);return}
+ store.setLocal("customTimeline",ui.studioTimeline);toast("模板已保存，新对局将使用此环节配置");render()
+}
+function resetStudio(){store.setLocal("customTimeline",null);ui.studioTimeline=clone(defaultTimeline);toast("已恢复默认模板");render()}
+function history(){const all=Object.values(store.getMatches()).sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));app(`<main class="wrap"><div class="hero"><div><h1>历史对局</h1><p>历史 Match 存储于 IndexedDB。</p></div></div><div class="card">${all.length?all.map(m=>`<div class="item row space"><div><b>${m.players.A.character.name} vs ${m.players.B.character.name}</b><div class="muted small">${m.id} · ${z(m.status)} · ${new Date(m.createdAt).toLocaleString()}</div></div><button class="btn" onclick="location.hash='${m.status==="FINISHED"?"#/review/":"#/live/"}${m.id}'">打开</button></div>`).join(""):"<p>暂无历史对局。</p>"}</div></main>`)}
+function aboutPage(){app(`<main class="wrap"><div class="hero"><div><h1>关于 超级对决 SUPER FIGHT</h1><p>一款面向辩论与演讲训练的开源对局控制台。</p></div></div><section class="card about-card"><h2>作者与版权</h2><p>本软件由 <b>${APP_META.author}</b> 制作并维护。</p><p>版权：© ${APP_META.year} ${APP_META.author}</p><p>联系方式：${APP_META.contact}</p></section><section class="card about-card"><h2>许可</h2><p><b>代码</b>：GPL-3.0（GNU GPL v3.0）。可自由学习、修改、再分发，衍生作品须以相同许可证开源。</p><p><b>内容</b>（角色、能力、缺陷、环境、海克斯、环境事件、胜利条件及全部内容包）：CC BY-NC-SA 4.0（署名-非商业性使用-相同方式共享）。教学用途免费，禁止未授权商用与转载。</p><p>${APP_META.note}。</p></section><section class="card about-card"><h2>内置内容包</h2><ul><li>水浒传 · 超级对决内容包</li><li>犯罪现场双重指控 v2.3</li><li>咒术回戦（非官方同人，仅供训练）</li><li>现实职业 · 通用极端情境</li><li>SEEDPACK 种子示例包</li></ul></section><section class="card about-card"><h2>版本</h2><p>V0.5.0：卡牌详情点按展开、双计时器、环节配置（Timeline Builder）。</p></section></main>`)}
+function helpPage(){
+ app(`<main class="wrap">
+ <div class="hero"><div><h1>规则与新手说明</h1><p>第一次参加超级对决，不需要先记住所有海克斯。先理解“如何赢、环境如何影响、构筑如何改变路径”这三件事，就可以开始训练。</p></div><button class="btn primary" onclick="location.hash='#/setup'">开始训练</button></div>
+
+ <div class="help-toc">
+  <a href="#help-what">超级对决是什么</a><a href="#help-elements">题面元素</a><a href="#help-flow">完整流程</a><a href="#help-argue">怎么发言</a><a href="#help-hex">海克斯规则</a><a href="#help-coach">教练怎么操作</a><a href="#help-beginner">第一次训练建议</a>
+ </div>
+
+ <section id="help-what" class="card help-section">
+  <h2>1. 超级对决是什么？</h2>
+  <p>超级对决是一套“构筑 + 辩论 + 临场变化”的训练。双方各自拥有一个角色、一项能力和一个缺陷，共享同一个环境与胜利条件。比赛过程中还会获得海克斯，并可能遭遇环境事件。</p>
+  <div class="callout"><b>核心不是比较“谁设定更强”。</b>真正要证明的是：在当前环境、当前胜利条件和当前构筑下，我方的获胜路径为什么更稳定、更快、更难被对方破坏。</div>
+ </section>
+
+ <section id="help-elements" class="card help-section">
+  <h2>2. 题面里的六种信息</h2>
+  <div class="grid cols-3">
+   <div class="item"><b>角色</b><p>角色的基础身体、装备、现实/虚构边界。没有写出的超自然能力不能自行补充。</p></div>
+   <div class="item"><b>能力</b><p>角色额外获得的特殊能力。只按文字说明生效，不自动附赠相关装备或其他能力。</p></div>
+   <div class="item"><b>缺陷</b><p>真实限制角色的负面条件。不能因为不利就忽略；可以通过战术、环境或海克斯降低影响。</p></div>
+   <div class="item"><b>环境</b><p>双方共享的战场。环境中的危险、空间、路线、资源都可以进入论证。</p></div>
+   <div class="item"><b>胜利条件</b><p>决定这一局“怎样才算赢”。不同胜利条件会彻底改变最优策略。</p></div>
+   <div class="item"><b>海克斯</b><p>比赛过程中三选一获得的构筑强化。可能是被动、触发、一次性、任务、诅咒或规则改变。</p></div>
+  </div>
+ </section>
+
+ <section id="help-flow" class="card help-section">
+  <h2>3. 一局训练怎么进行？</h2>
+  <div class="list">
+   <div class="help-step"><div class="help-num">1</div><div><b>题面确认</b><p>双方先读清角色、能力、缺陷、环境和胜利条件。不要急着判断胜负，先找自己的获胜路径。</p></div></div>
+   <div class="help-step"><div class="help-num">2</div><div><b>第一轮海克斯</b><p>A、B 分别秘密三选一。两边锁定后统一揭晓。</p></div></div>
+   <div class="help-step"><div class="help-num">3</div><div><b>准备与立论</b><p>把角色事实、环境事实、能力机制连接起来，讲清楚“我方怎样具体达成胜利条件”。</p></div></div>
+   <div class="help-step"><div class="help-num">4</div><div><b>第二轮海克斯 + 自由辩</b><p>根据前面的攻防重构 Build，集中攻击对方路径中最脆弱的一环。</p></div></div>
+   <div class="help-step"><div class="help-num">5</div><div><b>环境事件</b><p>战场会发生变化，例如进水、停电、坍塌。事件生效后，要重新评估双方路径。</p></div></div>
+   <div class="help-step"><div class="help-num">6</div><div><b>第三轮海克斯</b><p>可能出现高影响的棱彩、诅咒或任务海克斯。注意代价和触发条件。</p></div></div>
+   <div class="help-step"><div class="help-num">7</div><div><b>总结、判票、复盘</b><p>最后比较双方完整获胜链条：谁的前提更少、速度更快、稳定性更高、对对方回应更充分。</p></div></div>
+  </div>
+ </section>
+
+ <section id="help-argue" class="card help-section">
+  <h2>4. 新手最容易上手的发言结构</h2>
+  <div class="rule-box"><h3>建议使用“四步路径”</h3>
+   <p><b>第一步：我要怎么赢。</b> 先直接说胜利条件对应的具体方案。</p>
+   <p><b>第二步：为什么我做得到。</b> 用角色、能力和环境建立机制链。</p>
+   <p><b>第三步：对方为什么拦不住。</b> 比较速度、信息、空间、资源和风险。</p>
+   <p><b>第四步：我的缺陷为什么不会先让我失败。</b> 主动处理自己最危险的限制。</p>
+  </div>
+  <div class="grid cols-2" style="margin-top:14px">
+   <div class="item"><b>好论证</b><p>“我有水下呼吸 → 环境持续进水 → 胜利条件是逃脱 → 我可以走对方无法长期使用的水下路线 → 因此我方路线更稳定。”</p></div>
+   <div class="item"><b>弱论证</b><p>“我的角色比较强，所以我会赢。”这种说法没有连接环境、胜利条件，也没有解释机制。</p></div>
+  </div>
+ </section>
+
+ <section id="help-hex" class="card help-section">
+  <h2>5. 海克斯怎么理解？</h2>
+  <div class="grid cols-3">
+   <div class="item"><b>SILVER / 银</b><p>通常是稳定的小型强化，适合补基础短板。</p></div>
+   <div class="item"><b>GOLD / 金</b><p>构筑核心，常用于协同、反制、弱点转化。</p></div>
+   <div class="item"><b>PRISMATIC / 棱彩</b><p>高影响规则变化，可能直接改变获胜路径。</p></div>
+   <div class="item"><b>CURSED / 诅咒</b><p>强收益伴随明确代价，必须把代价也纳入论证。</p></div>
+   <div class="item"><b>QUEST / 任务</b><p>先完成任务，再获得奖励。未完成前不能把奖励当成已经拥有。</p></div>
+   <div class="item"><b>前置条件</b><p>某些海克斯只有在角色、能力、缺陷、已有海克斯或环境满足条件时才会进入候选。</p></div>
+  </div>
+  <div class="callout" style="margin-top:12px"><b>秘密选择规则：</b>A 锁定后设备交给 B；B 完成选择前不能看到 A 的牌；双方锁定后才统一揭晓。投影端只显示已经揭晓的海克斯。</div>
+ </section>
+
+ <section id="help-coach" class="card help-section">
+  <h2>6. 教练 / 主持需要做什么？</h2>
+  <div class="grid cols-2">
+   <div class="item"><b>推进流程</b><p>跟随当前节点操作计时、海克斯、环境事件和判票。计时节点未完成时，不应普通跳过。</p></div>
+   <div class="item"><b>记录教练标记</b><p>记录有效进攻、机制清晰、有效回应、漏回应等关键时刻，方便 Review。</p></div>
+   <div class="item"><b>处理误操作</b><p>使用撤销恢复最近一次可撤销状态。EventLog 会保留撤销审计，而不是删除历史。</p></div>
+   <div class="item"><b>维护公平</b><p>不要替选手临场补充题面没有写出的能力；对于争议事实优先回到冻结题面和明确规则。</p></div>
+  </div>
+ </section>
+
+ <section id="help-beginner" class="card help-section">
+  <h2>7. 第一次训练怎么降低难度？</h2>
+  <div class="quick-check">
+   <div class="item"><b>只抓一条主路径</b><p>第一次不要同时讲五种赢法。选最现实的一条，讲完整。</p></div>
+   <div class="item"><b>每次只问“然后呢？”</b><p>角色有能力，然后呢？能力影响环境，然后呢？最后如何直接接到胜利条件？</p></div>
+   <div class="item"><b>把海克斯当“修补件”</b><p>优先选择能修复自己关键短板、加强主路径或直接反制对方核心机制的牌。</p></div>
+  </div>
+  <div class="rule-box" style="margin-top:14px"><h3>新手开局前 30 秒</h3><p>① 我的胜利条件是什么？　② 环境最重要的三个事实是什么？　③ 我的能力最直接帮助哪一步？　④ 我的缺陷最可能在哪里让我失败？　⑤ 第一轮海克斯我要补哪一个问题？</p></div>
+ </section>
+ </main>`)
+}
+
+async function exportData(){const matches={};for(const [id,m] of Object.entries(cache.matches)){const copy=structuredClone(m);if(copy.media)for(const k of ["characterA","characterB","environment"]){const v=copy.media[k];if(v&&!v.startsWith("data:")){try{const b=await db.getMedia(v);if(b)copy.media[k]=await blobToDataUrl(b)}catch{}}}matches[id]=copy}const payload={version:"0.5.0",content:cache.content,matches,currentMatchId:store.getLocal("currentMatchId"),setup:ensureSetup(),attribution:{author:APP_META.author,year:APP_META.year,codeLicense:APP_META.codeLicense,contentLicense:APP_META.contentLicense,note:APP_META.note}};const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="super-fight-v0.5.0-data.json";a.click();URL.revokeObjectURL(a.href)}
+function importData(){
+ const input=document.createElement("input");input.type="file";input.accept=".json,application/json";
+ input.onchange=async()=>{
+  try{
+   const data=JSON.parse(await input.files[0].text());
+   if(data.content)for(const [type,items] of Object.entries(data.content))for(const item of items)await store.saveContent({...item,type:item.type||type});
+   if(data.matches)for(const m of Object.values(data.matches)){cache.matches[m.id]=m;await db.put("matches",m)}
+   if(data.currentMatchId)store.setCurrentMatch(data.currentMatchId);
+   const setup=ensureSetup();setup.preview=null;store.setLocal("draftSetup",setup);
+   toast("数据导入完成");render()
+  }catch(e){toast("导入失败："+e.message)}
+ };
+ input.click()
+}
+
+function render(){
+ if(!ui.ready){document.querySelector("#app").innerHTML=`<main class="wrap"><div class="card center"><h1>正在载入 SUPER FIGHT V0.5.0…</h1></div></main>`;return}
+ ui.route=location.hash||"#/dashboard";
+ if(ui.route.startsWith("#/dashboard"))dashboard();
+ else if(ui.route.startsWith("#/setup"))setupPage();
+ else if(ui.route.startsWith("#/lobby/"))lobby();
+ else if(ui.route.startsWith("#/live/"))live();
+ else if(ui.route.startsWith("#/projector/"))projector();
+ else if(ui.route.startsWith("#/review/"))review();
+ else if(ui.route.startsWith("#/library"))contentLibrary();
+ else if(ui.route.startsWith("#/studio"))studio();
+ else if(ui.route.startsWith("#/history"))history();
+ else if(ui.route.startsWith("#/help"))helpPage();
+ else if(ui.route.startsWith("#/about"))aboutPage();
+ else dashboard()
+}
+window.addEventListener("hashchange",()=>{ui.overlay=null;render()});
+window.addEventListener("storage",()=>render());
+try{if(syncChannel)syncChannel.onmessage=e=>{if(ui.route.startsWith("#/projector/")&&(!e.data?.id||e.data.id===routeMatchId()))render()}}catch{}
+(async()=>{try{await initData();ui.ready=true;render()}catch(e){document.querySelector("#app").innerHTML=`<main class="wrap"><div class="card"><h1>数据初始化失败</h1><p>${esc(e.message)}</p></div></main>`;console.error(e)}})();
+</script>
+</body>
+</html>
