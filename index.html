@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>超级对决 SUPER FIGHT · V0.5.0</title>
+<style>
+  :root{--bg:#0b1020;--panel:#121a2e;--accent:#6cf;--text:#e8eefc}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(1200px 600px at 70% -10%,#1a2540,transparent),var(--bg);color:var(--text);line-height:1.7}
+  .wrap{max-width:880px;margin:0 auto;padding:48px 20px 64px}
+  h1{font-size:40px;margin:0 0 8px}
+  .brand span{color:var(--accent)}
+  .sub{color:#9fb0d0;margin:0 0 28px}
+  .card{background:var(--panel);border:1px solid #1f2c4a;border-radius:14px;padding:20px 22px;margin:16px 0}
+  .btn{display:inline-block;background:var(--accent);color:#04101f;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:10px;margin:6px 8px 6px 0}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  ul{margin:8px 0 0;padding-left:20px}
+  li{margin:4px 0}
+  footer{margin-top:32px;color:#7e8db0;font-size:13px;border-top:1px solid #1f2c4a;padding-top:14px}
+  code{background:#0c1426;padding:2px 6px;border-radius:6px;color:#bfe}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="brand">超级对决 <span>SUPER FIGHT</span> · V0.5.0</h1>
+  <p class="sub">面向辩论 / 演讲训练的单文件对局控制台 · 作者：剪切线</p>
+
+  <div class="card">
+    <h2>开始使用</h2>
+    <p>无需安装、无需联网。<a class="btn" href="super-fight.html">▶ 打开控制台（单文件）</a>
+    <a class="btn ghost" href="README.md">阅读说明</a></p>
+    <p>首次打开后，进入「内容库 → 导入」，把 <code>packs/</code> 下的内容包逐个导入即可训练。</p>
+  </div>
+
+  <div class="card">
+    <h2>V0.5.0 新特性</h2>
+    <ul>
+      <li><b>卡牌详情点按展开</b>：对局 / 揭晓 / 投影任意界面点按卡牌，弹出完整描述。</li>
+      <li><b>双计时器</b>：自由辩等双方分开计时，支持任意加减、单方重置、撤销正确回算。</li>
+      <li><b>环节配置 Timeline Builder</b>：自由增减 / 拖拽排序陈词、自由辩、质询、环境事件、海克斯环节。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>内容包</h2>
+    <ul>
+      <li>水浒传 · 超级对决内容包</li>
+      <li>犯罪现场双重指控 v2.3</li>
+      <li>现实职业 · 通用极端情境</li>
+      <li>SEEDPACK 种子示例包</li>
+      <li>咒术回戦（<b>非官方同人，仅供训练</b>）</li>
+    </ul>
+    <p>导入文件见 <code>packs/README.md</code>。</p>
+  </div>
+
+  <div class="card">
+    <h2>许可</h2>
+    <p>代码：<b>GPL-3.0</b> ｜ 内容：<b>CC BY-NC-SA 4.0</b>（教学免费，禁止未授权商用与转载）。</p>
+    <p>详见 <a href="LICENSE">LICENSE</a> 与 <a href="CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>。</p>
+  </div>
+
+  <footer>
+    超级对决 SUPER FIGHT · V0.5.0 ｜ 作者 剪切线 ｜ © 2026 剪切线 ｜ 代码 GPL-3.0 · 内容 CC BY-NC-SA 4.0
+  </footer>
+</div>
+</body>
+</html>
