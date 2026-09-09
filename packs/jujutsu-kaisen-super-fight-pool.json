@@ -1,0 +1,1688 @@
+{
+  "characters": [
+    {
+      "name": "虎杖悠仁",
+      "shortText": "超常身体能力的近战型少年",
+      "description": "拥有远超常人的力量、速度、耐久与格斗适应力。默认不自带任何特定术式；其优势是贴身压迫、临场学习和持续作战。",
+      "tags": [
+        "human",
+        "melee",
+        "physical",
+        "agile",
+        "durable"
+      ]
+    },
+    {
+      "name": "伏黑惠",
+      "shortText": "冷静谨慎的战术型术师",
+      "description": "擅长观察局势、利用地形和资源制定多段计划。默认不自带十种影法术，由能力卡决定具体超自然手段。",
+      "tags": [
+        "human",
+        "tactical",
+        "calm",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "钉崎野蔷薇",
+      "shortText": "强硬果断的中近距离战斗者",
+      "description": "心理素质强，敢于以伤换伤并抓住敌人的弱点。默认不自带刍灵咒法，由能力卡决定攻击方式。",
+      "tags": [
+        "human",
+        "ranged",
+        "melee",
+        "fearless"
+      ]
+    },
+    {
+      "name": "五条悟",
+      "shortText": "顶级反应与战斗判断的天才术师",
+      "description": "具备极高战斗智商、感知力与临场判断。为保证随机构筑公平，默认不自带无下限、六眼或领域，具体能力由能力卡提供。",
+      "tags": [
+        "human",
+        "elite",
+        "perception",
+        "tactical"
+      ]
+    },
+    {
+      "name": "乙骨忧太",
+      "shortText": "高咒力量级、适应性极强的年轻术师",
+      "description": "拥有优秀剑术基础、庞大能量储备与高学习能力。默认不自带里香或复制，具体超自然能力由能力卡提供。",
+      "tags": [
+        "human",
+        "elite",
+        "swordsman",
+        "energy",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "禅院真希",
+      "shortText": "武器大师型近战专家",
+      "description": "擅长各种冷兵器、近身压制与高速判断，身体能力优秀。默认不附加任何特定咒具。",
+      "tags": [
+        "human",
+        "weapon",
+        "melee",
+        "physical",
+        "tactical"
+      ]
+    },
+    {
+      "name": "狗卷棘",
+      "shortText": "谨慎克制、擅长把握出手时机的术师",
+      "description": "行动简洁、团队意识强，对危险反应敏锐。默认不自带咒言，具体能力由能力卡提供。",
+      "tags": [
+        "human",
+        "support",
+        "tactical",
+        "agile"
+      ]
+    },
+    {
+      "name": "熊猫",
+      "shortText": "高耐久的非人型近战战士",
+      "description": "拥有强韧体格、优秀力量与耐打能力，体型适合正面冲击。默认不额外赋予形态切换。",
+      "tags": [
+        "nonhuman",
+        "melee",
+        "physical",
+        "durable"
+      ]
+    },
+    {
+      "name": "东堂葵",
+      "shortText": "力量与战斗智商兼具的猛攻型术师",
+      "description": "近战能力强，善于快速分析对手并用假动作制造判断失误。默认不自带不义游戏。",
+      "tags": [
+        "human",
+        "melee",
+        "physical",
+        "tactical",
+        "deception"
+      ]
+    },
+    {
+      "name": "七海建人",
+      "shortText": "稳定、精确、纪律性极强的一线战斗者",
+      "description": "擅长寻找结构性弱点、控制节奏并执行高效率打击。默认不自带十划咒法。",
+      "tags": [
+        "human",
+        "melee",
+        "tactical",
+        "precise",
+        "disciplined"
+      ]
+    },
+    {
+      "name": "冥冥",
+      "shortText": "冷静现实的武器型精英术师",
+      "description": "力量、判断和风险收益计算都很突出，善用长柄武器。默认不自带黑鸟操术。",
+      "tags": [
+        "human",
+        "weapon",
+        "tactical",
+        "elite",
+        "ranged"
+      ]
+    },
+    {
+      "name": "禅院直毘人",
+      "shortText": "经验丰富、速度意识极强的老练术师",
+      "description": "拥有优秀近战经验、反应速度与战局判断。默认不自带投射咒法。",
+      "tags": [
+        "human",
+        "agile",
+        "melee",
+        "experienced",
+        "tactical"
+      ]
+    },
+    {
+      "name": "禅院直哉",
+      "shortText": "高速突进型精英战斗者",
+      "description": "擅长利用速度、节奏和连续压迫建立优势。默认不自带投射咒法。",
+      "tags": [
+        "human",
+        "agile",
+        "melee",
+        "elite"
+      ]
+    },
+    {
+      "name": "脹相",
+      "shortText": "坚韧执着的中近距离战斗者",
+      "description": "耐久高、战斗意志强，能够快速在远射与近战之间切换思路。默认不自带赤血操术。",
+      "tags": [
+        "nonhuman",
+        "ranged",
+        "melee",
+        "durable",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "伏黑甚尔",
+      "shortText": "顶级身体能力与猎杀经验的武器专家",
+      "description": "具备极强速度、力量、感官与暗杀经验，擅长利用武器和环境。默认不携带特定咒具。",
+      "tags": [
+        "human",
+        "weapon",
+        "melee",
+        "physical",
+        "stealth",
+        "elite"
+      ]
+    },
+    {
+      "name": "夏油杰",
+      "shortText": "擅长调度资源与心理博弈的术师",
+      "description": "战术组织力与近战基础优秀，善于多线施压。默认不自带咒灵操术。",
+      "tags": [
+        "human",
+        "tactical",
+        "melee",
+        "commander"
+      ]
+    },
+    {
+      "name": "漏瑚",
+      "shortText": "高速高输出的特级咒灵型战斗者",
+      "description": "非人身体、强烈攻击倾向与优秀机动性使其适合正面爆发。默认不自带火山相关术式。",
+      "tags": [
+        "curse",
+        "nonhuman",
+        "agile",
+        "ranged",
+        "aggressive"
+      ]
+    },
+    {
+      "name": "花御",
+      "shortText": "高耐久的重装型咒灵",
+      "description": "身体极其坚韧，擅长承受攻击、拖长战线并寻找反击窗口。默认不自带植物术式。",
+      "tags": [
+        "curse",
+        "nonhuman",
+        "durable",
+        "melee"
+      ]
+    },
+    {
+      "name": "真人",
+      "shortText": "狡猾且擅长心理压迫的咒灵",
+      "description": "思维灵活、行动大胆，善于通过欺骗、恐惧与近身接触制造机会。默认不自带无为转变。",
+      "tags": [
+        "curse",
+        "nonhuman",
+        "deception",
+        "adaptive",
+        "melee"
+      ]
+    },
+    {
+      "name": "两面宿傩",
+      "shortText": "战斗直觉与压迫感极强的顶级存在",
+      "description": "拥有极高战斗判断、凶狠执行力与近战能力。为保证构筑公平，默认不自带斩击、火焰或领域。",
+      "tags": [
+        "curse",
+        "elite",
+        "melee",
+        "tactical",
+        "fearless"
+      ]
+    },
+    {
+      "name": "九十九由基",
+      "shortText": "大胆直接的特级术师",
+      "description": "近战能力强，判断果断，愿意用高风险换取决定性突破。默认不自带星之怒。",
+      "tags": [
+        "human",
+        "elite",
+        "melee",
+        "physical",
+        "fearless"
+      ]
+    },
+    {
+      "name": "秤金次",
+      "shortText": "越打越兴奋的高压近战型术师",
+      "description": "擅长在混乱中维持进攻性，抗压强、敢赌关键回合。默认不自带坐杀博徒或自动反转。",
+      "tags": [
+        "human",
+        "melee",
+        "aggressive",
+        "gambling",
+        "durable"
+      ]
+    },
+    {
+      "name": "日车宽见",
+      "shortText": "逻辑严密、临场学习能力极强的战术型术师",
+      "description": "擅长观察规则、构建论证和迅速理解复杂机制。默认不自带审判术式或领域。",
+      "tags": [
+        "human",
+        "tactical",
+        "analytical",
+        "adaptive"
+      ]
+    },
+    {
+      "name": "鹿紫云一",
+      "shortText": "以强者对决为目标的高速近战专家",
+      "description": "战斗经验丰富、攻击欲强、反应极快，喜欢用连续攻势逼出破绽。默认不自带电气性质咒力。",
+      "tags": [
+        "human",
+        "melee",
+        "agile",
+        "experienced",
+        "aggressive"
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "name": "无下限术式：停止之力",
+      "shortText": "接近你的攻击会在触及前不断减速",
+      "description": "你可维持一层空间防御，使常规接触型攻击在真正命中前被无限拖慢。需要专注；大范围环境伤害、规则型效果或能绕过空间的手段仍可构成威胁。",
+      "tags": [
+        "defense",
+        "space",
+        "elite"
+      ]
+    },
+    {
+      "name": "术式顺转「苍」",
+      "shortText": "制造强力空间吸引与压缩",
+      "description": "在指定位置制造强烈吸引效应，将目标、物体或碎片向一点拖拽并造成撞击与压缩。",
+      "tags": [
+        "space",
+        "control",
+        "ranged"
+      ]
+    },
+    {
+      "name": "术式反转「赫」",
+      "shortText": "释放高强度排斥冲击",
+      "description": "向指定方向释放猛烈排斥力，可击飞目标、破坏掩体并快速拉开距离。",
+      "tags": [
+        "space",
+        "ranged",
+        "knockback"
+      ]
+    },
+    {
+      "name": "虚式「茈」",
+      "shortText": "蓄力后释放极高破坏力的直线攻击",
+      "description": "需要明显蓄力和瞄准时间；完成后形成高速直线破坏带，对路径上的目标和障碍造成毁灭性打击。",
+      "tags": [
+        "space",
+        "ranged",
+        "finisher",
+        "charge"
+      ]
+    },
+    {
+      "name": "十种影法术",
+      "shortText": "以影子召唤多种式神协同战斗",
+      "description": "可从影子中召唤不同功能的式神，用于追踪、牵制、侦察、运输或正面作战。式神被击破会减少可用选项。",
+      "tags": [
+        "summon",
+        "shadow",
+        "versatile",
+        "tactical"
+      ]
+    },
+    {
+      "name": "嵌合暗翳庭",
+      "shortText": "在一定区域内扩张影子并强化召唤",
+      "description": "展开不完全领域，使地面与周边影子化，显著提高影子移动、式神生成与佯攻能力；没有必中特性。",
+      "tags": [
+        "domain",
+        "shadow",
+        "summon",
+        "control"
+      ]
+    },
+    {
+      "name": "刍灵咒法",
+      "shortText": "以钉、锤与媒介发动远程咒击",
+      "description": "可用钉子进行中距离射击与陷阱攻击；若获得目标身体组织或强关联媒介，可发动共鸣进行间接打击。",
+      "tags": [
+        "ranged",
+        "curse",
+        "link",
+        "weapon"
+      ]
+    },
+    {
+      "name": "共鸣",
+      "shortText": "通过目标媒介施加远程关联伤害",
+      "description": "必须先取得与目标高度关联的媒介；发动后可绕过距离对目标施加一次强力咒击。",
+      "tags": [
+        "ranged",
+        "link",
+        "finisher"
+      ]
+    },
+    {
+      "name": "咒言",
+      "shortText": "说出的命令可强制影响听到者",
+      "description": "可用简短命令迫使目标执行或承受效果。命令越强、目标越强，使用者承受的喉咙与身体反噬越严重。",
+      "tags": [
+        "voice",
+        "control",
+        "ranged",
+        "cost"
+      ]
+    },
+    {
+      "name": "不义游戏",
+      "shortText": "拍手即可交换两个带有能量的目标位置",
+      "description": "每次拍手可选择自己、敌人、盟友或带有能量的物体中的两个进行瞬间位置交换；可用假拍制造误判。",
+      "tags": [
+        "teleport",
+        "control",
+        "deception",
+        "tactical"
+      ]
+    },
+    {
+      "name": "十划咒法",
+      "shortText": "在目标上强制制造7:3弱点",
+      "description": "观察目标后可在其身体或物体结构上划分比例，命中指定比例点时造成显著强化伤害。",
+      "tags": [
+        "melee",
+        "precision",
+        "weakpoint"
+      ]
+    },
+    {
+      "name": "黑鸟操术",
+      "shortText": "操控乌鸦侦察并发动自杀式撞击",
+      "description": "可共享乌鸦视野进行大范围侦察，也可让单只乌鸦以牺牲生命为代价发动高威力直线冲击。",
+      "tags": [
+        "summon",
+        "ranged",
+        "scout",
+        "sacrifice"
+      ]
+    },
+    {
+      "name": "投射咒法",
+      "shortText": "把一秒拆成24帧规划高速移动",
+      "description": "预先规划短时间内的24段动作并高速执行；接触目标可迫使其遵循同一规则，失败者会短暂冻结。路线必须提前决定，临时变向受限。",
+      "tags": [
+        "speed",
+        "melee",
+        "control",
+        "technical"
+      ]
+    },
+    {
+      "name": "赤血操术",
+      "shortText": "操纵自身血液进行射击、束缚与身体强化",
+      "description": "可压缩并高速射出血液、形成血刃或强化循环系统。持续使用会消耗血量，普通人角色需承担失血风险。",
+      "tags": [
+        "blood",
+        "ranged",
+        "melee",
+        "cost"
+      ]
+    },
+    {
+      "name": "穿血",
+      "shortText": "蓄压后发射超高速血液直线攻击",
+      "description": "需要短暂压缩准备，随后发射高速直线血束，射程和穿透力优秀，但轨迹相对容易判断。",
+      "tags": [
+        "blood",
+        "ranged",
+        "charge",
+        "precision"
+      ]
+    },
+    {
+      "name": "咒灵操术",
+      "shortText": "收服并调度被控制的咒灵",
+      "description": "开局获得3个不同功能的低至中等级咒灵，可用于侦察、牵制、防御或攻击；被击破后本局不可恢复。",
+      "tags": [
+        "summon",
+        "curse",
+        "versatile",
+        "commander"
+      ]
+    },
+    {
+      "name": "极之番「漩涡」",
+      "shortText": "消耗全部剩余召唤物换取一次高输出",
+      "description": "仅在拥有召唤类资源时可用；将当前可控召唤物集中压缩为一次远程高威力攻击，发动后这些召唤物全部失去。",
+      "tags": [
+        "summon",
+        "ranged",
+        "finisher",
+        "sacrifice"
+      ]
+    },
+    {
+      "name": "无为转变",
+      "shortText": "直接接触可改变灵魂形态并重塑肉体",
+      "description": "需要直接接触目标才能发动，可造成严重变形或破坏；也可调整自身肉体形态用于攻击与防御。强意志或灵魂防护可降低效果。",
+      "tags": [
+        "soul",
+        "melee",
+        "transformation",
+        "elite"
+      ]
+    },
+    {
+      "name": "火山术式",
+      "shortText": "制造高热火焰、熔岩与爆炸喷发",
+      "description": "可在中远距离制造高温喷发、火焰弹和地面爆裂，适合封锁区域与逼迫走位。",
+      "tags": [
+        "fire",
+        "ranged",
+        "area",
+        "hazard"
+      ]
+    },
+    {
+      "name": "灾厄植物",
+      "shortText": "操纵巨大植物进行束缚、防御与突袭",
+      "description": "可从地面或墙体生长根系、枝条与木质结构，用于限制移动、搭建掩体或发动突刺。",
+      "tags": [
+        "plant",
+        "control",
+        "defense",
+        "area"
+      ]
+    },
+    {
+      "name": "解与捌",
+      "shortText": "释放高速不可见斩击",
+      "description": "可发出远程斩击；对坚固目标可调整强度。连续使用威力高，但仍受射线、距离与反应窗口限制。",
+      "tags": [
+        "slash",
+        "ranged",
+        "precision",
+        "elite"
+      ]
+    },
+    {
+      "name": "火焰箭",
+      "shortText": "短暂准备后释放大范围高热爆炸",
+      "description": "需要先制造明显的准备动作，随后发射高热火焰攻击，命中区域会发生强烈爆炸并形成短时火场。",
+      "tags": [
+        "fire",
+        "ranged",
+        "finisher",
+        "charge",
+        "area"
+      ]
+    },
+    {
+      "name": "星之怒",
+      "shortText": "为自身或式神附加极高虚拟质量",
+      "description": "可显著提高近战撞击与打击威力，同时不必承受同等程度的行动迟缓；过度提升会增加控制难度与环境破坏。",
+      "tags": [
+        "mass",
+        "melee",
+        "physical",
+        "elite"
+      ]
+    },
+    {
+      "name": "反转术式",
+      "shortText": "消耗大量能量快速治疗自身伤势",
+      "description": "可修复骨折、创口和部分内伤，但无法无条件从死亡或完全毁灭中恢复；连续治疗会快速消耗能量。",
+      "tags": [
+        "healing",
+        "energy",
+        "defense"
+      ]
+    },
+    {
+      "name": "里香显现",
+      "shortText": "短时间召唤强力守护者协同战斗",
+      "description": "可召唤强力伙伴进行近战、保护与携带资源。完整显现仅持续5分钟，时间结束后退出战场。",
+      "tags": [
+        "summon",
+        "melee",
+        "defense",
+        "timed"
+      ]
+    },
+    {
+      "name": "术式复制",
+      "shortText": "复制一项对手已公开使用的能力",
+      "description": "当你完整观察到对手的一项能力后，可复制其基础版本直到本局结束；不能复制对方角色本身的身体特性或胜利条件。",
+      "tags": [
+        "copy",
+        "adaptive",
+        "technical"
+      ]
+    },
+    {
+      "name": "坐杀博徒",
+      "shortText": "展开以概率事件运作的领域并争取大奖",
+      "description": "领域内触发一套随机判定流程；若成功中得大奖，你获得4分11秒近乎无限的能量与自动高速治疗。若失败，可在满足流程后继续尝试。",
+      "tags": [
+        "domain",
+        "gambling",
+        "healing",
+        "timed"
+      ]
+    },
+    {
+      "name": "审判术式",
+      "shortText": "领域内通过裁判规则剥夺对手能力",
+      "description": "展开法庭型领域后，目标会面对一项与其行为相关的指控。双方可陈述，裁决成功时可暂时没收目标的一项能力；严重裁决可额外生成处刑之剑。",
+      "tags": [
+        "domain",
+        "rules",
+        "control",
+        "technical"
+      ]
+    },
+    {
+      "name": "星间飞行",
+      "shortText": "给目标标记星位并建立接近顺序限制",
+      "description": "为多个目标赋予星位标记。被标记者若想接近另一目标，必须遵循既定星位顺序，否则会被阻挡或相互吸附，适合构建空间谜题。",
+      "tags": [
+        "mark",
+        "control",
+        "space",
+        "technical"
+      ]
+    },
+    {
+      "name": "电气性质能量",
+      "shortText": "每次近战接触都会积累电荷并形成必中放电",
+      "description": "你的能量天然带电。连续命中可在目标身上积累异性电荷；达到阈值后可触发一次无需瞄准的短距放电。",
+      "tags": [
+        "electric",
+        "melee",
+        "finisher",
+        "stack"
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "name": "咒力低迷",
+      "shortText": "能量上限只有正常水平的一半",
+      "description": "所有需要持续或大量能量的能力更容易耗尽；每次使用高消耗能力后必须明显喘息或降低输出。",
+      "tags": [
+        "energy",
+        "resource"
+      ]
+    },
+    {
+      "name": "术式过热",
+      "shortText": "同一主动能力不能连续使用",
+      "description": "每次发动主动能力后，至少要完成一次明显的普通移动、格挡或近战动作，才能再次发动同一能力。",
+      "tags": [
+        "cooldown",
+        "technical"
+      ]
+    },
+    {
+      "name": "近视盲区",
+      "shortText": "远距离细节判断明显下降",
+      "description": "超过20米后难以精确辨认小目标、手势和陷阱，远程瞄准与侦察效果下降。",
+      "tags": [
+        "vision",
+        "ranged"
+      ]
+    },
+    {
+      "name": "玻璃大炮",
+      "shortText": "输出很高但耐久显著偏低",
+      "description": "身体抗打击能力降低；正面承受一次强力攻击就会明显影响后续行动。",
+      "tags": [
+        "fragile",
+        "physical"
+      ]
+    },
+    {
+      "name": "恐高",
+      "shortText": "处于高处或坠落边缘时容易失去判断",
+      "description": "距离地面超过10米且缺乏稳定护栏时，移动和主动进攻会变得保守，无法主动跳向更低平台。",
+      "tags": [
+        "psychology",
+        "height"
+      ]
+    },
+    {
+      "name": "怕火",
+      "shortText": "对高温、明火与燃烧环境异常敏感",
+      "description": "受到火焰或高温环境影响时会优先躲避，且相关伤害与行动干扰显著增强。",
+      "tags": [
+        "fire",
+        "psychology"
+      ]
+    },
+    {
+      "name": "怕水",
+      "shortText": "进入深水后战斗能力大幅下降",
+      "description": "水深超过腰部时，移动速度和近战发力显著下降，并会优先尝试离水。",
+      "tags": [
+        "water",
+        "mobility"
+      ]
+    },
+    {
+      "name": "必须解释招式",
+      "shortText": "首次使用每项能力前必须口头说明核心机制",
+      "description": "第一次发动每一种主动能力之前，必须用一句清楚的话告诉对手它的大致作用；解释期间不能同时攻击。",
+      "tags": [
+        "binding_vow",
+        "information"
+      ]
+    },
+    {
+      "name": "三分钟极限",
+      "shortText": "开局3分钟后身体性能开始快速下滑",
+      "description": "前三分钟维持正常水平；此后速度、力量和反应逐步下降，适合速战速决。",
+      "tags": [
+        "timed",
+        "stamina"
+      ]
+    },
+    {
+      "name": "不能主动杀人",
+      "shortText": "对人类角色不能采取明确致命手段",
+      "description": "面对带human标签的对手，你必须以制服、击倒、限制或完成胜利条件为目标，不能主动执行明显致命攻击。",
+      "tags": [
+        "morality",
+        "restriction"
+      ]
+    },
+    {
+      "name": "左臂封印",
+      "shortText": "左臂完全无法使用",
+      "description": "左臂从开局起失去活动能力，双手武器、结印、攀爬和格挡都会受到影响。",
+      "tags": [
+        "physical",
+        "restriction"
+      ]
+    },
+    {
+      "name": "声音沙哑",
+      "shortText": "长句和高声喊叫会造成剧烈喉痛",
+      "description": "所有依赖声音的能力连续使用两次后，第三次必须先停用一轮，否则自己受到明显反噬。",
+      "tags": [
+        "voice",
+        "cost"
+      ]
+    },
+    {
+      "name": "方向感灾难",
+      "shortText": "复杂地形中极易迷路",
+      "description": "在迷宫、城市街区、森林或多层建筑中，若失去目标视野，就难以快速找到最短路线。",
+      "tags": [
+        "navigation",
+        "environment"
+      ]
+    },
+    {
+      "name": "过度自信",
+      "shortText": "第一次遭遇未知能力时必须正面试探",
+      "description": "对手首次展示未知能力时，你不能立即撤退到安全距离，必须进行一次主动试探或接触。",
+      "tags": [
+        "psychology",
+        "aggressive"
+      ]
+    },
+    {
+      "name": "能量泄漏",
+      "shortText": "你的存在始终容易被感知",
+      "description": "只要对手拥有任何感知、追踪或能量侦察手段，就能持续大致确认你的位置，潜行难度大增。",
+      "tags": [
+        "stealth",
+        "energy"
+      ]
+    },
+    {
+      "name": "领域不稳定",
+      "shortText": "领域类能力只能维持30秒",
+      "description": "任何带domain标签的能力最长持续30秒，结束后你会进入短暂虚弱状态。",
+      "tags": [
+        "domain",
+        "timed"
+      ]
+    },
+    {
+      "name": "不能破坏建筑",
+      "shortText": "必须尽量避免造成结构性坍塌",
+      "description": "你不能主动使用会明显导致承重结构坍塌的大范围攻击；若胜利条件要求保护区域，该限制尤其严格。",
+      "tags": [
+        "morality",
+        "environment",
+        "restriction"
+      ]
+    },
+    {
+      "name": "执着单挑",
+      "shortText": "出现第三方时仍优先锁定原对手",
+      "description": "环境事件产生第三方威胁时，你不能把全部注意力转移过去，除非第三方已直接阻止你继续与原对手交战。",
+      "tags": [
+        "psychology",
+        "tactical"
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "name": "涩谷站地下月台",
+      "shortText": "狭长地下空间，人群设施密集",
+      "description": "多条轨道、立柱、楼梯与狭窄通道形成复杂视线。部分区域照明不足，列车设施可作为掩体。",
+      "tags": [
+        "indoor",
+        "urban",
+        "narrow",
+        "multi_level"
+      ],
+      "hazards": [
+        "轨道落差",
+        "拥挤障碍",
+        "低能见度"
+      ]
+    },
+    {
+      "name": "涩谷十字路口",
+      "shortText": "开阔城市路口，建筑与车辆众多",
+      "description": "宽阔路面连接多个街区，高楼、车辆、广告牌和地下入口提供大量立体路线。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "open",
+        "multi_level"
+      ],
+      "hazards": [
+        "车辆残骸",
+        "玻璃碎片",
+        "高处坠落"
+      ]
+    },
+    {
+      "name": "东京咒术高专训练场",
+      "shortText": "开阔训练区域，障碍物适中",
+      "description": "场地有树林、台阶、建筑外墙和训练空地，适合综合测试移动、近战与远程能力。",
+      "tags": [
+        "outdoor",
+        "school",
+        "balanced"
+      ],
+      "hazards": [
+        "树木倒塌",
+        "碎石"
+      ]
+    },
+    {
+      "name": "废弃少年院",
+      "shortText": "封闭建筑内部，走廊与房间错综复杂",
+      "description": "狭窄走廊、楼梯和破损房间形成强烈近距离战斗环境，部分区域可能突然坍塌。",
+      "tags": [
+        "indoor",
+        "narrow",
+        "dark",
+        "maze"
+      ],
+      "hazards": [
+        "局部坍塌",
+        "低能见度",
+        "断裂楼梯"
+      ]
+    },
+    {
+      "name": "八十八桥下",
+      "shortText": "桥梁、河岸与开阔水域并存",
+      "description": "桥上桥下存在明显高度差，河岸湿滑，视野较长但掩体有限。",
+      "tags": [
+        "outdoor",
+        "water",
+        "open",
+        "multi_level"
+      ],
+      "hazards": [
+        "深水",
+        "湿滑地面",
+        "坠落"
+      ]
+    },
+    {
+      "name": "陀艮的海滩领域",
+      "shortText": "热带海滩与广阔水面构成的异常空间",
+      "description": "沙滩、浅水与海面占据大部分区域，移动路线开阔但水域会限制部分角色。",
+      "tags": [
+        "domain",
+        "water",
+        "open",
+        "surreal"
+      ],
+      "hazards": [
+        "深水",
+        "海浪",
+        "湿滑"
+      ]
+    },
+    {
+      "name": "禅院家宅邸",
+      "shortText": "传统大型宅邸，庭院与长廊相连",
+      "description": "室内外频繁切换，木质墙体、庭院、门廊与屋顶提供大量近战和追逐路线。",
+      "tags": [
+        "indoor",
+        "outdoor",
+        "narrow",
+        "multi_level"
+      ],
+      "hazards": [
+        "木质建筑易燃",
+        "屋顶坠落"
+      ]
+    },
+    {
+      "name": "仙台结界废城区",
+      "shortText": "大片受损城市，可进行远距离与立体战",
+      "description": "高楼、街道、废墟和空旷地带交错，适合长距离追击、伏击和建筑间移动。",
+      "tags": [
+        "urban",
+        "outdoor",
+        "open",
+        "multi_level",
+        "ruins"
+      ],
+      "hazards": [
+        "坍塌建筑",
+        "碎石",
+        "高处坠落"
+      ]
+    },
+    {
+      "name": "东京第一结界住宅区",
+      "shortText": "密集楼宇与狭窄街道构成的追猎场",
+      "description": "大量住宅、公寓和街巷造成视线阻断，屋顶与室内都可利用。",
+      "tags": [
+        "urban",
+        "maze",
+        "multi_level",
+        "outdoor"
+      ],
+      "hazards": [
+        "坠落",
+        "断电",
+        "玻璃碎片"
+      ]
+    },
+    {
+      "name": "地下停车场",
+      "shortText": "低顶棚、多立柱、车辆密集",
+      "description": "视线被车辆与立柱频繁切断，空间较封闭，爆炸和烟尘更难散去。",
+      "tags": [
+        "indoor",
+        "urban",
+        "narrow"
+      ],
+      "hazards": [
+        "车辆燃料",
+        "烟尘积聚",
+        "低能见度"
+      ]
+    },
+    {
+      "name": "森林结界",
+      "shortText": "高密度树林限制视线与直线攻击",
+      "description": "树木、坡地和灌木提供大量掩体，远程锁定困难，但伏击、追踪和区域控制更强。",
+      "tags": [
+        "outdoor",
+        "forest",
+        "maze",
+        "nature"
+      ],
+      "hazards": [
+        "倒木",
+        "视线遮挡",
+        "复杂地形"
+      ]
+    },
+    {
+      "name": "摩天楼屋顶群",
+      "shortText": "多个高楼屋顶，以狭窄跳跃路线相连",
+      "description": "战斗发生在高空，屋顶间距不一；强制位移、飞行和远程能力价值显著提高。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "height",
+        "multi_level"
+      ],
+      "hazards": [
+        "致命坠落",
+        "强风",
+        "边缘狭窄"
+      ]
+    },
+    {
+      "name": "地铁隧道",
+      "shortText": "超长直线隧道，侧向空间极少",
+      "description": "两侧墙壁和轨道限制绕行，远程直线攻击与正面突破都更强。",
+      "tags": [
+        "indoor",
+        "narrow",
+        "linear",
+        "dark"
+      ],
+      "hazards": [
+        "低能见度",
+        "轨道沟槽",
+        "回声干扰"
+      ]
+    },
+    {
+      "name": "体育馆",
+      "shortText": "中央开阔、看台环绕的规则场地",
+      "description": "中央场地视野完整，看台和通道构成立体外围区域，适合公开对决。",
+      "tags": [
+        "indoor",
+        "open",
+        "arena",
+        "multi_level"
+      ],
+      "hazards": [
+        "看台落差",
+        "器材障碍"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "咒力浓度骤升",
+      "shortText": "术式威力提升，但消耗同步加快",
+      "description": "场地内咒力浓度持续上升，术式的威力与作用范围随之增强。但这只放大输出，不节省咒力——每次发动的消耗同步增加，且浓度对所有术式一视同仁，不会单独偏向某一方。",
+      "compatibleEnvironmentTags": [],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "结界出现裂缝",
+      "shortText": "出现新通路，但位置持续位移",
+      "description": "结界与建筑结构出现裂缝，产生了此前不存在的移动路径。但裂缝会缓慢位移，任何依赖它的路线都不稳定，不能作为撤离或伏击的固定依靠。",
+      "compatibleEnvironmentTags": [
+        "indoor",
+        "maze",
+        "multi_level"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "帐降下",
+      "shortText": "外界无法目视，但声音与咒力仍外泄",
+      "description": "帐降下覆盖当前区域，外部人员无法目视场内情况。但帐只遮蔽视觉，声音与咒力波动仍会向外泄漏，无法做到完全隐蔽。",
+      "compatibleEnvironmentTags": [
+        "urban",
+        "outdoor",
+        "school"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "低级咒灵涌入",
+      "shortText": "无差别袭击，但畏惧高咒力输出",
+      "description": "未受任何一方操控的低级咒灵被咒力吸引涌入，会袭击距离最近的活体目标。但它们同样畏惧高强度咒力输出，可被强行驱散或压制，不构成持续威胁。",
+      "compatibleEnvironmentTags": [],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "领域展开征兆",
+      "shortText": "区域内术式必中，但施术者无法移动",
+      "description": "场地一角出现领域展开的征兆，进入该区域的术式将被必定命中。但展开与维持期间施术者无法移动，位置完全暴露，且领域范围在展开时即固定、无法追击。",
+      "compatibleEnvironmentTags": [
+        "open",
+        "arena",
+        "domain"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "术式熔断",
+      "shortText": "术式暂时不可用，但体术与咒具不受影响",
+      "description": "高强度术式连续发动后进入熔断状态，短时间内无法再次使用术式。但熔断只影响术式本身，体术、咒具与已经生效的持续效果均不受影响。",
+      "compatibleEnvironmentTags": [],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "咒物共鸣",
+      "shortText": "干扰咒力感知，但有固定节律",
+      "description": "附近的咒物产生共鸣，持续干扰双方的咒力感知与定位。但共鸣遵循固定节律，可被观测、预判并规避，不会随机发作。",
+      "compatibleEnvironmentTags": [
+        "indoor",
+        "ruins",
+        "dark",
+        "narrow"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "水位上涨",
+      "shortText": "低处逐步不可用，但上涨速度可预判",
+      "description": "水域环境的水位持续上涨，低处立足点逐步减少。但上涨速度稳定可测，为转移与路线调整留出时间，不会突然淹没。",
+      "compatibleEnvironmentTags": [
+        "water"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "目视距离压缩",
+      "shortText": "远程锁定困难，但听觉不受影响",
+      "description": "黑暗或复杂地形使有效目视距离显著压缩，远程锁定变得困难。但这只影响视觉，听觉、咒力感应与地面震动传导均不受影响。",
+      "compatibleEnvironmentTags": [
+        "dark",
+        "maze",
+        "forest",
+        "narrow"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "高处结构失稳",
+      "shortText": "制高点不再可靠，但失稳有先兆",
+      "description": "高处平台与屋顶结构开始失稳，承重能力下降，制高点的价值随之降低。但失稳前会出现明确的声响与震动先兆，留出撤离窗口。",
+      "compatibleEnvironmentTags": [
+        "height",
+        "multi_level",
+        "urban"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    }
+  ],
+  "victories": [
+    {
+      "name": "彻底击倒",
+      "shortText": "让对手10秒内无法继续战斗",
+      "description": "当对手因伤势、束缚、昏迷或失去行动能力而连续10秒无法有效战斗，你立即获胜。"
+    },
+    {
+      "name": "区域控制",
+      "shortText": "连续60秒独占中央标记区",
+      "description": "场地中央出现半径5米的标记区。只有你在区内且对手不在区内的时间才累计；连续累计60秒即获胜。"
+    },
+    {
+      "name": "夺取咒物",
+      "shortText": "取得咒物并安全带离危险区域",
+      "description": "中立咒物在场地中央生成。取得后必须亲自持有并将其带离危险区域；咒物掉落可被争夺，持有者一旦脱离危险区域即达成。"
+    },
+    {
+      "name": "封印目标",
+      "shortText": "把对手限制在封印阵内20秒",
+      "description": "场地出现一个直径6米的封印阵。使对手完整停留在阵内累计20秒即可获胜；时间无需连续。"
+    },
+    {
+      "name": "生存五分钟",
+      "shortText": "作为防守方存活5分钟即胜",
+      "description": "开局随机指定一方为防守方。防守方只要在5分钟内未满足彻底击倒条件即获胜；进攻方必须主动终结战斗。"
+    },
+    {
+      "name": "破坏全部核心",
+      "shortText": "使场地内全部能量核心停止运转",
+      "description": "场地中分散存在维持结界的能量核心。率先让全部核心停止运转的一方获胜；核心只会被直接攻击破坏，间接效果与环境变化不会使其失效。"
+    },
+    {
+      "name": "夺旗",
+      "shortText": "把对方旗帜带回己方起点",
+      "description": "双方起点各有一面旗。取得对方旗帜并将其带回自己的起点即可获胜；携旗者仍可战斗但双手占用一只。"
+    },
+    {
+      "name": "强制认输",
+      "shortText": "让对手明确口头说出“我认输”",
+      "description": "只有对手在清醒且能自主说话时明确认输才算胜利；伪造录音、幻觉或控制他人发声不计。"
+    },
+    {
+      "name": "护送非战斗员",
+      "shortText": "将中立NPC安全带离危险区域",
+      "description": "一名无法战斗的中立NPC在场地中央出现。率先把NPC带离危险区域、且NPC在对抗结束时仍具备行动能力的一方获胜。"
+    },
+    {
+      "name": "完全压制",
+      "shortText": "让对手再无法组织任何有效进攻",
+      "description": "当对手因伤势、咒力消耗或持续受制，再也无法完成任何一次能触及你的攻击时，你获胜。单纯躲避或拖延不算，必须让对手彻底失去进攻能力。"
+    },
+    {
+      "name": "占领高点",
+      "shortText": "在最高可达平台连续控制45秒",
+      "description": "场地最高稳定平台成为目标点。只有单方角色位于平台上时计时；连续控制45秒即获胜。"
+    },
+    {
+      "name": "咒力耗尽战",
+      "shortText": "迫使对手无法再发动能力",
+      "description": "当对手因能量、次数、反噬或条件不足而无法再发动其能力卡中的任何主动效果，并持续15秒，你获胜。"
+    }
+  ],
+  "hexes": [
+    {
+      "name": "黑闪窗口",
+      "shortText": "下一次成功近战命中造成爆发性强化",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "melee",
+        "burst"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "简易领域",
+      "shortText": "获得一次短时反制领域必中的防护圈",
+      "tier": "SILVER",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "domain",
+        "defense"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "落花之情",
+      "shortText": "本局一次，自动反击进入身边的领域攻击",
+      "tier": "SILVER",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "domain",
+        "counter"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "束缚：公开术式",
+      "shortText": "主动解释能力后，下一次使用效果增强",
+      "tier": "SILVER",
+      "category": "CORE",
+      "effectMode": "CHOICE",
+      "tags": [
+        "binding_vow",
+        "information",
+        "buff"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "束缚：孤注一掷",
+      "shortText": "永久放弃一种常规行动，换取能力强度提升",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "CHOICE",
+      "tags": [
+        "binding_vow",
+        "cost",
+        "buff"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "反转术式应急",
+      "shortText": "本局一次，立即恢复一次重伤至可战状态",
+      "tier": "GOLD",
+      "category": "RECOVERY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "healing",
+        "recovery"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "咒力强化",
+      "shortText": "身体力量与耐久在60秒内显著提升",
+      "tier": "SILVER",
+      "category": "BUFF",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "physical",
+        "timed",
+        "buff"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "帐",
+      "shortText": "建立半径20米屏障，限制视线与外部介入",
+      "tier": "SILVER",
+      "category": "CONTROL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "barrier",
+        "area",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "乌鸦侦察",
+      "shortText": "获得一只可共享视野的侦察乌鸦",
+      "tier": "BRONZE",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "scout",
+        "summon"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "咒具：游云",
+      "shortText": "获得一根纯粹依赖力量发挥威力的三节棍",
+      "tier": "SILVER",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "weapon",
+        "melee"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "咒具：天逆鉾",
+      "shortText": "命中时可暂时中和接触到的能力效果",
+      "tier": "GOLD",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "weapon",
+        "nullify",
+        "melee"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "咒具：屠坐魔",
+      "shortText": "获得一把坚固短刀，适合近身破防",
+      "tier": "BRONZE",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "weapon",
+        "melee"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "咒具：锁链",
+      "shortText": "获得可延伸至30米的特殊锁链",
+      "tier": "SILVER",
+      "category": "ITEM",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "weapon",
+        "ranged",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "替身木偶",
+      "shortText": "首次受到致命级攻击时，用木偶代替承受",
+      "tier": "GOLD",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "defense",
+        "deception"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "位置交换符",
+      "shortText": "本局一次，与视野内任意非固定物体交换位置",
+      "tier": "SILVER",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "teleport",
+        "mobility"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "咒力残秽追踪",
+      "shortText": "持续60秒获知对手最近移动方向",
+      "tier": "BRONZE",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "tracking",
+        "scout"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "领域增幅",
+      "shortText": "30秒内接触时可削弱对手持续型能力",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "domain",
+        "nullify",
+        "melee",
+        "timed"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "新阴流简易拔刀",
+      "shortText": "进入固定架势后自动反应近身目标",
+      "tier": "SILVER",
+      "category": "COUNTER",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "melee",
+        "counter",
+        "stance"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "第一次免费",
+      "shortText": "本局第一次高消耗能力不消耗资源",
+      "tier": "SILVER",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "energy",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "咒力回流",
+      "shortText": "成功防住一次攻击后返还能量",
+      "tier": "BRONZE",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "energy",
+        "defense"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "必中取消",
+      "shortText": "本局一次，把一次“必中”效果降为普通可躲攻击",
+      "tier": "GOLD",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "domain",
+        "defense",
+        "counter"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "术式熔断",
+      "shortText": "命中后令对手主动能力沉默10秒",
+      "tier": "GOLD",
+      "category": "CONTROL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "nullify",
+        "control",
+        "timed"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "战斗直觉",
+      "shortText": "第一次遭遇未知能力时自动识别其大致危险方式",
+      "tier": "BRONZE",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "perception",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "残像步",
+      "shortText": "一次短距离高速突进，并留下误导残像",
+      "tier": "SILVER",
+      "category": "MOBILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "speed",
+        "mobility",
+        "deception"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "咒力钉桩",
+      "shortText": "把一个目标固定在当前位置5秒",
+      "tier": "SILVER",
+      "category": "CONTROL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "control",
+        "mark",
+        "timed"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "术式反转机会",
+      "shortText": "本局一次，把自己能力的方向或性质反转使用",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "CHOICE",
+      "tags": [
+        "reverse",
+        "technical",
+        "creative"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "领域碎片",
+      "shortText": "在半径5米内获得15秒局部规则优势",
+      "tier": "SILVER",
+      "category": "CONTROL",
+      "effectMode": "CHOICE",
+      "tags": [
+        "domain",
+        "area",
+        "timed"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "临时式神：玉犬",
+      "shortText": "召唤一只追踪型式神60秒",
+      "tier": "BRONZE",
+      "category": "SUMMON",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "summon",
+        "tracking",
+        "timed"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "临时式神：鵺",
+      "shortText": "召唤飞行式神30秒，可载人短距移动",
+      "tier": "SILVER",
+      "category": "SUMMON",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "summon",
+        "flight",
+        "mobility",
+        "timed"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "影子储物",
+      "shortText": "可把一件手持物品藏入影子并瞬间取出",
+      "tier": "BRONZE",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "shadow",
+        "item",
+        "utility"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "灵魂防护",
+      "shortText": "灵魂或精神类控制对你第一次无效",
+      "tier": "GOLD",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "soul",
+        "defense"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "二段觉醒",
+      "shortText": "生命状态跌至危险线时，获得30秒全能力强化",
+      "tier": "GOLD",
+      "category": "BUFF",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "buff",
+        "timed",
+        "comeback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "一次重抽",
+      "shortText": "立即废弃当前Hex并从同池重新抽取三选一",
+      "tier": "BRONZE",
+      "category": "META",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "reroll",
+        "meta"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "规则洞察",
+      "shortText": "立即获知当前胜利条件最容易被忽视的一条判定细节",
+      "tier": "BRONZE",
+      "category": "META",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "information",
+        "victory"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 2
+    },
+    {
+      "name": "环境适应",
+      "shortText": "忽略当前环境的一项自然危害60秒",
+      "tier": "SILVER",
+      "category": "UTILITY",
+      "effectMode": "CHOICE",
+      "tags": [
+        "environment",
+        "defense",
+        "timed"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "天与咒缚：肉体",
+      "shortText": "放弃能力卡30秒，换取极强身体性能",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "binding_vow",
+        "physical",
+        "timed",
+        "cost"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    }
+  ]
+}
