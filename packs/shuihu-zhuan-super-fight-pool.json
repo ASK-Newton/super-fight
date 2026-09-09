@@ -1,0 +1,3470 @@
+{
+  "_模板说明": "《水浒传》SUPER FIGHT Pool。按当前批量导入模板编写；角色主要依据原著人物特长，能力拆分为可跨角色抽取的机制。环境事件使用 events 顶层数组。",
+  "_海克斯等级": {
+    "BRONZE": "青铜",
+    "SILVER": "白银",
+    "GOLD": "黄金",
+    "PRISMATIC": "棱彩",
+    "CURSED": "诅咒",
+    "QUEST": "任务"
+  },
+  "_海克斯编写须知": "effectMode 仅使用 PASSIVE / CHOICE / QUEST；CHOICE 均提供 choiceSchema；效果强调边界与辩论价值。",
+  "_胜利条件编写须知": "胜利条件描述完成状态，避免依赖场景中未定义的专用目标物。",
+  "characters": [
+    {
+      "name": "呼保义·宋江",
+      "shortText": "善结人心、统筹全局的梁山领袖。",
+      "description": "擅长协调人际、组织队伍、判断大势并调配不同专长；个人武力并非顶尖，优势主要来自领导、声望与临场组织。",
+      "tags": [
+        "human",
+        "leader",
+        "social",
+        "strategy"
+      ]
+    },
+    {
+      "name": "玉麒麟·卢俊义",
+      "shortText": "武艺卓绝、沉着强悍的豪杰。",
+      "description": "具备顶尖枪棒与马上作战素养，力量、耐力和临阵判断突出；在复杂局面中更倾向正面解决。",
+      "tags": [
+        "human",
+        "combat",
+        "strength",
+        "mounted"
+      ]
+    },
+    {
+      "name": "智多星·吴用",
+      "shortText": "善设谋局、借势破局的军师。",
+      "description": "擅长观察信息、诱导对手、资源组合与多步计划；正面体能并非主要优势。",
+      "tags": [
+        "human",
+        "strategy",
+        "deception",
+        "social"
+      ]
+    },
+    {
+      "name": "入云龙·公孙胜",
+      "shortText": "精通道术与奇门手段的异人。",
+      "description": "能以原著传奇尺度理解符箓、法术、阵法与气象相关手段；仍需结合场景与准备条件论证。",
+      "tags": [
+        "human",
+        "mystic",
+        "strategy",
+        "control"
+      ]
+    },
+    {
+      "name": "大刀·关胜",
+      "shortText": "善使大刀的统军猛将。",
+      "description": "擅长骑战、阵战、正面压制和军队指挥，兼具武力与纪律性。",
+      "tags": [
+        "human",
+        "combat",
+        "mounted",
+        "leader"
+      ]
+    },
+    {
+      "name": "豹子头·林冲",
+      "shortText": "枪棒精熟、经验老到的禁军教头。",
+      "description": "武艺全面，尤其擅长枪棒、近战距离控制和临危应变，行动风格谨慎而稳定。",
+      "tags": [
+        "human",
+        "combat",
+        "weapon",
+        "discipline"
+      ]
+    },
+    {
+      "name": "霹雳火·秦明",
+      "shortText": "爆发力强、攻势凌厉的猛将。",
+      "description": "擅长高速强攻、骑战和重兵器压制，能迅速把局面推向正面对抗。",
+      "tags": [
+        "human",
+        "combat",
+        "strength",
+        "mounted"
+      ]
+    },
+    {
+      "name": "双鞭·呼延灼",
+      "shortText": "善骑战与持续压制的将领。",
+      "description": "双鞭技巧、骑兵指挥与阵线维持能力突出，适合正面战场与护卫任务。",
+      "tags": [
+        "human",
+        "combat",
+        "mounted",
+        "leader"
+      ]
+    },
+    {
+      "name": "小李广·花荣",
+      "shortText": "远射精准、观察敏锐的神射手。",
+      "description": "擅长弓箭远射、目标识别、距离判断和精确打击，在开阔视野下尤其强势。",
+      "tags": [
+        "human",
+        "ranged",
+        "precision",
+        "perception"
+      ]
+    },
+    {
+      "name": "美髯公·朱仝",
+      "shortText": "稳健可靠、熟悉官府事务的好汉。",
+      "description": "具备武艺、护送、交涉与地方治安经验，适合需要稳妥执行的任务。",
+      "tags": [
+        "human",
+        "combat",
+        "social",
+        "escort"
+      ]
+    },
+    {
+      "name": "扑天雕·李应",
+      "shortText": "善飞刀、庄园经营与临战判断。",
+      "description": "兼具武艺、投掷技巧、资源管理和地方势力经验，适应性较强。",
+      "tags": [
+        "human",
+        "ranged",
+        "resource",
+        "leader"
+      ]
+    },
+    {
+      "name": "小旋风·柴进",
+      "shortText": "人脉广、善接济与周旋的豪杰。",
+      "description": "优势在声望、人际网络、资源调度、隐蔽安置和与不同身份者打交道。",
+      "tags": [
+        "human",
+        "social",
+        "resource",
+        "influence"
+      ]
+    },
+    {
+      "name": "花和尚·鲁智深",
+      "shortText": "神力惊人、胆烈而富临场智慧。",
+      "description": "力量、耐久、近战与破障能力极强，同时并非只会蛮干，常能用粗中有细的方式解决困局。",
+      "tags": [
+        "human",
+        "strength",
+        "combat",
+        "rescue"
+      ]
+    },
+    {
+      "name": "行者·武松",
+      "shortText": "近身搏杀与危险应对能力极强。",
+      "description": "胆量、反应、力量、徒手与兵器近战均突出，面对突发危险时尤其果断。",
+      "tags": [
+        "human",
+        "combat",
+        "strength",
+        "survival"
+      ]
+    },
+    {
+      "name": "双枪将·董平",
+      "shortText": "高速骑战、双枪连攻的猛将。",
+      "description": "擅长机动突击、连续攻击和骑战，适合抢占主动与追击。",
+      "tags": [
+        "human",
+        "combat",
+        "mounted",
+        "mobility"
+      ]
+    },
+    {
+      "name": "没羽箭·张清",
+      "shortText": "飞石绝技精准迅疾。",
+      "description": "擅长高速投掷、远距干扰与精确命中，可用普通小型投掷物发挥技巧，但效果仍受物体与距离限制。",
+      "tags": [
+        "human",
+        "ranged",
+        "precision",
+        "improvisation"
+      ]
+    },
+    {
+      "name": "青面兽·杨志",
+      "shortText": "军旅经验丰富、警觉性高的武人。",
+      "description": "擅长护送、兵器、路线警戒和风险判断，面对伏击与复杂路途经验丰富。",
+      "tags": [
+        "human",
+        "combat",
+        "escort",
+        "perception"
+      ]
+    },
+    {
+      "name": "金枪手·徐宁",
+      "shortText": "精于枪法与特殊甲兵战术。",
+      "description": "枪术精熟，重视阵形、装备与战术配合，适合突破或维持战线。",
+      "tags": [
+        "human",
+        "combat",
+        "weapon",
+        "tactics"
+      ]
+    },
+    {
+      "name": "急先锋·索超",
+      "shortText": "敢于抢攻、冲阵迅猛。",
+      "description": "爆发、胆气和正面突破能力突出，但行动往往强调先手与压迫。",
+      "tags": [
+        "human",
+        "combat",
+        "strength",
+        "aggressive"
+      ]
+    },
+    {
+      "name": "赤发鬼·刘唐",
+      "shortText": "强健敏捷、擅长近身冲突。",
+      "description": "体能、武艺和江湖行动经验扎实，适合突袭、护送与混战。",
+      "tags": [
+        "human",
+        "combat",
+        "agile",
+        "streetwise"
+      ]
+    },
+    {
+      "name": "黑旋风·李逵",
+      "shortText": "力量凶猛、无惧近战的狂战士。",
+      "description": "力量、耐痛与双斧近战极强，能强行破障或制造混乱，但精细任务并非长项。",
+      "tags": [
+        "human",
+        "strength",
+        "combat",
+        "aggressive"
+      ]
+    },
+    {
+      "name": "神行太保·戴宗",
+      "shortText": "长途奔行与传递信息的专家。",
+      "description": "以原著传奇尺度拥有神行法，可显著提升长距离移动效率；同时擅长路线、传讯和紧急联络。",
+      "tags": [
+        "human",
+        "mobility",
+        "mystic",
+        "messenger"
+      ]
+    },
+    {
+      "name": "九纹龙·史进",
+      "shortText": "枪棒娴熟、敢打敢闯的青年豪杰。",
+      "description": "多种兵器基础扎实，体能和胆气优秀，适合直接行动与快速适应。",
+      "tags": [
+        "human",
+        "combat",
+        "weapon",
+        "agile"
+      ]
+    },
+    {
+      "name": "没遮拦·穆弘",
+      "shortText": "强悍好斗、熟悉地方江湖。",
+      "description": "近战、威慑和地方行动能力突出，面对混乱局面敢于主动推进。",
+      "tags": [
+        "human",
+        "combat",
+        "strength",
+        "streetwise"
+      ]
+    },
+    {
+      "name": "插翅虎·雷横",
+      "shortText": "强健敏捷、具基层治安经验。",
+      "description": "兼具武艺、追捕、搜索和地方事务经验，适合城市与乡野任务。",
+      "tags": [
+        "human",
+        "combat",
+        "tracking",
+        "law"
+      ]
+    },
+    {
+      "name": "混江龙·李俊",
+      "shortText": "水上行动与统领舟船的高手。",
+      "description": "擅长游泳、操舟、水战、判断水势与组织水上行动，在非水域仍保留领导和冒险经验。",
+      "tags": [
+        "human",
+        "water",
+        "leader",
+        "survival"
+      ]
+    },
+    {
+      "name": "立地太岁·阮小二",
+      "shortText": "熟悉水泊与舟船的水战好手。",
+      "description": "擅长水上机动、潜游、捕鱼工具和近岸地形利用。",
+      "tags": [
+        "human",
+        "water",
+        "combat",
+        "survival"
+      ]
+    },
+    {
+      "name": "短命二郎·阮小五",
+      "shortText": "果断强悍的水上好手。",
+      "description": "水性、舟船、伏击和近战能力突出，善利用复杂水岸环境。",
+      "tags": [
+        "human",
+        "water",
+        "combat",
+        "ambush"
+      ]
+    },
+    {
+      "name": "活阎罗·阮小七",
+      "shortText": "胆大机敏的水上行动者。",
+      "description": "擅长游泳、操舟、潜行和大胆突袭，对临时机会反应很快。",
+      "tags": [
+        "human",
+        "water",
+        "agile",
+        "improvisation"
+      ]
+    },
+    {
+      "name": "病关索·杨雄",
+      "shortText": "稳健强悍、擅长近战与守卫。",
+      "description": "具备扎实武艺、警戒和控制冲突能力，适合守点、护送与近身任务。",
+      "tags": [
+        "human",
+        "combat",
+        "guard",
+        "discipline"
+      ]
+    },
+    {
+      "name": "拼命三郎·石秀",
+      "shortText": "胆大心细、善侦察与临机应变。",
+      "description": "观察、潜入、街巷行动和近战兼备，敢于在高风险局面中快速行动。",
+      "tags": [
+        "human",
+        "combat",
+        "stealth",
+        "perception"
+      ]
+    },
+    {
+      "name": "浪子·燕青",
+      "shortText": "相扑、弩射、交际与才艺俱佳。",
+      "description": "能力非常全面：近身摔跤、精确射击、潜行观察、交际和表演均可成为解决问题的工具。",
+      "tags": [
+        "human",
+        "combat",
+        "ranged",
+        "social",
+        "agile"
+      ]
+    },
+    {
+      "name": "两头蛇·解珍",
+      "shortText": "山林猎户，擅追踪与野外行动。",
+      "description": "熟悉猎具、追踪、攀爬、野兽习性和山林生存。",
+      "tags": [
+        "human",
+        "tracking",
+        "survival",
+        "ranged"
+      ]
+    },
+    {
+      "name": "双尾蝎·解宝",
+      "shortText": "敏捷强悍的山林猎手。",
+      "description": "擅长攀爬、追踪、陷阱、猎具与复杂地形行动。",
+      "tags": [
+        "human",
+        "tracking",
+        "survival",
+        "agile"
+      ]
+    },
+    {
+      "name": "神机军师·朱武",
+      "shortText": "擅阵法、谋划与组织协同。",
+      "description": "善分析局势、安排人员、设计路线与战术配合，个人武力不是核心。",
+      "tags": [
+        "human",
+        "strategy",
+        "tactics",
+        "leader"
+      ]
+    },
+    {
+      "name": "镇三山·黄信",
+      "shortText": "有军旅与地方治安经验的武将。",
+      "description": "武艺、威慑、追捕与小队指挥兼备。",
+      "tags": [
+        "human",
+        "combat",
+        "law",
+        "leader"
+      ]
+    },
+    {
+      "name": "病尉迟·孙立",
+      "shortText": "武艺全面、善骑战与军事协作。",
+      "description": "兵器、骑战、阵战和组织能力均衡，适合复杂战斗任务。",
+      "tags": [
+        "human",
+        "combat",
+        "mounted",
+        "tactics"
+      ]
+    },
+    {
+      "name": "圣手书生·萧让",
+      "shortText": "精于书法文书与文字模仿。",
+      "description": "擅长识读、书写、文书格式、笔迹模仿和信息整理；非战斗任务价值突出。",
+      "tags": [
+        "human",
+        "literacy",
+        "deception",
+        "information"
+      ]
+    },
+    {
+      "name": "铁面孔目·裴宣",
+      "shortText": "熟悉法度、文书与审断。",
+      "description": "擅长规则理解、证据梳理、记录和公正裁断，可在复杂任务中建立清晰程序。",
+      "tags": [
+        "human",
+        "law",
+        "information",
+        "analysis"
+      ]
+    },
+    {
+      "name": "神算子·蒋敬",
+      "shortText": "精于算术与财物管理。",
+      "description": "擅长计算、盘点、资源规划、账目分析和后勤组织。",
+      "tags": [
+        "human",
+        "analysis",
+        "resource",
+        "logistics"
+      ]
+    },
+    {
+      "name": "神医·安道全",
+      "shortText": "医术高明的救治专家。",
+      "description": "擅长诊断、止血、创伤处理、疾病判断和有限条件下的医疗决策。",
+      "tags": [
+        "human",
+        "medical",
+        "analysis",
+        "rescue"
+      ]
+    },
+    {
+      "name": "紫髯伯·皇甫端",
+      "shortText": "精通相马与兽医。",
+      "description": "擅长动物状态判断、治疗牲畜、马匹管理与运输相关问题。",
+      "tags": [
+        "human",
+        "medical",
+        "animal",
+        "logistics"
+      ]
+    },
+    {
+      "name": "轰天雷·凌振",
+      "shortText": "精于火炮与火药器械。",
+      "description": "擅长火药、炮具、距离估算和器械操作；需要材料、时间与安全条件，不能凭空制造爆炸物。",
+      "tags": [
+        "human",
+        "engineering",
+        "ranged",
+        "siege"
+      ]
+    },
+    {
+      "name": "金钱豹子·汤隆",
+      "shortText": "铁匠出身，善打造与修理器械。",
+      "description": "擅长金属加工、工具使用、装备修理和判断机械结构。",
+      "tags": [
+        "human",
+        "craft",
+        "engineering",
+        "strength"
+      ]
+    },
+    {
+      "name": "通臂猿·侯健",
+      "shortText": "裁缝出身，手艺精细。",
+      "description": "擅长缝制、修补、绳结、材料处理与伪装性服装制作。",
+      "tags": [
+        "human",
+        "craft",
+        "stealth",
+        "improvisation"
+      ]
+    },
+    {
+      "name": "鼓上蚤·时迁",
+      "shortText": "潜行、攀爬与盗取技巧顶尖。",
+      "description": "擅长隐蔽移动、攀墙越屋、观察守卫、取物与利用狭窄路线；正面对抗不是主要优势。",
+      "tags": [
+        "human",
+        "stealth",
+        "agile",
+        "infiltration"
+      ]
+    },
+    {
+      "name": "玉臂匠·金大坚",
+      "shortText": "精于雕刻印信与精细手工。",
+      "description": "擅长雕刻、印章、细部复制、工具加工和识别工艺痕迹。",
+      "tags": [
+        "human",
+        "craft",
+        "deception",
+        "precision"
+      ]
+    },
+    {
+      "name": "铁笛仙·马麟",
+      "shortText": "兼具武艺与音乐才艺。",
+      "description": "能以兵器、音乐、社交和江湖经验处理多种场面。",
+      "tags": [
+        "human",
+        "combat",
+        "performance",
+        "social"
+      ]
+    },
+    {
+      "name": "一枝花·蔡庆",
+      "shortText": "熟悉监牢事务与看守体系。",
+      "description": "了解拘押、守卫、钥匙、流程与人员心理，也具基本武艺。",
+      "tags": [
+        "human",
+        "law",
+        "guard",
+        "social"
+      ]
+    },
+    {
+      "name": "母大虫·顾大嫂",
+      "shortText": "强悍果断、善经营与组织行动。",
+      "description": "力量、近战、交际和据点经营经验兼备，尤其擅长组织熟人网络快速行动。",
+      "tags": [
+        "human",
+        "combat",
+        "strength",
+        "social"
+      ]
+    },
+    {
+      "name": "母夜叉·孙二娘",
+      "shortText": "善经营客店、观察来客与伏击。",
+      "description": "熟悉旅店、人情、食物准备、隐蔽观察和近距离控制，但其原著犯罪手段不视为自动成功。",
+      "tags": [
+        "human",
+        "social",
+        "ambush",
+        "resource"
+      ]
+    },
+    {
+      "name": "一丈青·扈三娘",
+      "shortText": "骑术与双刀武艺出众。",
+      "description": "敏捷、骑战、近战和追击能力优秀，能在高速移动中保持战斗效率。",
+      "tags": [
+        "human",
+        "combat",
+        "mounted",
+        "agile"
+      ]
+    },
+    {
+      "name": "浪里白条·张顺",
+      "shortText": "水下行动能力极强。",
+      "description": "擅长长时间游水、潜游、水下接近和水流判断；离水后仍具良好体能与胆量。",
+      "tags": [
+        "human",
+        "water",
+        "stealth",
+        "agile"
+      ]
+    },
+    {
+      "name": "旱地忽律·朱贵",
+      "shortText": "善经营酒店、侦察与传递情报。",
+      "description": "擅长观察陌生人、隐蔽联络、地方情报与资源接应。",
+      "tags": [
+        "human",
+        "information",
+        "social",
+        "stealth"
+      ]
+    },
+    {
+      "name": "鬼脸儿·杜兴",
+      "shortText": "善管事、协调与处理地方关系。",
+      "description": "擅长组织、交涉、资源安排和在不同势力间周旋。",
+      "tags": [
+        "human",
+        "social",
+        "resource",
+        "logistics"
+      ]
+    },
+    {
+      "name": "白日鼠·白胜",
+      "shortText": "市井经验丰富、善伪装身份。",
+      "description": "擅长混入人群、扮演普通身份、观察交易与抓住临时机会。",
+      "tags": [
+        "human",
+        "deception",
+        "social",
+        "streetwise"
+      ]
+    },
+    {
+      "name": "操刀鬼·曹正",
+      "shortText": "屠户出身，熟悉刀具与肉食处理。",
+      "description": "擅长刀具、力量劳动、食材处理和客店事务，也具一定武艺。",
+      "tags": [
+        "human",
+        "craft",
+        "combat",
+        "resource"
+      ]
+    },
+    {
+      "name": "菜园子·张青",
+      "shortText": "熟悉园圃、道路与客店经营。",
+      "description": "擅长植物、食物、地方道路、隐蔽接应与资源管理。",
+      "tags": [
+        "human",
+        "survival",
+        "resource",
+        "social"
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "name": "天生神力",
+      "shortText": "显著增强力量与搬运、破障、近战能力。",
+      "description": "拥有远超常人的力量，可用于搬抬、破障、压制和近战；速度、耐久和判断力不会自动同比提升。",
+      "tags": [
+        "strength",
+        "combat",
+        "rescue"
+      ]
+    },
+    {
+      "name": "枪棒精熟",
+      "shortText": "熟练掌握长短兵器的距离与攻防。",
+      "description": "能快速理解并有效使用常见棍、枪、棒类器械，优势在距离控制、格挡与连续攻防；没有合适器械时不能凭空获得武器。",
+      "tags": [
+        "combat",
+        "weapon"
+      ]
+    },
+    {
+      "name": "百步穿杨",
+      "shortText": "拥有极高的远射精度。",
+      "description": "使用弓弩或其他合理远射工具时拥有卓越瞄准与距离判断；弹道、遮挡、射程和弹药仍然有效。",
+      "tags": [
+        "ranged",
+        "precision"
+      ]
+    },
+    {
+      "name": "飞石绝技",
+      "shortText": "把普通小型硬物化为精准投掷武器。",
+      "description": "能高速精准投掷石块等合适小物体，用于打击、干扰或触发机关；威力受物体质量、距离和遮挡限制。",
+      "tags": [
+        "ranged",
+        "precision",
+        "improvisation"
+      ]
+    },
+    {
+      "name": "神行法",
+      "shortText": "大幅提高长距离赶路效率。",
+      "description": "以《水浒传》传奇尺度显著提升奔行速度与耐力，适合追赶、传讯和撤离；不能穿墙、飞行或无视不可通行地形。",
+      "tags": [
+        "mobility",
+        "mystic"
+      ]
+    },
+    {
+      "name": "水下健将",
+      "shortText": "获得卓越游泳、潜游与水流判断。",
+      "description": "在水中拥有优秀耐力、方向感和潜游技巧；并不获得水下呼吸，极端水压和缺氧仍有效。",
+      "tags": [
+        "water",
+        "mobility",
+        "survival"
+      ]
+    },
+    {
+      "name": "相扑擒拿",
+      "shortText": "擅长摔投、锁控和近身夺势。",
+      "description": "在贴身距离能利用重心、杠杆和步法控制对手，尤其适合活捉和夺取物品；面对巨大体型差仍需论证。",
+      "tags": [
+        "combat",
+        "control"
+      ]
+    },
+    {
+      "name": "骑战精通",
+      "shortText": "能在高速骑乘中稳定行动。",
+      "description": "若场景存在可骑乘且能控制的坐骑，可进行追击、护送和马上战斗；没有坐骑时保留骑术知识但不产生额外载具。",
+      "tags": [
+        "mounted",
+        "mobility",
+        "combat"
+      ]
+    },
+    {
+      "name": "山林追踪",
+      "shortText": "擅长从痕迹判断目标路线。",
+      "description": "可利用足迹、折枝、泥土、气味与人为痕迹追踪；不会自动知道无痕目标的位置。",
+      "tags": [
+        "tracking",
+        "perception",
+        "survival"
+      ]
+    },
+    {
+      "name": "潜行攀越",
+      "shortText": "擅长避开视线并通过复杂路线。",
+      "description": "能有效利用阴影、屋顶、墙体、狭道和噪声掩护移动；完全开阔且持续监视的区域仍难隐藏。",
+      "tags": [
+        "stealth",
+        "agile",
+        "infiltration"
+      ]
+    },
+    {
+      "name": "粗中有细",
+      "shortText": "在高压局面中发现简单有效的破局点。",
+      "description": "面对混乱或危险时更容易识别可利用的人、物、路线和时机，但不会凭空获得未知信息。",
+      "tags": [
+        "analysis",
+        "improvisation"
+      ]
+    },
+    {
+      "name": "军阵调度",
+      "shortText": "擅长组织多人分工与保持阵线。",
+      "description": "能快速分配职责、建立警戒和协同行动；需要存在可沟通的队友或人群才能发挥组织价值。",
+      "tags": [
+        "leader",
+        "tactics"
+      ]
+    },
+    {
+      "name": "奇谋设局",
+      "shortText": "擅长诱导、佯动和多步计划。",
+      "description": "可以根据已知信息设计误导、诱敌、交换资源或路线欺骗；对手并不会被强制上当。",
+      "tags": [
+        "strategy",
+        "deception"
+      ]
+    },
+    {
+      "name": "江湖人情",
+      "shortText": "善于迅速建立关系并打听消息。",
+      "description": "更容易从普通人的语言、利益与关系中找到沟通切口；不能强制改变坚定敌对者的立场。",
+      "tags": [
+        "social",
+        "information"
+      ]
+    },
+    {
+      "name": "文书仿制",
+      "shortText": "能高水平复制书写、格式与印记。",
+      "description": "在拥有样本和材料时可制作高度可信的文书外观；内容真实性、核验制度和未知密码仍可能揭穿伪造。",
+      "tags": [
+        "literacy",
+        "deception",
+        "craft"
+      ]
+    },
+    {
+      "name": "精密雕刻",
+      "shortText": "擅长细小结构复制与加工。",
+      "description": "可用合适工具加工印章、木石金属细件和简单零件；受材料、时间和工具限制。",
+      "tags": [
+        "craft",
+        "precision"
+      ]
+    },
+    {
+      "name": "铁匠手艺",
+      "shortText": "能修理、改造和制作常见金属器具。",
+      "description": "在有材料与工具时可修复兵器、锁具、铰链和简单机械结构；不能无设备制造复杂现代机械。",
+      "tags": [
+        "craft",
+        "engineering"
+      ]
+    },
+    {
+      "name": "裁缝巧手",
+      "shortText": "快速修补布料、绳带与软质装备。",
+      "description": "能缝合、加固、改制衣物与布料，并利用其制作简易携带、伪装或固定工具。",
+      "tags": [
+        "craft",
+        "improvisation"
+      ]
+    },
+    {
+      "name": "急救医术",
+      "shortText": "能够稳定伤员并判断常见伤情。",
+      "description": "可进行止血、固定、清创和基础诊断；严重内伤、致命创伤或缺乏材料时不能保证治愈。",
+      "tags": [
+        "medical",
+        "rescue"
+      ]
+    },
+    {
+      "name": "兽医相马",
+      "shortText": "擅长判断动物状态并处理常见伤病。",
+      "description": "能识别坐骑疲劳、受伤、惊恐和基本疾病，并改善人与动物协作；不能强制驯服危险野兽。",
+      "tags": [
+        "animal",
+        "medical"
+      ]
+    },
+    {
+      "name": "火药器械",
+      "shortText": "理解传统火药与炮具的安全操作。",
+      "description": "在存在合适火药、引信和器械时可判断使用、布置或排险方法；不会凭空生成材料，误用仍有反噬风险。",
+      "tags": [
+        "engineering",
+        "siege"
+      ]
+    },
+    {
+      "name": "算筹理财",
+      "shortText": "快速完成盘点、估算与资源分配。",
+      "description": "擅长数量、比例、账目、库存与补给规划，可减少资源浪费；无法替代缺失的关键资源。",
+      "tags": [
+        "analysis",
+        "resource",
+        "logistics"
+      ]
+    },
+    {
+      "name": "识路辨向",
+      "shortText": "通过地标、日照和地形保持方向。",
+      "description": "在陌生环境中更擅长建立路线记忆、选择撤离路径和避免绕行；封闭无参照环境仍可能迷失。",
+      "tags": [
+        "navigation",
+        "survival"
+      ]
+    },
+    {
+      "name": "伏击识破",
+      "shortText": "对异常安静、遮蔽物和人为痕迹敏感。",
+      "description": "更容易发现埋伏迹象和危险路线，但不是全知感知，也无法发现完全无迹可循的威胁。",
+      "tags": [
+        "perception",
+        "tracking"
+      ]
+    },
+    {
+      "name": "临阵威慑",
+      "shortText": "以气势和明确行动压迫犹豫者。",
+      "description": "对意志不坚或局势不明的人能形成明显心理压力；不能直接控制坚定目标。",
+      "tags": [
+        "social",
+        "combat"
+      ]
+    },
+    {
+      "name": "绳索巧用",
+      "shortText": "擅长打结、固定、拖拽和搭建简易绳路。",
+      "description": "只要获得足够绳索或类似材料，就能高效用于救援、束缚、攀爬和固定；材料强度仍是硬边界。",
+      "tags": [
+        "craft",
+        "rescue",
+        "control"
+      ]
+    },
+    {
+      "name": "舟船操控",
+      "shortText": "熟悉小型舟船、水流和靠岸。",
+      "description": "有可用船只时能提高水上机动、避障和靠岸效率；没有船只时不会凭空获得载具。",
+      "tags": [
+        "water",
+        "mobility"
+      ]
+    },
+    {
+      "name": "夜行耳目",
+      "shortText": "在低照度环境中更善利用听觉和微弱线索。",
+      "description": "黑暗中能更有效判断声音、轮廓与近距离变化，但并非真正夜视。",
+      "tags": [
+        "perception",
+        "stealth"
+      ]
+    },
+    {
+      "name": "市井伪装",
+      "shortText": "能快速融入普通人群与日常身份。",
+      "description": "通过衣着、言行和环境行为降低注意度；在严格身份核验或熟人面前效果有限。",
+      "tags": [
+        "deception",
+        "social"
+      ]
+    },
+    {
+      "name": "破门拆障",
+      "shortText": "善用杠杆、冲击与工具快速开路。",
+      "description": "可判断门窗、木构、障碍的薄弱点并高效破除；坚固金属、巨大结构或危险承重件仍有限制。",
+      "tags": [
+        "strength",
+        "engineering",
+        "rescue"
+      ]
+    },
+    {
+      "name": "阵地守御",
+      "shortText": "擅长利用狭口、障碍和高低差防守。",
+      "description": "能选择有利位置、布置简单障碍并控制通路；无法把完全暴露的场地变成堡垒。",
+      "tags": [
+        "tactics",
+        "control"
+      ]
+    },
+    {
+      "name": "快速传讯",
+      "shortText": "能把复杂信息压缩成清晰可执行的口信。",
+      "description": "擅长记忆关键信息、选择传递顺序和避免歧义；通信仍受距离和媒介限制。",
+      "tags": [
+        "information",
+        "social"
+      ]
+    },
+    {
+      "name": "审讯识言",
+      "shortText": "善从说辞矛盾和情绪变化中寻找线索。",
+      "description": "能通过提问发现不一致之处；不能自动判定真伪，也不能强迫目标开口。",
+      "tags": [
+        "analysis",
+        "social",
+        "information"
+      ]
+    },
+    {
+      "name": "野外求生",
+      "shortText": "擅长寻找水源、庇护、燃料与安全路线。",
+      "description": "在自然环境中能优先处理保温、饮水、食物和风险；极端环境仍需要实际资源。",
+      "tags": [
+        "survival",
+        "resource"
+      ]
+    },
+    {
+      "name": "刀法迅捷",
+      "shortText": "擅长短兵器近身连续攻防。",
+      "description": "使用合适刀具时具备优秀步法、格挡和攻击效率；面对长距离威胁仍受射程限制。",
+      "tags": [
+        "combat",
+        "weapon"
+      ]
+    },
+    {
+      "name": "双持协调",
+      "shortText": "能同时有效使用两件轻中型器械。",
+      "description": "双手协调和节奏控制优秀，可用于攻防、工具操作或同时处理两项简单动作；不会获得额外注意力或力量。",
+      "tags": [
+        "combat",
+        "agile"
+      ]
+    },
+    {
+      "name": "危险直觉",
+      "shortText": "在突发变化前更快注意到异常征兆。",
+      "description": "对声音、气味、人群反应和结构变化更敏感，提供更快反应窗口；不是预知未来。",
+      "tags": [
+        "perception",
+        "survival"
+      ]
+    },
+    {
+      "name": "火场判断",
+      "shortText": "能快速判断烟火蔓延、风向与可行路线。",
+      "description": "面对火灾时更擅长选择低风险路线、利用隔离和判断烟气；不获得耐火能力。",
+      "tags": [
+        "rescue",
+        "analysis"
+      ]
+    },
+    {
+      "name": "谈判周旋",
+      "shortText": "善于交换条件、拖延和寻找共同利益。",
+      "description": "可以改善谈判结构并争取时间，但不能让没有利益交集的对手必然妥协。",
+      "tags": [
+        "social",
+        "strategy"
+      ]
+    },
+    {
+      "name": "机关拆解",
+      "shortText": "能理解并处理简单锁具、绊索和机械机关。",
+      "description": "可观察结构、尝试解除或绕开传统机械装置；未知复杂机关仍可能失败。",
+      "tags": [
+        "engineering",
+        "precision",
+        "infiltration"
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "name": "急躁抢先",
+      "shortText": "倾向过早行动，容易暴露计划。",
+      "description": "面对明显机会或挑衅时很难长期等待，必须解释如何避免因抢先行动导致暴露、误判或脱节。",
+      "tags": [
+        "psychology",
+        "aggressive"
+      ]
+    },
+    {
+      "name": "嗜酒误事",
+      "shortText": "酒精诱因会显著干扰判断。",
+      "description": "场景存在酒且有合理接触机会时，角色更容易饮酒或被酒局牵制；若饮酒，精细判断和协调能力下降。",
+      "tags": [
+        "psychology",
+        "resource"
+      ]
+    },
+    {
+      "name": "过度讲义气",
+      "shortText": "很难抛弃同伴独自获利。",
+      "description": "当胜利路径要求牺牲、欺骗或放弃明确盟友时，会强烈抗拒，必须寻找兼顾同伴的方案。",
+      "tags": [
+        "psychology",
+        "social"
+      ]
+    },
+    {
+      "name": "轻信熟人",
+      "shortText": "对已建立信任的人警惕下降。",
+      "description": "面对熟人、盟友或成功建立可信身份者时，更难优先怀疑其恶意。",
+      "tags": [
+        "psychology",
+        "social"
+      ]
+    },
+    {
+      "name": "不善隐忍",
+      "shortText": "受到侮辱或明显不公时容易正面回应。",
+      "description": "挑衅和羞辱会显著增加暴露或冲突概率，潜伏任务尤其受影响。",
+      "tags": [
+        "psychology",
+        "stealth"
+      ]
+    },
+    {
+      "name": "正面硬碰",
+      "shortText": "偏好直接解决，绕行与欺骗意愿较低。",
+      "description": "存在明确对手或障碍时优先考虑正面突破，必须额外论证为何会采用长期潜伏或复杂骗局。",
+      "tags": [
+        "psychology",
+        "combat"
+      ]
+    },
+    {
+      "name": "惧怕官府",
+      "shortText": "面对正式权力机构时容易迟疑。",
+      "description": "官兵、审讯、通缉或公开身份核验会增加心理压力和决策成本。",
+      "tags": [
+        "psychology",
+        "law"
+      ]
+    },
+    {
+      "name": "身份显眼",
+      "shortText": "外貌、装束或名声使隐蔽更困难。",
+      "description": "在人群、关卡和需要匿名的任务中更容易被记住或描述，普通伪装效果下降。",
+      "tags": [
+        "stealth",
+        "social"
+      ]
+    },
+    {
+      "name": "水性欠佳",
+      "shortText": "深水会显著限制行动。",
+      "description": "无法稳定长距离游泳；进入深水后移动、战斗和救援效率明显下降，但不等于立刻溺水。",
+      "tags": [
+        "water",
+        "mobility"
+      ]
+    },
+    {
+      "name": "不耐严寒",
+      "shortText": "低温会更快削弱体能与精细动作。",
+      "description": "寒冷环境中需要更积极寻找保温措施，否则耐力、手部操作和判断逐步受影响。",
+      "tags": [
+        "environment",
+        "survival"
+      ]
+    },
+    {
+      "name": "不耐酷热",
+      "shortText": "高温与缺水更快削弱状态。",
+      "description": "炎热环境中需要优先补水、降温和控制体力消耗。",
+      "tags": [
+        "environment",
+        "survival"
+      ]
+    },
+    {
+      "name": "旧伤牵制",
+      "shortText": "高强度持续动作会诱发旧伤。",
+      "description": "短时行动基本正常，但长时间奔跑、负重或连续激战会逐渐降低效率。",
+      "tags": [
+        "physical",
+        "combat"
+      ]
+    },
+    {
+      "name": "视力受限",
+      "shortText": "远距离细节识别明显较弱。",
+      "description": "对远处小目标、文字和精密瞄准不利，可通过接近或工具补偿。",
+      "tags": [
+        "physical",
+        "perception"
+      ]
+    },
+    {
+      "name": "听觉受损",
+      "shortText": "难以依赖细微声音获取信息。",
+      "description": "嘈杂、黑暗或隔墙判断时劣势明显，需要更多视觉或触觉确认。",
+      "tags": [
+        "physical",
+        "perception"
+      ]
+    },
+    {
+      "name": "恐高",
+      "shortText": "暴露的高处会造成明显迟疑。",
+      "description": "在屋顶、悬崖、塔楼等无可靠防护位置行动时速度和决策受影响。",
+      "tags": [
+        "psychology",
+        "mobility"
+      ]
+    },
+    {
+      "name": "幽闭不适",
+      "shortText": "狭窄封闭空间会提高焦虑。",
+      "description": "地道、牢房、狭窄船舱等环境中难以长时间保持冷静，需要尽快建立出口感。",
+      "tags": [
+        "psychology",
+        "environment"
+      ]
+    },
+    {
+      "name": "容易迷路",
+      "shortText": "陌生复杂路线难以建立稳定方向感。",
+      "description": "迷宫式街巷、山林、地下结构中需要依赖标记、地图或他人指引。",
+      "tags": [
+        "navigation",
+        "weakness"
+      ]
+    },
+    {
+      "name": "不擅骑乘",
+      "shortText": "高速坐骑上难以稳定操作。",
+      "description": "即使获得坐骑，也只能进行基础移动，复杂骑战或高速追逐风险很高。",
+      "tags": [
+        "mounted",
+        "mobility"
+      ]
+    },
+    {
+      "name": "不擅远射",
+      "shortText": "远距离攻击与精确投掷表现较差。",
+      "description": "可使用远程工具，但难以稳定命中小型或移动目标。",
+      "tags": [
+        "ranged",
+        "precision"
+      ]
+    },
+    {
+      "name": "不善交涉",
+      "shortText": "容易把谈判变成对抗。",
+      "description": "需要说服、中立协调或套取信息时效率下降，更依赖事实、资源或他人协助。",
+      "tags": [
+        "social",
+        "psychology"
+      ]
+    },
+    {
+      "name": "不识文书",
+      "shortText": "复杂文字信息处理能力有限。",
+      "description": "阅读正式文书、地图注记、账册或密码提示时需要他人解释或通过其他线索推断。",
+      "tags": [
+        "literacy",
+        "information"
+      ]
+    },
+    {
+      "name": "机械生疏",
+      "shortText": "面对复杂器械容易误判操作。",
+      "description": "可使用直观工具，但拆解、修复或操作陌生复杂装置时需要更多时间。",
+      "tags": [
+        "engineering",
+        "weakness"
+      ]
+    },
+    {
+      "name": "怕火",
+      "shortText": "明火和浓烟会显著压缩行动选择。",
+      "description": "接近火源时更倾向绕行或撤退，必须有强理由才会主动进入火场。",
+      "tags": [
+        "psychology",
+        "fire"
+      ]
+    },
+    {
+      "name": "见血失措",
+      "shortText": "严重创伤场面会影响专注。",
+      "description": "大量鲜血或重伤者会造成短暂迟疑，医疗和近身搏杀任务受影响。",
+      "tags": [
+        "psychology",
+        "medical"
+      ]
+    },
+    {
+      "name": "贪财",
+      "shortText": "明确可得的贵重利益会分散注意。",
+      "description": "出现易取得的高价值财物时会强烈考虑获取，可能偏离最短胜利路径。",
+      "tags": [
+        "psychology",
+        "resource"
+      ]
+    },
+    {
+      "name": "好名",
+      "shortText": "公开声誉会影响决策。",
+      "description": "容易选择能证明自己能力或维护名声的方案，不愿接受明显怯懦或失面子的行动。",
+      "tags": [
+        "psychology",
+        "social"
+      ]
+    },
+    {
+      "name": "心软护弱",
+      "shortText": "面对无辜弱者难以置之不理。",
+      "description": "若任务路径会明显危及无辜者，会主动承担额外救援成本。",
+      "tags": [
+        "psychology",
+        "rescue"
+      ]
+    },
+    {
+      "name": "多疑",
+      "shortText": "难以完全信任未经验证的信息。",
+      "description": "会反复核实关键情报，降低被骗概率，但也可能错失需要快速信任的机会。",
+      "tags": [
+        "psychology",
+        "information"
+      ]
+    },
+    {
+      "name": "夜盲",
+      "shortText": "低照度下视觉能力明显下降。",
+      "description": "黑暗环境需要光源、触摸、声音或他人引导，快速移动风险增加。",
+      "tags": [
+        "physical",
+        "environment"
+      ]
+    },
+    {
+      "name": "耐力不足",
+      "shortText": "持续高强度行动衰减更快。",
+      "description": "短时爆发正常，但长距离追逐、负重和连续战斗必须安排休息或节奏。",
+      "tags": [
+        "physical",
+        "mobility"
+      ]
+    },
+    {
+      "name": "手部旧伤",
+      "shortText": "精细手工和持续握持容易受影响。",
+      "description": "粗大动作仍可完成，但长时间持械、攀爬和精细操作会逐渐疼痛失准。",
+      "tags": [
+        "physical",
+        "craft"
+      ]
+    },
+    {
+      "name": "过度谨慎",
+      "shortText": "倾向反复确认后再行动。",
+      "description": "能降低鲁莽风险，但时间紧迫时可能失去先机。",
+      "tags": [
+        "psychology",
+        "analysis"
+      ]
+    },
+    {
+      "name": "不会说谎",
+      "shortText": "难以主动编造虚假身份与事实。",
+      "description": "可以保持沉默、模糊回答或利用真话，但直接欺骗时容易露出破绽。",
+      "tags": [
+        "psychology",
+        "deception"
+      ]
+    },
+    {
+      "name": "护物执念",
+      "shortText": "不愿主动丢弃自己负责的重要物品。",
+      "description": "即使减负或转移物品更有利，也会优先确保其安全，除非证明继续携带必然导致更大失败。",
+      "tags": [
+        "psychology",
+        "escort"
+      ]
+    },
+    {
+      "name": "单打独斗",
+      "shortText": "不习惯依赖他人协作。",
+      "description": "更倾向自己完成关键步骤，多人任务中可能浪费队友优势。",
+      "tags": [
+        "psychology",
+        "leader"
+      ]
+    },
+    {
+      "name": "惧水",
+      "shortText": "进入深水会产生明显恐惧。",
+      "description": "即使具备基础游泳条件，也会优先寻找船、桥或绳索等替代路线。",
+      "tags": [
+        "psychology",
+        "water"
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "name": "梁山水泊",
+      "shortText": "芦苇、水道与山寨交错的天然险地。",
+      "description": "大片水泊包围山地据点，存在舟船、芦苇荡、浅滩、码头和狭窄山路；视线与路线均被水网切割。",
+      "tags": [
+        "outdoor",
+        "water",
+        "fortified",
+        "wetland"
+      ],
+      "hazards": [
+        "深水",
+        "芦苇遮挡视线",
+        "湿滑岸坡",
+        "狭窄水道"
+      ]
+    },
+    {
+      "name": "景阳冈",
+      "shortText": "林密坡陡、野兽出没的山冈。",
+      "description": "山路穿过树林与草坡，远离密集人烟，可利用树木、岩石、坡度和简易店舍。",
+      "tags": [
+        "outdoor",
+        "mountain",
+        "forest"
+      ],
+      "hazards": [
+        "野兽威胁",
+        "陡坡",
+        "夜间低能见度"
+      ]
+    },
+    {
+      "name": "野猪林",
+      "shortText": "偏僻密林中的押解道路。",
+      "description": "林木茂密、道路狭窄，适合隐藏、伏击、绕行和利用树木，但支援与视野受限。",
+      "tags": [
+        "outdoor",
+        "forest",
+        "road"
+      ],
+      "hazards": [
+        "低能见度",
+        "伏击风险",
+        "崎岖地面"
+      ]
+    },
+    {
+      "name": "大相国寺菜园",
+      "shortText": "围墙、菜畦与寺院建筑相邻。",
+      "description": "有院墙、树木、水井、农具、房舍和开阔菜地，既能近战也能利用建筑周旋。",
+      "tags": [
+        "outdoor",
+        "urban",
+        "courtyard"
+      ],
+      "hazards": [
+        "湿滑泥地",
+        "狭窄出入口"
+      ]
+    },
+    {
+      "name": "山神庙雪夜",
+      "shortText": "暴雪中的小庙与草料场。",
+      "description": "小型庙宇提供有限遮蔽，附近有草料、木构建筑和道路；风雪持续改变视野与行动条件。",
+      "tags": [
+        "outdoor",
+        "snow",
+        "cold",
+        "structure"
+      ],
+      "hazards": [
+        "严寒",
+        "低能见度",
+        "积雪阻碍",
+        "火灾风险"
+      ]
+    },
+    {
+      "name": "汴京闹市",
+      "shortText": "人群、商铺、巷道密集的大城街区。",
+      "description": "街巷、店铺、桥梁和人群提供大量信息与遮蔽，同时存在官差、围观者和交通阻塞。",
+      "tags": [
+        "urban",
+        "crowded",
+        "indoor_access"
+      ],
+      "hazards": [
+        "人群拥挤",
+        "身份暴露",
+        "道路阻塞"
+      ]
+    },
+    {
+      "name": "江州法场",
+      "shortText": "戒备森严、围观者众多的公开刑场。",
+      "description": "中心区域开阔，外围有人群、官兵、街巷和建筑出口，适合突袭、救援与封锁。",
+      "tags": [
+        "urban",
+        "crowded",
+        "guarded"
+      ],
+      "hazards": [
+        "武装守卫",
+        "人群踩踏",
+        "出口受控"
+      ]
+    },
+    {
+      "name": "浔阳江畔",
+      "shortText": "江岸、码头与城镇道路相连。",
+      "description": "可使用船只、码头设施、岸边建筑和水路，陆水路线并存。",
+      "tags": [
+        "outdoor",
+        "water",
+        "urban"
+      ],
+      "hazards": [
+        "深水",
+        "湿滑码头",
+        "水流"
+      ]
+    },
+    {
+      "name": "祝家庄",
+      "shortText": "道路复杂、庄墙坚固的乡间堡庄。",
+      "description": "庄墙、村道、林地、田野与内部院落形成多层路线，陌生人容易迷失。",
+      "tags": [
+        "outdoor",
+        "fortified",
+        "village"
+      ],
+      "hazards": [
+        "迷路风险",
+        "伏兵",
+        "封闭庄门"
+      ]
+    },
+    {
+      "name": "曾头市",
+      "shortText": "有寨栅与武装防线的聚落。",
+      "description": "道路、寨门、民居、马厩和防御设施交错，适合阵地攻防和渗透。",
+      "tags": [
+        "outdoor",
+        "fortified",
+        "village"
+      ],
+      "hazards": [
+        "武装守卫",
+        "狭窄通道",
+        "火灾风险"
+      ]
+    },
+    {
+      "name": "清风寨",
+      "shortText": "山地中的官寨与居民区。",
+      "description": "寨墙、官署、民居和山路并存，控制出入口即可显著影响局势。",
+      "tags": [
+        "outdoor",
+        "fortified",
+        "mountain"
+      ],
+      "hazards": [
+        "守卫巡逻",
+        "陡坡",
+        "出口受控"
+      ]
+    },
+    {
+      "name": "高唐州城",
+      "shortText": "城墙、街巷与官署构成的古代城池。",
+      "description": "城门、城墙、民居、市场和官署形成复杂城市空间，可通过公开道路或小巷移动。",
+      "tags": [
+        "urban",
+        "fortified",
+        "crowded"
+      ],
+      "hazards": [
+        "守卫",
+        "火灾蔓延",
+        "人群混乱"
+      ]
+    },
+    {
+      "name": "大名府",
+      "shortText": "规模庞大的繁华城池。",
+      "description": "有城门、街市、府衙、宅院和密集人口，信息资源丰富但身份核验与追捕压力高。",
+      "tags": [
+        "urban",
+        "crowded",
+        "guarded"
+      ],
+      "hazards": [
+        "巡逻",
+        "人群拥堵",
+        "封门风险"
+      ]
+    },
+    {
+      "name": "东平府战场",
+      "shortText": "城外平地与城防相接的交战区域。",
+      "description": "开阔地、道路、壕沟与城墙构成主要空间，适合骑战、远射和阵线推进。",
+      "tags": [
+        "outdoor",
+        "battlefield",
+        "open"
+      ],
+      "hazards": [
+        "远射威胁",
+        "冲锋",
+        "缺少掩体"
+      ]
+    },
+    {
+      "name": "东昌府城外",
+      "shortText": "道路与开阔战地交错。",
+      "description": "平坦区域利于高速移动，零散沟渠、树木和营地提供有限掩体。",
+      "tags": [
+        "outdoor",
+        "battlefield",
+        "open"
+      ],
+      "hazards": [
+        "远射威胁",
+        "骑兵冲击",
+        "扬尘"
+      ]
+    },
+    {
+      "name": "沂岭荒山",
+      "shortText": "山路险峻、林木密集的荒野。",
+      "description": "岩坡、树林、溪沟与狭路交错，资源有限且救援距离远。",
+      "tags": [
+        "outdoor",
+        "mountain",
+        "forest"
+      ],
+      "hazards": [
+        "野兽",
+        "坠落风险",
+        "迷路"
+      ]
+    },
+    {
+      "name": "十字坡客店",
+      "shortText": "孤立道路旁的客店与后院。",
+      "description": "室内外空间紧凑，有厨房、客房、仓房、院落和道路，可利用日常工具与多个遮蔽物。",
+      "tags": [
+        "indoor",
+        "roadside",
+        "structure"
+      ],
+      "hazards": [
+        "狭窄空间",
+        "火源",
+        "身份不明人员"
+      ]
+    },
+    {
+      "name": "快活林",
+      "shortText": "酒肆、店铺与街道组成的娱乐街区。",
+      "description": "人流复杂，建筑密集，适合交涉、跟踪、埋伏和近距离冲突。",
+      "tags": [
+        "urban",
+        "crowded",
+        "indoor_access"
+      ],
+      "hazards": [
+        "醉酒人群",
+        "狭窄街道",
+        "火源"
+      ]
+    },
+    {
+      "name": "鸳鸯楼",
+      "shortText": "多层木构楼阁与庭院。",
+      "description": "楼梯、房间、窗户、栏杆和庭院构成立体空间，近战和追逐路线复杂。",
+      "tags": [
+        "indoor",
+        "multi_level",
+        "wooden"
+      ],
+      "hazards": [
+        "坠落",
+        "火灾",
+        "狭窄楼梯"
+      ]
+    },
+    {
+      "name": "牢城营",
+      "shortText": "围墙、牢房与劳役区组成的封闭设施。",
+      "description": "牢门、院墙、岗哨、工具区和多人囚室形成强控制空间。",
+      "tags": [
+        "indoor",
+        "guarded",
+        "fortified"
+      ],
+      "hazards": [
+        "武装看守",
+        "锁闭出口",
+        "拥挤"
+      ]
+    },
+    {
+      "name": "古代驿道",
+      "shortText": "连接城镇的长途道路。",
+      "description": "沿途有树林、坡地、桥梁、驿站和村落，适合护送、追击与伏击。",
+      "tags": [
+        "outdoor",
+        "road"
+      ],
+      "hazards": [
+        "伏击风险",
+        "天气暴露",
+        "补给距离"
+      ]
+    },
+    {
+      "name": "黄泥冈酷暑",
+      "shortText": "炎热山冈上的偏僻道路。",
+      "description": "树荫有限，饮水与体力管理重要，货物和行旅可成为资源或负担。",
+      "tags": [
+        "outdoor",
+        "hot",
+        "road"
+      ],
+      "hazards": [
+        "酷热",
+        "脱水",
+        "疲劳"
+      ]
+    },
+    {
+      "name": "古寺废墟",
+      "shortText": "部分坍塌的寺院建筑群。",
+      "description": "残墙、佛殿、院落、梁柱和杂物提供掩体与材料，但结构稳定性不佳。",
+      "tags": [
+        "indoor",
+        "ruins",
+        "structure"
+      ],
+      "hazards": [
+        "坍塌",
+        "落物",
+        "黑暗"
+      ]
+    },
+    {
+      "name": "山寨聚义厅",
+      "shortText": "大型厅堂与山寨核心区域。",
+      "description": "开阔厅堂连接走廊、院落和寨内道路，存在桌椅、兵器架等常见物件。",
+      "tags": [
+        "indoor",
+        "fortified",
+        "structure"
+      ],
+      "hazards": [
+        "拥挤",
+        "出口易封锁"
+      ]
+    },
+    {
+      "name": "芦苇荡",
+      "shortText": "水陆难分、视野极差的湿地。",
+      "description": "浅水、深沟、芦苇与泥滩交错，路线不直观但非常适合隐藏。",
+      "tags": [
+        "outdoor",
+        "water",
+        "wetland",
+        "stealth"
+      ],
+      "hazards": [
+        "陷泥",
+        "深水沟",
+        "低能见度"
+      ]
+    },
+    {
+      "name": "古代城门",
+      "shortText": "狭窄交通节点与高墙防御设施。",
+      "description": "门洞、城楼、闸门和城外道路构成关键瓶颈，控制门体即可改变路线。",
+      "tags": [
+        "urban",
+        "fortified",
+        "chokepoint"
+      ],
+      "hazards": [
+        "拥堵",
+        "高处落物",
+        "守卫"
+      ]
+    },
+    {
+      "name": "河上客船",
+      "shortText": "木船在宽阔河面航行。",
+      "description": "甲板、船舱、桅杆、绳索和小艇构成立体但有限的空间。",
+      "tags": [
+        "water",
+        "vehicle",
+        "wooden"
+      ],
+      "hazards": [
+        "落水",
+        "火灾",
+        "船体摇晃"
+      ]
+    },
+    {
+      "name": "暴雨山路",
+      "shortText": "暴雨中的泥泞山道。",
+      "description": "坡地、树林、沟渠和临时水流不断改变通行性，可利用高地但路线易中断。",
+      "tags": [
+        "outdoor",
+        "mountain",
+        "storm"
+      ],
+      "hazards": [
+        "滑坡",
+        "山洪",
+        "低能见度"
+      ]
+    },
+    {
+      "name": "燃烧中的庄院",
+      "shortText": "木构院落已出现持续火势。",
+      "description": "房屋、围墙、院门与庭院仍可通行，但烟火会逐步切断路线并制造坍塌。",
+      "tags": [
+        "indoor",
+        "fire",
+        "structure"
+      ],
+      "hazards": [
+        "浓烟",
+        "高温",
+        "坍塌",
+        "出口被火封锁"
+      ]
+    },
+    {
+      "name": "洪水中的古城",
+      "shortText": "街巷被上涨洪水分割。",
+      "description": "低处街道进水，高处建筑、屋顶、桥梁和船具成为关键路线与资源。",
+      "tags": [
+        "urban",
+        "water",
+        "flood"
+      ],
+      "hazards": [
+        "急流",
+        "漂浮物",
+        "建筑受损",
+        "深水"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "暴雨骤至",
+      "shortText": "强降雨迅速降低视野并改变地面条件。",
+      "description": "当前区域出现强降雨；裸土地面逐渐泥泞，火源更难维持，远距观察受影响，低洼处开始积水。",
+      "tags": [
+        "weather",
+        "visibility"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "mountain",
+        "road",
+        "battlefield",
+        "village"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "河水暴涨",
+      "shortText": "水位快速上升并吞没低处路线。",
+      "description": "受上游来水影响，岸边、浅滩和低洼区域逐渐不可安全通行，船只与高地价值上升。",
+      "tags": [
+        "water",
+        "hazard"
+      ],
+      "compatibleEnvironmentTags": [
+        "water",
+        "wetland",
+        "flood"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "浓雾弥漫",
+      "shortText": "能见度突然下降。",
+      "description": "雾气覆盖区域，远距离识别、瞄准和视觉联络显著困难，声音与近距离线索的重要性提高。",
+      "tags": [
+        "visibility",
+        "weather"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "water",
+        "mountain",
+        "wetland"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "官兵封路",
+      "shortText": "武装人员开始控制主要出口。",
+      "description": "一支官兵或守卫队封锁当前环境中最明显的公共出口并检查通过者；其他隐蔽或危险路线仍可能存在。",
+      "tags": [
+        "guard",
+        "control"
+      ],
+      "compatibleEnvironmentTags": [
+        "urban",
+        "road",
+        "village",
+        "fortified"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "伏兵杀出",
+      "shortText": "隐藏人员从遮蔽处突然现身。",
+      "description": "一小队与双方均非天然盟友的武装人员从合理遮蔽位置出现，造成路线混乱；他们不会自动听命于任何一方。",
+      "tags": [
+        "combat",
+        "ambush"
+      ],
+      "compatibleEnvironmentTags": [
+        "forest",
+        "village",
+        "road",
+        "ruins",
+        "fortified"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "人群惊散",
+      "shortText": "附近人群因危险开始无序撤离。",
+      "description": "大量普通人向可见出口移动，遮挡视线并造成拥堵，同时留下物品、信息和新的空隙。",
+      "tags": [
+        "crowd",
+        "mobility"
+      ],
+      "compatibleEnvironmentTags": [
+        "crowded",
+        "urban"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "火势蔓延",
+      "shortText": "新的可燃区域被引燃。",
+      "description": "现有火源向相邻可燃物扩散，产生更多烟雾与高温，原本安全的路线可能被切断。",
+      "tags": [
+        "fire",
+        "hazard"
+      ],
+      "compatibleEnvironmentTags": [
+        "wooden",
+        "fire",
+        "structure",
+        "village"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "屋梁坍塌",
+      "shortText": "部分结构突然失稳。",
+      "description": "一处受损木构或残破结构坍塌，制造落物、障碍与新的缺口；具体位置应选择场景中已有的合理结构。",
+      "tags": [
+        "structural",
+        "hazard"
+      ],
+      "compatibleEnvironmentTags": [
+        "wooden",
+        "ruins",
+        "structure"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "战马受惊",
+      "shortText": "附近可用坐骑陷入短暂混乱。",
+      "description": "巨响、火光或混乱使场景中的马匹惊慌，骑乘者必须重新控制，未骑乘马匹可能冲入路线。",
+      "tags": [
+        "animal",
+        "mobility"
+      ],
+      "compatibleEnvironmentTags": [
+        "battlefield",
+        "road",
+        "village"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "桥梁受损",
+      "shortText": "一条已有桥梁或栈道变得危险。",
+      "description": "若场景存在桥、栈道或类似跨越设施，其部分结构损坏，仍可能冒险通过、修复或寻找替代路线；若场景无此结构则本事件不应进入候选。",
+      "tags": [
+        "structural",
+        "mobility"
+      ],
+      "compatibleEnvironmentTags": [
+        "water",
+        "mountain",
+        "road"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "城门关闭",
+      "shortText": "主要门道被守方封闭。",
+      "description": "当前场景若存在城门、寨门或大型院门，其主要门道关闭并进入防守状态，迫使双方改变通行方案。",
+      "tags": [
+        "control",
+        "fortified"
+      ],
+      "compatibleEnvironmentTags": [
+        "fortified",
+        "chokepoint",
+        "village"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "警钟大作",
+      "shortText": "全场人员进入高度警戒。",
+      "description": "警钟或锣声传遍区域，潜行与伪装难度上升，守卫和普通人开始主动观察异常。",
+      "tags": [
+        "information",
+        "guard"
+      ],
+      "compatibleEnvironmentTags": [
+        "urban",
+        "fortified",
+        "village",
+        "guarded"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "夜色降临",
+      "shortText": "自然光快速消失。",
+      "description": "场景进入夜间低照度状态，视觉远距能力下降，灯火、声音和隐蔽行动价值提高。",
+      "tags": [
+        "visibility",
+        "time"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "urban",
+        "road",
+        "mountain"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "援兵将至",
+      "shortText": "远处出现新的武装队伍迹象。",
+      "description": "场景外出现正在接近的武装队伍，当前节点内尚未完全介入；双方可据此加速、撤离、误导或准备交涉。",
+      "tags": [
+        "information",
+        "pressure"
+      ],
+      "compatibleEnvironmentTags": [
+        "battlefield",
+        "fortified",
+        "urban",
+        "village"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "道路塌方",
+      "shortText": "一段主要通路被土石堵塞。",
+      "description": "山坡或受损地面滑落，堵住一条明显路线，同时可能形成可攀越的新高差与碎石资源。",
+      "tags": [
+        "structural",
+        "mobility"
+      ],
+      "compatibleEnvironmentTags": [
+        "mountain",
+        "road",
+        "ruins"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "船体进水",
+      "shortText": "现有船只开始持续进水。",
+      "description": "若场景存在正在使用的船只，其船体受损并持续进水；需要排水、堵漏、靠岸或转移，不能继续视为稳定平台。",
+      "tags": [
+        "water",
+        "vehicle",
+        "hazard"
+      ],
+      "compatibleEnvironmentTags": [
+        "vehicle",
+        "water"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "风向突变",
+      "shortText": "烟雾、火势或水面操舟条件改变。",
+      "description": "强风改变烟雾与火焰传播方向，也会影响轻型船只和远射；具体影响依据当前场景已有要素判断。",
+      "tags": [
+        "weather",
+        "fire"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "water",
+        "fire"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "囚犯骚动",
+      "shortText": "被控制的人群突然制造混乱。",
+      "description": "若场景存在囚犯、被押人员或大量受控人群，他们因局势变化发生骚动，守卫注意力被分散但通道也更拥挤。",
+      "tags": [
+        "crowd",
+        "control"
+      ],
+      "compatibleEnvironmentTags": [
+        "guarded",
+        "fortified"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "牲畜冲散",
+      "shortText": "受惊牲畜冲入主要路线。",
+      "description": "若场景存在马匹或常见牲畜，它们受惊后冲散，短暂制造移动障碍与掩护。",
+      "tags": [
+        "animal",
+        "mobility"
+      ],
+      "compatibleEnvironmentTags": [
+        "village",
+        "road",
+        "battlefield"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "大雪加剧",
+      "shortText": "积雪与寒冷迅速恶化。",
+      "description": "降雪增强，足迹更快被覆盖，视野降低，暴露在外者的保温与移动压力增加。",
+      "tags": [
+        "snow",
+        "weather"
+      ],
+      "compatibleEnvironmentTags": [
+        "snow",
+        "cold"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "余火引燃草料",
+      "shortText": "易燃储物突然起火。",
+      "description": "若环境存在草料、木柴、布料等集中可燃物，一处被引燃并形成新的火源与烟障。",
+      "tags": [
+        "fire",
+        "resource"
+      ],
+      "compatibleEnvironmentTags": [
+        "structure",
+        "village",
+        "fortified"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "暗道被发现",
+      "shortText": "场景中的隐蔽路线暴露。",
+      "description": "若环境合理存在后门、夹道、地窖出口或隐蔽小路，其中一条因痕迹或人员行动而暴露，双方都可尝试利用。",
+      "tags": [
+        "information",
+        "mobility"
+      ],
+      "compatibleEnvironmentTags": [
+        "fortified",
+        "urban",
+        "village",
+        "structure"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "谣言扩散",
+      "shortText": "现场人员对局势产生错误认知。",
+      "description": "一个与当前冲突有关但未经证实的消息在人群中传播，普通人的行为因此改变；双方可澄清、利用或反向误导。",
+      "tags": [
+        "information",
+        "social"
+      ],
+      "compatibleEnvironmentTags": [
+        "crowded",
+        "urban",
+        "village"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "关键灯火熄灭",
+      "shortText": "主要照明突然失效。",
+      "description": "场景中原本存在的主要灯火因风、水或人为混乱熄灭，局部进入低照度；仍可寻找或重新制造光源。",
+      "tags": [
+        "visibility",
+        "resource"
+      ],
+      "compatibleEnvironmentTags": [
+        "indoor",
+        "urban",
+        "structure"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "菜园演武",
+      "shortText": "众人围观演武，注意力被吸引。",
+      "description": "场地中有人群围观操演或比试，注意力集中于此；可借机展示武艺、建立声望或转移视线，但围观者也能更清楚地看清动作细节。",
+      "tags": [
+        "social",
+        "spectacle"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "urban",
+        "courtyard"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "烈日炙烤",
+      "shortText": "酷热使人与牲畜迅速脱水。",
+      "description": "高温持续消耗体力与水分，阴凉处与饮水价值极高；长时间暴露会显著降低行动与判断力，但火攻与烟雾不受其助。",
+      "tags": [
+        "weather",
+        "exhaustion"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "hot",
+        "road"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "市井围观",
+      "shortText": "街市出入口人流时堵时通。",
+      "description": "店面或街口的出入口处人群频繁进出，通道时而被堵、时而通畅；可借人流掩护撤离，也可主动制造堵塞阻挡追兵。",
+      "tags": [
+        "crowd",
+        "mobility"
+      ],
+      "compatibleEnvironmentTags": [
+        "urban",
+        "indoor_access",
+        "crowded"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "楼阁暗格",
+      "shortText": "多层楼阁存在夹层与可锁房门。",
+      "description": "建筑分作上下多层，存在楼梯、夹层与可上锁的房门；上下层视线与声响互不直达，便于藏匿、设伏或分段控制，但起火与坍塌风险随之上升。",
+      "tags": [
+        "structure",
+        "stealth"
+      ],
+      "compatibleEnvironmentTags": [
+        "indoor",
+        "multi_level",
+        "wooden"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "旷野对阵",
+      "shortText": "开阔地上远射与冲锋视野极佳。",
+      "description": "场景为无遮蔽的开阔地，远射与正面冲锋视野极好，但侧翼与后路暴露，缺乏遮挡也意味着难以隐蔽接敌。",
+      "tags": [
+        "visibility",
+        "battlefield"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "open",
+        "battlefield"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "野店杀机",
+      "shortText": "路边客店表面待客暗藏危险。",
+      "description": "路边客店看似寻常，暗处却可能藏有算计；可借店主或住客身份接近目标，也可能反被下套，需自行判断真伪。",
+      "tags": [
+        "social",
+        "hazard"
+      ],
+      "compatibleEnvironmentTags": [
+        "indoor",
+        "roadside",
+        "structure"
+      ],
+      "defaultPersistence": "CURRENT_NODE"
+    },
+    {
+      "name": "芦荡藏身",
+      "shortText": "茂密芦苇提供天然遮蔽与伏击点。",
+      "description": "水中芦苇茂密，提供天然遮蔽与伏击位置，但视野受限；火攻与大风会迅速破除这片掩护，水性与船只仍是关键。",
+      "tags": [
+        "stealth",
+        "water"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "water",
+        "wetland",
+        "stealth"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "山路暴雨",
+      "shortText": "暴雨狂风使路面湿滑、视线受阻。",
+      "description": "强降雨伴狂风，路面湿滑、视线受阻、声音被风雨掩盖；火把与烟火难以维持，但利于隐蔽接近与混淆踪迹。",
+      "tags": [
+        "weather",
+        "hazard"
+      ],
+      "compatibleEnvironmentTags": [
+        "outdoor",
+        "mountain",
+        "storm"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    }
+  ],
+  "victories": [
+    {
+      "name": "使对手失去继续对抗能力",
+      "shortText": "让对方无法再有效争夺胜利。",
+      "description": "通过制服、迫退、缴械、困住或其他合理方式，使对手在当前场景与规则下完全失去继续有效对抗的能力；不要求必须杀死对手。"
+    },
+    {
+      "name": "成功脱离包围",
+      "shortText": "率先摆脱当前封锁并进入安全状态。",
+      "description": "必须使自身脱离主要追捕、封锁或直接威胁，并到达一个依据当前环境可以合理维持安全的区域。"
+    },
+    {
+      "name": "控制场地核心",
+      "shortText": "建立并维持对关键区域的实际控制。",
+      "description": "通过占据、封锁、威慑或排除对手，使场景中最具战略意义的核心区域处于己方稳定控制之下。"
+    },
+    {
+      "name": "护送目标脱险",
+      "shortText": "使需要保护的人安全离开主要危险。",
+      "description": "选择场景中合理存在的一名非战斗目标或被保护者，将其带离主要危险区域并确保其不再受到即时威胁。"
+    },
+    {
+      "name": "夺取并保住关键物",
+      "shortText": "取得场景中双方均可识别的重要物品。",
+      "description": "关键物必须来自当前环境合理存在的物件；取得后还需使对手无法立即夺回，才算完成。"
+    },
+    {
+      "name": "救出被困者",
+      "shortText": "使场景中的被困人员恢复自主安全行动。",
+      "description": "找到并解除限制被困者的主要危险或拘束，使其能够在合理保护下离开危险位置。"
+    },
+    {
+      "name": "查明事件真相",
+      "shortText": "掌握并验证决定当前事件性质的关键信息。",
+      "description": "需要形成能解释主要人物、原因与过程的可靠判断，并通过现场证据、证言或可验证事实排除关键矛盾。"
+    },
+    {
+      "name": "守住出口",
+      "shortText": "阻止对手通过场景中的主要撤离通道。",
+      "description": "建立对主要出口的有效控制，使对手无法在不先突破或改变路线的情况下安全离开。"
+    },
+    {
+      "name": "突破封锁",
+      "shortText": "穿越对手或环境形成的主要封锁线。",
+      "description": "必须让自身完整通过当前最主要的封锁区域，并获得继续向目标方向行动的空间。"
+    },
+    {
+      "name": "完成紧急修复",
+      "shortText": "恢复场景中一项关键设施的基本功能。",
+      "description": "选择环境中已经存在且确实影响局势的设施，将其恢复到能够完成核心用途的状态，而非要求完全修复如新。"
+    },
+    {
+      "name": "稳定灾害现场",
+      "shortText": "让环境不再持续扩大主要伤害。",
+      "description": "通过灭火、隔离、疏散、加固、堵漏或其他符合场景的方法，使最主要的环境危险不再继续失控扩大。"
+    },
+    {
+      "name": "赢得现场支持",
+      "shortText": "使关键中立人群明确支持己方方案。",
+      "description": "通过说服、保护、展示证据或资源交换，使当前场景中具有实际影响力的中立人员愿意主动配合己方行动。"
+    },
+    {
+      "name": "秘密潜入目标区域",
+      "shortText": "在未被有效阻止的情况下进入受控区域。",
+      "description": "必须进入当前场景中明显受监视或保护的目标区域；即使身份后来暴露，只要进入前未被有效拦截即可完成。"
+    },
+    {
+      "name": "成功活捉对手",
+      "shortText": "控制对手且保持其存活。",
+      "description": "必须使对手失去自由行动与继续反抗能力，同时维持其生命状态；单纯击退或致命攻击不满足条件。"
+    },
+    {
+      "name": "保护关键资料",
+      "shortText": "确保重要信息不被夺取或毁坏。",
+      "description": "选择当前环境中合理存在的文书、证据、口信或记录，使其在冲突结束时仍可被己方读取并未落入对手控制。"
+    },
+    {
+      "name": "恢复交通路线",
+      "shortText": "让一条原本受阻的主要路线重新可安全通行。",
+      "description": "可通过清障、修桥、控制危险、找到等价替代通道等方式，使人员能够稳定通过关键路线。"
+    },
+    {
+      "name": "迫使对手撤退",
+      "shortText": "让对方主动放弃当前争夺区域。",
+      "description": "通过战斗、威慑、资源切断、欺骗或环境压力，使对手主动离开核心争夺区域且短期内无法立即返回。"
+    },
+    {
+      "name": "完成侦察并回报",
+      "shortText": "掌握关键现场情报并成功传出。",
+      "description": "必须观察到足以支持后续行动的关键情报，并通过口信、文书或亲自返回等方式使该信息离开危险区域。"
+    },
+    {
+      "name": "聚义结盟",
+      "shortText": "使至少两名中立或对立者与你协同行动。",
+      "description": "使至少两名原本中立或彼此对立的人物，在共同的利害下与你结为可协同行动的同盟，且他们自愿、持续地配合你的行动。"
+    },
+    {
+      "name": "接受招安",
+      "shortText": "非致命前提下使官方收编你的队伍。",
+      "description": "在不致对手于死地的前提下，使当前场景中合理存在的官方或权威代表同意收编、赦免或承认你队伍的合法地位。"
+    },
+    {
+      "name": "替天行道",
+      "shortText": "制止不义行径并获中立者公认。",
+      "description": "公开揭露并制止一处明显的不义行径（如滥杀、构陷、横征暴敛），使现场具备判断力的中立者公认你方所为合乎道义。"
+    },
+    {
+      "name": "血债血偿",
+      "shortText": "对关键仇敌完成一次正当了结。",
+      "description": "针对曾对你或同伴造成关键伤害的特定敌对人物，完成一次正当了结；不要求无差别消灭其全部部属。"
+    },
+    {
+      "name": "逼上梁山",
+      "shortText": "出路皆断仍保全队伍另立根基。",
+      "description": "当所有合法与常规出路均被封死后，仍保全队伍核心成员，并建立起一个可长期立足的新据点。"
+    },
+    {
+      "name": "忠义两全",
+      "shortText": "护人与达标的冲突节点两者皆成。",
+      "description": "在「保护无辜」与「达成主目标」相互冲突的节点上，两者同时达成，而非牺牲其一。"
+    }
+  ],
+  "hexes": [
+    {
+      "name": "借势而行",
+      "shortText": "本节点可把一个已有环境危险转化为自己的路线优势。",
+      "tier": "GOLD",
+      "category": "TACTIC",
+      "effectMode": "CHOICE",
+      "tags": [
+        "environment",
+        "strategy"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_ENVIRONMENT_HAZARD",
+        "min": 1,
+        "max": 1
+      }
+    },
+    {
+      "name": "临时结义",
+      "shortText": "选择一名场景中的中立人物；若能提出其合理利益，本节点更容易获得一次协助。",
+      "tier": "SILVER",
+      "category": "SOCIAL",
+      "effectMode": "CHOICE",
+      "tags": [
+        "social"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "村中老者",
+          "路边商贩",
+          "落难客商",
+          "巡街衙役",
+          "山庄庄客",
+          "渡口船夫",
+          "酒肆掌柜",
+          "受欺百姓"
+        ]
+      }
+    },
+    {
+      "name": "替身诱敌",
+      "shortText": "你可以布置一次基于衣物、声音或痕迹的假目标；它只能误导依赖这些线索的观察。",
+      "tier": "GOLD",
+      "category": "TACTIC",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "deception",
+        "stealth"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "背水一战",
+      "shortText": "在瓶颈、要塞或重防守环境（退路受限）中，你的恐惧类缺陷不再阻止主动行动，但其他缺陷照常生效。",
+      "tier": "CURSED",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "combat",
+        "psychology"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "operator": "ANY",
+          "value": [
+            "chokepoint",
+            "fortified",
+            "guarded"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "义字当先",
+      "shortText": "当你主动保护无辜者或盟友时，可把一次原本需要放弃目标的两难改为允许继续携带或护送；额外时间与风险仍存在。",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "rescue",
+        "social"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "就地取材",
+      "shortText": "普通场景物件可被你快速改造成一件简易工具；它只能实现材料本身合理承受的功能。",
+      "tier": "GOLD",
+      "category": "BUILD",
+      "effectMode": "CHOICE",
+      "tags": [
+        "craft",
+        "improvisation"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "断裂的桌腿",
+          "成捆的麻绳",
+          "废弃的木板",
+          "粗陶酒瓮",
+          "竹制扁担",
+          "生锈铁链",
+          "厚实门板",
+          "石块堆叠"
+        ]
+      }
+    },
+    {
+      "name": "火眼看破",
+      "shortText": "本节点第一次遭遇伪装、诱饵或假身份时，你会注意到一个真实破绽，但仍需自行解释其意义。",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "perception",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "山路熟客",
+      "shortText": "崎岖、山地或林地造成的普通路线迟滞对你减轻，但坠落、塌方等实体危险仍有效。",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "mobility",
+        "survival"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "value": [
+            "mountain"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "水泊老手",
+      "shortText": "水域环境中，你能快速判断安全入水点、靠岸点与明显水流；不会获得水下呼吸。",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "water",
+        "navigation"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "value": [
+            "water"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "暗夜耳目",
+      "shortText": "低照度时，你能更有效依靠声音与轮廓行动，但精确远射仍受能见度影响。",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "perception",
+        "stealth"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "一声断喝",
+      "shortText": "本节点可用一次强烈威慑打断普通人的犹豫或骚动；坚定敌手不会因此失去行动能力。",
+      "tier": "BRONZE",
+      "category": "SOCIAL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "social",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "绳索在手",
+      "shortText": "若场景存在绳、布带或类似材料，你能迅速完成可靠的固定、拖拽或攀援布置；材料强度仍限制承重。",
+      "tier": "SILVER",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "craft",
+        "rescue"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "踏雪无痕",
+      "shortText": "你在雪地或松软地面移动时更善控制明显足迹，但无法消除全部物理痕迹。",
+      "tier": "SILVER",
+      "category": "STEALTH",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "stealth",
+        "tracking"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "反客为主",
+      "shortText": "当对手先建立了守点优势时，你第一次成功进入该区域可立即识别一处可利用的结构弱点或替代路线。",
+      "tier": "GOLD",
+      "category": "TACTIC",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "strategy",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "声东击西",
+      "shortText": "选择一个你能实际制造动静的位置作为假方向；本节点依赖声音判断的目标必须把该线索纳入判断，但不会被强制欺骗。",
+      "tier": "PRISMATIC",
+      "category": "TACTIC",
+      "effectMode": "CHOICE",
+      "tags": [
+        "deception",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "东侧林口",
+          "西侧巷道",
+          "北侧河沿",
+          "南侧坡地",
+          "屋顶天台",
+          "后院空场",
+          "寨墙拐角",
+          "桥下暗渠"
+        ]
+      }
+    },
+    {
+      "name": "急中生智",
+      "shortText": "当原计划因环境事件失效时，你可以立即重新解释一次已有资源的用途；不能生成新资源。",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "improvisation",
+        "strategy"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "护心镜",
+      "shortText": "第一次受到普通兵器造成的致命躯干伤害时，改为严重但可继续行动的伤势；之后本海克斯失去保护意义。",
+      "tier": "GOLD",
+      "category": "DEFENSE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "combat",
+        "defense"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 0.8
+    },
+    {
+      "name": "草木皆兵",
+      "shortText": "你可利用已有旗帜、衣物、火把或人影制造人数更多的假象；近距离核验会揭穿。",
+      "tier": "SILVER",
+      "category": "DECEPTION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "deception",
+        "social"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "快马加鞭",
+      "shortText": "若场景存在可用坐骑，你能让一次追赶或传讯获得明显速度优势；坐骑仍会疲劳和受地形限制。",
+      "tier": "SILVER",
+      "category": "MOBILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "mounted",
+        "mobility"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "渡水奇策",
+      "shortText": "选择一件当前可得、能合理浮起的物件作为临时渡水辅助；它不等同于稳定船只。",
+      "tier": "PRISMATIC",
+      "category": "UTILITY",
+      "effectMode": "CHOICE",
+      "tags": [
+        "water",
+        "improvisation"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "value": [
+            "water"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "空木水桶",
+          "成排竹筏料",
+          "干枯树干",
+          "连捆葫芦",
+          "废弃门板",
+          "充气皮囊",
+          "谷袋浮具"
+        ]
+      }
+    },
+    {
+      "name": "飞檐捷径",
+      "shortText": "在存在屋顶、墙体或高低结构时，可把一条合理攀越路线视为可尝试捷径；仍受高度、承重与暴露限制。",
+      "tier": "GOLD",
+      "category": "MOBILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "agile",
+        "infiltration"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "识破埋伏",
+      "shortText": "第一次进入明显适合伏击的区域前，你会察觉一项异常迹象；不能直接知道伏兵数量与位置。",
+      "tier": "SILVER",
+      "category": "PERCEPTION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "perception",
+        "tracking"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "临阵换装",
+      "shortText": "若有衣物来源，你可快速改变外观身份层级；熟人、严格文书核验与明显身体特征仍可能识破。",
+      "tier": "SILVER",
+      "category": "DECEPTION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "deception",
+        "stealth"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "借刀开路",
+      "shortText": "选择一件已有长柄或坚硬工具，将其用于撬、推、隔挡或破障；不会自动获得专业兵器威力。",
+      "tier": "BRONZE",
+      "category": "UTILITY",
+      "effectMode": "CHOICE",
+      "tags": [
+        "improvisation",
+        "strength"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "长柄扫帚",
+          "扁担木叉",
+          "铁制火钳",
+          "粗木棍棒",
+          "锈蚀铁锹",
+          "竹制晾杆",
+          "门闩横木"
+        ]
+      }
+    },
+    {
+      "name": "粮草有备",
+      "shortText": "你能更高效管理现有食水与常用消耗品，使普通浪费不再成为主要问题；无法弥补完全缺失的关键物资。",
+      "tier": "SILVER",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "resource",
+        "logistics"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "风紧扯呼",
+      "shortText": "当局势出现明确不可逆恶化时，你更快识别一条撤离方向；这不是瞬移，封锁仍需突破。",
+      "tier": "BRONZE",
+      "category": "MOBILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "navigation",
+        "survival"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "寨门机关",
+      "shortText": "若场景存在门、闸或栅栏，你能迅速判断其开闭、加固或破坏方式；复杂未知机关仍需实际操作。",
+      "tier": "SILVER",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "engineering",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "雪中送炭",
+      "shortText": "当你把自己的一项有限资源主动交给他人解决其紧急困难后，该人物更愿意提供一次符合其能力的协助。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "social",
+        "resource"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "义释旧怨",
+      "shortText": "若你在占优时主动放过一个已失去威胁的敌对人物，可尝试使其转为中立；不能强制其成为盟友。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "social",
+        "mercy"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "探路先锋",
+      "shortText": "在进入未知区域前完成一次实际侦察；成功后你可明确一条安全路线和一条主要风险路线。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "tracking",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "救火先机",
+      "shortText": "火灾环境中，你会更快判断烟气与火势的主要传播方向；你仍会受到高温和烟气伤害。",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "fire",
+        "rescue"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "value": [
+            "fire"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "一叶障目",
+      "shortText": "选择一个已有遮挡物；只要你始终合理利用它，远处观察者更难持续确认你的位置，但近距离不受此效果保护。",
+      "tier": "PRISMATIC",
+      "category": "STEALTH",
+      "effectMode": "CHOICE",
+      "tags": [
+        "stealth",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "停靠的牛车",
+          "成垛的柴草",
+          "半倒的土墙",
+          "浓密灌木丛",
+          "堆起的麻袋",
+          "破败账篷",
+          "高耸酒瓮"
+        ]
+      }
+    },
+    {
+      "name": "以逸待劳",
+      "shortText": "当你主动放弃追击并占据稳定位置时，持续体力消耗降低；一旦重新高速追逐，该优势结束。",
+      "tier": "BRONZE",
+      "category": "TACTIC",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "survival",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "破釜沉舟",
+      "shortText": "你可主动放弃一项明确退路或备用资源，换取本节点更果断的行动与团队服从；失去的退路或资源不会自动恢复。",
+      "tier": "CURSED",
+      "category": "TACTIC",
+      "effectMode": "CHOICE",
+      "tags": [
+        "leader",
+        "risk"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 0.8,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "预留的退路小道",
+          "藏匿的盘缠财物",
+          "备用的干粮饮水",
+          "暗藏的求救信号",
+          "私藏的兵器备用",
+          "接应的内应线索"
+        ]
+      }
+    },
+    {
+      "name": "金蝉脱壳",
+      "shortText": "若有可替代的衣物、包裹或明显个人物件，可留下它制造你仍在原路线的假象；对手检查后可识破。",
+      "tier": "GOLD",
+      "category": "DECEPTION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "stealth",
+        "deception"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "众志成城",
+      "shortText": "当场景中至少有愿意协助你的普通人时，你组织搬运、救援或筑障的效率提高；不能把非战斗者变成精锐战士。",
+      "tier": "GOLD",
+      "category": "SOCIAL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "leader",
+        "rescue"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "以水制火",
+      "shortText": "若同时存在可获取水源与火灾，你能快速设计一条合理的控火方案；水量不足、油火等边界仍需考虑。",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "water",
+        "fire"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "value": [
+            "fire"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "绝处逢生",
+      "shortText": "当所有明显安全路线都失效时，你会注意到一个此前不显眼但物理上存在的可尝试方向；它不保证安全或成功。",
+      "tier": "PRISMATIC",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "survival",
+        "perception"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 0.7
+    },
+    {
+      "name": "临危不乱",
+      "shortText": "第一次遭遇突发环境事件时，你不会因惊慌失去行动机会，但事件本身的物理效果照常发生。",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "psychology",
+        "survival"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "巧借人言",
+      "shortText": "你可以引用现场已知的真实事实增强一次说服或威慑；不能凭空创造权威或证据。",
+      "tier": "BRONZE",
+      "category": "SOCIAL",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "social",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "围魏救赵",
+      "shortText": "当对手集中守护一个目标时，你可选择另一个对其胜利路径同样关键的既有目标施压，迫使其决定是否分散力量。",
+      "tier": "PRISMATIC",
+      "category": "TACTIC",
+      "effectMode": "CHOICE",
+      "tags": [
+        "strategy",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "对手的粮草辎重",
+          "对手的通讯信使",
+          "对手的侧翼据点",
+          "对手的盟约之人",
+          "对手的退路关卡",
+          "对手的亲属人质"
+        ]
+      }
+    },
+    {
+      "name": "断后",
+      "shortText": "当你主动承担阻挡追兵的任务时，狭窄通道中的普通人数优势更难同时发挥；你仍可能被包围、远射或绕行。",
+      "tier": "GOLD",
+      "category": "COMBAT",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "combat",
+        "control"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "顺手牵羊",
+      "shortText": "当你经过无人有效控制的普通工具或资源时，可顺势携带一件；不能从他人手中无判定夺取。",
+      "tier": "BRONZE",
+      "category": "RESOURCE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "resource",
+        "improvisation"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "擒贼先擒王",
+      "shortText": "你更容易从行为与指挥关系中识别敌对群体的实际核心人物；不会自动知道其隐藏身份。",
+      "tier": "GOLD",
+      "category": "PERCEPTION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "perception",
+        "leader"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "虚张声势",
+      "shortText": "你可把一项真实优势表现得比实际更大；效果只影响信息判断，不提升真实数值。",
+      "tier": "SILVER",
+      "category": "DECEPTION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "deception",
+        "social"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "因地制宜",
+      "shortText": "选择当前环境的一个标签作为本节点行动重点；你的论证可优先利用与该标签直接相关的已有资源，但不会生成新物件。",
+      "tier": "PRISMATIC",
+      "category": "ENVIRONMENT",
+      "effectMode": "CHOICE",
+      "tags": [
+        "strategy",
+        "environment"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_ENVIRONMENT_TAG",
+        "min": 1,
+        "max": 1
+      }
+    },
+    {
+      "name": "留得青山",
+      "shortText": "当胜利条件不要求击倒对手时，你更容易选择非战斗路线，且不会因好名类缺陷被迫接受无意义决斗。",
+      "tier": "SILVER",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "strategy",
+        "psychology"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "急救包扎",
+      "shortText": "你能用现有布料与基础材料完成一次有效止血固定；无法治愈严重内伤或恢复已丧失功能。",
+      "tier": "SILVER",
+      "category": "RESCUE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "medical",
+        "craft"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "临时路障",
+      "shortText": "选择一批场景中已有、可移动的普通物件组成简易障碍；它只能迟滞或引导路线，不能变成不可破坏墙体。",
+      "tier": "PRISMATIC",
+      "category": "CONTROL",
+      "effectMode": "CHOICE",
+      "tags": [
+        "control",
+        "craft"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 3,
+        "options": [
+          "酒瓮木桶",
+          "散落石块",
+          "闲置桌椅",
+          "成捆柴薪",
+          "推倒的货架",
+          "牛马大车",
+          "竹编篾筐",
+          "废弃箱笼"
+        ]
+      }
+    },
+    {
+      "name": "雨打灯灭",
+      "shortText": "若当前环境正在降雨且依赖普通露天火源照明，你可利用天气使一处未受保护的火源失效。",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "CHOICE",
+      "tags": [
+        "weather",
+        "control"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "value": [
+            "storm"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "min": 1,
+        "max": 1,
+        "options": [
+          "营门外的火把",
+          "寨前的灯笼",
+          "渡口的火堆",
+          "帐外的篝火",
+          "哨塔的灯火",
+          "桥头风灯"
+        ]
+      }
+    },
+    {
+      "name": "借坡冲势",
+      "shortText": "在明显下坡路线进行一次移动或冲击时获得速度优势；制动距离和失足风险同时增加。",
+      "tier": "BRONZE",
+      "category": "MOBILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "mobility",
+        "risk"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "守望相助",
+      "shortText": "完成一次对普通人的实际救助后，争取现场中立者共同警戒、传话或搬运。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "rescue",
+        "social"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "火中取物",
+      "shortText": "若必须进入火灾区域取得关键物，你能更合理规划短时进出路线；不获得耐火或免烟能力。",
+      "tier": "CURSED",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "fire",
+        "risk"
+      ],
+      "requirements": [
+        {
+          "type": "ENV_HAS_TAG",
+          "value": [
+            "fire"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 0.7
+    },
+    {
+      "name": "破阵寻隙",
+      "shortText": "面对有人把守的阵线或门口时，你更容易观察轮换、视线与间距中的真实空档；发现空档不等于自动突破。",
+      "tier": "GOLD",
+      "category": "PERCEPTION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "tactics",
+        "perception"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "一鼓作气",
+      "shortText": "开始一次明确的短程突击后，在抵达第一个目标点前不因普通犹豫类缺陷停下；实体阻挡与伤害照常有效。",
+      "tier": "SILVER",
+      "category": "COMBAT",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "combat",
+        "psychology"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "藏锋",
+      "shortText": "只要你尚未主动展示全部能力，对手不能仅凭名号假定你掌握未展示的具体技巧；一旦展示则信息正常公开。",
+      "tier": "BRONZE",
+      "category": "INFORMATION",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "information",
+        "deception"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "善后有方",
+      "shortText": "当环境事件制造新的障碍后，你能更快组织清障、疏散或标记危险；不能消除事件本身。",
+      "tier": "SILVER",
+      "category": "UTILITY",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "rescue",
+        "leader"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "天罡照命",
+      "shortText": "第一次因普通意外导致立即出局时，改为陷入严重不利但仍有一次自救机会；对手明确完成胜利条件时不触发。",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "survival",
+        "legendary"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 0.6
+    },
+    {
+      "name": "地煞机变",
+      "shortText": "抽到后选择“潜行、交涉、救援、追踪”之一；本局你在该类普通行动上获得稳定专长，但不覆盖超出人力的边界。",
+      "tier": "PRISMATIC",
+      "category": "BUILD",
+      "effectMode": "CHOICE",
+      "tags": [
+        "build"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 0.8,
+      "choiceSchema": {
+        "type": "SELECT_OPTION",
+        "options": [
+          "stealth",
+          "social",
+          "rescue",
+          "tracking"
+        ],
+        "min": 1,
+        "max": 1
+      }
+    }
+  ]
+}
