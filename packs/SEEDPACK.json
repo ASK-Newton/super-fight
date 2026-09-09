@@ -1,0 +1,1059 @@
+{
+  "meta": {
+    "name": "SUPER FIGHT Seed Pack",
+    "version": "1.0.0",
+    "schemaVersion": "0.4.1",
+    "language": "zh-CN",
+    "description": "SUPER FIGHT 默认种子内容包。作为角色、能力、缺陷、环境、环境事件、胜利条件与海克斯的基础内容基线。",
+    "notes": [
+      "ID 为稳定标识，不应因改名而变化。",
+      "enabled=false 的内容默认不参与抽取。",
+      "tags 使用英文机器标签，name/description 使用中文展示。",
+      "requirements 与 incompatibilities 仅用于海克斯资格判断。",
+      "weight 默认为 1；数值越高，抽中概率越高。"
+    ]
+  },
+  "characters": [
+    {
+      "id": "C01",
+      "type": "characters",
+      "name": "成龙",
+      "shortText": "灵活、善用环境的现实系武术家",
+      "description": "健康成年时期的成龙，拥有现实世界通常意义上的身体能力、武术经验和临场使用环境物品的能力。",
+      "tags": [
+        "human",
+        "martial",
+        "agile",
+        "improvised_weapon"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "C02",
+      "type": "characters",
+      "name": "成年北极熊",
+      "shortText": "大型、高力量、水域适应",
+      "description": "健康成年北极熊，拥有现实世界通常意义上的力量、速度、耐力、感官和游泳能力。",
+      "tags": [
+        "animal",
+        "large",
+        "strength",
+        "environment.water",
+        "swimming"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "C03",
+      "type": "characters",
+      "name": "中世纪骑士",
+      "shortText": "板甲、长剑、系统军事训练",
+      "description": "受过系统军事训练的成年骑士，身穿标准板甲并携带长剑。",
+      "tags": [
+        "human",
+        "armor",
+        "melee",
+        "weapon"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "C04",
+      "type": "characters",
+      "name": "普通成年猫",
+      "shortText": "体型小、灵活、基础战斗力较弱",
+      "description": "一只健康成年家猫，拥有现实世界通常意义上的速度、灵活性、感官和攀爬能力。",
+      "tags": [
+        "animal",
+        "small",
+        "agile",
+        "climb"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "C05",
+      "type": "characters",
+      "name": "职业消防员",
+      "shortText": "现代生存、救援与危险环境经验",
+      "description": "经验丰富、身体健康的现代职业消防员，拥有正常职业训练与常识。",
+      "tags": [
+        "human",
+        "survival",
+        "rescue",
+        "fire"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "C06",
+      "type": "characters",
+      "name": "银背大猩猩",
+      "shortText": "大型、高力量、近战压制",
+      "description": "健康成年雄性银背大猩猩，拥有现实世界通常意义上的力量、爆发力和攀爬能力。",
+      "tags": [
+        "animal",
+        "large",
+        "strength",
+        "melee",
+        "climb"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "C07",
+      "type": "characters",
+      "name": "神枪手牛仔",
+      "shortText": "现实物理规则下的顶级枪手",
+      "description": "遵守现实物理规则的顶级牛仔枪手，携带两把正常左轮手枪及合理数量弹药。",
+      "tags": [
+        "human",
+        "ranged",
+        "reaction",
+        "weapon"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "C08",
+      "type": "characters",
+      "name": "普通小学老师",
+      "shortText": "基础较弱的普通成年人",
+      "description": "健康普通成年人，没有特殊战斗训练或超常身体能力。",
+      "tags": [
+        "human",
+        "ordinary"
+      ],
+      "enabled": true
+    }
+  ],
+  "abilities": [
+    {
+      "id": "A01",
+      "type": "abilities",
+      "name": "隐身",
+      "shortText": "完全视觉隐身，但不自动消除其他痕迹",
+      "description": "可以主动进入完全视觉隐身状态。隐身不会自动消除声音、气味、脚印或与环境的物理互动。",
+      "tags": [
+        "mechanic.stealth",
+        "information",
+        "evasion"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A02",
+      "type": "abilities",
+      "name": "瞬移",
+      "shortText": "每30秒瞬移到视野内20米位置",
+      "description": "每30秒可以瞬间移动到视野内20米范围内一个可正常站立的位置。",
+      "tags": [
+        "mobility",
+        "space"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A03",
+      "type": "abilities",
+      "name": "精通枪械",
+      "shortText": "高水平使用正常现代枪械",
+      "description": "能熟练、安全且高水平使用任何正常现代枪械，但不会凭空获得枪械或弹药。",
+      "tags": [
+        "ranged",
+        "weapon",
+        "skill"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A04",
+      "type": "abilities",
+      "name": "水下呼吸",
+      "shortText": "可以无限时间在水下正常呼吸",
+      "description": "可以无限时间在水下正常呼吸，但不自动获得抗压、抗寒或高速游泳能力。",
+      "tags": [
+        "survival",
+        "environment.water"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A05",
+      "type": "abilities",
+      "name": "读心",
+      "shortText": "读取20米内可见目标当前明确思考",
+      "description": "可以知道20米内一个可见目标当前正在明确思考的内容。",
+      "tags": [
+        "information",
+        "mind"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A06",
+      "type": "abilities",
+      "name": "超级力量",
+      "shortText": "力量约为同体型普通个体的10倍",
+      "description": "肌肉力量约为同体型普通个体的10倍，但身体耐久、骨骼强度和反应速度不会同比提升。",
+      "tags": [
+        "strength",
+        "melee"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A07",
+      "type": "abilities",
+      "name": "夜视",
+      "shortText": "极低光照下接近正常白昼视觉",
+      "description": "在极低光照环境中拥有接近正常白昼的视觉能力，但完全无光环境中仍无法直接看见。",
+      "tags": [
+        "vision",
+        "night"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A08",
+      "type": "abilities",
+      "name": "时间感知加速",
+      "shortText": "主观思考速度提升5倍",
+      "description": "主观思考和信息处理速度提升到正常人的5倍，但身体行动速度不变。",
+      "tags": [
+        "information",
+        "decision",
+        "reaction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A09",
+      "type": "abilities",
+      "name": "动物沟通",
+      "shortText": "与普通动物进行双向语言交流",
+      "description": "可以与任何普通动物进行双向语言交流，但不能强制动物服从。",
+      "tags": [
+        "information",
+        "animal",
+        "social"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "A10",
+      "type": "abilities",
+      "name": "自我修复",
+      "shortText": "非致命伤势约以20倍速度恢复",
+      "description": "非致命伤势会以正常人约20倍速度恢复，但不会瞬间恢复，也不能逆转已经发生的死亡。",
+      "tags": [
+        "survival",
+        "recovery"
+      ],
+      "enabled": true
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "W01",
+      "type": "weaknesses",
+      "name": "隐身喷嚏",
+      "shortText": "连续隐身10秒必定发生响亮喷嚏",
+      "description": "连续隐身每达到10秒，必定发生一次无法抑制的响亮喷嚏。",
+      "tags": [
+        "weakness.sneeze",
+        "mechanic.stealth",
+        "exposure"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W02",
+      "type": "weaknesses",
+      "name": "严重恐高",
+      "shortText": "高处会强烈恐惧并显著影响行动",
+      "description": "位于明显高处或存在坠落风险时，会产生强烈恐惧并显著影响判断与行动。",
+      "tags": [
+        "psychology",
+        "height"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W03",
+      "type": "weaknesses",
+      "name": "怕水",
+      "shortText": "水深超过腰部会陷入明显恐慌",
+      "description": "进入水深超过腰部的区域时会陷入明显恐慌。",
+      "tags": [
+        "psychology",
+        "environment.water"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W04",
+      "type": "weaknesses",
+      "name": "玻璃膝盖",
+      "shortText": "膝部受到显著冲击后容易失去移动能力",
+      "description": "双膝非常脆弱，受到显著冲击后容易严重影响站立、跑动与跳跃。",
+      "tags": [
+        "body",
+        "mobility"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W05",
+      "type": "weaknesses",
+      "name": "色盲",
+      "shortText": "无法依赖颜色准确区分信息",
+      "description": "无法依赖颜色准确区分目标、标记或信息。",
+      "tags": [
+        "vision"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W06",
+      "type": "weaknesses",
+      "name": "每分钟昏睡5秒",
+      "shortText": "每60秒不可避免失去意识5秒",
+      "description": "每60秒会不可避免地失去意识5秒，期间无法自主行动。",
+      "tags": [
+        "periodic",
+        "control",
+        "consciousness"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W07",
+      "type": "weaknesses",
+      "name": "无法说谎",
+      "shortText": "无法主动说出自己认为不真实的陈述",
+      "description": "无法主动说出自己认为不真实的陈述，但可以保持沉默。",
+      "tags": [
+        "social",
+        "information"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W08",
+      "type": "weaknesses",
+      "name": "极端怕火",
+      "shortText": "面对明显火焰会优先远离",
+      "description": "面对明显火焰或强烈热源时，会产生强烈恐惧并优先远离。",
+      "tags": [
+        "psychology",
+        "fire"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W09",
+      "type": "weaknesses",
+      "name": "疼痛敏感",
+      "shortText": "疼痛主观感受约为普通人的3倍",
+      "description": "对疼痛的主观感受约为普通人的3倍，疼痛更容易干扰判断与行动。",
+      "tags": [
+        "body",
+        "psychology",
+        "pain"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "W10",
+      "type": "weaknesses",
+      "name": "高噪声眩晕",
+      "shortText": "极大噪声会短暂失去平衡",
+      "description": "遇到极大噪声时会出现明显眩晕并短暂失去平衡感。",
+      "tags": [
+        "sound",
+        "control"
+      ],
+      "enabled": true
+    }
+  ],
+  "environments": [
+    {
+      "id": "E01",
+      "type": "environments",
+      "name": "正在下沉的泰坦尼克号",
+      "shortText": "进水、低温、倾斜、出口拥堵",
+      "description": "船已撞击冰山约10分钟，低层区域开始进水，船体正在缓慢倾斜。",
+      "tags": [
+        "environment.water",
+        "indoor",
+        "ship",
+        "dynamic"
+      ],
+      "hazards": [
+        "进水",
+        "低温",
+        "倾斜",
+        "出口拥堵"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "E02",
+      "type": "environments",
+      "name": "午夜大型购物中心",
+      "shortText": "多层、遮挡多、室内",
+      "description": "商场已经关闭，没有普通顾客，建筑供电正常。",
+      "tags": [
+        "indoor",
+        "multi_floor",
+        "cover"
+      ],
+      "hazards": [
+        "多层",
+        "遮挡多",
+        "封闭空间"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "E03",
+      "type": "environments",
+      "name": "撒哈拉沙漠正午",
+      "shortText": "极端高温、开阔、资源匮乏",
+      "description": "极端高温，周围没有明显建筑或稳定水源。",
+      "tags": [
+        "outdoor",
+        "heat",
+        "open"
+      ],
+      "hazards": [
+        "高温",
+        "缺水",
+        "无遮蔽"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "E04",
+      "type": "environments",
+      "name": "国际空间站",
+      "shortText": "微重力、狭窄、高风险",
+      "description": "双方位于正常运行中的国际空间站内部。",
+      "tags": [
+        "indoor",
+        "microgravity",
+        "high_risk"
+      ],
+      "hazards": [
+        "微重力",
+        "狭窄",
+        "设备脆弱"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "E05",
+      "type": "environments",
+      "name": "正在燃烧的摩天大楼",
+      "shortText": "高空、火焰、烟雾、动态危险",
+      "description": "中高楼层发生严重火灾，部分楼梯不可用，烟雾持续扩散。",
+      "tags": [
+        "indoor",
+        "height",
+        "fire",
+        "dynamic"
+      ],
+      "hazards": [
+        "高空",
+        "火焰",
+        "烟雾",
+        "通道受阻"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "E06",
+      "type": "environments",
+      "name": "热带雨林夜晚",
+      "shortText": "夜间、湿润、复杂地形",
+      "description": "大雨刚刚停止，植被茂密，可视距离有限。",
+      "tags": [
+        "outdoor",
+        "night",
+        "wet",
+        "complex"
+      ],
+      "hazards": [
+        "低能见度",
+        "湿滑",
+        "复杂植被"
+      ],
+      "enabled": true
+    }
+  ],
+  "events": [
+    {
+      "id": "EE01",
+      "type": "events",
+      "name": "突然停电",
+      "shortText": "当前区域主要照明全部熄灭",
+      "description": "当前环境的主要人工照明全部熄灭，备用照明是否存在取决于原环境。",
+      "compatibleEnvironmentTags": [
+        "indoor"
+      ],
+      "defaultPersistence": "PERSISTENT",
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "EE02",
+      "type": "events",
+      "name": "海水快速涌入",
+      "shortText": "低处区域短时间快速积水",
+      "description": "当前低处区域开始在短时间内快速积水。",
+      "compatibleEnvironmentTags": [
+        "environment.water",
+        "ship"
+      ],
+      "defaultPersistence": "PERSISTENT",
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "EE03",
+      "type": "events",
+      "name": "通道坍塌",
+      "shortText": "一条主要路线永久无法使用",
+      "description": "一条此前可通行的主要路线永久无法继续使用。",
+      "compatibleEnvironmentTags": [],
+      "defaultPersistence": "PERSISTENT",
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "EE04",
+      "type": "events",
+      "name": "火势扩散",
+      "shortText": "火焰与高温开始影响邻近区域",
+      "description": "火焰和高温开始影响原本安全的邻近区域。",
+      "compatibleEnvironmentTags": [
+        "fire"
+      ],
+      "defaultPersistence": "PERSISTENT",
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "EE05",
+      "type": "events",
+      "name": "浓烟",
+      "shortText": "能见度下降并产生持续呼吸压力",
+      "description": "当前区域能见度大幅下降，并产生持续呼吸压力。",
+      "compatibleEnvironmentTags": [
+        "indoor"
+      ],
+      "defaultPersistence": "PERSISTENT",
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "EE06",
+      "type": "events",
+      "name": "警报响起",
+      "shortText": "极高音量警报持续30秒",
+      "description": "极高音量警报持续30秒。",
+      "compatibleEnvironmentTags": [
+        "indoor"
+      ],
+      "defaultPersistence": "CURRENT_NODE",
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "EE07",
+      "type": "events",
+      "name": "地面严重湿滑",
+      "shortText": "移动稳定性显著下降",
+      "description": "当前区域地面变得严重湿滑，快速移动与急停更容易失去平衡。",
+      "compatibleEnvironmentTags": [
+        "wet",
+        "environment.water"
+      ],
+      "defaultPersistence": "CURRENT_NODE",
+      "weight": 1,
+      "enabled": true
+    }
+  ],
+  "victories": [
+    {
+      "id": "V01",
+      "type": "victories",
+      "name": "击败",
+      "shortText": "使对手永久失去继续战斗能力",
+      "description": "使对手死亡、失去意识或永久失去继续战斗能力。",
+      "enabled": true
+    },
+    {
+      "id": "V02",
+      "type": "victories",
+      "name": "生存30分钟",
+      "shortText": "30分钟后仍具基本自主行动能力",
+      "description": "30分钟后仍具有基本自主行动能力的一方获胜。",
+      "enabled": true
+    },
+    {
+      "id": "V03",
+      "type": "victories",
+      "name": "抢先逃脱",
+      "shortText": "最先成功通过明确安全出口",
+      "description": "最先抵达并成功通过明确安全出口的一方获胜。",
+      "enabled": true
+    },
+    {
+      "id": "V04",
+      "type": "victories",
+      "name": "控制目标",
+      "shortText": "模拟时间结束时控制场地中央区域",
+      "description": "在比赛模拟时间结束时，实际控制场地中央区域的一方获胜。控制指处于该区域内且未被对手驱逐；双方僵持时以最后实际占据者为准。",
+      "enabled": true
+    }
+  ],
+  "hexes": [
+    {
+      "id": "H01",
+      "type": "hexes",
+      "name": "水鬼",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "shortText": "可以无限时间在水下正常呼吸。",
+      "description": "获得无限水下呼吸能力，但不额外获得抗压、抗寒或游泳强化。",
+      "tags": [
+        "environment.water",
+        "survival"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H02",
+      "type": "hexes",
+      "name": "铁肺",
+      "tier": "SILVER",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "shortText": "可以连续屏住呼吸10分钟。",
+      "description": "可以连续屏住呼吸10分钟，期间仍会正常消耗体力。",
+      "tags": [
+        "survival",
+        "breathing"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H03",
+      "type": "hexes",
+      "name": "夜行者",
+      "tier": "SILVER",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "shortText": "获得完整夜视能力。",
+      "description": "在极低光照环境中获得接近白昼视觉的夜视能力。",
+      "tags": [
+        "vision",
+        "night"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H04",
+      "type": "hexes",
+      "name": "无声猎手",
+      "tier": "GOLD",
+      "category": "SYNERGY",
+      "effectMode": "PASSIVE",
+      "shortText": "主动隐蔽时，正常移动声音降低90%。",
+      "description": "当使用隐身、潜行或其他主动隐蔽行为时，正常移动产生的声音降低90%。",
+      "tags": [
+        "mechanic.stealth",
+        "information"
+      ],
+      "requirements": [
+        {
+          "type": "HAS_TAG",
+          "operator": "ANY",
+          "value": [
+            "mechanic.stealth"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H05",
+      "type": "hexes",
+      "name": "伺机而动",
+      "tier": "GOLD",
+      "category": "SYNERGY",
+      "effectMode": "PASSIVE",
+      "shortText": "连续30秒未主动攻击后，下一次主动攻击显著强化。",
+      "description": "连续30秒没有主动攻击后，下一次主动攻击获得明显的爆发强化；触发后重新计时。",
+      "tags": [
+        "stealth",
+        "burst"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H06",
+      "type": "hexes",
+      "name": "猎犬嗅觉",
+      "tier": "GOLD",
+      "category": "COUNTER",
+      "effectMode": "PASSIVE",
+      "shortText": "通过气味追踪普通生物最近经过的路线。",
+      "description": "嗅觉大幅增强，可以在合理环境条件下通过气味追踪普通生物最近经过的路线。",
+      "tags": [
+        "information",
+        "counter_stealth"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H07",
+      "type": "hexes",
+      "name": "防弹皮肤",
+      "tier": "GOLD",
+      "category": "COUNTER",
+      "effectMode": "PASSIVE",
+      "shortText": "第一枚实际命中的普通枪械子弹不会造成伤害。",
+      "description": "每场第一次被普通枪械子弹实际命中时，该枚子弹不会造成伤害。",
+      "tags": [
+        "defense",
+        "ranged"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H08",
+      "type": "hexes",
+      "name": "喷嚏冲击",
+      "tier": "GOLD",
+      "category": "WEAKNESS_CONVERSION",
+      "effectMode": "PASSIVE",
+      "shortText": "因缺陷被迫喷嚏时产生短距离冲击波。",
+      "description": "每次因自身缺陷被迫打喷嚏时，以自身为中心产生一次短距离冲击波。",
+      "tags": [
+        "weakness_conversion",
+        "control"
+      ],
+      "requirements": [
+        {
+          "type": "HAS_TAG",
+          "operator": "ANY",
+          "value": [
+            "weakness.sneeze"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H09",
+      "type": "hexes",
+      "name": "绝地求生",
+      "tier": "GOLD",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "shortText": "处于明显致命环境时，体能与耐力显著提高。",
+      "description": "当环境本身对角色构成持续、明显的致命威胁时，体能与耐力显著提高。",
+      "tags": [
+        "survival",
+        "environment"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H10",
+      "type": "hexes",
+      "name": "破绽感知",
+      "tier": "GOLD",
+      "category": "CORE",
+      "effectMode": "PASSIVE",
+      "shortText": "观察同一目标5秒后判断其最明显弱点。",
+      "description": "连续观察同一目标5秒后，可以判断其当前最明显的身体弱点或行动破绽。",
+      "tags": [
+        "information",
+        "combat"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H11",
+      "type": "hexes",
+      "name": "时间回溯",
+      "tier": "PRISMATIC",
+      "category": "RULE_CHANGE",
+      "effectMode": "PASSIVE",
+      "shortText": "每场一次，身体状态和位置恢复到30秒前。",
+      "description": "每场一次，使自身身体状态和所在位置恢复到30秒前，但保留当前记忆。",
+      "tags": [
+        "time",
+        "rule_change"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H12",
+      "type": "hexes",
+      "name": "幽灵",
+      "tier": "PRISMATIC",
+      "category": "SYNERGY",
+      "effectMode": "PASSIVE",
+      "shortText": "连续隐身5秒后，声音、气味和足迹同时消失。",
+      "description": "连续保持隐身5秒后，正常声音、气味和可追踪足迹同时消失，直到隐身结束。",
+      "tags": [
+        "mechanic.stealth",
+        "counter_tracking"
+      ],
+      "requirements": [
+        {
+          "type": "HAS_TAG",
+          "operator": "ANY",
+          "value": [
+            "mechanic.stealth"
+          ]
+        }
+      ],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H13",
+      "type": "hexes",
+      "name": "环境适应",
+      "tier": "PRISMATIC",
+      "category": "ENVIRONMENT",
+      "effectMode": "PASSIVE",
+      "shortText": "当前环境造成的非直接伤害型持续不利显著降低。",
+      "description": "当前环境造成的温度、湿度、缺氧、烟雾等持续性不利影响显著降低，但不免疫直接伤害。",
+      "tags": [
+        "environment",
+        "survival"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H14",
+      "type": "hexes",
+      "name": "最后一次机会",
+      "tier": "PRISMATIC",
+      "category": "RULE_CHANGE",
+      "effectMode": "PASSIVE",
+      "shortText": "第一次本应立即致死的伤害改为严重但非致命。",
+      "description": "每场第一次受到本应立即致死的伤害时，该伤害改为严重但非致命伤势。",
+      "tags": [
+        "survival",
+        "rule_change"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H15",
+      "type": "hexes",
+      "name": "代价加速",
+      "tier": "CURSED",
+      "category": "RULE_CHANGE",
+      "effectMode": "PASSIVE",
+      "shortText": "移动速度大幅提高，但受到的疼痛与疲劳同步放大。",
+      "description": "移动速度显著提高，但疼痛、疲劳与体力消耗同步明显放大。",
+      "tags": [
+        "mobility",
+        "curse"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H16",
+      "type": "hexes",
+      "name": "孤注一掷",
+      "tier": "CURSED",
+      "category": "RULE_CHANGE",
+      "effectMode": "CHOICE",
+      "shortText": "强化一项特殊能力，其余特殊能力立即失效。",
+      "description": "选择自身一项特殊能力使其显著强化，其余所有特殊能力立即失效。",
+      "tags": [
+        "build",
+        "curse"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "choiceSchema": {
+        "type": "SELECT_OWN_ABILITY",
+        "min": 1,
+        "max": 1
+      },
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H17",
+      "type": "hexes",
+      "name": "猎手任务",
+      "tier": "QUEST",
+      "category": "SYNERGY",
+      "effectMode": "QUEST",
+      "shortText": "完成观察任务后永久获得“破绽感知”。",
+      "description": "任务：在不主动攻击目标的情况下连续观察同一目标30秒。完成后，本局永久获得“破绽感知”。",
+      "tags": [
+        "quest",
+        "information"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    },
+    {
+      "id": "H18",
+      "type": "hexes",
+      "name": "逆境成长",
+      "tier": "QUEST",
+      "category": "WEAKNESS_CONVERSION",
+      "effectMode": "QUEST",
+      "shortText": "缺陷造成明显不利后继续行动60秒，之后该缺陷效果减半。",
+      "description": "任务：自身缺陷实际造成明显不利后继续行动60秒。完成后，该缺陷的负面效果在本局剩余时间内减半。",
+      "tags": [
+        "quest",
+        "weakness_conversion"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1,
+      "enabled": true
+    }
+  ],
+  "pools": [
+    {
+      "id": "P01",
+      "type": "pools",
+      "name": "Seed Pack 全内容",
+      "description": "SUPER FIGHT 默认完整种子内容池。",
+      "scopeMode": "EXPLICIT",
+      "contentIdsByType": {
+        "characters": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07",
+          "C08"
+        ],
+        "abilities": [
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10"
+        ],
+        "weaknesses": [
+          "W01",
+          "W02",
+          "W03",
+          "W04",
+          "W05",
+          "W06",
+          "W07",
+          "W08",
+          "W09",
+          "W10"
+        ],
+        "environments": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06"
+        ],
+        "victories": [
+          "V01",
+          "V02",
+          "V03",
+          "V04"
+        ],
+        "hexes": [
+          "H01",
+          "H02",
+          "H03",
+          "H04",
+          "H05",
+          "H06",
+          "H07",
+          "H08",
+          "H09",
+          "H10",
+          "H11",
+          "H12",
+          "H13",
+          "H14",
+          "H15",
+          "H16",
+          "H17",
+          "H18"
+        ]
+      },
+      "excludedIdsByType": {},
+      "tagFiltersByType": {},
+      "enabled": true
+    }
+  ]
+}
