@@ -1,0 +1,2925 @@
+{
+  "_模板说明": "「犯罪现场：双向指控 V2.1」SUPER FIGHT Pool。无预设真凶；双方共享公开事实。V2.1 将基础公平规则写入编写说明而非随机 Hex：卡牌只提供事实、条件、限制与变化，辩手负责推理和表达；不得生成结论、替玩家生成推理或生成未定义事实。",
+  "_设计原则": "不预设真凶；系统只提供共同事实与论证约束，辩手负责推理、归责与反驳。V2.3重点完成Character / Ability / Weakness / Hex的跨案件兼容精修，并保留V2.2的Environment语义接口与Event兼容体系。",
+  "characters": [
+    {
+      "name": "报警人",
+      "shortText": "你最先主动把案件带入公共视野。",
+      "description": "你是最先主动报警或公开报告案件的人。较早接触信息有合理来源，但为什么由你最先发现异常、当时在哪里，同样可被双方讨论。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "最先发现现场的人",
+      "shortText": "你最早见到案发后的现场状态。",
+      "description": "你最先发现案发后的现场，并在其他人到来前短暂独自面对现场。你知道较早的现场状态，也拥有比多数人更早的接近机会。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "最后见到当事人的人",
+      "shortText": "你是已知最后与核心当事人见面的人。",
+      "description": "目前已知信息中，你是案发前最后确认见过核心当事人的人。见面有合理原因，但分别后的情况没有独立第三方全程确认。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "当事人的好友",
+      "shortText": "你与核心当事人关系亲近。",
+      "description": "你与核心当事人长期私人往来，了解其部分习惯与安排。亲近关系解释了知识和接触，也意味着拥有普通陌生人没有的接近条件。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "当事人的前任",
+      "shortText": "你与核心当事人曾有亲密关系。",
+      "description": "你与核心当事人曾长期交往，已经分开，但仍保留部分共同联系人和对彼此生活习惯的了解。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "当事人的伴侣",
+      "shortText": "你与核心当事人当前关系亲密。",
+      "description": "你与核心当事人保持亲密关系，通常有合理理由接触其住所、物品或行程，也更了解其近期状态。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "当事人的亲属",
+      "shortText": "你与核心当事人存在家庭关系。",
+      "description": "你与核心当事人有稳定家庭联系，对其生活、财物或近期安排有一定了解。家庭关系既解释接触，也可能存在利益或矛盾。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "长期共享生活空间者",
+      "shortText": "与核心当事人长期共享生活空间或日常资源。",
+      "description": "你与核心当事人长期共享住所、储物、设备或其他日常资源，因此对部分习惯和普通物品位置较熟悉；若案件核心不在住所，这种关系只提供日常接触背景，不自动建立对犯罪对象的权限。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "邻居",
+      "shortText": "你长期生活在案发地点附近。",
+      "description": "你住在案发地点附近，对周边出入口、日常声响和人员活动有生活经验；出现不反常，也较容易接近。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "场所管理关系人",
+      "shortText": "与案件涉及的一处场所存在正常管理关系。",
+      "description": "你负责或曾负责案件明确涉及的一处场所、空间或设施的日常管理；若案件没有核心实体场所，则改为与相关账户、资料或物品的管理安排有正常联系。管理关系可以解释知识或接触，但不证明案发时实际操作。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "临时访客",
+      "shortText": "你有正当理由短暂停留。",
+      "description": "你因拜访、取物、送还物品或社交安排来到相关地点。停留理由合理，但你不是长期使用该地点的人。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "派对宾客",
+      "shortText": "你是案发前聚会中的普通参与者。",
+      "description": "你参加了与案件时间相近的聚会。现场人员多、移动频繁，因此出现容易解释，个人行动也不一定始终被注意。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "活动参与者",
+      "shortText": "你因公开活动进入相关场所。",
+      "description": "你是相关活动的正常参与者，与许多陌生人共享空间；有进入公共区域的正当理由，但没有当然的非公开区域权限。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "现场工作人员",
+      "shortText": "你因日常工作在相关地点活动。",
+      "description": "你因正常职责在相关地点活动，对常用路线和基本秩序较熟悉；存在通常不突兀，但职责不代表能进入所有区域。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "临时服务人员",
+      "shortText": "你因一次服务任务来到现场。",
+      "description": "你因送货、安装、清洁、维修或其他临时服务进入相关地点；权限只覆盖服务所需范围。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "现场秩序维护者",
+      "shortText": "在相关场所或活动中承担普通秩序与出入协助。",
+      "description": "你在案件涉及的场所、活动或流程中承担普通秩序维护、巡查或出入协助；若案件主要发生在线上，你只与其线下活动或设备使用环境有关，不能因此获得未定义的数字权限。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "接待与登记人员",
+      "shortText": "负责普通接待、登记或信息转交。",
+      "description": "你在案件相关场所、活动或流程中承担普通接待、登记、签到、预约或信息转交；这可以解释你接触公开行程和来访信息，但不能扩展为掌握私人内容。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "日常整理人员",
+      "shortText": "曾因正常整理、清洁或收纳接触相关空间或物品。",
+      "description": "你因正常清洁、整理、收纳或恢复场地而接触案件明确涉及的空间或普通物品；若案件没有相关实体物品，这一身份只说明你与相关人员或场所有正常工作接触，不创造新的痕迹。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "维护与技术支持人员",
+      "shortText": "曾因正常维护或技术支持接触相关设施、设备或流程。",
+      "description": "你因正常维护、检修、安装或技术支持接触案件明确存在的设施、设备或系统；你只具备完成普通维护所需的权限，不能自动获得未定义的后台权限或专业取证能力。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "快递或送货人员",
+      "shortText": "你有短暂接近现场的合理理由。",
+      "description": "你因配送来到附近，通常停留有限，并可能接触门口、前台或交接区域。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "商业伙伴",
+      "shortText": "你与核心当事人存在现实利益联系。",
+      "description": "你与核心当事人有持续合作、交易或共同项目，了解部分工作安排和利益关系。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "竞争者",
+      "shortText": "你与核心当事人存在竞争。",
+      "description": "你与核心当事人争夺同一机会、资源、职位、客户或成果；竞争是公开背景，但本身不能证明犯罪。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "债务关系人",
+      "shortText": "你与核心当事人存在金钱往来。",
+      "description": "你与核心当事人之间存在真实且尚未解决的债务或付款争议，能解释近期联系和紧张关系。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "遗产或受益关系人",
+      "shortText": "案件结果可能影响你的现实利益。",
+      "description": "你与核心当事人存在一种使案件结果可能影响你财产或权益的关系；潜在受益是背景，不预设行动。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "投诉者",
+      "shortText": "你此前曾公开表达不满。",
+      "description": "案发前你曾就真实存在的问题投诉、争执或要求处理；不满有具体原因且公开表达。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "被投诉者",
+      "shortText": "核心当事人此前曾对你提出异议。",
+      "description": "案发前核心当事人曾对你的行为、服务或安排提出投诉或异议，双方存在可确认摩擦。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "偶然路过者",
+      "shortText": "你声称只是恰好经过附近。",
+      "description": "你没有长期关系或固定职责，只因日常路线偶然经过相关地点；缺乏深层关系，但具体出现仍需符合时间地点。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "临时同行者",
+      "shortText": "你与当事人短暂同行过。",
+      "description": "你因同路、拼车、结伴或临时安排与核心当事人共同活动过一段时间；同行结束后的情况未被持续确认。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "物品保管人",
+      "shortText": "你曾被正常托付保管相关物品。",
+      "description": "你曾正常保管与案件有关的财物、文件或设备，因此对其外观、位置或使用方式较熟悉。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "正常权限持有人",
+      "shortText": "拥有案件明确涉及对象的一项正常使用或进入权限。",
+      "description": "你拥有案件明确涉及的一处空间、设备、账号、资料或物品的一项正常权限或合法使用资格；该权限只在题面已存在的对象上成立，不自动生成钥匙、账号或其他凭证。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "曾经的内部使用者",
+      "shortText": "过去曾长期使用案件相关场所、设备或流程。",
+      "description": "你过去曾长期使用案件明确涉及的一处场所、设备、服务或工作流程，因此可能保留一般性的布局或操作记忆；当前是否仍有权限必须由其他共同事实决定。",
+      "tags": [
+        "crime_role",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "熟客",
+      "shortText": "你经常出现在相关公共场所。",
+      "description": "你长期频繁使用相关场所，熟悉日常客流、工作人员和常规布局。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "同学或同事",
+      "shortText": "你与核心当事人共享日常环境。",
+      "description": "你与核心当事人在学习或工作中经常接触，知道部分公开安排和人际关系。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "社团成员",
+      "shortText": "你们因共同兴趣定期见面。",
+      "description": "你与核心当事人属于同一社团、俱乐部或兴趣群体，共享部分活动安排与公共资源。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "约见对象",
+      "shortText": "你与核心当事人原本有明确约定。",
+      "description": "案发前后你与核心当事人有一次已知约见或交接安排；约定解释接近现场，也使约见时间重要。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "普通目击者",
+      "shortText": "你看到过案件时间线中的一个片段。",
+      "description": "你亲眼看到过一个与案件有关但不直接指认犯罪者的片段；只能把实际看到的内容当事实。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "信息转述者",
+      "shortText": "你的一部分信息来自他人转述。",
+      "description": "你确实听到过与案件有关的说法，但其中部分并非亲眼所见；转述不能自动升级成亲历事实。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "主动协助者",
+      "shortText": "案发后你积极参与寻找或联络。",
+      "description": "案件被发现后，你主动帮助寻找人员、物品、联系方式或整理外围信息；积极协助既非无罪证明，也非自动掩饰。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "沉默的在场者",
+      "shortText": "你在关键时段附近却很少发言。",
+      "description": "你在相关地点出现过，但最初没有主动提供很多信息；沉默有多种日常原因，也使后来补充信息受时间顺序检验。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "提前离场者",
+      "shortText": "你在事情发生前不久离开。",
+      "description": "你原本在相关地点，但在案件被发现前已离开；离场有日常理由，具体时间和之后路线需结合其他事实。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "迟到者",
+      "shortText": "你比原计划更晚到达。",
+      "description": "你原本应该更早出现，但实际到达明显推迟；迟到有生活原因，可信度依靠共同事实判断。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "因正常原因再次到场的人",
+      "shortText": "你在案件前后因取物、确认安排或寻找相关人员再次到达案件地点。",
+      "description": "再次到场解释了你为什么与现场产生第二次接触；它本身不说明你是否在犯罪窗口内实施了任何行为。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "临时借用者",
+      "shortText": "你曾正常借用相关物品或空间。",
+      "description": "你曾得到允许短暂使用与案件有关的物品、房间或设备；合法借用能解释接触，也使归还状态成为背景。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "共同使用者",
+      "shortText": "你与多人共享涉案资源。",
+      "description": "你与相关人员共同使用某个空间、设备、账号或储物区域；共享关系使普通痕迹不罕见。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "被临时邀请的人",
+      "shortText": "你最后时刻才获得进入理由。",
+      "description": "你原本不在计划名单中，但案发前临时收到邀请或许可；临时变化解释部分记录缺失，也使邀请来源和时间重要。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "活动中短暂离开公共区域的人",
+      "shortText": "你参加案件相关活动，但期间因普通私人原因短暂离开人群。",
+      "description": "你的身份解释了为何你会出现在案件关系网络中；离席制造时间信息，但具体去向只能依靠其他公开事实建立。",
+      "tags": [
+        "crime_role"
+      ]
+    },
+    {
+      "name": "附近店家熟人",
+      "shortText": "你对案发地点周边很熟。",
+      "description": "你经常在案发地点附近活动，知道通常客流、常用路线和明显异常；熟悉周边不等于熟悉现场内部。",
+      "tags": [
+        "crime_role"
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "name": "亲历记忆稳定",
+      "shortText": "对自己亲历内容的记忆较稳定。",
+      "description": "对自己确实看到、听到或亲手处理过的明显细节，你通常能较稳定复述；不会因此知道未亲历内容，也不能把模糊观察变成精确信息。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "时间感稳定",
+      "shortText": "较能把握自己经历的先后与大致时点。",
+      "description": "你对自己亲历事件的先后顺序和大致时点较有把握；不会生成设备记录，也不能把题面中的模糊时间擅自精确化。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "空间方向感好",
+      "shortText": "普通环境中较容易记住路线与出口。",
+      "description": "你较容易记住自己实际走过的正常路线、出入口和空间关系；不因此知道隐藏通道、上锁区域或未进入空间。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "视觉细节敏锐",
+      "shortText": "较容易记住亲眼看到的明显外观。",
+      "description": "在实际看清的范围内，你较容易记住颜色、衣着、摆放和明显变化；遮挡、视线外和模糊影像不会被补全。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "声音细节敏锐",
+      "shortText": "较容易注意可听范围内的明显声音。",
+      "description": "你较容易注意脚步、关门、争吵、碰撞等明显声音及其大致先后；不能仅凭声音自动确认身份或精确位置。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "气味变化敏感",
+      "shortText": "较容易注意明显气味变化。",
+      "description": "你较容易察觉烟味、清洁剂、香水、食物、燃料等明显气味；不能自动确定来源、时间或用途。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "数字记忆较强",
+      "shortText": "较容易记住亲眼见过的号码和金额。",
+      "description": "你对清楚见过的时间数字、金额、房号、车牌片段等较容易留下印象；没看清的部分不会自动补全。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "人脸辨认较强",
+      "shortText": "在观察条件良好时较容易再次认出见过的人。",
+      "description": "若当时确实看清面部，你之后较容易认出同一人；背影、遮挡、远距离或模糊画面不因此获得身份确定性。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "声音辨认较强",
+      "shortText": "对自己熟悉且清楚听到的声音较容易辨认。",
+      "description": "若你正常熟悉某人的声音，之后在条件足够清楚时较容易辨认；隔墙、失真、短促声音仍存在识别边界。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "习惯查看时间",
+      "shortText": "日常行动中经常主动确认时间。",
+      "description": "你经常查看手机、钟表或公共时间，因此对自己亲历节点的大致时点较有把握；不会创造不存在的时间记录。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "习惯保留记录",
+      "shortText": "常保留与自己日常行动有关的普通记录。",
+      "description": "你通常会保留票据、订单、日程、照片或笔记等普通生活记录；只有本局已经明确公开的具体记录才可作为共同事实。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "习惯拍照留存",
+      "shortText": "经常用照片保存自己经历的状态。",
+      "description": "你习惯拍摄地点、物品或活动状态；这解释为什么可能存在照片，但只有 Environment 或 Event 明确给出的照片内容才是事实。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "物品位置记忆好",
+      "shortText": "对自己熟悉空间的常态摆放较有记忆。",
+      "description": "在你确实熟悉的空间中，你较容易注意明显移位、打开或缺失；对陌生空间不能自行设定原始状态。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "对状态变化敏感",
+      "shortText": "容易注意到物品、界面或流程状态与平常不同。",
+      "description": "你较容易准确注意自己亲眼接触到的物品摆放、界面状态、流程顺序或使用痕迹与平常存在明显变化；只能描述可观察变化，不能直接判断变化原因或实施者。",
+      "tags": [
+        "crime_fact",
+        "universal",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "对环境变化敏感",
+      "shortText": "容易注意自己熟悉环境中的明显变化。",
+      "description": "当你对某地点确有正常熟悉基础时，你较容易注意门窗、照明、物品和通行状态的明显变化；陌生环境没有额外信息。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉日常物品用途",
+      "shortText": "了解常见工具、容器、耗材与生活用品的普通用途。",
+      "description": "你能识别常见物品的日常使用方式和合理用途；不会自动知道专业用途、犯罪用途或题面未给出的特殊性质。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉一般出入流程",
+      "shortText": "理解常见场所的登记、门禁与访客逻辑。",
+      "description": "你理解住宅、酒店、办公室、校园、活动场所等常见出入流程的一般逻辑；具体场所规则仍以 Environment 为准。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉共享空间习惯",
+      "shortText": "理解多人共用空间常见的接触与混用。",
+      "description": "你理解共享房间、设备、储物区、公共桌面等通常可能由多人接触；不能因此否定本案已经明确的独占事实。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉普通数字记录",
+      "shortText": "理解手机、账号、支付和照片记录的基本边界。",
+      "description": "你知道常见数字记录首先对应设备、账号或工具活动，并可能存在共享、代持或误差；不能破解设备或恢复未公开数据。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉普通交易记录",
+      "shortText": "能理解常见付款、收据、订单与退款信息。",
+      "description": "你能看懂普通交易记录能确认的时间、金额和对象边界；不能访问未公开账户或凭空生成消费记录。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉公共交通逻辑",
+      "shortText": "了解常见交通与换乘的现实限制。",
+      "description": "你理解步行、驾车、公交、地铁等普通出行的路线、等待和延误逻辑；具体班次、刷卡和定位必须由题面提供。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉日常安防逻辑",
+      "shortText": "了解常见摄像头、门锁和门禁的正常局限。",
+      "description": "你知道普通安防通常存在视角、遮挡、凭证与实际使用者不完全等同等现实边界；不赋予绕过或破解安防的能力。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉日常清洁流程",
+      "shortText": "了解普通清洁、整理和垃圾处理会留下什么。",
+      "description": "你理解擦拭、清洗、换袋、整理等日常行为的常见结果；不能凭此认定某次清洁是在毁灭证据。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "熟悉普通使用与维护痕迹",
+      "shortText": "能识别常见物品、设备或空间的正常使用与维护迹象。",
+      "description": "你熟悉普通物品、设备、空间或常用系统在正常使用、维护、更新后的常见迹象；只能用于区分可观察状态，不能代替专业鉴定，也不能凭空断定人为破坏。",
+      "tags": [
+        "crime_fact",
+        "universal",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "熟悉一般活动流程",
+      "shortText": "理解聚会、会议、活动中人员与物品会频繁移动。",
+      "description": "你理解多人活动中临时离席、取物、换位、共享物品和人员交错很常见；具体谁做过什么仍以题面为准。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "基础应急处置常识",
+      "shortText": "熟悉常见突发情况中的基本安全与现场保护原则。",
+      "description": "你了解普通突发情况中的基本安全、求助、避免二次伤害和保留现场状态常识；在无人身伤害案件中，这体现为你更可能理解为何某些现场物品会因正常应急或处置被移动，但不能替代专业法证。",
+      "tags": [
+        "crime_fact",
+        "universal",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "普通体力较好",
+      "shortText": "能承受较多步行、上下楼和适度搬运。",
+      "description": "你能完成较长普通移动和适度搬运；这既可解释行动能力，也可被用于讨论现实机会，但不等于超常力量。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "动作利索",
+      "shortText": "完成普通日常动作较快。",
+      "description": "你在取放、收拾、上下楼和穿过普通空间时动作利索；不突破锁门、距离、监控或其他明确边界。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "手部操作稳定",
+      "shortText": "普通精细动作较不容易失手。",
+      "description": "你在书写、拿取小物件、倒液体、简单拆装等日常操作中较稳定；不自动获得专业器械技能。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "能长时间保持稳定行动",
+      "shortText": "在等待、排队、守候或重复任务中不易因烦躁改变计划。",
+      "description": "你能够在普通等待或重复行动中较稳定地维持原计划；这可解释长时间停留，也可能被用于讨论你是否具备持续等待某个时机的现实条件。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "压力下表现稳定",
+      "shortText": "突发情况中外在表现通常较平稳。",
+      "description": "你面对质疑、警报或突发事件时通常能维持较稳定语言和动作；冷静既不是诚实证明，也不是犯罪证明。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "情绪不易外露",
+      "shortText": "普通观察难凭表情准确判断你的真实情绪。",
+      "description": "你的紧张、愤怒或不安不容易从外在神态被准确判断；不会改变任何客观事实。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "容易获得普通陌生人回应",
+      "shortText": "在日常问路、询问和简短交流中较容易获得回应。",
+      "description": "你与陌生人进行普通询问或简短交流时通常不易引起戒备；这可解释信息来源和接触机会，但不能生成对方没有说过的内容。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "整理习惯强",
+      "shortText": "习惯让自己接触的物品保持有序。",
+      "description": "你经常整理、归位、打包自己使用的物品；可解释部分整理行为，也可能使你更容易注意熟悉物品的变化。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "随身物品管理严格",
+      "shortText": "通常清楚自己钥匙、手机和钱包等在哪里。",
+      "description": "你通常不会长时间不知道自己的常用随身物品去向；这不代表物品绝不可能被他人短暂接触。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "路线选择谨慎",
+      "shortText": "普通出行时倾向选择自己熟悉且可预测的路线。",
+      "description": "你通常偏好熟悉、明确的正常路线；可以帮助解释行动选择，也可能使你的常用路线更容易被他人推测。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "习惯提前安排",
+      "shortText": "重要日常事项通常会预先约定或准备。",
+      "description": "你倾向提前确认时间、地点、物品和联系人；不能凭能力创造未公开的预约记录。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "对隐私较敏感",
+      "shortText": "平时较注意自己的设备、物品和私人空间。",
+      "description": "你通常不会随意开放私人设备、物品或空间；这可解释部分保护行为，也可能使异常共享或访问更值得讨论。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "对规则较熟悉",
+      "shortText": "容易理解场所公开规则和正常程序。",
+      "description": "你能较快理解公开规定、使用说明、开放时间和普通流程；不代表你知道内部秘密制度。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "观察习惯强",
+      "shortText": "日常会主动注意周围人员与环境。",
+      "description": "你通常会留意自己实际看到的周围情况，因此对亲历片段可能保留较多细节；不能把没有观察到的部分补成事实。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "生活规律稳定",
+      "shortText": "日常作息与路线通常较固定。",
+      "description": "你的日常作息和常用路线相对稳定；这既能支持普通行为解释，也可能让某些机会或时间模式更容易被讨论。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    },
+    {
+      "name": "能迅速适应普通流程变化",
+      "shortText": "面对改道、延误、换场地等日常变化能较快调整行动。",
+      "description": "遇到普通流程变化时，你通常能迅速调整路线或安排；这可以解释为何你的实际行动与原计划不同，也可能扩大对行动机会的讨论。",
+      "tags": [
+        "crime_fact",
+        "universal"
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "name": "改过一次陈述",
+      "shortText": "后来修正过先前说过的一处细节。",
+      "description": "你现在对一项非决定性细节的说法与最初陈述不同。两版说法及差异都是公开事实；意义由双方论证。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "关键时段无人作证",
+      "shortText": "有一段行动没有独立第三方确认。",
+      "description": "案发时间窗口内存在一段时间，没有独立第三方能够确认你的具体位置；缺少确认不等于实施犯罪。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "到场时间说不准",
+      "shortText": "无法准确确定何时到达。",
+      "description": "你能说明到场的大致阶段，但无法把到达时间缩小到足以直接排除关键时间窗口。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "离场时间说不准",
+      "shortText": "无法准确确定何时离开。",
+      "description": "你确定最终离开过相关地点，但准确时间不足以直接排除关键时间窗口。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "中途独处过",
+      "shortText": "关键时段曾短暂离开他人视线。",
+      "description": "案发时间附近你有一段独处时间，原因可以日常合理，但没有人全程确认具体行为。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "曾返回过现场附近",
+      "shortText": "离开后又再次出现在相关区域。",
+      "description": "你在案发前后曾二次返回现场附近并给出普通理由；返回事实公开，但不能单独说明目的。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "曾接触案件相关区域",
+      "shortText": "案发前有正常理由接触案件涉及区域。",
+      "description": "你在案发前因正常生活、工作、社交或通行理由接触过 Environment 明确涉及的区域；接触事实可用于讨论机会，但不能扩展成接触未定义的关键物品。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "拥有正常进入权限",
+      "shortText": "本来就能合法进入相关地点。",
+      "description": "你拥有普通钥匙、门卡、共享权限或其他正常进入理由；权限说明机会存在，不证明关键时段使用。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "知道重要物品位置",
+      "shortText": "案发前就知道重要物品通常放在哪里。",
+      "description": "由于正常关系或此前接触，你知道案件明确提到的重要物品通常存放位置。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "与当事人近期争执",
+      "shortText": "案发前不久发生过真实争执。",
+      "description": "你与核心当事人在案发前发生过一次可确认争执；不能任意升级为暴力威胁或犯罪计划。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "存在金钱纠纷",
+      "shortText": "与相关人员有未解决的金钱问题。",
+      "description": "你们之间存在真实付款、借款、分成或赔偿争议；不能凭空扩展成更严重债务。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "可能从结果中受益",
+      "shortText": "案件结果可能带来现实好处。",
+      "description": "如果案件造成当前结果，你在财产、竞争、关系或安排上可能得到好处；潜在受益不证明行动。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "删除过相关聊天",
+      "shortText": "案发后删除过一段相关聊天。",
+      "description": "你承认案发后删除过与案件相关人员的一段聊天。删除行为和时间已知，但具体内容未知，双方不得自行编造。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "清理过自己的物品",
+      "shortText": "案发后主动清洗或整理过物品。",
+      "description": "你在案发后进行过正常生活中也可能发生的清洗或整理；不能直接推定清除了犯罪痕迹。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "换过衣服",
+      "shortText": "案发前后更换过衣物。",
+      "description": "你确实在相关时间附近换过衣服并给出日常理由；更衣不能自动证明伪装或毁灭证据。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "手机曾关机",
+      "shortText": "关键时段手机有一段关机。",
+      "description": "你的手机在案发时间窗口内有一段关机或无法正常记录在线活动；关机本身不能确定位置。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "手机没带在身上",
+      "shortText": "某段时间手机与本人不在一起。",
+      "description": "你承认关键时段有一段没有随身携带手机，因此手机记录不能自动等同本人位置。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "记错过一个时间点",
+      "shortText": "对一个已知节点的最初记忆有误。",
+      "description": "你最初把某个非决定性事件记成错误时间，之后根据公开记录修正；错误仅限该节点。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "记错过一个外观细节",
+      "shortText": "曾把一个次要外观特征说错。",
+      "description": "你对衣着、颜色、物品位置等一个次要细节的最初描述后来被公开事实纠正。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "曾经隐瞒关系",
+      "shortText": "最初没有主动说明一层关系。",
+      "description": "你与案件相关人员确有一层应披露的关系，但最初陈述时没有主动提及；关系现已公开。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "曾经隐瞒到访",
+      "shortText": "最初没有主动说曾到过相关地点。",
+      "description": "你后来承认在相关时间范围内到过现场或附近；迟报不能单独推定犯罪。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "主动询问过案件进展",
+      "shortText": "调查开始后多次询问发生了什么。",
+      "description": "你曾主动询问案件进展、物品是否找到或人员状况；这种行为存在多种解释。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "过早知道一项消息",
+      "shortText": "比一般公众更早知道一项事实。",
+      "description": "你在信息公开前已经知道一项后来确认的案件事实，但存在至少一种正常接触渠道可以解释。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "说过一句容易误解的话",
+      "shortText": "说过一句与案件结果相呼应的话。",
+      "description": "你确实说过一句事后看来容易被赋予可疑含义的话，但原始语境允许普通解释。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "行为显得异常冷静",
+      "shortText": "案件被发现后外在反应较平静。",
+      "description": "他人观察到你在案件曝光后的外在表现较平静；情绪表现不能直接等同犯罪意识。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "行为显得异常紧张",
+      "shortText": "案件被发现后明显紧张。",
+      "description": "他人观察到你出现明显紧张、急促或不安；紧张可能来自多种原因。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "急着离开",
+      "shortText": "案件曝光后较早提出离开。",
+      "description": "异常被发现后，你较早表达过想离开的意愿并给出理由；离开意愿不等于逃避责任。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "曾接触案件相关边界",
+      "shortText": "曾正常接触过案件明确存在的入口、容器、设备或访问界面。",
+      "description": "你承认曾因正常原因接触案件明确存在的一处进入边界、容器、设备或访问界面；具体对象必须来自 Environment 或已公开 Event，不能自行创造门窗、锁具或账号。",
+      "tags": [
+        "crime_risk",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "曾使用过共享资源",
+      "shortText": "曾正常使用案件明确存在的共享空间、设备、账号或物品。",
+      "description": "你使用过案件明确存在且多人可正常接触的一项共享资源；如果当前卷宗没有任何共享资源，这一事实仅表示你曾与案件相关人员共同使用普通资源，不得据此新增设备、账号或记录。",
+      "tags": [
+        "crime_risk",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "曾借用过他人物品",
+      "shortText": "案发前正常借用过相关人员物品。",
+      "description": "你承认曾获得许可使用或携带过对方的一件普通物品；借用可解释接触。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "当时衣着较为常见",
+      "shortText": "你的衣着缺乏强识别性。",
+      "description": "案发相关时段你的衣着属于常见款式或常见色调；若案件存在模糊外观信息，双方可讨论相似性，但不能自行新增目击描述。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "一段行动缺少独立记录",
+      "shortText": "你的部分正常行动没有被独立记录完整覆盖。",
+      "description": "案件相关时段中，你有一段正常行动缺少可独立核对的连续记录。若 Environment 已存在监控、门禁、车辆或数字记录，可表现为其覆盖缺口；否则只表示该段行动没有独立记录，不能创造监控系统。",
+      "tags": [
+        "crime_risk",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "一段日常解释缺少独立凭证",
+      "shortText": "你的一段普通行动缺少可独立核对的支持材料。",
+      "description": "你声称相关时段进行了普通活动，但没有保留可独立核对的票据、记录或第三方支持；缺少凭证不等于活动没发生，也不能自行创造具体消费。",
+      "tags": [
+        "crime_risk",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "同行者与你关系亲近",
+      "shortText": "支持你时间线的人并非完全独立。",
+      "description": "你的一部分行动由亲友、伴侣或利益相关者作证；证词可以真实，但独立性可讨论。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "存在你的普通接触痕迹",
+      "shortText": "案件资料中存在一项可由正常接触解释的与你有关的信息或痕迹。",
+      "description": "共同事实确认存在一项与你有关、且可由正常接触解释的信息、记录或普通痕迹；它可以是实体接触或数字/流程记录，但不能超出 Environment 与已公开 Event 已经存在的事实类型，也不能单独确定犯罪时点或行为。",
+      "tags": [
+        "crime_risk",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "曾询问过普通管理安排",
+      "shortText": "案发前问过与案件对象有关的普通开放、使用或管理安排。",
+      "description": "你曾因正常原因询问案件明确涉及对象的开放时间、使用方式、进入安排、账号流程或管理规则；只能使用题面已存在的对象，不能扩展成掌握隐藏安防弱点。",
+      "tags": [
+        "crime_risk",
+        "v2.3_universalized"
+      ]
+    },
+    {
+      "name": "与案件相关人员有旧摩擦",
+      "shortText": "你与案件关系网络中的某人存在已知摩擦。",
+      "description": "你与案件中已经明确出现的相关人员之间存在普通旧摩擦；若当前题面没有对应具体人物，这一事实只能作为关系背景，不能自行创造证人或证词。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "案发后丢弃过普通物品",
+      "shortText": "案发后扔掉过一件日常物品。",
+      "description": "你确实在案发后处理掉一件普通消耗品或旧物；除非 Environment 或 Event 明确连接，不能改写成犯罪工具。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "曾短暂拿错物品",
+      "shortText": "案发前后发生过一次可解释误拿。",
+      "description": "你曾短暂拿错一个外观相似或共同存放的普通物品，之后纠正；不能扩展成未定义盗窃。",
+      "tags": [
+        "crime_risk"
+      ]
+    },
+    {
+      "name": "对一处细节解释得很晚",
+      "shortText": "直到后续才补充早已知道的细节。",
+      "description": "你后来补充了一项与案件有关但不直接定罪的事实，并承认此前就知道；为什么没有早说由你解释。",
+      "tags": [
+        "crime_risk"
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "name": "酒店房间贵重物失窃",
+      "shortText": "一件贵重随身物在住客离房期间失踪。",
+      "description": "住客20:10离开，22:05返回后发现贵重手表不见。房门无明显暴力破坏，窗户关闭。桌上有两个使用过的玻璃杯。垃圾桶里有21:14的附近便利店小票。隔壁住客称约21:30听见一次房门关闭声。走廊监控20:40至21:00缺失。门卡记录不能确认持卡者身份。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "hotel",
+        "evidence.cctv",
+        "evidence.access_record",
+        "evidence.key_or_credential",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "合租公寓现金失窃",
+      "shortText": "共同住所中的现金消失。",
+      "description": "合租者晚上回家后发现抽屉里一笔现金不见。抽屉无明显撬动，大门锁具正常。厨房有两个刚使用过的杯子。客厅窗户傍晚曾打开。楼道摄像头只覆盖电梯口。邻居称晚间听到短暂交谈但无法辨认内容和说话者。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "home",
+        "evidence.cctv",
+        "evidence.witness",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "办公室机密文件失窃",
+      "shortText": "内部文件在工作日结束后缺失。",
+      "description": "一份纸质机密文件下午仍在会议室文件夹中，晚上清点时不见。会议室门无损坏，白天多人正常使用。打印机同日下午打印过同名文件。走廊摄像头拍到多人进出但没拍到文件。清洁时间与部分员工离场时间重叠。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "office",
+        "evidence.cctv",
+        "evidence.object",
+        "context.cleaning",
+        "context.event",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "更衣室财物失窃",
+      "shortText": "公共更衣空间中的个人财物消失。",
+      "description": "体育场所更衣柜中的钱包在活动结束后失踪。柜门无明显破坏。更衣室内部无摄像头，入口摄像头显示多人进出。失主活动中曾两次返回。长凳下有一张不属于失主的普通储物票，但无法识别持有人。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "public",
+        "evidence.cctv",
+        "evidence.object",
+        "context.event",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "婚宴珠宝失窃",
+      "shortText": "宴会期间珠宝从临时存放处消失。",
+      "description": "婚宴期间一件珠宝从休息室手提包中失踪。休息室门多数时间未上锁，多名宾客和工作人员因取物进入。包无破损。摄影照片显示珠宝在宴会开始时仍存在，但无法确定最后被看到的准确时间。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "event",
+        "evidence.photo",
+        "evidence.object",
+        "context.event",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "列车包厢行李失窃",
+      "shortText": "移动列车上有行李物品消失。",
+      "description": "夜间列车上乘客发现行李中的贵重物品不见。拉链完好。乘客中途去过餐车。相邻车厢连接处无持续监控。乘务记录显示有人请求换座，但只保留座位号。列车曾短暂停靠。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "transport",
+        "evidence.cctv",
+        "evidence.object"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "展览馆小型展品失窃",
+      "shortText": "公开展览中的小型物品消失。",
+      "description": "小型展品下午巡查时仍在展示位，闭馆清点时不见。展示柜当日因活动曾合法开启。公共监控拍到多批参观者靠近但被人群遮挡。展柜无明显破坏。当天有短暂照明故障，应急灯仍工作。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "museum",
+        "evidence.cctv",
+        "context.event",
+        "context.lighting"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "仓库货物短缺",
+      "shortText": "封装货物交接时出现缺失。",
+      "description": "仓库交班发现一箱高价值小件货物明显短缺。外层胶带看似完整，但箱体曾因检查合法开启。装卸区有多批车辆人员进出。一扇装卸门高峰期保持开启。清点表有一次手写更正，无法确认修改人。",
+      "tags": [
+        "crime_scene",
+        "theft",
+        "warehouse",
+        "evidence.vehicle",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "停车场车辆被破坏",
+      "shortText": "车辆停放期间遭人为损坏。",
+      "description": "车辆停入地下停车场时正常，数小时后发现轮胎和车身人为损坏。车位摄像头被立柱部分遮挡。地面有一只普通一次性手套但无法确认与案件有关。停车记录显示多辆车进出。",
+      "tags": [
+        "crime_scene",
+        "sabotage",
+        "parking",
+        "evidence.cctv",
+        "evidence.access_record",
+        "evidence.vehicle"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "校园实验室设备被破坏",
+      "shortText": "实验设备无人值守时遭人为改变。",
+      "description": "实验室关键设备次日无法正常使用，外部连接被人为改变。门锁完好，常规权限不止一人。前一晚有人因忘带物品返回楼层。走廊监控看得到进出楼层，看不到实验室内部。设备当天早些时候也有轻微故障。",
+      "tags": [
+        "crime_scene",
+        "sabotage",
+        "school",
+        "evidence.cctv",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "办公室演示设备被动手脚",
+      "shortText": "重要展示前设备设置被改变。",
+      "description": "会议前演示电脑和投影设置被人为更改，预定材料无法正常展示。设备前一晚正常。会议室白天多人使用，电脑共享。系统登录有多个正常账号但不能确认实际操作者。",
+      "tags": [
+        "crime_scene",
+        "sabotage",
+        "office",
+        "evidence.digital",
+        "context.shared_terminal",
+        "context.event"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "餐厅疑似蓄意污染",
+      "shortText": "餐食含有本不应出现的刺激性物质。",
+      "description": "顾客用餐后明显不适，剩余餐食中发现一种本不应加入菜品的刺激性清洁成分。厨房与上菜路线多人可接触，餐盘曾在出餐台停留。后厨当天有清洁工作，相关清洁剂正常存在。",
+      "tags": [
+        "crime_scene",
+        "poisoning",
+        "restaurant",
+        "context.cleaning",
+        "evidence.object"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "办公室饮料异常",
+      "shortText": "共享办公区饮料被加入异常成分。",
+      "description": "员工喝下放在茶水间的个人饮料后不适，确认其中混入一种普通但不应出现在饮料里的物质。杯子曾无人看管。茶水间多人使用且无内部监控。附近垃圾桶有相同物质普通包装，该物质也有日常用途。",
+      "tags": [
+        "crime_scene",
+        "poisoning",
+        "office",
+        "evidence.cctv",
+        "evidence.object",
+        "context.shared_terminal"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "家庭聚餐食物异常",
+      "shortText": "共餐后特定食物被确认异常。",
+      "description": "家庭聚餐后有人明显不适，剩余的一份单独酱料被确认含异常成分。主菜多人共同准备，酱料在餐桌和厨房间移动。有人中途外出买饮料。餐后部分餐具已清洗。",
+      "tags": [
+        "crime_scene",
+        "poisoning",
+        "home",
+        "evidence.object",
+        "context.event"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "储物间小范围纵火",
+      "shortText": "储物空间发生人为起火。",
+      "description": "夜间储物间发生小范围火灾，起火点附近有可燃纸箱和常见易燃液体，该液体在场所本有合法用途。门锁无明显破坏。火警前该区域摄像头因维护离线。有人称闻到异常气味但无法确定时间。",
+      "tags": [
+        "crime_scene",
+        "arson",
+        "warehouse",
+        "evidence.cctv",
+        "evidence.object",
+        "context.maintenance",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "垃圾房人为起火",
+      "shortText": "住宅公共区域发生疑似人为点燃。",
+      "description": "居民楼垃圾房深夜起火并及时控制。区域有纸张、包装和普通清洁用品。门平时不上锁，多名居民可进入。楼道监控只覆盖电梯方向。有人在起火前听到门响但没看到进出者。",
+      "tags": [
+        "crime_scene",
+        "arson",
+        "home",
+        "evidence.cctv",
+        "evidence.object",
+        "context.cleaning",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "办公室文件柜火灾",
+      "shortText": "局部火灾集中损毁一批文件。",
+      "description": "下班后文件柜附近发生局部火灾，主要损毁一批纸质资料。喷淋很快启动。电气检查未发现明显短路点。附近有正常办公用酒精清洁用品。门禁显示多人晚间仍有合法进出记录。",
+      "tags": [
+        "crime_scene",
+        "arson",
+        "office",
+        "evidence.object",
+        "context.cleaning",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "小店夜间火灾",
+      "shortText": "临街店铺闭店后发生疑似人为火灾。",
+      "description": "店铺闭店数小时后后部储物区起火。前门锁具正常，后门当天因送货多次使用。店内有日常可燃包装和清洁用品。街面监控覆盖前门，后巷只有远距离画面。",
+      "tags": [
+        "crime_scene",
+        "arson",
+        "shop",
+        "evidence.cctv",
+        "evidence.object",
+        "context.cleaning",
+        "context.delivery",
+        "context.open_hours",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "公寓住户遇袭",
+      "shortText": "住宅内发生袭击，受害者无法确认袭击者。",
+      "description": "住户在公寓内受伤，恢复意识后只能确认袭击发生在晚间，无法看清袭击者。房门无明显破坏。客厅有倒下椅子和打碎杯子。邻居听见争吵和重物落地声但无法辨认说话者。",
+      "tags": [
+        "crime_scene",
+        "assault",
+        "home",
+        "evidence.witness",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "停车场袭击",
+      "shortText": "地下停车区域发生短暂袭击。",
+      "description": "一人在停车场被发现受伤，自述从背后遭袭，没有看清对方。附近行车记录仪录到模糊人影但面部不可辨。地面有散落购物物品和一顶普通帽子。出口记录能确认车辆离场，不能确认步行者。",
+      "tags": [
+        "crime_scene",
+        "assault",
+        "parking",
+        "evidence.vehicle",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "后台冲突致伤",
+      "shortText": "活动后台有人在混乱中受伤。",
+      "description": "活动后台短暂停电后，一名参与者被发现受伤。停电前多人准备，通道狭窄。应急灯亮后有人看到数人从不同方向离开。地面有被撞倒器材。受害者只能回忆到争执声。",
+      "tags": [
+        "crime_scene",
+        "assault",
+        "event",
+        "evidence.witness",
+        "context.event",
+        "context.lighting"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "酒店房间死亡",
+      "shortText": "住客被发现死亡，现场无直接指认。",
+      "description": "住客上午被发现死在酒店房间。现有公开法证已确认死亡由他人行为造成，但不能确认实施者。房门关闭且无明显破坏，窗户半开。桌上有两个杯子，其中一个仍有饮料。死者手机后来在沙发下找到。前一晚有人听到短暂争执。走廊监控显示数人经过但未清晰拍到谁进入。",
+      "tags": [
+        "crime_scene",
+        "death",
+        "hotel",
+        "evidence.cctv",
+        "evidence.witness",
+        "evidence.digital",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "住宅内死亡",
+      "shortText": "独居者在家中被发现死亡。",
+      "description": "独居者被亲友发现死在客厅。现有公开法证已确认死亡由他人行为造成，但不能确认实施者。大门锁具正常，阳台门关闭。桌面有未吃完食物和两只不同款杯子。小物品架倒下。邻居前一晚听见较响关门声。",
+      "tags": [
+        "crime_scene",
+        "death",
+        "home",
+        "evidence.witness",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "河边发现死亡人员",
+      "shortText": "人员在公共水域附近被发现死亡。",
+      "description": "清晨有人在城市河边发现死亡人员。现有公开法证已确认死亡涉及他人行为，但不能确认实施者。随身证件仍在，外套有湿水和泥土。步道夜间开放，部分路段无监控。岸边有普通饮料瓶和多组无法区分归属的脚印。前一晚下过短时小雨。",
+      "tags": [
+        "crime_scene",
+        "death",
+        "outdoor",
+        "evidence.cctv",
+        "evidence.weather",
+        "evidence.trace",
+        "evidence.object",
+        "context.open_hours"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "工作室内死亡",
+      "shortText": "封闭工作空间内有人死亡。",
+      "description": "一人在私人工作室内被发现死亡。现有公开法证已确认死亡由他人行为造成，但不能确认实施者。门无明显撬动，窗户关闭。桌上有充电手机和未完成文件。地面有打翻水杯。门禁记录显示当天数人有正常到访理由。",
+      "tags": [
+        "crime_scene",
+        "death",
+        "office",
+        "evidence.access_record",
+        "evidence.digital",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "学生突然失踪",
+      "shortText": "学生在正常行程中失去联系。",
+      "description": "学生放学后没有按计划回家，手机晚间失去联系。校门监控拍到其独自离校，之后路线有一段无覆盖。随身包后来在常去公共场所被找到，主要物品仍在。当天有人与其普通争执，也有人原本约其见面。",
+      "tags": [
+        "crime_scene",
+        "missing",
+        "school",
+        "evidence.cctv",
+        "evidence.digital",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "酒店住客失踪",
+      "shortText": "住客离房后没有再被确认出现。",
+      "description": "住客晚间离开房间后未按计划返回。房内行李大部分仍在，随身小包不见。前台无退房记录。一个侧门不需经过前台，相关摄像头当晚模糊。手机最后公开记录只能确认仍在附近区域。",
+      "tags": [
+        "crime_scene",
+        "missing",
+        "hotel",
+        "evidence.cctv",
+        "evidence.digital",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "露营者失踪",
+      "shortText": "结伴活动中一人离营后失去联系。",
+      "description": "露营者傍晚离开营地后失联。帐篷和大部分装备仍在，带走外套和手机。附近多条步道，夜间下过雨。同行者对离开方向说法不完全一致。地面脚印因雨无法可靠追踪。",
+      "tags": [
+        "crime_scene",
+        "missing",
+        "outdoor",
+        "evidence.digital",
+        "evidence.weather",
+        "evidence.trace",
+        "evidence.object"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "商业机密泄露",
+      "shortText": "未公开资料在外部提前出现。",
+      "description": "尚未公开的商业资料在正式发布前出现在外部。原文件由工作小组共享，纸质和电子版本都存在。访问日志能确认账号操作，但部分账号在办公室设备长期登录。外部版本缺少直接识别来源的标记。",
+      "tags": [
+        "crime_scene",
+        "leak",
+        "office",
+        "evidence.digital",
+        "evidence.object"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "考试内容泄露",
+      "shortText": "未公开试题在考试前被传播。",
+      "description": "考试前网络流传内容与正式试题部分一致。试题在印刷、封装和保管中由多人按流程接触。网络截图无法确认最初发布账号。打印室门禁正常，内部无持续监控。",
+      "tags": [
+        "crime_scene",
+        "leak",
+        "school",
+        "evidence.cctv",
+        "evidence.photo",
+        "evidence.digital",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "私人照片泄露",
+      "shortText": "原本非公开照片被外部传播。",
+      "description": "一组原本只在少数人设备或共享空间存在的私人照片被公开传播。多个接收者此前都合法获得部分照片。首个公开账号无法确认真实身份。某共享设备曾自动登录云端账号。",
+      "tags": [
+        "crime_scene",
+        "leak",
+        "digital",
+        "evidence.photo",
+        "evidence.digital"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "匿名消息冒充",
+      "shortText": "有人冒用他人身份发送误导信息。",
+      "description": "多名收件人收到以某人名义发送的消息并导致重要安排改变。发送账号使用相似名称和头像但非本人常用账号。部分收件人此前公开过联系方式。发布时间与一场线下活动重叠。",
+      "tags": [
+        "crime_scene",
+        "fraud",
+        "digital",
+        "evidence.digital",
+        "context.event"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "报销材料造假",
+      "shortText": "费用材料被发现存在人为虚假内容。",
+      "description": "财务复核发现报销材料中的一张凭证与实际消费不符。材料经过申请、整理和提交多个环节。电子文件最后由共享终端上传。原始纸质凭证曾集中存放。系统能确认账号，不能确认操作人。",
+      "tags": [
+        "crime_scene",
+        "fraud",
+        "office",
+        "evidence.digital",
+        "evidence.object",
+        "context.shared_terminal"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "慈善募款款项异常",
+      "shortText": "公开募款资金与记录不符。",
+      "description": "公开募款结束后，记录金额与实际到账存在明显差额。现场同时接受现金和电子支付。多人参与收款、登记和搬运。部分手写记录在活动中重新誊写。监控不能看清收款桌细节。",
+      "tags": [
+        "crime_scene",
+        "fraud",
+        "event",
+        "evidence.cctv",
+        "context.event"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "网店退货欺诈",
+      "shortText": "退回商品与原售商品状态明显不符。",
+      "description": "高价值商品退回后发现内部部件与售出时记录不一致。商品在销售、配送、签收和退回中由不同人员接触。外包装有重新封装痕迹，但无法确定发生在哪个环节。",
+      "tags": [
+        "crime_scene",
+        "fraud",
+        "shop",
+        "evidence.object",
+        "evidence.digital"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "储物柜违禁物发现",
+      "shortText": "共享空间中发现非法物品。",
+      "description": "工作人员在储物柜内发现明确禁止持有的物品。柜门无损坏。该柜近期因系统故障被临时重新分配，至少两人有正常使用记录。监控只拍到储物区入口。物品外包装无单独识别持有人标记。",
+      "tags": [
+        "crime_scene",
+        "contraband",
+        "public",
+        "evidence.cctv",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "办公室抽屉违禁物发现",
+      "shortText": "工作空间中发现不应存在的物品。",
+      "description": "清理共享办公室时，在抽屉深处发现一件明确不应存在的物品。桌位近期由多人临时使用。普通抽屉没有统一上锁习惯。发现者在其他人到场前曾短暂独自留在房间。",
+      "tags": [
+        "crime_scene",
+        "contraband",
+        "office",
+        "evidence.object"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "后台重要道具被调包",
+      "shortText": "活动用品被替换成外观相似物。",
+      "description": "活动开始前发现重要道具被替换成外观近似但功能不同的物品。原道具最后确认存在是在排练后。后台多人有正常进入理由，道具曾被移动。监控只覆盖后台入口。",
+      "tags": [
+        "crime_scene",
+        "tampering",
+        "event",
+        "evidence.cctv",
+        "evidence.object",
+        "context.event",
+        "context.access_path"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "比赛器材被动手脚",
+      "shortText": "公共竞技器材被人为调整。",
+      "description": "比赛前共用器材被发现处于不符合正常设置的状态。前一晚检查正常。多名参赛者和工作人员曾靠近。现场有普通维护工具。摄像头能看到人员经过但看不清手部操作。",
+      "tags": [
+        "crime_scene",
+        "tampering",
+        "sports",
+        "evidence.cctv",
+        "evidence.object",
+        "context.maintenance",
+        "context.event"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "展板内容被篡改",
+      "shortText": "公开展示材料被人为替换。",
+      "description": "活动开始前展示板部分内容被替换成误导性材料。前一天布置完成时正常。场地夜间有工作人员、清洁人员和少量参与者进出。替换材料使用普通打印纸和胶带。",
+      "tags": [
+        "crime_scene",
+        "tampering",
+        "event",
+        "context.cleaning",
+        "context.event"
+      ],
+      "hazards": []
+    },
+    {
+      "name": "公寓门锁被人为处理",
+      "shortText": "住宅门锁异常且屋内物品位置改变。",
+      "description": "住户回家发现门锁使用状态异常，屋内部分物品位置改变，但未确认财物丢失。锁体无明显暴力破坏。住宅存在备用钥匙，过去曾交给他人短期使用。楼道摄像头只覆盖电梯方向。",
+      "tags": [
+        "crime_scene",
+        "tampering",
+        "home",
+        "evidence.cctv",
+        "evidence.key_or_credential",
+        "evidence.object",
+        "context.access_path"
+      ],
+      "hazards": []
+    }
+  ],
+  "events": [
+    {
+      "name": "监控补充片段",
+      "shortText": "既有监控系统出现一段新的可用片段。",
+      "description": "案件已有的监控系统补充了一段与犯罪时间范围相邻的画面：它新增一个人员移动或场所状态节点，但画面只按 Environment 原有清晰度识别人物，不自动绑定本局任一方。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.cctv"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "监控时间校正",
+      "shortText": "既有监控的时间轴获得可靠校正。",
+      "description": "核对设备时钟后，Environment 已存在的监控记录获得可靠时间校正。画面内容不变，只允许按校正后的时点与其他公开事实比较。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.cctv"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "监控遮挡确认",
+      "shortText": "既有监控的一段视野存在明确遮挡。",
+      "description": "现场复核确认，Environment 已存在的监控在案件相关方向存在固定遮挡或视角边界。已经拍到的内容不变，遮挡区内发生什么仍保持未知。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.cctv"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "门禁记录补齐",
+      "shortText": "既有出入系统补齐一个使用节点。",
+      "description": "管理方补齐 Environment 已存在的门禁、门卡或出入系统中的一个案件时段节点。记录只确认凭证或系统被使用，不自动确认实际使用者身份。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.access_record"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "出入系统故障确认",
+      "shortText": "既有出入系统在案件时段存在短暂故障。",
+      "description": "维护资料确认 Environment 已存在的出入记录系统在案件相关时段发生过短暂故障。故障本身不说明谁实际通过，也不抹去其他正常记录。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.access_record"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "目击时间被修正",
+      "shortText": "既有目击信息的时间精度降低。",
+      "description": "Environment 已存在的一名目击信息提供者承认原先的精确时点是事后估计；其明确看到或听到的内容仍成立，但只能放回较宽的案件时间范围。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.witness"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "目击外观被修正",
+      "shortText": "既有目击信息的身份精度降低。",
+      "description": "Environment 已存在的目击信息经再次确认，只能支持衣着深浅、体型轮廓或移动方向等粗略特征，不能进一步精确到具体身份。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.witness"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "目击视线边界确认",
+      "shortText": "既有目击存在明确观察边界。",
+      "description": "复核 Environment 已存在的目击信息后确认，当时存在距离、遮挡、光线或持续时间限制；原本明确观察到的部分仍成立，未观察到的部分保持未知。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.witness"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "照片时间确认",
+      "shortText": "既有照片或截图获得可靠时点。",
+      "description": "Environment 已存在的一张照片或截图的原始时间信息得到确认。画面只能证明实际拍到的人员、物品和状态，不延伸到画面之外。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.photo"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "照片裁切范围确认",
+      "shortText": "既有照片只覆盖现场的一部分。",
+      "description": "复核 Environment 已存在的照片或截图后确认，其画面经过普通裁切或天然只覆盖局部区域；画面内事实保持不变，画面外不能据此推定。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.photo"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "数字记录时间校正",
+      "shortText": "既有数字记录获得可靠时间校正。",
+      "description": "核对系统时钟后，Environment 已存在的一项手机、账号、网络、登录、支付或其他数字记录获得时间校正；记录内容和身份边界不变。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.digital"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "数字记录身份边界确认",
+      "shortText": "既有数字记录不能单独确认实际操作者。",
+      "description": "复核 Environment 已存在的一项数字记录后确认，它能够证明设备、账号或凭证发生过活动，但现有资料不能仅凭该记录确认当时实际操作者。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.digital"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "数字记录补充节点",
+      "shortText": "既有数字记录体系新增一个相关节点。",
+      "description": "同一记录体系补充了案件时间范围内的一个新节点。该节点与 Environment 原有记录使用相同身份精度，只增加时间或位置上的可比较信息。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.digital"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "车辆记录补充",
+      "shortText": "既有车辆线索新增一个出入节点。",
+      "description": "Environment 已存在的车辆或停车相关记录新增一个案件时段节点。记录确认车辆出现或移动，但除非原卷宗已确认，否则不自动确认驾驶者或乘客。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.vehicle"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "车辆时间校正",
+      "shortText": "既有车辆记录的时间获得校正。",
+      "description": "核对停车、道路或行车系统后，Environment 已存在的一项车辆记录获得可靠时间校正；其身份和位置精度不变。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.vehicle"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "天气记录确认",
+      "shortText": "卷宗中的天气条件获得公共记录支持。",
+      "description": "公共记录确认 Environment 已经提到的雨、风、能见度或其他天气条件确实存在，并可用于讨论移动、观察和户外痕迹；不会产生新的身份信息。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.weather"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "钥匙或凭证存在记录",
+      "shortText": "既有钥匙或门卡条件获得管理记录支持。",
+      "description": "管理记录确认 Environment 已存在的钥匙、备用钥匙、门卡或其他正常凭证确实存在；该事实只建立可用权限，不自动确认案件时段由谁实际持有或使用。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.key_or_credential"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "接触痕迹时间不明",
+      "shortText": "既有普通痕迹无法确定留下时点。",
+      "description": "进一步检查 Environment 已存在的一项普通接触、泥水、擦拭、脚印或类似痕迹后确认：痕迹真实存在，但当前条件不能可靠区分它是在犯罪窗口还是更早/更晚留下。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.trace"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "接触痕迹范围扩大",
+      "shortText": "既有痕迹并非唯一一处。",
+      "description": "复核现场后确认，与 Environment 已存在痕迹同类型的普通痕迹还出现在附近正常接触区域。新增事实改变其稀有程度，但不自动确认任何人的身份。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.trace"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "现场物品来源确认",
+      "shortText": "既有普通物品获得正常来源记录。",
+      "description": "收据、清单或场所记录确认 Environment 已存在的一件普通物品、容器、工具或耗材具有可核对的正常来源；它仍可能与案件有关，但不能仅凭出现本身完成归责。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.object"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "现场物品位置被扰动",
+      "shortText": "既有物品在正式记录前曾被移动。",
+      "description": "发现过程复核确认，Environment 已存在的一件普通物品在正式记录前曾因查看、救助、整理或现场处置被移动；物品存在仍成立，但最初精确位置不再完全确定。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.object"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "现场物品状态补充",
+      "shortText": "既有物品新增一个可观察状态。",
+      "description": "对 Environment 已存在的一件普通物品完成进一步公开检查，新增一个肉眼或普通记录即可确认的状态信息，例如开启/关闭、空/非空、干/湿或包装完整/破损；不加入专业鉴定结论。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "evidence.object"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "共享终端范围确认",
+      "shortText": "既有数字操作来自多人可正常使用的终端。",
+      "description": "场所资料确认 Environment 已存在的共享终端在日常安排中确由多人合法使用；该事实影响操作者归属，但不否定操作本身发生。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.shared_terminal"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "正常清洁安排确认",
+      "shortText": "卷宗已有清洁背景获得记录支持。",
+      "description": "排班或生活安排确认 Environment 已经提到的清洁、保洁或整理确实按正常安排发生；不能因此自动解释所有痕迹，也不能把正常清洁直接视为毁证。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.cleaning"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "正常维护安排确认",
+      "shortText": "卷宗已有维修背景获得记录支持。",
+      "description": "记录确认 Environment 已经提到的维修、维护或检修确实属于正常安排；它可以解释部分工具、拆装或人员接触，但不能自动解释案件结果。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.maintenance"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "正常送货交接确认",
+      "shortText": "卷宗已有送货或交接背景获得记录支持。",
+      "description": "订单或场所记录确认 Environment 已经提到的送货、取件或物品交接确实发生，并获得一个明确时间范围；不自动确认与犯罪行为有关。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.delivery"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "活动时间节点确认",
+      "shortText": "卷宗已有活动获得一个明确时间节点。",
+      "description": "公开日程、签到或场所记录确认 Environment 已存在的会议、聚会、比赛、演出或活动中的一个开始、结束或中场节点，为双方时间线增加共同参照。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.event"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "开放时间确认",
+      "shortText": "卷宗涉及场所的实际开放安排得到确认。",
+      "description": "管理记录确认 Environment 已涉及场所当日的营业、开放或关闭时间；该信息只限定普通公众可正常进入的范围，不等于个人实际到访记录。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.open_hours"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "照明变化确认",
+      "shortText": "卷宗已有照明变化获得记录支持。",
+      "description": "场所记录确认 Environment 已经提到的停电、灯光故障或照明变化确实发生，并给出大致持续范围；它影响观察条件，但不生成新的目击内容。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.lighting"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "通行路线状态确认",
+      "shortText": "卷宗已有出入口获得一个状态信息。",
+      "description": "现场或管理记录确认 Environment 已存在的一处普通门、入口、出口、电梯或楼梯在案件时段处于正常开放、关闭或短暂受限状态；不创造秘密通道。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "context.access_path"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "发现时间被校正",
+      "shortText": "案件被正式发现的时间获得更可靠校正。",
+      "description": "核对报警、登记或现场处置记录后，案件被正式发现的时间获得更可靠的时间范围。犯罪实际发生时间仍以 Environment 已知事实为边界，不因发现时间校正而自动精确化。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event"
+      ],
+      "compatibleEnvironmentTags": [
+        "crime_scene"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "发现前已有一项状态记录",
+      "shortText": "案件正式发现前已有一项现场状态被独立记录。",
+      "description": "整理原始材料后确认：Environment 中已经明确存在的一项现场状态，在案件被正式发现前就已由照片、登记、系统或普通记录留下。只确认该状态早于正式发现，不新增人物身份或犯罪行为。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event",
+        "v2.3_refined"
+      ],
+      "compatibleEnvironmentTags": [
+        "crime_scene"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    },
+    {
+      "name": "独立记录未能补齐缺口",
+      "shortText": "一次明确核对没有填补既有信息缺口。",
+      "description": "对 Environment 已存在的一个信息缺口进行明确的记录核对后，确认相关来源在案件时段没有留下可用内容；这新增了“该来源无法补齐缺口”的事实，但缺口本身仍保持未知，不能反推出具体答案。",
+      "tags": [
+        "crime_evidence",
+        "v2.2_semantic_event",
+        "v2.3_refined"
+      ],
+      "compatibleEnvironmentTags": [
+        "crime_scene"
+      ],
+      "defaultPersistence": "PERSISTENT"
+    }
+  ],
+  "victories": [
+    {
+      "name": "整体归责",
+      "shortText": "让评委相信对手整体上更应被归责。",
+      "description": "在全部共同事实下，使评委相信对手实施本案犯罪的解释比己方及主要替代解释更完整、更一致且更少依赖额外假设。"
+    },
+    {
+      "name": "时间线归责",
+      "shortText": "以时间与行动窗口作为主要比较轴。",
+      "description": "使评委相信已知时间节点、记录精度和行动窗口整体更支持对手实施本案犯罪，同时己方时间线的主要缺口仍有合理解释。"
+    },
+    {
+      "name": "接触链归责",
+      "shortText": "以地点、人员、物品或信息接触作为主要比较轴。",
+      "description": "使评委相信对手具备犯罪所需的现实接触条件，并有其他共同事实把这些接触继续连接到案件结果；单纯拥有权限不足。"
+    },
+    {
+      "name": "证据链归责",
+      "shortText": "以不同来源事实的相互印证为主要比较轴。",
+      "description": "使评委相信不同来源或类型的共同事实能够彼此支持并形成针对对手的连续归责，而不是依赖一条孤立信息。"
+    },
+    {
+      "name": "现场解释归责",
+      "shortText": "以案件现场事实的解释力作为主要比较轴。",
+      "description": "使评委相信针对对手的理论能更自然地解释 Environment 与已公开 Event 中的主要现场事实，同时不需要补写题面外内容。"
+    },
+    {
+      "name": "异常行为归责",
+      "shortText": "以已知异常行为与其他事实的连接为主要比较轴。",
+      "description": "使评委相信对手的一项或多项已知异常行为在结合时间、接触或现场事实后更支持犯罪解释；不能仅凭行为看起来奇怪完成归责。"
+    },
+    {
+      "name": "替代解释攻防",
+      "shortText": "比较哪一方能更好处理合理替代解释。",
+      "description": "使评委相信针对对手的归责能承受共同事实支持的主要无辜解释，而针对己方的归责存在更自然、更少假设的替代解释。"
+    },
+    {
+      "name": "最少假设归责",
+      "shortText": "优先比较理论对题面外设定的依赖。",
+      "description": "使评委相信你的归责主要依靠已公开事实及其直接联系，而对手理论需要更多未定义人物、行为、工具、专业结论或巧合。"
+    },
+    {
+      "name": "自我疑点处理",
+      "shortText": "必须处理己方不利事实后再完成归责。",
+      "description": "使评委相信你能承认并解释己方最主要的不利事实，同时对手的核心疑点仍与犯罪结果形成更强联系。"
+    },
+    {
+      "name": "一致标准归责",
+      "shortText": "用同一评价标准比较双方同类事实。",
+      "description": "使评委相信当双方的关系、接触、记录、情绪与异常行为使用一致标准评价时，对手的事实组合仍更支持犯罪归责。"
+    },
+    {
+      "name": "事实边界归责",
+      "shortText": "在严格区分事实、推断与未知的前提下完成归责。",
+      "description": "使评委相信即使不把未知补成事实、不把模糊信息精确化，针对对手的案件理论仍比主要替代解释更有说服力。"
+    },
+    {
+      "name": "动机降权归责",
+      "shortText": "把动机降为辅助后仍完成案件。",
+      "description": "使评委相信即使利益、争执、关系等动机背景只作为辅助，对手的机会、行动、接触与现场事实仍足以形成更强归责。"
+    },
+    {
+      "name": "独立来源归责",
+      "shortText": "强调证据来源的相对独立性。",
+      "description": "使评委相信核心归责不完全依赖同一证人、同一设备或同一类痕迹，而是有多个相对独立的信息来源共同支撑。"
+    },
+    {
+      "name": "回应最强反驳",
+      "shortText": "以承受对手最强事实攻击作为胜负重点。",
+      "description": "使评委相信你的案件理论在面对对手基于共同事实提出的最强无辜解释或矛盾后仍保持一致，而对手理论更难承受对应攻击。"
+    },
+    {
+      "name": "归责而非可能",
+      "shortText": "必须从有可能推进到相对更值得相信。",
+      "description": "使评委相信你的论证不仅说明对手可能犯罪，还说明为什么在双方与当前合理替代解释之间，对手相对更应被归责。"
+    },
+    {
+      "name": "完整案件理论",
+      "shortText": "综合人物、时间、现场与证据来源完成比较。",
+      "description": "使评委相信你形成了一个能够容纳主要共同事实、解释己方疑点、连接对手机会与案件结果并回应替代解释的完整案件版本。"
+    }
+  ],
+  "hexes": [
+    {
+      "name": "先解释自己",
+      "shortText": "攻击对手前先处理己方最大疑点。",
+      "description": "最终归责前，你必须正面处理自己当前最重要的一项不利事实；可以解释其意义，但不能否认它发生。",
+      "tier": "BRONZE",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "单线聚焦",
+      "shortText": "最终归责必须明确一条主证据链。",
+      "description": "你可以使用全部共同事实，但最终陈述必须明确哪一条人物—机会—行为—结果链是主线，其余事实只能作为支持或反驳。",
+      "tier": "BRONZE",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "先给无辜解释",
+      "shortText": "先提出己方最自然的无辜版本。",
+      "description": "在最终攻击对手前，形成一个不否认共同事实、也不依赖题面外新增设定的己方无辜解释。",
+      "tier": "BRONZE",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "区分强弱事实",
+      "shortText": "把自己的证据分成核心与辅助。",
+      "description": "最终陈述明确哪些共同事实承担核心归责、哪些只是辅助背景，并避免把所有可疑点描述成同等重要。",
+      "tier": "BRONZE",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "机会落地",
+      "shortText": "把理论机会连接到现实案件窗口。",
+      "description": "若主张对手有机会实施犯罪，需要用已知时间、地点或接触事实说明这种机会在本案中实际存在，而非只说理论上能做到。",
+      "tier": "BRONZE",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "正当理由也要解释",
+      "shortText": "对手的正常身份不能被简单忽略。",
+      "description": "若对手 Character 为其出现或接触提供正常理由，你的归责必须承认该理由，并说明为什么其他共同事实仍使犯罪解释更强。",
+      "tier": "BRONZE",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "不利能力",
+      "shortText": "至少反用一次对手 Ability。",
+      "description": "最终案件理论中合理引用对手 Ability 确认的一项客观条件，说明它如何影响机会、接触或解释；不能把能力本身直接当成犯罪证明。",
+      "tier": "SILVER",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "反用自己的能力",
+      "shortText": "承认 Ability 也可能增加己方机会。",
+      "description": "说明自己的 Ability 如何可能被对手用于建立机会或质疑，再用其他共同事实解释为什么这不足以完成对己方的归责。",
+      "tier": "SILVER",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "最强反驳",
+      "shortText": "必须回应对手最有力的事实攻击。",
+      "description": "最终陈述必须回应对手实际提出且最有共同事实支持的一项核心反驳，而不能只选择较弱攻击回答。",
+      "tier": "SILVER",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "最强无辜版本",
+      "shortText": "必须处理对手最合理的无辜解释。",
+      "description": "以与共同事实最兼容的方式概括对手的无辜解释，再说明为什么整体案件比较仍更支持对手被归责。",
+      "tier": "SILVER",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "一项事实两种解释",
+      "shortText": "同一事实必须接受双向解释竞争。",
+      "description": "选择主证据链中的一项关键共同事实，同时说明它如何支持犯罪解释、又如何可能获得无辜解释，再比较哪一边与其余事实更一致。",
+      "tier": "SILVER",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "弱化动机",
+      "shortText": "最终陈述不能把动机放在主链首位。",
+      "description": "关系冲突、金钱、竞争和潜在受益仍可引用，但主证据链必须首先建立现实机会、行为或现场连接。",
+      "tier": "SILVER",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "弱化情绪",
+      "shortText": "情绪表现只能作为辅助。",
+      "description": "紧张、冷静、沉默、急于离开等只能作为辅助背景；最终主链必须由其他类型共同事实承担。",
+      "tier": "SILVER",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "弱化单一来源",
+      "shortText": "不能让单一信息来源承担整个案件。",
+      "description": "若当前案件存在证人、设备、记录或痕迹等单一来源，最终归责还必须获得至少一种不同来源类型的共同事实支持；若案件没有明显单一来源，则改为指出主链中两个相互独立的事实来源。",
+      "tier": "SILVER",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training",
+        "v2.3_fallback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "设备记录不得独占",
+      "shortText": "设备记录不能单独承担整个案件。",
+      "description": "若当前案件存在手机、门禁、车辆、支付、账号或其他设备记录，最终归责还必须获得其他类型共同事实支持；若当前案件没有设备记录，则改为要求最强的一条记录型事实不能独自完成归责。",
+      "tier": "SILVER",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training",
+        "v2.3_fallback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "承认一个中性事实",
+      "shortText": "不要把所有事实都强行解释成有利。",
+      "description": "最终陈述明确指出至少一项对双方归责都没有明显方向性的共同事实，并保持其中性，不强行包装成证据。",
+      "tier": "SILVER",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "承认一个对手有利事实",
+      "shortText": "主动处理真实支持对手的内容。",
+      "description": "最终陈述明确承认一项真实支持对手无辜解释的共同事实，并说明为什么整体比较仍没有被它逆转。",
+      "tier": "SILVER",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "承认一个己方不利事实",
+      "shortText": "主动处理真实攻击自己的内容。",
+      "description": "最终陈述明确承认一项真实支持对己方归责的共同事实，并给出与其余共同事实兼容的解释。",
+      "tier": "SILVER",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "时间线闭环",
+      "shortText": "主理论必须容纳全部关键时间节点。",
+      "description": "形成与 Environment 和已公开 Event 中主要时间事实兼容的案件理论，不跳过明显不利节点，也不擅自提高时间精度。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "现场闭环",
+      "shortText": "主理论必须解释主要现场事实。",
+      "description": "形成能容纳主要现场状态、物品、出入口与后续 Event 的案件理论，并说明哪些事实真正连接到归责。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "人物闭环",
+      "shortText": "同时解释双方为什么会卷入案件。",
+      "description": "最终理论同时解释对手为何具备更强犯罪联系，以及己方为何会出现当前接触、关系或异常事实。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "证据链闭环",
+      "shortText": "从人物条件一直连接到案件结果。",
+      "description": "形成连续归责链，使人物关系或能力、现实机会、关键行动迹象与案件结果之间存在可说明的事实连接。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "跨事实印证",
+      "shortText": "主链需要不同事实相互支持。",
+      "description": "优先使用不同来源类型的共同事实相互支持；若当前案件可用来源类型不足，则至少使用彼此独立、不能由同一个前提重复推出的事实节点共同支撑主链。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training",
+        "v2.3_fallback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "处理信息缺口",
+      "shortText": "保留未知仍完成案件。",
+      "description": "明确案件中的一个主要信息缺口，不自行填满未知，并说明为什么现有已知事实仍足以形成相对归责优势。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "处理正常解释",
+      "shortText": "承认一项可疑事实也可能存在普通解释。",
+      "description": "选择主链中一项看似不利的物品、接触、行为、记录或关系，承认一个与共同事实兼容的正常解释，再依据其他事实说明为什么整体比较仍支持归责。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training",
+        "v2.3_fallback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "处理非独占接触",
+      "shortText": "共享或非独占接触不能被当成专属机会。",
+      "description": "若案件存在共享空间、账号、设备、钥匙、物品或其他多人可接触条件，必须说明为什么对手归责不只是建立在普通共享权限上；若不存在共享权限，则改为处理一项并非对手独有的普通接触条件。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training",
+        "v2.3_fallback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "处理信息精度",
+      "shortText": "保持一项信息的原始精度完成论证。",
+      "description": "选择当前案件中一项时间、身份、位置、记录、证词或状态信息，严格保持其题面给出的精度完成论证；若没有明显模糊记录，则选择最容易被过度解释的一项共同事实并明确其边界。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training",
+        "v2.3_fallback"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "替代解释压力",
+      "shortText": "主动提出最强替代解释再击破。",
+      "description": "提出一个由共同事实实际支持、且不依赖万能第三人的主要替代解释，再说明为什么它仍弱于针对对手的案件理论。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "反事实压力",
+      "shortText": "检验拿掉核心事实后的剩余结构。",
+      "description": "最终陈述需要说明：如果暂时不依赖自己最强的一项共同事实，剩余事实是否仍形成有意义的归责方向；该事实并未被删除。",
+      "tier": "GOLD",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "一致标准挑战",
+      "shortText": "同类事实必须接受同一评价尺度。",
+      "description": "选择双方各一项实质相似的关系、接触、记录或异常事实，用同一标准比较；若结论不同，必须说明共同事实上的关键差异。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "来源边界挑战",
+      "shortText": "至少说明一条证据能证明什么和不能证明什么。",
+      "description": "对主链中的一项重要证据明确说明其来源、能够确认的内容以及不能单独确认的内容，再继续完成归责。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "最少假设",
+      "shortText": "用尽可能少的题面外前提完成主链。",
+      "description": "形成主要依靠共同事实及直接联系的案件理论，使关键步骤不需要新增未定义人物、隐藏工具、秘密行为或专业结论。",
+      "tier": "GOLD",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "正面承认",
+      "shortText": "带着最不利事实完成辩护。",
+      "description": "主动把自己当前最不利的一项共同事实放进最终陈述核心，不淡化其存在，并说明为何它仍不足以使己方比对手更应被归责。",
+      "tier": "CURSED",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "对手最强版本",
+      "shortText": "不得攻击稻草人版本。",
+      "description": "最终陈述必须回应对手实际建立的、与共同事实最兼容的最强无辜解释；不能故意替换成更荒谬版本。",
+      "tier": "CURSED",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "双向解释",
+      "shortText": "自己的核心证据必须先替对手辩一次。",
+      "description": "选择自己最依赖的一项共同事实，先给出对手可能成立的最佳无辜解释，再说明为什么结合其他事实后犯罪解释仍更强。",
+      "tier": "CURSED",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "先自证一致",
+      "shortText": "自己的案件版本不能靠互相冲突的解释维持。",
+      "description": "最终归责前，先形成内部一致的己方时间线、接触与行为解释；若不同己方说法存在张力，必须正面处理。",
+      "tier": "CURSED",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "禁止动机主导",
+      "shortText": "本局主链不得依赖动机。",
+      "description": "利益、争执、竞争和关系仍可作为背景，但不能成为主证据链不可替代的一环；必须依靠机会、行为、现场或记录完成核心连接。",
+      "tier": "CURSED",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "禁止情绪主导",
+      "shortText": "本局主链不得依赖情绪表现。",
+      "description": "紧张、冷静、沉默、急于离开等不能成为主证据链不可替代的一环；必须依靠其他事实完成核心连接。",
+      "tier": "CURSED",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "禁止单点案件",
+      "shortText": "最强事实也不能独自完成归责。",
+      "description": "最终理论至少需要让核心事实与其他独立共同事实发生实质连接；不能把一条证词、记录、痕迹或异常行为直接当作案件终点。",
+      "tier": "CURSED",
+      "category": "BUILD",
+      "effectMode": "PASSIVE",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "承认己方机会",
+      "shortText": "正面承认自己也可能具备现实机会。",
+      "description": "若己方确有进入、接触、独处或时间窗口，最终陈述必须承认这种现实机会，并说明为什么其他事实没有继续连接到犯罪结果。",
+      "tier": "CURSED",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "三类事实整合",
+      "shortText": "主链必须跨越不同事实类型。",
+      "description": "形成同时使用人物关系或条件、时间或行动信息、现场或记录信息的案件理论，使归责不是单一维度堆叠。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "不利事实转化",
+      "shortText": "把 Weakness 从负担变成可检验解释。",
+      "description": "选择自己的一项 Weakness，承认其不利含义，并用其他共同事实建立一个可检验、不过度补设定的普通解释。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "对手优势转化",
+      "shortText": "把对手看似有利的事实纳入归责比较。",
+      "description": "选择一项真实支持对手无辜解释的 Character 或 Ability 事实，说明它为何合理，同时讨论它是否也建立了知识、接触或行动条件。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "案件理论压缩",
+      "shortText": "用最少核心事实说清案件。",
+      "description": "最终陈述明确少量真正不可替代的核心事实，并说明它们之间如何连接；其余内容只作为支持、边界或反驳。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "未知边界陈述",
+      "shortText": "主动指出案件目前不能证明什么。",
+      "description": "最终陈述明确一个重要但当前无法确认的问题并保持未知，再说明为什么不填补这个缺口也能完成相对归责比较。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "替代路线比较",
+      "shortText": "比较两条都与事实兼容的案件路线。",
+      "description": "形成两条与共同事实兼容的解释路线，其中至少一条支持对手无辜；明确比较哪条需要更少额外假设并解释更多关键事实。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "来源多样化",
+      "shortText": "让主案件不依赖同一种信息。",
+      "description": "最终归责应由当前案件实际提供的多种信息来源共同支撑，而不是把多个同源信息重复计算成独立证明。",
+      "tier": "QUEST",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "最终案件理论",
+      "shortText": "完成完整且可被攻击的归责版本。",
+      "description": "最终陈述形成清晰案件理论：说明对手的现实机会、核心事实连接、己方主要疑点、最强替代解释与仍然存在的未知，并解释为什么整体比较仍支持对手被归责。",
+      "tier": "PRISMATIC",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "镜像审查",
+      "shortText": "把自己的标准完整套回自己。",
+      "description": "选出你攻击对手时最重要的判断标准，把同一标准完整应用到己方已知事实，再说明为什么比较结果仍不对称；不能更换标准。",
+      "tier": "PRISMATIC",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    },
+    {
+      "name": "双案竞争",
+      "shortText": "同时构建对手有罪与己方有罪两套版本。",
+      "description": "分别用共同事实构建针对对手和针对己方的最强犯罪解释，再从事实覆盖、额外假设、来源独立性与替代解释四方面比较哪套更强。",
+      "tier": "PRISMATIC",
+      "category": "OBJECTIVE",
+      "effectMode": "QUEST",
+      "tags": [
+        "crime_training"
+      ],
+      "requirements": [],
+      "incompatibilities": [],
+      "weight": 1
+    }
+  ],
+  "_犯罪辩论基础规则": [
+    "只把 Character / Ability / Weakness / Environment / 已公开 Event 明确给出的内容视为共同事实。",
+    "事实、推断与未知必须区分；信息缺口保持未知。",
+    "不得把模糊时间、模糊身份、区域位置或设备/账号记录擅自精确化。",
+    "不得临时创造题面未给出的证人、专业鉴定、隐藏技能、秘密通道、工具、聊天内容或幕后计划。",
+    "动机、在场、紧张、沉默、普通接触痕迹等均不能单独完成归责，必须进入更完整的事实链。",
+    "双方均可引用对方 Character、Ability、Weakness 中确认的客观事实。",
+    "同类事实原则上使用一致评价标准；若权重不同，应依据共同事实说明差异。"
+  ],
+  "_V2.1精修说明": "V2.1保持原七类数据结构不变：强化Environment兼容标签；Event按已实例化场景条件兼容；死亡类案件确认犯罪/他人行为已成立但不预设实施者；清空被误作基础规则的hazards；修正依赖未定义对象的Weakness/Event；减少Character与Weakness重复；增强少数低事实密度Ability。",
+  "_V2.2精修说明": "V2.2为Event Compatibility Pass：冻结Character/Ability/Victory/Hex的核心设计；Environment使用人工语义接口标签而非关键词推导；Event只匹配其明确需要的事实接口；移除/改写无法保证语义落地或与双方归责无连接的Event。数据结构仍保持七类不变。",
+  "_Pool名称": "「犯罪现场：双向指控 V2.3」SUPER FIGHT Pool",
+  "_V2.3精修说明": "V2.3为Full Compatibility Pass：不改核心玩法，不改Environment/Victory主体结构。将场景依赖较强的Character、Weakness与少量Ability改写为仅作用于已实例化对象的跨案件事实；为需要特定案件结构的Hex加入通用fallback；精修两个仍需玩家自行实例化对象的通用Event；修正Pool版本元数据。继续沿用V2.2的Environment人工语义接口与Event compatibleEnvironmentTags体系。"
+}
